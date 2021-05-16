@@ -17,6 +17,6 @@ int main(){
 	
 	printf("benvenuto nel giokino :)\n");
 
-	
+	a
 	
 }
