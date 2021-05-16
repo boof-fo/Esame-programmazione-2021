@@ -16,6 +16,7 @@ int main(){
 	spawnPlayer(&player);
 	
 	printf("benvenuto nel giokino :)\n");
+
 	
 	
 }
