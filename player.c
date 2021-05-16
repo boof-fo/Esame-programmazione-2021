@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include"player.h"
+#include "inventory.h"
 
 void setPlayerHP(player *player, int HP){
 	player->HP = HP;
