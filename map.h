@@ -29,15 +29,15 @@ typedef struct
 }room;
 
 //imposta il numero di pozioni in una stanza
-void setPotions(room *room, int num);
+void setRoomPotions(room *room, int num);
 //imposta l'ID della spada in una stanza
-void setSword(room *room, int num);
+void setRoomSword(room *room, int num);
 //presenza armatura
-void setChestplate(room *room, bool plate);
+void setRoomChestplate(room *room, bool plate);
 //imposta il numero di nemici
-void setEnemiesNumber(room *room, int n);
+void setRoomEnemiesNumber(room *room, int n);
 //imposta i valori di una stanza
-void setRoom(room* room, int potions, int sword, bool chestplate, int enemyNumber);
+void spawnRoom(room* room, int potions, int sword, bool chestplate, int enemyNumber);
 
 
 typedef struct
@@ -47,7 +47,7 @@ typedef struct
 	enemy enemy[2];
 }map;
 
-void generateMap(map *map);
+void spawnMap(map *map);
 
 
 #endif

@@ -6,30 +6,30 @@ typedef int bool;
 
 #include "enemy.h"
 
-void setID(enemy *enemy, int ID)
+void setEnemyID(enemy *enemy, int ID)
 {
 	enemy->ID = ID;
 }
 
-void setHP(enemy *enemy, int HP)
+void setEnemyHP(enemy *enemy, int HP)
 {
 	enemy->HP = HP;
 }
 
-void setDamage(enemy *enemy, int damage)
+void setEnemyDamage(enemy *enemy, int damage)
 {
 	enemy->damage = damage;
 }
 
-void setAbility(enemy *enemy, int abilityID)
+void setEnemyAbility(enemy *enemy, int abilityID)
 {
 	enemy->specialAbility = abilityID;
 }
 
 void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID)
 {
-	setID(enemy, ID);
-	setHP(enemy, HP);
-	setDamage(enemy, damage);
-	setAbility(enemy, abilityID);
+	setEnemyID(enemy, ID);
+	setEnemyHP(enemy, HP);
+	setEnemyDamage(enemy, damage);
+	setEnemyAbility(enemy, abilityID);
 }

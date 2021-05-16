@@ -3,18 +3,17 @@
 
 #include "enemy.h"
 #include "map.h"
+#include "player.h"
+#include "inventory.h"
+
 
 int main(){
-	//mappa dichiarata in map.h
+	//genera la mappa di gioco
 	map map;
-
-	generateMap(&map);
+	spawnMap(&map);
 	
-	int i = 0;
-	while (i < 7)
-	{
-		if (map.room[i].enemiesNumber == 1)
-		printf("1,\n");
-		i++;
-	}
+	//genera giocatore
+	player player;
+	spawnPlayer(&player);
+	
 }

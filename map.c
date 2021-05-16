@@ -7,43 +7,43 @@ typedef int bool;
 #include "map.h"
 
 //imposta il numero di pozioni in una stanza
-void setPotions(room *room, int num)
+void setRoomPotions(room *room, int num)
 {
 	room->potions = num;
 }
 
 //imposta l'ID della spada in una stanza
-void setSword(room *room, int num)
+void setRoomSword(room *room, int num)
 {
 	room->sword = num;
 }
 
 //presenza armatura
-void setChestplate(room *room, bool plate)
+void setRoomChestplate(room *room, bool plate)
 {
 	room->chestplate = plate;
 }
 
 //imposta il numero di nemici
-void setEnemiesNumber(room *room, int n)
+void setRoomEnemiesNum(room *room, int n)
 {
 	room->enemiesNumber = n;
 }
 
 
 //imposta i valori di una stanza
-void setRoom(room* room, int potions, int sword, bool chestplate, int enemyNumber)
+void spawnRoom(room* room, int potions, int sword, bool chestplate, int enemyNumber)
 {
-	setPotions(room, potions);
-	setSword(room, sword);
-	setChestplate(room, chestplate);
-	setEnemiesNumber(room, enemyNumber);
+	setRoomPotions(room, potions);
+	setRoomSword(room, sword);
+	setRoomChestplate(room, chestplate);
+	setRoomEnemiesNum(room, enemyNumber);
 }
 
 
 
 
-void generateMap(map *map)
+void spawnMap(map *map)
 {
 	int i = 0;
 	int potions, sword;
@@ -88,7 +88,7 @@ void generateMap(map *map)
 			enemiesNumber = 1;
 		}
 
-		setRoom(&map->room[i], potions, sword, chestplate, enemiesNumber);
+		spawnRoom(&map->room[i], potions, sword, chestplate, enemiesNumber);
 		i++;
 	}
 }
