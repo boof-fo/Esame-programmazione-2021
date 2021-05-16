@@ -1,14 +1,11 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "enemy.h"
+
 typedef int bool;
 #define true 1
 #define false 0
-
-#include "enemy.h"
-
 
 //struttura di una stanza
 typedef struct

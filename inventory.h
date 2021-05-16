@@ -1,8 +1,6 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
-#include <stdio.h>
-#include <stdlib.h>
 typedef int bool;
 #define true 1
 #define false 0
@@ -25,11 +23,11 @@ void removeInventoryPotion(inventory *inventory);
 void setInventorySword(inventory *inventory, int type);
 void setInventoryChestplate(inventory *inventory, int newValue);
 
-void spawnInventory(inventory *inventory)
-{
-	setInventoryPotions(inventory, 0);
-	setInventorySword(inventory, 0);
-	setInventoryChestplate(inventory, 0);
-}
+void spawnInventory(inventory *inventory);
+
+	//setInventoryPotions(inventory, 0);
+	//setInventorySword(inventory, 0);
+	//setInventoryChestplate(inventory, 0);
+
 
 #endif

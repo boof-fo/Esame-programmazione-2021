@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 #include"inventory.h"
 
 void setInventoryPotions(inventory *inventory, int newValue)
@@ -10,12 +7,12 @@ void setInventoryPotions(inventory *inventory, int newValue)
 
 void addInventoryPotion(inventory *inventory)
 {
-	inventory->potions = ++inventory->potions;
+	inventory->potions = inventory->potions++;
 }
 
 void removeInventoryPotion(inventory *inventory)
 {
-	inventory->potions = --inventory->potions;
+	inventory->potions = inventory->potions++;
 }
 
 void setInventorySword(inventory *inventory, int newValue)

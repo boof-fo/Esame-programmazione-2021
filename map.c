@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-
 #include "map.h"
 
 //imposta il numero di pozioni in una stanza
@@ -37,7 +33,6 @@ void spawnRoom(room* room, int potions, int sword, bool chestplate, int enemyNum
 	setRoomChestplate(room, chestplate);
 	setRoomEnemiesNum(room, enemyNumber);
 }
-
 
 
 

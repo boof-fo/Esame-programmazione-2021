@@ -1,9 +1,6 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include <stdio.h>
-#include <stdlib.h>
-
 //struttura di un nemico
 typedef struct{
 	//tipo di nemico
