@@ -23,11 +23,11 @@ void removeInventoryPotion(inventory *inventory);
 void setInventorySword(inventory *inventory, int type);
 void setInventoryChestplate(inventory *inventory, int newValue);
 
+void setInventory(inventory *inventory, int potions, int swordType, int chestplate);
+
 void spawnInventory(inventory *inventory);
 
-	//setInventoryPotions(inventory, 0);
-	//setInventorySword(inventory, 0);
-	//setInventoryChestplate(inventory, 0);
+
 
 
 #endif

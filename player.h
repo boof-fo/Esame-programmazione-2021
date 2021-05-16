@@ -9,6 +9,8 @@ typedef struct{
 	int HP;
 	//punti danno
 	int damage;
+	//stanza in cui si trova il personaggio
+	int currentRoom;
 	//inventario
 	inventory inventory;
 }player;

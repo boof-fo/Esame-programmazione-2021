@@ -1,5 +1,6 @@
 #ifndef MAP_H
 #define MAP_H
+#include <stdio.h>
 
 #include "enemy.h"
 
@@ -25,6 +26,8 @@ typedef struct
 	int enemiesNumber;
 }room;
 
+//imposta il numero della stanza
+void setRoomID(room *room, int ID);
 //imposta il numero di pozioni in una stanza
 void setRoomPotions(room *room, int num);
 //imposta l'ID della spada in una stanza
@@ -34,13 +37,15 @@ void setRoomChestplate(room *room, bool plate);
 //imposta il numero di nemici
 void setRoomEnemiesNumber(room *room, int n);
 //imposta i valori di una stanza
-void spawnRoom(room* room, int potions, int sword, bool chestplate, int enemyNumber);
+void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber);
+//crea stanza
+void spawnRoom(room* room, int roomNumber);
 
+void describeRoom(int ID);
 
 typedef struct
 {
-	room room[7];
-	int currentRoom;
+	room room;
 	enemy enemy[2];
 }map;
 

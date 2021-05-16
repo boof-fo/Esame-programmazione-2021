@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "player.h"
 #include "enemy.h"
 #include "map.h"
-#include "player.h"
-#include "inventory.h"
 
 
 int main(){
@@ -15,5 +14,8 @@ int main(){
 	//genera giocatore
 	player player;
 	spawnPlayer(&player);
+	
+	printf("benvenuto nel giokino :)\n");
+	
 	
 }
