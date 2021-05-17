@@ -1,6 +1,10 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
+#include <string.h>
+
+#include "player.h"
+
 //struttura di un nemico
 typedef struct{
 	//tipo di nemico
@@ -12,14 +16,18 @@ typedef struct{
 	//TODO: medico si cura da solo, 
 	int specialAbility;
 	//descrizione nemico
-	char description[120];
+	char* description;
 }enemy;
 
 void setEnemyHP(enemy *enemy, int HP);
 void setEnemyDamage(enemy *enemy, int damage);
 void setEnemyAbility(enemy *enemy, int abilityID);
 void setEnemyID(enemy *enemy, int ID);
-void setEnemyDescription(enemy *enemy, char description);
+void setEnemyDescription(enemy *enemy);
+
+void printEnemyDescription(enemy enemy);
+
+void attack(player *player);
 
 
 //crea il nemico

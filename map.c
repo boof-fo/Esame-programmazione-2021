@@ -25,45 +25,56 @@ void setRoomEnemiesNum(room *room, int n)
 {
 	room->enemiesNumber = n;
 }
+
+//imposta il numero di porte (stanze collegate)
+void setRoomDoors(room *room, int doors)
+{
+	room->doors = doors;
+}
+
+
+
 //imposta i valori di una stanza
-void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber)
+void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber, int doors)
 {
 	setRoomID(room, ID);
 	setRoomPotions(room, potions);
 	setRoomSword(room, sword);
 	setRoomChestplate(room, chestplate);
 	setRoomEnemiesNum(room, enemyNumber);
+	setRoomDoors(room, doors);
 }
 
 void spawnRoom(room* room, int roomNumber)
 {
 	if (roomNumber == 0)
+	//populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber);
 		{
-			populateRoom(room, 0, 0, 0, false, 0);
+			populateRoom(room, 0, 0, 0, false, 0, 2);
 		}
 		if (roomNumber == 1)
-		{
-			populateRoom(room, 1, 1, 0, false, 1);
+		{					 //ID
+			populateRoom(room, 1, 1, 0, false, 1, 1);
 		}
 		if (roomNumber == 2)
 		{
-			populateRoom(room, 2, 1, 0, false, 1);
+			populateRoom(room, 2, 1, 0, false, 1, 1);
 		}
 		if (roomNumber == 3)
 		{
-			populateRoom(room, 3, 1, 1, true, 2);
+			populateRoom(room, 3, 1, 1, true, 2, 2);
 		}
 		if (roomNumber == 4)
 		{
-			populateRoom(room, 4, 2, 2, false, 2);
+			populateRoom(room, 4, 2, 2, false, 2, 1);
 		}
 		if (roomNumber == 5)
 		{
-			populateRoom(room, 5, 2, 2, false, 2);
+			populateRoom(room, 5, 2, 2, false, 2, 1);
 		}
 		if (roomNumber == 6)
 		{
-			populateRoom(room, 6, 1, 1, false, 1);
+			populateRoom(room, 6, 1, 1, false, 1, 0);
 		}
 }
 
@@ -81,6 +92,7 @@ void describeRoom(room room, int ID)
 	{
 		//TODO: descrizione stanza 0
 		printf("stanza è vuota :( .... mi sento solo\n");
+		printf("ci sono %d porte\n", room.doors);
 	}
 	else
 	{
@@ -140,6 +152,13 @@ void setCurrentRoom(map *map, player *player, int newRoom)
 	spawnRoom(&map->room, newRoom);
 	printMap(*player);
 	describeRoom(map->room, newRoom);
+	if (newRoom == 0)
+	{
+		spawnEnemy(&map->enemy[0], 0, 0, 0, 0);
+		printEnemyDescription(map->enemy[0]);
+		spawnEnemy(&map->enemy[1], 0, 0, 0, 0);
+		printEnemyDescription(map->enemy[1]);
+	}
 	if (newRoom == 1)
 	{
 		spawnEnemy(&map->enemy[0], 0, 30, 5, 0);

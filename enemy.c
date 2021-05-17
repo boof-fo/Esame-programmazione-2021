@@ -20,16 +20,34 @@ void setEnemyAbility(enemy *enemy, int abilityID)
 	enemy->specialAbility = abilityID;
 }
 
-void setEnemyDescription(enemy *enemy, char description);
+void setEnemyDescription(enemy *enemy)
 {
-	enemy->description = description;
+	if(enemy->ID == 0)
+	{
+		strncpy(enemy->description, "a", 120);
+	}
+	if(enemy->ID == 1)
+	{
+		strncpy(enemy->description, "z", 120);
+	}
 }
 
-void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID, char description)
+void printEnemyDescription(enemy enemy)
+{
+	int i = 0;
+	while(i < 120)
+	{
+		printf("%s", enemy.description[i]);
+		i += 1;
+	}	
+}
+
+void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID)
 {
 	setEnemyID(enemy, ID);
 	setEnemyHP(enemy, HP);
 	setEnemyDamage(enemy, damage);
 	setEnemyAbility(enemy, abilityID);
-	setEnemyDescription(enemy, description);
+	enemy->description = malloc(sizeof(char)*120);
+	setEnemyDescription(enemy);
 }

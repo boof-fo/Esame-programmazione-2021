@@ -23,6 +23,8 @@ typedef struct
 	bool chestplate;
 	//numero di nemici nella stanza
 	int enemiesNumber;
+	//numero di porte
+	int doors;
 }room;
 
 //imposta il numero della stanza
@@ -35,9 +37,11 @@ void setRoomSword(room *room, int num);
 void setRoomChestplate(room *room, bool plate);
 //imposta il numero di nemici
 void setRoomEnemiesNumber(room *room, int n);
+//imposta il numero di porte (stanze collegate)
+void setRoomDoors(room *room, int doors);
 
 //imposta i valori di una stanza
-void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber);
+void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber, int doors);
 
 //crea stanza
 void spawnRoom(room* room, int roomNumber);
