@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 #include "enemy.h"
+#include "player.h"
 
 typedef int bool;
 #define true 1
@@ -52,6 +53,7 @@ typedef struct
 }map;
 
 void spawnMap(map *map);
-void printMap(int roomNumber);
+void printMap(player player);
+void setCurrentRoom(map map, player *player, int newRoom);
 
 #endif

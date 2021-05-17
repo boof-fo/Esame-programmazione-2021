@@ -16,3 +16,4 @@ void spawnPlayer(player *player){
 	player->currentRoom = 0;
 	spawnInventory(&player->inventory);
 }
+
