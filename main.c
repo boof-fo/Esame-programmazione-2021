@@ -17,8 +17,8 @@ int main(){
 	
 	printf("benvenuto nel giokino :)\n");
 
-	setCurrentRoom(map, &player, 0);
-	
+	setCurrentRoom(&map, &player, 0);
+
 
 	
 }

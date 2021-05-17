@@ -21,29 +21,10 @@ void setEnemyAbility(enemy *enemy, int abilityID)
 }
 
 
-void printDescription(enemy enemy)
-{
+void printEnemyDescription(enemy enemy)
+{//TODO: sistemare
 	printf("\nC'È UN CATTIVONE\n");
-	int ID = enemy.ID;
-	if (ID == 0)
-		printf("\nnemico 0\n");
-	if (ID == 1)
-		printf("\nnemico 0\n");
-	if (ID == 2)
-		printf("\nnemico 0\n");
-	if (ID == 3)
-		printf("\nnemico 0\n");
-	if (ID == 4)
-		printf("\nnemico 0\n");
-	if (ID == 5)
-		printf("\nnemico 0\n");
-	if (ID == 6)
-		printf("\nnemico 0\n");
-	if (ID == 7)
-		printf("\nnemico 0\n");
-	if (ID == 8)
-		printf("\nnemico 0\n");
-	if (ID == 9)
+	if (enemy.ID == 0)
 		printf("\nnemico 0\n");
 }
 

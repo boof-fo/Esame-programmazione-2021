@@ -54,6 +54,6 @@ typedef struct
 
 void spawnMap(map *map);
 void printMap(player player);
-void setCurrentRoom(map map, player *player, int newRoom);
+void setCurrentRoom(map *map, player *player, int newRoom);
 
 #endif

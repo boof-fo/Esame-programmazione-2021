@@ -19,7 +19,7 @@ void setEnemyHP(enemy *enemy, int HP);
 void setEnemyDamage(enemy *enemy, int damage);
 void setEnemyAbility(enemy *enemy, int abilityID);
 void setEnemyID(enemy *enemy, int ID);
-void printDescription(enemy enemy);
+void printEnemyDescription(enemy enemy);
 
 //crea il nemico
 void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID);

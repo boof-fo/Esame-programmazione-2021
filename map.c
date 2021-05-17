@@ -123,7 +123,7 @@ void describeRoom(room room, int ID)
 
 void spawnMap(map *map)
 {
-	spawnRoom(&map->room, 0);
+	
 }
 
 void printMap(player player)
@@ -134,9 +134,46 @@ void printMap(player player)
 	printf("MAPPA:\nX = posizione del giocatore\n  +++++++++\n  +       +\n  +   %c   +\n +++++++++++\n +    +    +\n + %c  +  %c +\n+++++++++++++\n+           +\n+           +\n+     %c     +\n+++++++++++++\n +    +    +\n + %c  +  %c +\n+++++++++++++\n+           +\n+           +\n+     %c     +\n+++++++++++++\n", p[6], p[5], p[4], p[3], p[2], p[1], p[0]);
 }
 
-void setCurrentRoom(map map, player *player, int newRoom)
+void setCurrentRoom(map *map, player *player, int newRoom)
 {
 	player->currentRoom = newRoom;
+	spawnRoom(&map->room, newRoom);
 	printMap(*player);
-	describeRoom(map.room, newRoom);
+	describeRoom(map->room, newRoom);
+	if (newRoom == 1)
+	{
+		spawnEnemy(&map->enemy[0], 0, 30, 5, 0);
+		printEnemyDescription(map->enemy[0]);
+	}
+	if (newRoom == 2)
+	{
+		spawnEnemy(&map->enemy[0], 1, 30, 5, 0);
+		printEnemyDescription(map->enemy[0]);
+	}
+	if (newRoom == 3)
+	{
+		spawnEnemy(&map->enemy[0], 2, 35, 7, 0);
+		printEnemyDescription(map->enemy[0]);
+		spawnEnemy(&map->enemy[1], 3, 35, 7, 0);
+		printEnemyDescription(map->enemy[1]);
+	}
+	if (newRoom == 4)
+	{
+		spawnEnemy(&map->enemy[0], 4, 60, 15, 0);
+		printEnemyDescription(map->enemy[0]);
+		spawnEnemy(&map->enemy[1], 5, 60, 15, 0);
+		printEnemyDescription(map->enemy[1]);
+	}
+	if (newRoom == 5)
+	{
+		spawnEnemy(&map->enemy[0], 6, 60, 15, 0);
+		printEnemyDescription(map->enemy[0]);
+		spawnEnemy(&map->enemy[1], 7, 75, 15, 0);
+		printEnemyDescription(map->enemy[1]);
+	}
+	if (newRoom == 6)
+	{
+		spawnEnemy(&map->enemy[0], 8, 150, 19, 0);
+		printEnemyDescription(map->enemy[0]);
+	}
 }
