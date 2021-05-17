@@ -20,10 +20,16 @@ void setEnemyAbility(enemy *enemy, int abilityID)
 	enemy->specialAbility = abilityID;
 }
 
-void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID)
+void setEnemyDescription(enemy *enemy, char description);
+{
+	enemy->description = description;
+}
+
+void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID, char description)
 {
 	setEnemyID(enemy, ID);
 	setEnemyHP(enemy, HP);
 	setEnemyDamage(enemy, damage);
 	setEnemyAbility(enemy, abilityID);
+	setEnemyDescription(enemy, description);
 }
