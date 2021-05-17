@@ -13,8 +13,6 @@ typedef struct
 {
 	//numero della stanza (da 0 a 6)
 	int ID;
-	//descrizione che verra visualizzata entrando nella stanza
-	char descrizione[50];
 	//numero di pozioni curative nella stanza
 	int potions;
 	//tipo di spada contenuta nella stanza
@@ -36,12 +34,16 @@ void setRoomSword(room *room, int num);
 void setRoomChestplate(room *room, bool plate);
 //imposta il numero di nemici
 void setRoomEnemiesNumber(room *room, int n);
+
 //imposta i valori di una stanza
 void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber);
+
 //crea stanza
 void spawnRoom(room* room, int roomNumber);
 
-void describeRoom(int ID);
+//stampa una descrizione della stanza
+void describeRoom(room room, int ID);
+
 
 typedef struct
 {
@@ -50,6 +52,6 @@ typedef struct
 }map;
 
 void spawnMap(map *map);
-
+void printMap(int roomNumber);
 
 #endif

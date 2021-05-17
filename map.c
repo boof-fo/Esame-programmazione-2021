@@ -67,40 +67,50 @@ void spawnRoom(room* room, int roomNumber)
 		}
 }
 
-void describeRoom(int ID)
+void describeRoom(room room, int ID)
 {
-	if (ID == 0)
+	printf("stanza %d", ID);
+
+	
+	int potions = room.potions;
+	int sword = room.sword;
+	bool chestplate = room.chestplate;
+	int enemiesNumber = room.enemiesNumber;
+
+	if(potions == 0 && sword == 0 && chestplate == false && enemiesNumber == 0)
+	{
+		//TODO: descrizione stanza 0
+		printf(" stanza è vuota :( .... mi sento solo\n");
+	}
+	else
+	{
+		printf("Nella stanza ci sono: \n");
+		if(potions != 0)
 		{
-			printf("stanza 0");
+			printf("%d Pozioni\n", potions);
 		}
-		if (ID == 1)
+		if(sword != 0)
 		{
-			printf("stanza 1");
+			printf("1 spada\n");
 		}
-		if (ID == 2)
+		if(chestplate != false)
 		{
-			printf("stanza 2");
+			//TODO: gestire in base a cosa vogliamo fare con l'armatura
+			printf("Un indovinello(??)");
 		}
-		if (ID == 3)
-		{
-			printf("stanza 3");
-		}
-		if (ID == 4)
-		{
-			printf("stanza 4");
-		}
-		if (ID == 5)
-		{
-			printf("stanza 5");
-		}
-		if (ID == 6)
-		{
-			printf("stanza 6");
-		}
+	}
+
+
 }
 
 void spawnMap(map *map)
 {
 	spawnRoom(&map->room, 0);
 
+}
+void printMap(int roomNumber)
+{
+	char p[7] = {' ', ' ', ' ',' ',' ',' ',' '};
+	p[roomNumber] = 'X';
+	printf("MAPPA:\nX = posizione del giocatore\n  +++++++++\n  +       +\n  +   %c   +\n +++++++++++\n +    +    +\n + %c  +  %c +\n+++++++++++++\n+           +\n+           +\n+     %c     +\n+++++++++++++\n +    +    +\n + %c  +  %c +\n+++++++++++++\n+           +\n+           +\n+     %c     +\n+++++++++++++\n", p[6], p[5], p[4], p[3], p[2], p[1], p[0]);
 }
