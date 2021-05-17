@@ -1,14 +1,12 @@
 #ifndef MAP_H
 #define MAP_H
-
 #include <stdio.h>
-#include <stdlib.h>
-typedef int bool;
-#define true 1
-#define false 0
 
 #include "enemy.h"
 
+typedef int bool;
+#define true 1
+#define false 0
 
 //struttura di una stanza
 typedef struct
@@ -24,33 +22,36 @@ typedef struct
 	bool chestplate;
 	//numero di nemici nella stanza
 	int enemiesNumber;
-	//due puntatori che punteranno a variabili di tipo nemico
-	//2 perché è il numero massimo di nemici in una stanza
-	enemy *enemy1, *enemy2;
 }room;
 
+//imposta il numero della stanza
+void setRoomID(room *room, int ID);
 //imposta il numero di pozioni in una stanza
-int setPotions(room *room, int num);
+void setRoomPotions(room *room, int num);
 //imposta l'ID della spada in una stanza
-int setSword(room *room, int num);
+void setRoomSword(room *room, int num);
 //presenza armatura
-int setChestplate(room *room, bool plate);
+void setRoomChestplate(room *room, bool plate);
 //imposta il numero di nemici
-int setEnemiesNumber(room *room, int n);
-//imposta i nemici
-int setEnemies(room *room, enemy *enemy1, enemy *enemy2);
+void setRoomEnemiesNumber(room *room, int n);
+
 //imposta i valori di una stanza
-int setRoom(room* room, int potions, int sword, bool chestplate, int enemyNumber, enemy *enemy1, enemy *enemy2);
+void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber);
+
+//crea stanza
+void spawnRoom(room* room, int roomNumber);
+
+//stampa una descrizione della stanza
+void describeRoom(room room, int ID);
 
 
 typedef struct
 {
-	room room[7];
-	int currentRoom;
-	enemy enemy[6];
+	room room;
+	enemy enemy[2];
 }map;
 
-int generateMap(map *map);
-
+void spawnMap(map *map);
+void printMap(int roomNumber);
 
 #endif

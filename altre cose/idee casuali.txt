@@ -1,22 +1,22 @@
 mappa in game:
-          +++++++
-          +     +
-          +     +
-         +++++++++
-         +   +   +
-         +   +   +
-        +++++++++++
-        +         +
-        +         +
-        +         +
-        +++++++++++
-         +   +   +
-         +   +   +
-        +++++++++++
-        +         +
-        +         +
-        +         +
-        +++++++++++
+  +++++++++
+  +       +
+  +       +
+ +++++++++++
+ +    +    +
+ +    +    +
++++++++++++++
++           +
++           +
++           +
++++++++++++++
+ +    +    +
+ +    +    +
++++++++++++++
++           +
++           +
++           +
++++++++++++++
 
 DIFFICILE O FACILE IN BASE ALLE SCELTE
 
@@ -29,4 +29,3 @@ statua che fa indovinello
 “Dov’è la mia nave pirata?” è una domanda che il comandante si chiede spesso, ma in realtà non fa niente: i fantasmi non possono avere la patente nautica.
 
 Il medico di bordo è un uomo saggio, e sarà anche anziano, ma non farlo arrabbiare perché il suo bisturi è tagliente
-

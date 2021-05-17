@@ -1,20 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "player.h"
 #include "enemy.h"
 #include "map.h"
 
-int main(){
-	//mappa dichiarata in map.h
-	map map;
 
-	generateMap(&map);
+int main(){
+	//genera la mappa di gioco
+	map map;
+	spawnMap(&map);
 	
-	int i = 0;
-	while (i < 7)
-	{
-		if (map.room[i].enemiesNumber == 1)
-		printf("1,\n");
-		i++;
-	}
+	//genera giocatore
+	player player;
+	spawnPlayer(&player);
+	
+	printf("benvenuto nel giokino :)\n");
+
+	describeRoom(map.room, player.currentRoom);
+	printMap(0);
+
+	
 }

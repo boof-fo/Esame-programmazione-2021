@@ -1,112 +1,116 @@
-#include <stdio.h>
-#include <stdlib.h>
-typedef int bool;
-#define true 1
-#define false 0
-
 #include "map.h"
 
+//imposta identificativo
+void setRoomID(room *room, int ID)
+{
+	room->ID = ID;
+}
 //imposta il numero di pozioni in una stanza
-int setPotions(room *room, int num)
+void setRoomPotions(room *room, int num)
 {
 	room->potions = num;
 }
-
 //imposta l'ID della spada in una stanza
-int setSword(room *room, int num)
+void setRoomSword(room *room, int num)
 {
 	room->sword = num;
 }
-
 //presenza armatura
-int setChestplate(room *room, bool plate)
+void setRoomChestplate(room *room, bool plate)
 {
 	room->chestplate = plate;
 }
-
 //imposta il numero di nemici
-int setEnemiesNumber(room *room, int n)
+void setRoomEnemiesNum(room *room, int n)
 {
 	room->enemiesNumber = n;
 }
-
-//imposta i nemici
-int setEnemies(room *room, enemy *enemy1, enemy *enemy2)
-{
-	room->enemy1 = malloc(sizeof(enemy));
-	room->enemy2 = malloc(sizeof(enemy));
-	room->enemy1 = enemy1;
-	room->enemy2 = enemy2;
-}
-
-
-
 //imposta i valori di una stanza
-int setRoom(room* room, int potions, int sword, bool chestplate, int enemyNumber, enemy *enemy1, enemy *enemy2)
+void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber)
 {
-	setPotions(room, potions);
-	setSword(room, sword);
-	setChestplate(room, chestplate);
-	setEnemiesNumber(room, enemyNumber);
-	setEnemies(room, enemy1, enemy2);
+	setRoomID(room, ID);
+	setRoomPotions(room, potions);
+	setRoomSword(room, sword);
+	setRoomChestplate(room, chestplate);
+	setRoomEnemiesNum(room, enemyNumber);
 }
 
-
-
-
-int generateMap(map *map)
+void spawnRoom(room* room, int roomNumber)
 {
-	int i = 0;
-	int potions, sword;
-	bool chestplate;
-	int enemiesNumber;
-	enemy *enemy1, *enemy2;
+	if (roomNumber == 0)
+		{
+			populateRoom(room, 0, 0, 0, false, 0);
+		}
+		if (roomNumber == 1)
+		{
+			populateRoom(room, 1, 1, 0, false, 1);
+		}
+		if (roomNumber == 2)
+		{
+			populateRoom(room, 2, 1, 0, false, 1);
+		}
+		if (roomNumber == 3)
+		{
+			populateRoom(room, 3, 1, 1, true, 2);
+		}
+		if (roomNumber == 4)
+		{
+			populateRoom(room, 4, 2, 2, false, 2);
+		}
+		if (roomNumber == 5)
+		{
+			populateRoom(room, 5, 2, 2, false, 2);
+		}
+		if (roomNumber == 6)
+		{
+			populateRoom(room, 6, 1, 1, false, 1);
+		}
+}
 
-	while (i < 7)
+void describeRoom(room room, int ID)
+{
+	printf("stanza %d", ID);
+
+	
+	int potions = room.potions;
+	int sword = room.sword;
+	bool chestplate = room.chestplate;
+	int enemiesNumber = room.enemiesNumber;
+
+	if(potions == 0 && sword == 0 && chestplate == false && enemiesNumber == 0)
 	{
-		if (i == 0)
-		{
-			potions = 0;
-			sword = 0;
-			chestplate = false;
-			enemiesNumber = 0;
-		}
-		if (i == 1 || i == 2)
-		{
-			potions = 1;
-			sword = 0;
-			chestplate = false;
-			enemiesNumber = 1;
-			enemy1 = &map->enemy[0];
-		}
-		if (i == 3)
-		{
-			potions = 1;
-			sword = 1;
-			chestplate = true;
-			enemiesNumber = 2;
-			enemy1 = &map->enemy[1];
-			enemy2 = &map->enemy[2];
-		}
-		if (i == 4 || i == 5)
-		{
-			potions = 2;
-			sword = 2;
-			chestplate = false;
-			enemiesNumber = 2;
-			enemy1 = &map->enemy[3];
-			enemy2 = &map->enemy[4];
-		}
-		if (i == 6)
-		{
-			potions = 1;
-			sword = 1;
-			chestplate = false;
-			enemiesNumber = 1;
-			enemy1 = &map->enemy[5];
-		}
-
-		setRoom(&map->room[i], potions, sword, chestplate, enemiesNumber, enemy1, enemy2);
-		i++;
+		//TODO: descrizione stanza 0
+		printf(" stanza è vuota :( .... mi sento solo\n");
 	}
+	else
+	{
+		printf("Nella stanza ci sono: \n");
+		if(potions != 0)
+		{
+			printf("%d Pozioni\n", potions);
+		}
+		if(sword != 0)
+		{
+			printf("1 spada\n");
+		}
+		if(chestplate != false)
+		{
+			//TODO: gestire in base a cosa vogliamo fare con l'armatura
+			printf("Un indovinello(??)");
+		}
+	}
+
+
+}
+
+void spawnMap(map *map)
+{
+	spawnRoom(&map->room, 0);
+
+}
+void printMap(int roomNumber)
+{
+	char p[7] = {' ', ' ', ' ',' ',' ',' ',' '};
+	p[roomNumber] = 'X';
+	printf("MAPPA:\nX = posizione del giocatore\n  +++++++++\n  +       +\n  +   %c   +\n +++++++++++\n +    +    +\n + %c  +  %c +\n+++++++++++++\n+           +\n+           +\n+     %c     +\n+++++++++++++\n +    +    +\n + %c  +  %c +\n+++++++++++++\n+           +\n+           +\n+     %c     +\n+++++++++++++\n", p[6], p[5], p[4], p[3], p[2], p[1], p[0]);
 }
