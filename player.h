@@ -3,6 +3,7 @@
 
 #include "inventory.h"
 
+
 //struttura del giocatore
 typedef struct{
 	//punti vita
@@ -18,6 +19,7 @@ typedef struct{
 
 void setPlayerDamage(player *player, int damage);
 void setPlayerHP(player *player, int HP);
+
 
 void spawnPlayer(player *player);
 
