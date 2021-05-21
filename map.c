@@ -133,10 +133,16 @@ void describeRoom(room room, int ID)
 
 }
 
-void spawnMap(map *map)
+void killEnemy(room *room)
 {
-	
+	//TODO: togliere il check (o almeno il print)
+	if(room->enemiesNumber > 0)
+		room->enemiesNumber -= 1;
+	else
+		printf("nemici già morti\n");
 }
+
+
 
 void printMap(player player)
 {
@@ -195,4 +201,9 @@ void setCurrentRoom(map *map, player *player, int newRoom)
 		spawnEnemy(&map->enemy[0], 8, 150, 19, 0);
 		printEnemyDescription(map->enemy[0]);
 	}
+}
+//TODO: fargli fare quello che dovrebbe fare 🤯
+void spawnMap(map *map)
+{
+	
 }

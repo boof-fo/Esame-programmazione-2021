@@ -43,8 +43,7 @@ void setRoomDoors(room *room, int doors);
 //imposta i valori di una stanza
 void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber, int doors);
 
-//crea stanza
-void spawnRoom(room* room, int roomNumber);
+void killEnemy(room *room);
 
 //stampa una descrizione della stanza
 void describeRoom(room room, int ID);
@@ -56,8 +55,8 @@ typedef struct
 	enemy enemy[2];
 }map;
 
-void spawnMap(map *map);
 void printMap(player player);
 void setCurrentRoom(map *map, player *player, int newRoom);
+void spawnMap(map *map);
 
 #endif

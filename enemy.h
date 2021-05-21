@@ -2,8 +2,8 @@
 #define ENEMY_H
 
 #include <string.h>
-
-#include "player.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 //struttura di un nemico
 typedef struct{
@@ -27,7 +27,7 @@ void setEnemyDescription(enemy *enemy);
 
 void printEnemyDescription(enemy enemy);
 
-void attack(player *player);
+void enemyReceiveDamage(enemy *enemy, int damage);
 
 
 //crea il nemico

@@ -37,9 +37,19 @@ void printEnemyDescription(enemy enemy)
 	int i = 0;
 	while(i < 120)
 	{
-		printf("%s", enemy.description[i]);
+		printf("%c", enemy.description[i]);
 		i += 1;
 	}	
+}
+
+void enemyReceiveDamage(enemy *enemy, int damage)
+{
+	enemy->HP -= damage;
+	//rilevazione morte
+	if (enemy->HP <= 0)
+	{
+		printf("nemico ucciso X_X \n");
+	}
 }
 
 void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID)
