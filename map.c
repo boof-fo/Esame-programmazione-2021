@@ -21,9 +21,9 @@ void setRoomChestplate(room *room, bool plate)
 	room->chestplate = plate;
 }
 //imposta il numero di nemici
-void setRoomEnemiesNum(room *room, int n)
+void setRoomEnemiesNum(room *room, int enemyNum)
 {
-	room->enemiesNumber = n;
+	room->enemiesNumber = enemyNum;
 }
 
 //imposta il numero di porte (stanze collegate)
@@ -80,7 +80,7 @@ void spawnRoom(room* room, int roomNumber)
 
 void describeRoom(room room, int ID)
 {
-	printf("stanza %d", ID);
+	printf("stanza %d\n", ID);
 
 	
 	int potions = room.potions;

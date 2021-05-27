@@ -36,7 +36,7 @@ void setRoomSword(room *room, int num);
 //presenza armatura
 void setRoomChestplate(room *room, bool plate);
 //imposta il numero di nemici
-void setRoomEnemiesNumber(room *room, int n);
+void setRoomEnemiesNumber(room *room, int enemyNum);
 //imposta il numero di porte (stanze collegate)
 void setRoomDoors(room *room, int doors);
 

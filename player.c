@@ -25,9 +25,9 @@ int getPlayerHP(player player)
 
 void playerReceiveDamage(player *player, int damage)
 {
-	setPlayerHP(getPlayerHP(player) -= damage);
+	setPlayerHP(player, getPlayerHP(*player) - damage);
 	//rilevazione morte
-	if (getPlayerHP(player) <= 0)
+	if (getPlayerHP(*player) <= 0)
 	{
 		printf("6 morto X_X \n");
 	}

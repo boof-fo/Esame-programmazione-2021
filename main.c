@@ -19,6 +19,8 @@ int main(){
 
 	setCurrentRoom(&map, &player, 0);
 
+	/*attacca: enemyReceiveDamage(enemy *enemy, int damage)
+	  
+	*/
 
-	
 }

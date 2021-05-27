@@ -27,7 +27,4 @@ void setInventory(inventory *inventory, int potions, int swordType, int chestpla
 
 void spawnInventory(inventory *inventory);
 
-
-
-
 #endif

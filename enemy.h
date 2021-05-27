@@ -30,6 +30,7 @@ void printEnemyDescription(enemy enemy);
 void enemyReceiveDamage(enemy *enemy, int damage);
 
 
+
 //crea il nemico
 void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID);
 
