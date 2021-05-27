@@ -18,8 +18,13 @@ typedef struct
 	int sword;
 	//1 = c'è un'armatura nella stanza
 	bool chestplate;
-	//numero di nemici nella stanza
-	int enemiesNumber;
+	/*numero di nemici nella stanza
+	0:nessun nemico;     
+	1:un nemico nella prima posizione dell'array; 
+	2:un nemico nella seconda posizione dell'array;
+	3:due nemici;
+	*/
+	int enemiesConfiguration;
 	//numero di porte
 	int doors;
 }room;

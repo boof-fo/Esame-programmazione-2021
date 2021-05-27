@@ -21,14 +21,16 @@ void setEnemyAbility(enemy *enemy, int abilityID)
 }
 
 
-void enemyReceiveDamage(enemy *enemy, int damage)
+int enemyReceiveDamage(enemy *enemy, int damage)
 {
 	enemy->HP -= damage;
 	//rilevazione morte
 	if (enemy->HP <= 0)
 	{
 		printf("nemico ucciso X_X \n");
+		return enemy->ID;
 	}
+	return 0;
 }
 
 void describeEnemy(int ID)

@@ -16,6 +16,8 @@ void printMap(player player);
 void setCurrentRoom(map *map, player *player, int newRoom);
 void spawnMap(map *map);
 
+void killEnemy(map *map, int enemyID);
+
 void help();
 void exitGame();
 

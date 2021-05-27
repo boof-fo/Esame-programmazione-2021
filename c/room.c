@@ -23,7 +23,7 @@ void setRoomChestplate(room *room, bool plate)
 //imposta il numero di nemici
 void setRoomEnemiesNum(room *room, int enemyNum)
 {
-	room->enemiesNumber = enemyNum;
+	room->enemiesConfiguration = enemyNum;
 }
 
 //imposta il numero di porte (stanze collegate)
@@ -85,9 +85,9 @@ void describeRoom(room room, int ID)
 	int potions = room.potions;
 	int sword = room.sword;
 	bool chestplate = room.chestplate;
-	int enemiesNumber = room.enemiesNumber;
+	int enemiesConfiguration = room.enemiesConfiguration;
 
-	if(potions == 0 && sword == 0 && chestplate == false && enemiesNumber == 0)
+	if(potions == 0 && sword == 0 && chestplate == false && enemiesConfiguration == 0)
 	{
 		//TODO: descrizione stanza vuota
 		printf("stanza è vuota :( .... mi sento solo\n");

@@ -49,10 +49,30 @@ void setCurrentRoom(map *map, player *player, int newID)
 	}
 }
 
+
 //TODO: fargli fare quello che dovrebbe fare 🤯
 void spawnMap(map *map)
 {
 	
+}
+
+void killEnemy(map *map, int enemyID)
+{
+	int* enemiesConfiguration = &map->room.enemiesConfiguration;
+	if (*enemiesConfiguration == 1)
+	{
+		//poveretto, salutava sempre
+		*enemiesConfiguration = 0;
+	}else if (*enemiesConfiguration == 2)
+	{
+		*enemiesConfiguration = 0;
+	}else if (*enemiesConfiguration == 3)
+	{
+		if(map->enemy[1].ID == enemyID)
+			*enemiesConfiguration = 1;
+		else
+			*enemiesConfiguration = 2;
+	}
 }
 
 void help()

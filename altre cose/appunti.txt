@@ -1,15 +1,17 @@
 /*
 	  mentre combatti puoi usare solo le funzioni attacca , inventario e usa
 
-	  attraversa:	setCurrentRoom(map *map, player *player, int newRoom)
-					setCurrentRoom:	imposta valori della stanza,
+	  attraversa:	setCurrentRoom:	imposta valori della stanza,
 				  					stampa mappa,
 				  					imposta nemici,
 				  					descrivi stanza,
 				  					descrivi nemici
 
-	  attacca nemico:	enemyReceiveDamage(enemy *enemy, int damage)
-	  					playerReceiveDamage(player *player, int damage)
+	  attacca nemico:	se enemyReceiveDamage() = 1
+	  						killEnemy()
+	  					se playerReceiveDamage() = 1
+						  	killPlayer()
+
 							
 
 	  raccogli oggetto:		addInventoryPotion
