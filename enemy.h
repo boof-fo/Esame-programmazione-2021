@@ -15,23 +15,21 @@ typedef struct{
 	int damage;
 	//TODO: medico si cura da solo, 
 	int specialAbility;
-	//descrizione nemico
-	char* description;
 }enemy;
 
 void setEnemyHP(enemy *enemy, int HP);
 void setEnemyDamage(enemy *enemy, int damage);
 void setEnemyAbility(enemy *enemy, int abilityID);
 void setEnemyID(enemy *enemy, int ID);
-void setEnemyDescription(enemy *enemy);
 
 void printEnemyDescription(enemy enemy);
 
 void enemyReceiveDamage(enemy *enemy, int damage);
 
+//viene invocata da spawnEnemy
+void describeEnemy(int ID);
 
-
-//crea il nemico
+//crea il nemico impostando le sue statistiche
 void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID);
 
 

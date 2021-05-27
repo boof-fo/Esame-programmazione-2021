@@ -32,3 +32,23 @@ void playerReceiveDamage(player *player, int damage)
 		printf("6 morto X_X \n");
 	}
 }
+
+
+void usePotion(player *player)
+{
+	if(getInventoryPotions > 0)
+	{
+		if(player->HP == 100)
+		{
+			printf("Pozione usata\n");
+			removeInventoryPotion(&player->inventory);
+			player->HP += 50;
+		}
+		else
+		{
+			printf("Pozione non utilizzata: hai già 100 HP\n");
+		}
+	}
+	else
+		printf("Non hai pozioni\n");
+}

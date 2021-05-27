@@ -28,4 +28,6 @@ void playerReceiveDamage(player *player, int damage);
 
 void spawnPlayer(player *player);
 
+void usePotion(player *player);
+
 #endif

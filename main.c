@@ -13,14 +13,13 @@ int main(){
 	
 	//genera giocatore
 	player player;
+	//imposta valori di default 
 	spawnPlayer(&player);
+	//azzera i valori dell'inventario
+	spawnInventory(&player.inventory);
 	
 	printf("benvenuto nel giokino :)\n");
 
-	setCurrentRoom(&map, &player, 0);
-
-	/*attacca: enemyReceiveDamage(enemy *enemy, int damage)
-	  
-	*/
-
+	setCurrentRoom(&map, &player, 3);
+	showInventory(player.inventory);
 }

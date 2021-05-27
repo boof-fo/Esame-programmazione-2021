@@ -59,4 +59,8 @@ void printMap(player player);
 void setCurrentRoom(map *map, player *player, int newRoom);
 void spawnMap(map *map);
 
+//TODO: spostare in file separato
+void help();
+void exitGame();
+
 #endif

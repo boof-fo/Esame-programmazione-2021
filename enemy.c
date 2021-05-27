@@ -20,27 +20,6 @@ void setEnemyAbility(enemy *enemy, int abilityID)
 	enemy->specialAbility = abilityID;
 }
 
-void setEnemyDescription(enemy *enemy)
-{
-	if(enemy->ID == 0)
-	{
-		strncpy(enemy->description, "a", 120);
-	}
-	if(enemy->ID == 1)
-	{
-		strncpy(enemy->description, "z", 120);
-	}
-}
-
-void printEnemyDescription(enemy enemy)
-{
-	int i = 0;
-	while(i < 120)
-	{
-		printf("%c", enemy.description[i]);
-		i += 1;
-	}	
-}
 
 void enemyReceiveDamage(enemy *enemy, int damage)
 {
@@ -52,12 +31,34 @@ void enemyReceiveDamage(enemy *enemy, int damage)
 	}
 }
 
+void describeEnemy(int ID)
+{
+	if (ID == 0)
+		printf("\n\n");
+	if (ID == 1)
+		printf("\n\n");
+	if (ID == 2)
+		printf("\n\n");
+	if (ID == 3)
+		printf("\n\n");
+	if (ID == 4)
+		printf("\n\n");
+	if (ID == 5)
+		printf("\n\n");
+	if (ID == 6)
+		printf("\nIl medico di bordo è un uomo saggio, e sarà anche anziano,ma non farlo arrabbiare perché il suo bisturi è tagliente\n");
+	if (ID == 7)
+		printf("\n\n");
+	if (ID == 8)
+		printf("\n“Dov’è la mia nave pirata?” è una domanda che il comandante si chiede spesso, ma in realtà non fa niente: i fantasmi non possono avere la patente nautica.\n");
+}
+
+
 void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID)
 {
 	setEnemyID(enemy, ID);
 	setEnemyHP(enemy, HP);
 	setEnemyDamage(enemy, damage);
 	setEnemyAbility(enemy, abilityID);
-	enemy->description = malloc(sizeof(char)*120);
-	setEnemyDescription(enemy);
+	describeEnemy(ID);
 }
