@@ -1,4 +1,4 @@
-#include"inventory.h"
+#include"../headers/inventory.h"
 
 void setInventoryPotions(inventory *inventory, int newValue)
 {

@@ -1,23 +1,29 @@
 /*
 	  mentre combatti puoi usare solo le funzioni attacca , inventario e usa
 
-	  attraversa: setCurrentRoom(map *map, player *player, int newRoom)
-				  setCurrentRoom: imposta valori della stanza, stampa mappa, imposta nemici, descrivi stanza, descrivi nemici
+	  attraversa:	setCurrentRoom(map *map, player *player, int newRoom)
+					setCurrentRoom:	imposta valori della stanza,
+				  					stampa mappa,
+				  					imposta nemici,
+				  					descrivi stanza,
+				  					descrivi nemici
 
-	  attacca nemico:   	enemyReceiveDamage(enemy *enemy, int 						damage)
-	  						playerReceiveDamage(player *player, int damage)
+	  attacca nemico:	enemyReceiveDamage(enemy *enemy, int damage)
+	  					playerReceiveDamage(player *player, int damage)
 							
 
-	  raccogli oggetto: 	addInventoryPotion
+	  raccogli oggetto:		addInventoryPotion
 	  						setInventorySword
 							setInventoryChestplate
 
-	  inventario: 			showInventory(inventory inventory)
+	  inventario:			showInventory(inventory inventory)
 
-	  usa oggetto:			stampa inventario + usePotion(*player) |												  printMap(*player)
+	  usa oggetto:			stampa inventario + usePotion(*player) + printMap(*player)
 
 	  attraversa direzione: 
+
 	  aiuto:				
+
 	  esci:					exitGame()
 	*/
 	

@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "player.h"
-#include "enemy.h"
-#include "map.h"
-
+#include "../headers/world.h"
+#include "../headers/player.h"
+#include "../headers/enemy.h"
 
 int main(){
 	//genera la mappa di gioco

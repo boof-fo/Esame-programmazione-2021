@@ -1,9 +1,6 @@
-#ifndef MAP_H
-#define MAP_H
+#ifndef ROOM_H
+#define ROOM_H
 #include <stdio.h>
-
-#include "enemy.h"
-#include "player.h"
 
 typedef int bool;
 #define true 1
@@ -43,24 +40,10 @@ void setRoomDoors(room *room, int doors);
 //imposta i valori di una stanza
 void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber, int doors);
 
-void killEnemy(room *room);
+void spawnRoom(room* room, int roomNumber);
 
 //stampa una descrizione della stanza
 void describeRoom(room room, int ID);
 
-
-typedef struct
-{
-	room room;
-	enemy enemy[2];
-}map;
-
-void printMap(player player);
-void setCurrentRoom(map *map, player *player, int newRoom);
-void spawnMap(map *map);
-
-//TODO: spostare in file separato
-void help();
-void exitGame();
 
 #endif

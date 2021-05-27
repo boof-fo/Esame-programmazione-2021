@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "inventory.h"
+#include "../headers/inventory.h"
 
 //struttura del giocatore
 typedef struct{

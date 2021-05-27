@@ -1,4 +1,4 @@
-#include"player.h"
+#include"../headers/player.h"
 
 void setPlayerHP(player *player, int HP){
 	player->HP = HP;
