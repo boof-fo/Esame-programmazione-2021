@@ -10,7 +10,7 @@ typedef int bool;
 //struttura di una stanza
 typedef struct
 {
-	//numero della stanza (da 0 a 6)
+	//numero della stanza (da 0 a 8)
 	int ID;
 	//numero di pozioni curative nella stanza
 	int potions;
