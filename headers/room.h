@@ -2,6 +2,7 @@
 #define ROOM_H
 #include <stdio.h>
 
+#include "../headers/enemy.h"
 typedef int bool;
 #define true 1
 #define false 0
@@ -25,6 +26,7 @@ typedef struct
 	3:due nemici;
 	*/
 	int enemiesConfiguration;
+	enemy enemy[2];
 	//numero di porte
 	int doors;
 }room;

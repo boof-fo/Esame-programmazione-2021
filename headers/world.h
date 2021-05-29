@@ -8,14 +8,18 @@
 
 typedef struct
 {
-	room room;
-	enemy enemy[2];
+	//TODO: inizializzare stanza ogni enterRoom
+	room room[8];
+	//stanza in cui si trova il personaggio
+	int currentRoom;
 }map;
 
-void printMap(player player);
-void setCurrentRoom(map *map, player *player, int newRoom);
+void setCurrentRoom(map *map, int newRoom);
+int getCurrentRoom(map map);
 
+void printMap(map map);
 
+void enterRoom(map *map, room *room, int newRoom);
 void killEnemy(map *map, int enemyID);
 
 void help();

@@ -19,15 +19,6 @@ void setPlayerProtection(player *player, int protectionPoints)
 	player->protection = protectionPoints;
 }
 
-void spawnPlayer(player *player){
-	player->HP = 100;
-	//TODO: danno iniziale
-	player->damage = 0;
-	player->currentRoom = 0;
-	spawnInventory(&player->inventory);
-}
-
-
 void setSword(player *player, int swordType)
 {
 	//TODO: mettere i valori definitivi
@@ -47,6 +38,15 @@ void setChestplate(player *player)
 	setInventoryChestplate(&player->inventory);
 }
 
+
+
+void spawnPlayer(player *player){
+	setPlayerHP(player, 100);
+	//TODO: danno iniziale
+	setPlayerDamage(player, 10);
+	spawnInventory(&player->inventory);
+}
+
 void playerReceiveDamage(player *player, int damage)
 {
 	setPlayerHP(player, getPlayerHP(*player) - damage);
@@ -57,16 +57,15 @@ void playerReceiveDamage(player *player, int damage)
 	}
 }
 
-
 void usePotion(player *player)
 {
 	if(getInventoryPotions > 0)
 	{
-		if(player->HP == 100)
+		if(player->HP < 100)
 		{
-			printf("Pozione usata\n");
 			removeInventoryPotion(&player->inventory);
 			player->HP += 50;
+			printf("Pozione usata\n");
 		}
 		else
 		{

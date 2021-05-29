@@ -19,6 +19,7 @@ int main(){
 	
 	printf("benvenuto nel giokino :)\n");
 
-	setCurrentRoom(&map, &player, 3);
+	enterRoom(&map, &map.room[6], 6);
+	
 	showInventory(player.inventory);
 }
