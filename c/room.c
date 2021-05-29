@@ -21,9 +21,9 @@ void setRoomChestplate(room *room, bool plate)
 	room->chestplate = plate;
 }
 //imposta il numero di nemici
-void setRoomEnemiesNum(room *room, int enemyNum)
+void setEnemiesConfiguration(room *room, int enemyConfig)
 {
-	room->enemiesConfiguration = enemyNum;
+	room->enemiesConfiguration = enemyConfig;
 }
 
 //imposta il numero di porte (stanze collegate)
@@ -34,14 +34,21 @@ void setRoomDoors(room *room, int doors)
 
 
 
+int getEnemiesConfiguration(room room)
+{
+	return room.enemiesConfiguration;
+}
+
+
+
 //imposta i valori di una stanza
-void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber, int doors)
+void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemiesConfig, int doors)
 {
 	setRoomID(room, ID);
 	setRoomPotions(room, potions);
 	setRoomSword(room, sword);
 	setRoomChestplate(room, chestplate);
-	setRoomEnemiesNum(room, enemyNumber);
+	setEnemiesConfiguration(room, enemiesConfig);
 	setRoomDoors(room, doors);
 }
 

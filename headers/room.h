@@ -38,9 +38,11 @@ void setRoomSword(room *room, int num);
 //presenza armatura
 void setRoomChestplate(room *room, bool plate);
 //imposta il numero di nemici
-void setRoomEnemiesNumber(room *room, int enemyNum);
+void setEnemiesConfiguration(room *room, int enemyConfig);
 //imposta il numero di porte (stanze collegate)
 void setRoomDoors(room *room, int doors);
+
+int getEnemiesConfiguration(room room);
 
 //imposta i valori di una stanza
 void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber, int doors);

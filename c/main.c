@@ -9,7 +9,6 @@
 int main(){
 	//genera la mappa di gioco
 	map map;
-	spawnMap(&map);
 	
 	//genera giocatore
 	player player;

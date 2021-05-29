@@ -12,20 +12,16 @@
 	  					se playerReceiveDamage() = 1
 						  	killPlayer()
 
-							
-
 	  raccogli oggetto:		addInventoryPotion
-	  						setInventorySword
-							setInventoryChestplate
+	  						setSword
+							setChestplate
 
-	  inventario:			showInventory(inventory inventory)
+	  inventario:			showInventory
 
-	  usa oggetto:			stampa inventario + usePotion(*player) + printMap(*player)
+	  usa oggetto:			usePotion | printMap
 
-	  attraversa direzione: 
+	  aiuto:				??????
 
-	  aiuto:				
-
-	  esci:					exitGame()
+	  esci:					exit()
 	*/
 	

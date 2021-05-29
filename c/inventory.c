@@ -10,9 +10,9 @@ void setInventorySword(inventory *inventory, int newValue)
 	inventory->sword = newValue;
 }
 
-void setInventoryChestplate(inventory *inventory, int newValue)
+void setInventoryChestplate(inventory *inventory)
 {
-	inventory->sword = newValue;
+	inventory->sword = true;
 }
 
 
@@ -44,9 +44,15 @@ void spawnInventory(inventory *inventory)
 }
 
 
-void addInventoryPotion(inventory *inventory)
+void addInventoryPotion(inventory *inventory, room *room)
 {
-	inventory->potions = inventory->potions++;
+	if (room->potions > 0)
+	{
+		room->potions -= 1;
+		inventory->potions += 1;
+	}
+	else
+		printf("Non ci sono pozioni. Buona fortuna :)\n");
 }
 
 void removeInventoryPotion(inventory *inventory)
@@ -59,18 +65,21 @@ void removeInventoryPotion(inventory *inventory)
 void showInventory(inventory inventory)
 {
 
-	printf("\nINVENTARIO:\nPozioni: %d\nTipo di spada: ", getInventoryPotions(inventory));
+	printf("\nINVENTARIO:\nPozioni: %d\n", getInventoryPotions(inventory));
+
+	printf("Tipo di spada: ");
 	if(getInventorySword(inventory) == 0)
 	{
-		printf("Spada semplice");
+		printf("Spada semplice\n");
 	}else if(getInventorySword(inventory) == 1)
 	{
-		printf("Spada ricurva");
+		printf("Spada ricurva\n");
 	}else if(getInventorySword(inventory) == 2)
 	{
-		printf("Alabarda");
+		printf("Alabarda\n");
 	}
-	printf("\nChestplate: ");
+
+	printf("Chestplate: ");
 	if(getInventoryChestplate(inventory) == false)
 	{
 		printf("Non presente\n");

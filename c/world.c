@@ -2,9 +2,8 @@
 
 void printMap(player player)
 {
-	int roomNumber = player.currentRoom;
 	char p[7] = {' ', ' ', ' ',' ',' ',' ',' '};
-	p[roomNumber] = 'X';
+	p[player.currentRoom] = 'X';
 	printf("MAPPA:\nX = posizione del giocatore\n  +++++++++\n  +       +\n  +   %c   +\n +++++++++++\n +    +    +\n + %c  +  %c +\n+++++++++++++\n+           +\n+           +\n+     %c     +\n+++++++++++++\n +    +    +\n + %c  +  %c +\n+++++++++++++\n+           +\n+           +\n+     %c     +\n+++++++++++++\n", p[6], p[5], p[4], p[3], p[2], p[1], p[0]);
 }
 
@@ -50,28 +49,22 @@ void setCurrentRoom(map *map, player *player, int newID)
 }
 
 
-//TODO: fargli fare quello che dovrebbe fare 🤯
-void spawnMap(map *map)
-{
-	
-}
 
 void killEnemy(map *map, int enemyID)
 {
-	int* enemiesConfiguration = &map->room.enemiesConfiguration;
-	if (*enemiesConfiguration == 1)
+	if (getEnemiesConfiguration(map->room) == 1)
 	{
 		//poveretto, salutava sempre
-		*enemiesConfiguration = 0;
-	}else if (*enemiesConfiguration == 2)
+		setEnemiesConfiguration(&map->room, 0);
+	}else if (getEnemiesConfiguration(map->room) == 2)
 	{
-		*enemiesConfiguration = 0;
-	}else if (*enemiesConfiguration == 3)
+		setEnemiesConfiguration(&map->room, 0);
+	}else if (getEnemiesConfiguration(map->room) == 3)
 	{
 		if(map->enemy[1].ID == enemyID)
-			*enemiesConfiguration = 1;
+			setEnemiesConfiguration(&map->room, 1);
 		else
-			*enemiesConfiguration = 2;
+			setEnemiesConfiguration(&map->room, 2);
 	}
 }
 

@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 
+#include "../headers/room.h"
+
 typedef int bool;
 #define true 1
 #define false 0
@@ -20,7 +22,7 @@ typedef struct{
 
 void setInventoryPotions(inventory *inventory, int newValue);
 void setInventorySword(inventory *inventory, int type);
-void setInventoryChestplate(inventory *inventory, int newValue);
+void setInventoryChestplate(inventory *inventory);
 
 int getInventoryPotions(inventory inventory);
 int getInventorySword(inventory inventory);
@@ -30,7 +32,7 @@ void setInventory(inventory *inventory, int potions, int swordType, int chestpla
 
 void spawnInventory(inventory *inventory);
 
-void addInventoryPotion(inventory *inventory);
+void addInventoryPotion(inventory *inventory, room *room);
 void removeInventoryPotion(inventory *inventory);
 
 void showInventory(inventory inventory);

@@ -9,6 +9,16 @@ void setPlayerDamage(player *player, int damage)
 	player->damage = damage;
 }
 
+int getPlayerHP(player player)
+{
+	return player.HP;
+}
+
+void setPlayerProtection(player *player, int protectionPoints)
+{
+	player->protection = protectionPoints;
+}
+
 void spawnPlayer(player *player){
 	player->HP = 100;
 	//TODO: danno iniziale
@@ -17,11 +27,25 @@ void spawnPlayer(player *player){
 	spawnInventory(&player->inventory);
 }
 
-int getPlayerHP(player player)
+
+void setSword(player *player, int swordType)
 {
-	return player.HP;
+	//TODO: mettere i valori definitivi
+	int newDamage;
+	if (swordType == 1)
+		newDamage = 0;
+	else if (swordType == 2)
+		newDamage = 0;
+	setPlayerDamage(player, newDamage);
+	setInventorySword(&player->inventory, swordType);
 }
 
+void setChestplate(player *player)
+{
+	//TODO: mettere i valori definitivi
+	setPlayerProtection(player, 30);
+	setInventoryChestplate(&player->inventory);
+}
 
 void playerReceiveDamage(player *player, int damage)
 {
