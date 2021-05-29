@@ -16,7 +16,8 @@ int main(){
 	spawnPlayer(&player);
 	//azzera i valori dell'inventario
 	spawnInventory(&player.inventory);
-	
+	char enter;
+	while (enter != '\r' && enter != '\n') { enter = getchar(); }
 	printf("benvenuto nel giokino :)\n");
 
 	enterRoom(&map, &map.room[6], 6);
