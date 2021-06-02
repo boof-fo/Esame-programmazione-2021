@@ -36,7 +36,8 @@ int enemyReceiveDamage(enemy *enemy, int damage)
 void describeEnemy(int ID)
 {
 	if (ID == 0)
-		printf("\n\n");
+		printf("\nIl cuoco è un nemico corpulento ma privo di armatura, la sua arma è un innocuo mestolo di legno\n
+			\n");
 	if (ID == 1)
 		printf("\n\n");
 	if (ID == 2)
