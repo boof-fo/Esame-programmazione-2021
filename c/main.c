@@ -9,7 +9,6 @@
 char enter;
 char answer[];
 
-
 int main(){
 	printf("\nTi diamo il benvenuto nel nostro gioco: Pirates Fortress, un avventura testuale ambientata in un' isola tropicale dove inpersonificherai Jacob Smith,\n
 		un giovane avventuriero con lo scopo di ritrovare un antico tesoro pirata, ma non di un pirata qualsiasi, bensì del più temuto di tutti i tempi: Il capitano Barbadura,\n		
@@ -21,19 +20,28 @@ int main(){
 	
 	scanf("%s", answer);
 
-	if(stricmp(answer, "yes") == 0)
+	int exit;
+
+	do
+	{
+		if(strncmp(answer, "si", sizeof(const char)*2)  == 0)
 	{
 		printf("\nperfetto possiamo proseguire");
-		EXIT_SUCCESS
+		exit=1;
+		EXIT_SUCCESS;
 	}
-	else if(tricmp(answer, "no") == 0))
+	else if(strncmp(answer, "no",sizeof(const char)*2)) == 0))
 	{
-		printf("\nse non hai capito qualcosa ti basta tornare su e rileggere, ora proseguiamo");
+		printf("\ne non hai capito qualcosa ti basta tornarse su e rileggere, ora proseguiamo");
+		exit=1;
+		EXIT_SUCCESS;
 	}
-	else 
-	{
-		//TODO: tornare indietro alla domanda se non si risponde si o no
+		printf("\nrisposta non corretta, potresti ripetere rispondendo SI o NO?");
+		scanf("%s", answer);
+		
 	}
+	while(exit!=1)
+	
 	
 	//genera la mappa di gioco
 	map map;
