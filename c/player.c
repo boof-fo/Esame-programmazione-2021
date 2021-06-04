@@ -66,7 +66,6 @@ void usePotion(player *player)
 		{
 			removeInventoryPotion(&player->inventory);
 			setPlayerHP(player, getPlayerHP(*player) + 50);
-			if (get)
 			printf("Pozione usata\n");
 		}
 		else
