@@ -16,14 +16,13 @@ int main(){
 		alcuni documenti e mappe suggeriscono la presenza del famigerato tesoro in un isola sperduta del pacifico, non presente sulle mappe convenzionali, totalmente inesplorata e priva di vita\n
 		 dove sorge una fortezza usata ai tempi della colonizzazione inglese del quindicesimo secolo, usata come rifugio dalla ciurma di Barbadura, alcune leggende narrano\n
 		 che la ciurma sia ancora presente all'interno della fortezza sotto forma di non-morti affamati di carne umana e che lo spirito del capitano vegli ancora sullo scrigno maledetto.\n")
-	printf("\nhai compreso bene? si o no \n")
 	
-	scanf("%s", answer);
-
 	int exit;
 
 	do
 	{
+		printf("\nhai compreso bene? si o no \n");
+		scanf("%s", answer);
 		if(strncmp(answer, "si", sizeof(const char)*2)  == 0)
 	{
 		printf("\nperfetto possiamo proseguire");
@@ -37,7 +36,7 @@ int main(){
 		EXIT_SUCCESS;
 	}
 		printf("\nrisposta non corretta, potresti ripetere rispondendo SI o NO?");
-		scanf("%s", answer);
+		
 		
 	}
 	while(exit!=1)
