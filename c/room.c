@@ -32,8 +32,17 @@ void setRoomDoors(room *room, int doors)
 	room->doors = doors;
 }
 
+void removeRoomPotion(room *room)
+{
+	room->potions -= 1;
+}
 
 
+
+int getRoomPotions(room room)
+{
+	return room.potions;
+}
 int getEnemiesConfiguration(room room)
 {
 	return room.enemiesConfiguration;
@@ -132,7 +141,7 @@ void describeRoom(room room, int ID)
 		if(chestplate != false)
 		{
 			//TODO: gestire in base a cosa vogliamo fare con l'armatura
-			printf("Un indovinello(??)");
+			printf("Un indovinello? bo non so");
 		}
 	}
 
