@@ -73,14 +73,13 @@ void killEnemy(map *map, int enemyID)
 {
 	if (getEnemiesConfiguration(map->room[map->currentRoom]) == 1)
 	{
-		//poveretto, salutava sempre
 		setEnemiesConfiguration(&map->room[map->currentRoom], 0);
 	}else if (getEnemiesConfiguration(map->room[map->currentRoom]) == 2)
 	{
 		setEnemiesConfiguration(&map->room[map->currentRoom], 0);
 	}else if (getEnemiesConfiguration(map->room[map->currentRoom]) == 3)
 	{
-		if(map->room->enemy[1].ID == enemyID)
+		if(getEnemyID(map->room->enemy[1]) == enemyID)
 			setEnemiesConfiguration(&map->room[map->currentRoom], 1);
 		else
 			setEnemiesConfiguration(&map->room[map->currentRoom], 2);

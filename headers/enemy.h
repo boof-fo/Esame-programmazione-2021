@@ -22,7 +22,7 @@ void setEnemyDamage(enemy *enemy, int damage);
 void setEnemyAbility(enemy *enemy, int abilityID);
 void setEnemyID(enemy *enemy, int ID);
 
-void printEnemyDescription(enemy enemy);
+int getEnemyID(enemy enemy);
 
 int enemyReceiveDamage(enemy *enemy, int damage);
 

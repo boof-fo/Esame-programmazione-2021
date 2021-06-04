@@ -43,8 +43,11 @@ void setRoomChestplate(room *room, bool plate);
 void setEnemiesConfiguration(room *room, int enemyConfig);
 //imposta il numero di porte (stanze collegate)
 void setRoomDoors(room *room, int doors);
+void removeRoomPotion(room *room);
 
+int getRoomPotions(room room);
 int getEnemiesConfiguration(room room);
+
 
 //imposta i valori di una stanza
 void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber, int doors);

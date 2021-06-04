@@ -4,6 +4,7 @@ void setPlayerHP(player *player, int HP){
 	player->HP = HP;
 }
 
+
 void setPlayerDamage(player *player, int damage)
 {
 	player->damage = damage;
@@ -59,12 +60,13 @@ void playerReceiveDamage(player *player, int damage)
 
 void usePotion(player *player)
 {
-	if(getInventoryPotions > 0)
+	if(getInventoryPotions(player->inventory) > 0)
 	{
-		if(player->HP < 100)
+		if(getPlayerHP(*player) < 100)
 		{
 			removeInventoryPotion(&player->inventory);
-			player->HP += 50;
+			setPlayerHP(player, getPlayerHP(*player) + 50);
+			if (get)
 			printf("Pozione usata\n");
 		}
 		else

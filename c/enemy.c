@@ -20,6 +20,11 @@ void setEnemyAbility(enemy *enemy, int abilityID)
 	enemy->specialAbility = abilityID;
 }
 
+int getEnemyID(enemy enemy)
+{
+	return enemy.ID;
+}
+
 
 int enemyReceiveDamage(enemy *enemy, int damage)
 {

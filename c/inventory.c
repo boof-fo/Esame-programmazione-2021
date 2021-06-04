@@ -46,9 +46,9 @@ void spawnInventory(inventory *inventory)
 
 void addInventoryPotion(inventory *inventory, room *room)
 {
-	if (room->potions > 0)
+	if (getRoomPotions(*room) > 0)
 	{
-		room->potions -= 1;
+		removeRoomPotion(room);
 		inventory->potions += 1;
 	}
 	else
