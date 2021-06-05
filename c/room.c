@@ -49,7 +49,6 @@ int getEnemiesConfiguration(room room)
 }
 
 
-
 //imposta i valori di una stanza
 void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemiesConfig, int doors)
 {
