@@ -1,5 +1,5 @@
 #include "../headers/comandi.h"
-#include "../headers/inventory.h"
+#include "../headers/main.h"
 
 void inserstr(char stringa1[],char stringa2[])
 {
@@ -126,7 +126,21 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
     {
       if(check(oggetto, "pozione"))
         {
-          takePotion(player->inventory, room);
+          takePotion(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
+        }
+        else
+        if(check(oggetto, "spada"))
+        {
+          
+        }
+        else 
+        if(check(oggetto, "armatura"))
+        {
+          
+        }
+        else
+        {
+          printf("oggetto errato\n");
         }
     }
   }else 
@@ -172,13 +186,12 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
     printf("aiuto");
       //aiuto
   }else 
-  
-  struct inventory;
+
 
   if(search(&comandi,comando)->key == 7)
   {
     //stampa l'inventario
-    void showInventory(inventory inventory);
+    
   }else
   {
     printf("errore5");

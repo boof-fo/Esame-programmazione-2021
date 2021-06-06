@@ -20,8 +20,6 @@ typedef struct{
 	bool chestplate;
 }inventory;
 
-extern struct inventory;
-
 void setInventoryPotions(inventory *inventory, int newValue);
 void setInventorySword(inventory *inventory, int type);
 void setInventoryChestplate(inventory *inventory);
@@ -35,6 +33,8 @@ void setInventory(inventory *inventory, int potions, int swordType, int chestpla
 void spawnInventory(inventory *inventory);
 
 void takePotion(inventory *inventory, room *room);
+void takeSword(inventory *inventory, room *room);
+void takeArmor(inventory *inventory, room *room);
 void removeInventoryPotion(inventory *inventory);
 
 void showInventory(inventory inventory);

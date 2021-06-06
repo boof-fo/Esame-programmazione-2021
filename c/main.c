@@ -1,18 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include "../headers/world.h"
-#include "../headers/player.h"
-#include "../headers/enemy.h"
+#include "../headers/main.h"
 #include "../headers/comandi.h"
 
-char enter = ' ';
-char answer[];
 
 int main(){
 	printf("\nTi diamo il benvenuto nel nostro gioco: Pirates Fortress, un avventura testuale ambientata in un' isola tropicale dove inpersonificherai Jacob Smith,\nun giovane avventuriero con lo scopo di ritrovare un antico tesoro pirata, ma non di un pirata qualsiasi, bensì del più temuto di tutti i tempi: Il capitano Barbadura,\nconsiderato da molti il re di tutti i pirati dei sette mari, nel corso del diciottesimo secolo lui e la sua spietata ciurma hanno accumulato una ricchezza spropositata in gioelli e dobloni d'oro\n,alcuni documenti e mappe suggeriscono la presenza del famigerato tesoro in un isola sperduta del pacifico, non presente sulle mappe convenzionali, totalmente inesplorata e priva di vita\ndove sorge una fortezza usata ai tempi della colonizzazione inglese del quindicesimo secolo, usata come rifugio dalla ciurma di Barbadura, alcune leggende narrano\nche la ciurma sia ancora presente all'interno della fortezza sotto forma di non-morti affamati di carne umana e che lo spirito del capitano vegli ancora sullo scrigno maledetto.\n");
 	
+	char enter = ' ';
+	char answer[2];
 	int exit;
 
 	do
@@ -35,26 +29,21 @@ int main(){
 		printf("\nrisposta non corretta, potresti ripetere rispondendo SI o NO?\n");
 	}while(exit!=1);
 	
-	
-	//genera la mappa di gioco
-	map map;
-	
-	//genera giocatore
-	player player;
 	//imposta valori di default 
-	spawnPlayer(&player);
+	spawnPlayer(&gamePlayer);
 	//azzera i valori dell'inventario
-	spawnInventory(&player.inventory);
+	spawnInventory(&gamePlayer.inventory);
 	
 	while (enter != '\r' && enter != '\n') { enter = getchar(); }
 
-	enterRoom(&map, &map.room[6], 6);
+	enterRoom(&gameMap, &gameMap.room[6], 6);
 	
 
-	showInventory(player.inventory);
+	showInventory(gamePlayer.inventory);
+
+
 
 	list comandi, item1,item2,item3,item4,item5,attr6;
-
 	comandi.count = 0;
 	item1.count = 0;
 	item2.count = 0;
@@ -87,6 +76,9 @@ int main(){
 
 	insert(&item4, 1, "porta");
 
-	printf("\nInserisci un comando:\n");
-	parsing(comandi,item1, item2, item3, item4, item5, attr6);
+	while(true)
+	{
+		printf("\nInserisci un comando:\n");
+		parsing(comandi,item1, item2, item3, item4, item5, attr6);
+	}
 }

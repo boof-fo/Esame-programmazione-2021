@@ -44,8 +44,11 @@ void setEnemiesConfiguration(room *room, int enemyConfig);
 //imposta il numero di porte (stanze collegate)
 void setRoomDoors(room *room, int doors);
 void removeRoomPotion(room *room);
+void removeRoomSword(room *room);
+void removeRoomChestplate(room *room);
 
 int getRoomPotions(room room);
+int getRoomSword(room room);
 int getEnemiesConfiguration(room room);
 
 

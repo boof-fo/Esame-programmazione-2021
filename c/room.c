@@ -36,12 +36,24 @@ void removeRoomPotion(room *room)
 {
 	room->potions -= 1;
 }
+void removeRoomSword(room *room)
+{
+	room->sword = 0;
+}
+void removeRoomChestplate(room *room)
+{
+	room->sword = false;
+}
 
 
 
 int getRoomPotions(room room)
 {
 	return room.potions;
+}
+int getRoomSword(room room)
+{
+	return room.sword;
 }
 int getEnemiesConfiguration(room room)
 {
@@ -138,7 +150,7 @@ void describeRoom(room room, int ID)
 		{
 			printf("1 spada\n");
 		}
-		if(chestplate != false)
+		if(chestplate == true)
 		{
 			//TODO: gestire in base a cosa vogliamo fare con l'armatura
 			printf("Un indovinello? bo non so");

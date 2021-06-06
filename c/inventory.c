@@ -50,9 +50,32 @@ void takePotion(inventory *inventory, room *room)
 	{
 		removeRoomPotion(room);
 		inventory->potions += 1;
+		printf("Pozione raccolta\n");
 	}
 	else
 		printf("Non ci sono pozioni. Buona fortuna :)\n");
+}
+void takeSword(inventory *inventory, room *room)
+{
+	if (getRoomSword(*room) != 0)
+	{
+		removeRoomSword(room);
+		inventory->potions += 1;
+		printf("Spada raccolta\n");
+	}
+	else
+		printf("Non ci sono spade nella stanza. ¯\_(ツ)_/¯\n");
+}
+void takeArmor(inventory *inventory, room *room)
+{
+	if (getRoomChestplate(*room) > 0)
+	{
+		removeRoomPotion(room);
+		inventory->potions += 1;
+		printf("Pozione raccolta\n");
+	}
+	else
+		printf("Non ci sono armature nella stanza. ¯\_(ツ)_/¯\n");
 }
 
 void removeInventoryPotion(inventory *inventory)
