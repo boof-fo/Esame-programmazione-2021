@@ -34,7 +34,7 @@ void setInventory(inventory *inventory, int potions, int swordType, int chestpla
 
 void spawnInventory(inventory *inventory);
 
-void addInventoryPotion(inventory *inventory, room *room);
+void takePotion(inventory *inventory, room *room);
 void removeInventoryPotion(inventory *inventory);
 
 void showInventory(inventory inventory);

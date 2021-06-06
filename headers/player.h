@@ -6,7 +6,7 @@
 #include "../headers/inventory.h"
 
 //struttura del giocatore
-typedef struct{
+typedef extern struct{
 	//punti vita
 	int HP;
 	//punti danno

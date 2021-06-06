@@ -112,7 +112,6 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
   char oggetto[20] = {0, };
   fflush(stdin);
   scanf("%s" "%s" ,comando, oggetto);
-  printf("%s\n",oggetto);
 
 
   if (search(&comandi,comando) == NULL)
@@ -125,8 +124,10 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
   {
     if(searchitem(&item1,oggetto))
     {
-      //raccogli(oggetto)
-      printf("raccogli");
+      if(check(oggetto, "pozione"))
+        {
+          takePotion(player->inventory, room);
+        }
     }
   }else 
 

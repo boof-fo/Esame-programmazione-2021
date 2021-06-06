@@ -5,6 +5,12 @@ typedef int bool;
 #define true 1
 #define false 0
 
+#include "../headers/world.h"
+#include "../headers/room.h"
+#include "../headers/inventory.h"
+#include "../headers/player.h"
+#include "../headers/enemy.h"
+
 typedef struct node
 {
 	char string[20];
