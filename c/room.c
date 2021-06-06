@@ -49,6 +49,7 @@ int getEnemiesConfiguration(room room)
 }
 
 
+
 //imposta i valori di una stanza
 void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemiesConfig, int doors)
 {
@@ -105,7 +106,7 @@ void describeRoom(room room, int ID)
 	if(potions == 0 && sword == 0 && chestplate == false && enemiesConfiguration == 0)
 	{
 		//TODO: descrizione stanza vuota
-		printf("stanza è vuota :( .... mi sento solo\n");
+		printf("\nl'ingresso della fortezza appare come una stanza vuota e silenziosa,l'unica fonte di luce è quella che penetra dalla porta principale, ma una volta chiusa l'unica fonte di luce saranno delle fiaccole sui muri che ardono di una fiamma blu apparentemente inestinguibile, non ci sono oggetti ne nemici, goditi questi ultimi atti di tranquillità perchè da qui in poi non sarà più così\n");
 		printf("ci sono %d porte\n", room.doors);
 	}
 	else

@@ -20,6 +20,8 @@ typedef struct{
 	bool chestplate;
 }inventory;
 
+extern struct inventory;
+
 void setInventoryPotions(inventory *inventory, int newValue);
 void setInventorySword(inventory *inventory, int type);
 void setInventoryChestplate(inventory *inventory);
