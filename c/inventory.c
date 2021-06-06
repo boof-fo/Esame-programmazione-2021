@@ -44,7 +44,7 @@ void spawnInventory(inventory *inventory)
 }
 
 
-void addInventoryPotion(inventory *inventory, room *room)
+void takePotion(inventory *inventory, room *room)
 {
 	if (getRoomPotions(*room) > 0)
 	{
