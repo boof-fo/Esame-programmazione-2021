@@ -1,5 +1,7 @@
 #include "../headers/comandi.h"
 #include "../headers/inventory.h"
+#include "../headers/enemy.h"
+#include "../headers/room.h"
 
 void inserstr(char stringa1[],char stringa2[])
 {
@@ -178,7 +180,7 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
   if(search(&comandi,comando)->key == 7)
   {
     //stampa l'inventario
-    void showInventory(inventory inventory);
+    void showInventory(struct inventory inventory);
   }else
   {
     printf("errore5");
