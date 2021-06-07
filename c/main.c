@@ -36,7 +36,8 @@ int main(){
 	
 	while (enter != '\r' && enter != '\n') { enter = getchar(); }
 
-	enterRoom(&gameMap, &gameMap.room[6], 6);
+
+	enterRoom(&gameMap, 3);
 	
 
 	showInventory(gamePlayer.inventory);
@@ -67,7 +68,6 @@ int main(){
 	insert(&enemies, 4, "timoniere");
 	insert(&enemies, 5, "maestro");
 	insert(&enemies, 6, "cannoniere");
-	insert(&enemies, 7, "medico");
 	insert(&enemies, 8, "artigliere");
 	insert(&enemies, 9, "comandante");
 

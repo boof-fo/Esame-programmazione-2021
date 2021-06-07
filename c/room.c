@@ -72,27 +72,23 @@ int checkEnemyPresent(room room, int targetEnemyID)
 {
 	if(getEnemiesConfiguration(room) != 0)
 	{
-		if(getEnemyID(room.enemy[1]) == targetEnemyID)
-		{
+		if(getEnemyID(room.enemy[0]) == targetEnemyID)
 			return 1;
-		}else
-		if(getEnemyID(room.enemy[2]) == targetEnemyID)
-		{
+		else
+		if(getEnemyID(room.enemy[1]) == targetEnemyID)
 			return 2;
-		}else
-		return 0;
-	}
+	}else
+	return 0;
 }
 
 
 //imposta i valori di una stanza
-void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemiesConfig, int doors)
+void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int doors)
 {
 	setRoomID(room, ID);
 	setRoomPotions(room, potions);
 	setRoomSword(room, sword);
 	setRoomChestplate(room, chestplate);
-	setEnemiesConfiguration(room, enemiesConfig);
 	setRoomDoors(room, doors);
 }
 
@@ -101,31 +97,31 @@ void spawnRoom(room* room, int roomNumber)
 	if (roomNumber == 0)
 	//populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber);
 		{
-			populateRoom(room, 0, 0, 0, false, 0, 2);
+			populateRoom(room, 0, 0, 0, false, 2);
 		}
 		if (roomNumber == 1)
 		{
-			populateRoom(room, 1, 1, 0, false, 1, 1);
+			populateRoom(room, 1, 1, 0, false, 1);
 		}
 		if (roomNumber == 2)
 		{
-			populateRoom(room, 2, 1, 0, false, 1, 1);
+			populateRoom(room, 2, 1, 0, false, 1);
 		}
 		if (roomNumber == 3)
 		{
-			populateRoom(room, 3, 1, 1, true, 2, 2);
+			populateRoom(room, 3, 1, 1, true, 2);
 		}
 		if (roomNumber == 4)
 		{
-			populateRoom(room, 4, 2, 2, false, 2, 1);
+			populateRoom(room, 4, 2, 2, false, 1);
 		}
 		if (roomNumber == 5)
 		{
-			populateRoom(room, 5, 2, 2, false, 2, 1);
+			populateRoom(room, 5, 2, 2, false, 1);
 		}
 		if (roomNumber == 6)
 		{
-			populateRoom(room, 6, 1, 1, false, 1, 0);
+			populateRoom(room, 6, 1, 1, false, 0);
 		}
 }
 

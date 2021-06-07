@@ -55,7 +55,7 @@ int getEnemiesConfiguration(room room);
 
 int checkEnemyPresent(room room, int targetEnemyID);
 //imposta i valori di una stanza
-void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber, int doors);
+void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int doors);
 
 void spawnRoom(room* room, int roomNumber);
 

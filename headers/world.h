@@ -19,7 +19,7 @@ int getCurrentRoom(map map);
 
 void printMap(map map);
 
-void enterRoom(map *map, room *room, int newRoom);
+void enterRoom(map *map, int newRoom);
 void killEnemy(map *map, int enemyID);
 
 void help();

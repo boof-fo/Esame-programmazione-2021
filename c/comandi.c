@@ -132,7 +132,69 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
       {
         attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
       }else
-      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 0) == 2)
+      {
+        printf("Nessun nemico con quel nome nella stanza1\n");
+      }
+    }else
+    if(search(&item2,oggetto)->key == 2)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 1) == 1)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza2\n");
+      }
+    }else 
+    if(search(&item2,oggetto)->key == 3)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 2) == 1)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 2) == 2)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza3\n");
+      }
+    }else
+    if(search(&item2,oggetto)->key == 4)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 3) == 1)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 3) == 0)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza4\n");
+      }
+    }else
+    if(search(&item2,oggetto)->key == 5)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 4) == 1)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 4) == 2)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza5\n");
+      }
+    }else
+    if(search(&item2,oggetto)->key == 6)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 5) == 1)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 5) == 2)
       {
         attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
       }else
@@ -140,37 +202,47 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
         printf("Nessun nemico con quel nome nella stanza\n");
       }
     }else
-    if(search(&item2,oggetto)->key == 2)
-    {
-      
-    }else 
-    if(search(&item2,oggetto)->key == 3)
-    {
-      
-    }else
-    if(search(&item2,oggetto)->key == 4)
-    {
-      
-    }else
-    if(search(&item2,oggetto)->key == 5)
-    {
-      
-    }else
-    if(search(&item2,oggetto)->key == 6)
-    {
-      
-    }else
     if(search(&item2,oggetto)->key == 7)
     {
-      
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 6) == 1)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 6) == 2)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza\n");
+      }
     }else
     if(search(&item2,oggetto)->key == 8)
     {
-      
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 7) == 1)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 7) == 2)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza\n");
+      }
     }else
     if(search(&item2,oggetto)->key == 9)
     {
-      
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 8) == 1)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 8) == 2)
+      {
+        attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza\n");
+      }
     }else
     {
       printf("oggetto errato\n");
