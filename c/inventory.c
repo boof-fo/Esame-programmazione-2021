@@ -51,29 +51,38 @@ void takePotion(inventory *inventory, room *room)
 		removeRoomPotion(room);
 		//TODO: funzione aggiungi pozione
 		setInventoryPotions(inventory, getInventoryPotions(*inventory) + 1);
-		printf("Pozione raccolta\n");
+		printf("\nHai raccolto una pozione curativa,Un intruglio a base di erbe medicinali sative, composto secondo un'antica ricetta degli alchimisti del tuo regno, ristabilisce i punti vitali anche se Il sapore non è il massimo.\n");
 	}
 	else
 		printf("Non ci sono pozioni. Buona fortuna :)\n");
 }
 void takeSword(inventory *inventory, room *room)
 {
-	if (getRoomSword(*room) != 0)
+	if (getRoomSword(*room) == 0)
+	{
+		printf("Non ci sono spade nella stanza. ¯\\_(ツ)_/¯\n");
+		
+	}
+	 else if (getRoomSword(*room) == 1)
+	 {
+		removeRoomSword(room);
+		inventory->sword = getRoomSword(*room);
+		printf("\nHai raccolto una spada ricurva molto veloce ed affilata, riesce a penetrare nella carne putrefatta dei tuoi nemici con molta facilità\n");
+	 }
+	 else if (getRoomSword(*room) == 2)
 	{
 		removeRoomSword(room);
 		inventory->sword = getRoomSword(*room);
-		printf("Spada raccolta\n");
-	}
-	else
-		printf("Non ci sono spade nella stanza. ¯\\_(ツ)_/¯\n");
+		printf("\nHai raccolto un alabarda, arma da distruzione di massa per eccellenza, non troverai equipaggiamento migliore di questo, perciò fattelo bastare\n");
+	}	
 }
 void takeChestplate(inventory *inventory, room *room)
 {
 	if (getRoomChestplate(*room) > 0)
 	{
 		removeRoomChestplate(room);
-		inventory->potions += 1;
-		printf("Pozione raccolta\n");
+		inventory->chesteplate += 1;
+		printf("\nHai raccolto una pesante armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
 	}
 	else
 		printf("Non ci sono armature nella stanza. ¯\\_(ツ)_/¯\n");
@@ -94,21 +103,21 @@ void showInventory(inventory inventory)
 	printf("Tipo di spada: ");
 	if(getInventorySword(inventory) == 0)
 	{
-		printf("Spada semplice\n");
+		printf("Spada semplice\nPunti danno attacco normale: 10\n");
 	}else if(getInventorySword(inventory) == 1)
 	{
-		printf("Spada ricurva\n");
+		printf("Spada ricurva\n Punti danno attacco normale: 20\n Punti danno attacco caricato: 45\n");
 	}else if(getInventorySword(inventory) == 2)
 	{
-		printf("Alabarda\n");
+		printf("Alabarda\n Punti danno attacco normale: 30\n Punti danno attacco caricato: 65\n");
 	}
 
-	printf("Chestplate: ");
+	printf("Armatura1: ");
 	if(getInventoryChestplate(inventory) == false)
 	{
 		printf("Non presente\n");
 	}else
 	{
-		printf("Presente\n");
+		printf("Presente, Protezione dal danno aumentata del 15%%\n");
 	}
 }

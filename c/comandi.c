@@ -88,7 +88,25 @@ node *search(list *list, char string[])
 }
 
 
-void parsing(list commands,list item1, list item2, list item3, list item4, list item5, list attr6)
+int searchitem(list *list, char string[])
+{
+    node *tmp;
+    tmp = list->header;
+    // scorro la lista cercando value
+    // ritorno l'indirizzo del primo nodo che contiene value
+    // altrimenti continuo a scorrere la lista
+    while (tmp != NULL)
+    {
+        if (check(tmp->string,string))
+            return true;
+        tmp = tmp->next;
+    }
+    // se non trovo nessun nodo contenente value, ritorno NULL
+    return false;
+}
+
+
+void parsing(list comandi,list item1, list item2, list item3, list item4, list item5, list attr6)
 {
   char comando[20] = {0, };
   char oggetto[20] = {0, };
@@ -96,34 +114,39 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
   scanf("%s" "%s" ,comando, oggetto);
 
 
-  if (search(&commands,comando) == NULL)
+  if (search(&comandi,comando) == NULL)
   {
     printf("Comando errato\n");
   }else 
 
 
-  if (search(&commands,comando)->key == 1)
+  if (search(&comandi,comando)->key == 1)
   {
-    if(search(&item1,oggetto)->key == 1)
+    if(searchitem(&item1,oggetto))
     {
-      takePotion(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
-    }else
-    if(search(&item1,oggetto)->key == 2)
-    {
-      takeSword(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
-    }else 
-    if(search(&item1,oggetto)->key == 3)
-    {
-      takeChestplate(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
-    }
-    else
-    {
-      printf("oggetto errato\n");
+      if(check(oggetto, "pozione"))
+        {
+          takePotion(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
+        }
+        else
+        if(check(oggetto, "spada"))
+        {
+          
+        }
+        else 
+        if(check(oggetto, "armatura"))
+        {
+          
+        }
+        else
+        {
+          printf("oggetto errato\n");
+        }
     }
   }else 
 
 
-  if (search(&commands,comando)->key == 2)
+  if (search(&comandi,comando)->key == 2)
   {
     if(search(&item2,oggetto)->key == 1)
     {
@@ -247,43 +270,43 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
     {
       printf("oggetto errato\n");
     }
-  }else
+  }else 
+  
 
-
-  if (search(&commands,comando)->key == 3)
+  if (search(&comandi,comando)->key == 3)
   {
-    if(search(&item3,oggetto))
+    if(searchitem(&item3,oggetto))
     {
       //usa(oggetto)
       printf("usa");
     }else{
       printf("errore3");
     }
-  }else
+  }else 
   
 
-  if (search(&commands,comando)->key == 4)
+  if (search(&comandi,comando)->key == 4)
   {
-    if(search(&item4,oggetto))
+    if(searchitem(&item4,oggetto))
     {
       //attraversa(oggetto)
-      printf("attraversa");
+     
     }else
       printf("errore4");
-  }else
+  }else 
   
   
-  if (search(&commands,comando)->key == 5)
-  {//puzzle
+  if (search(&comandi,comando)->key == 5)
+  {
     printf("aiuto");
       //aiuto
-  }else
+  }else 
 
 
-  if(search(&commands,comando)->key == 7)
+  if(search(&comandi,comando)->key == 7)
   {
     //stampa l'inventario
-    //attr6
+    
   }else
   {
     printf("errore5");

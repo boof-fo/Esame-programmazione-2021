@@ -26,7 +26,7 @@ int main(){
 			EXIT_SUCCESS;
 		}
 		if (exit != 1)
-		printf("\nrisposta non corretta, potresti ripetere rispondendo SI o NO?\n");
+		printf("\nrisposta non corretta, potresti ripetere rispondendo Si o No?\n");
 	}while(exit!=1);
 	
 	//imposta valori di default 
