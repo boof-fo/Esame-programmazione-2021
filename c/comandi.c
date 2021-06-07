@@ -144,95 +144,96 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
     if(searchitem(&item2,oggetto))
     {
       if(search(&item2,oggetto)->key == 1)
+      {
+        //ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra
+        if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 0) == 1)
         {
-          //ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra
-          if(checkEnemyPresent(gameMap.room(getCurrentRoom(gameMap)), 0) == 1)
-          {
-            attackEnemy(gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
-          }else
-          if(checkEnemyPresent(gameMap.room(getCurrentRoom(gameMap)), 0) == 2)
-          {
-            attackEnemy(gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
-          }else
-          {
-            printf("Nessun nemico con quel nome nella stanza\n");
-          }
+          attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
         }else
-        if(search(&item2,oggetto)->key == 2)
+        if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 0) == 2)
         {
-          
-        }else 
-        if(search(&item2,oggetto)->key == 3)
-        {
-          
-        }else
-        if(search(&item2,oggetto)->key == 4)
-        {
-          
-        }else
-        if(search(&item2,oggetto)->key == 5)
-        {
-          
-        }else
-        if(search(&item2,oggetto)->key == 6)
-        {
-          
-        }else
-        if(search(&item2,oggetto)->key == 7)
-        {
-          
-        }else
-        if(search(&item2,oggetto)->key == 8)
-        {
-          
-        }else
-        if(search(&item2,oggetto)->key == 9)
-        {
-          
+          attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
         }else
         {
-          printf("oggetto errato\n");
+          printf("Nessun nemico con quel nome nella stanza\n");
         }
-  }else 
-  
-
-  if (search(&commands,comando)->key == 3)
-  {
-    if(searchitem(&item3,oggetto))
+      }else
+      if(search(&item2,oggetto)->key == 2)
+      {
+        
+      }else 
+      if(search(&item2,oggetto)->key == 3)
+      {
+        
+      }else
+      if(search(&item2,oggetto)->key == 4)
+      {
+        
+      }else
+      if(search(&item2,oggetto)->key == 5)
+      {
+        
+      }else
+      if(search(&item2,oggetto)->key == 6)
+      {
+        
+      }else
+      if(search(&item2,oggetto)->key == 7)
+      {
+        
+      }else
+      if(search(&item2,oggetto)->key == 8)
+      {
+        
+      }else
+      if(search(&item2,oggetto)->key == 9)
+      {
+        
+      }else
+      {
+        printf("oggetto errato\n");
+      }
+    }else 
+    if (search(&commands,comando)->key == 3)
     {
-      //usa(oggetto)
-      printf("usa");
-    }else{
-      printf("errore3");
-    }
-  }else 
-  
+      if(searchitem(&item3,oggetto))
+      {
+        //usa(oggetto)
+        printf("usa");
+      }else{
+        printf("errore3");
+      }
+    }else 
+    
 
-  if (search(&commands,comando)->key == 4)
-  {
-    if(searchitem(&item4,oggetto))
+    if (search(&commands,comando)->key == 4)
     {
-      //attraversa(oggetto)
-      printf("attraversa");
+      if(searchitem(&item4,oggetto))
+      {
+        //attraversa(oggetto)
+        printf("attraversa");
+      }else
+        printf("errore4");
+    }else 
+    
+    
+    if (search(&commands,comando)->key == 5)
+    {//puzzle
+      printf("aiuto");
+        //aiuto
+    }else 
+
+
+    if(search(&commands,comando)->key == 7)
+    {
+      //stampa l'inventario
+      //attr6
     }else
-      printf("errore4");
-  }else 
+    {
+      printf("errore5");
+    }
   
-  
-  if (search(&commands,comando)->key == 5)
-  {//puzzle
-    printf("aiuto");
-      //aiuto
-  }else 
 
-
-  if(search(&commands,comando)->key == 7)
-  {
-    //stampa l'inventario
-    //attr6
-  }else
-  {
-    printf("errore5");
   }
 }
 
