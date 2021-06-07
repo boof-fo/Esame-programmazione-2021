@@ -131,12 +131,12 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
         else
         if(check(oggetto, "spada"))
         {
-          
+          takeSword(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
         }
         else 
         if(check(oggetto, "armatura"))
         {
-          
+          takeChestplate(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
         }
         else
         {

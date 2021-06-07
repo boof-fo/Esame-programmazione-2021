@@ -49,6 +49,7 @@ void removeRoomChestplate(room *room);
 
 int getRoomPotions(room room);
 int getRoomSword(room room);
+int getRoomChestplate(room room);
 int getEnemiesConfiguration(room room);
 
 

@@ -55,6 +55,10 @@ int getRoomSword(room room)
 {
 	return room.sword;
 }
+int getRoomChestplate(room room)
+{
+	return room.chestplate;
+}
 int getEnemiesConfiguration(room room)
 {
 	return room.enemiesConfiguration;
@@ -152,7 +156,7 @@ void describeRoom(room room, int ID)
 		}
 		if(chestplate == true)
 		{
-			printf("\nLa statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio.'\n")
+			printf("\nLa statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio.'\n");
 			//risposta:L'ancora
 		}
 	}
