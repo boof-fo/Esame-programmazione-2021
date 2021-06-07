@@ -180,7 +180,7 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
 
   if (search(&commands,comando)->key == 3)
   {
-    if(searchitem(&item3,oggetto))
+    if(search(&item3,oggetto))
     {
       //usa(oggetto)
       printf("usa");
@@ -192,7 +192,7 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
 
   if (search(&commands,comando)->key == 4)
   {
-    if(searchitem(&item4,oggetto))
+    if(search(&item4,oggetto))
     {
       //attraversa(oggetto)
       printf("attraversa");
