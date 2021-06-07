@@ -25,7 +25,7 @@ void setSword(player *player, int swordType);
 void setChestplate(player *player);
 
 int getPlayerHP(player player);
-
+int getPlayerDamage(player player);
 //imposta i valori predefiniti
 void spawnPlayer(player *player);
 

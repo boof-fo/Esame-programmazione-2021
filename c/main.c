@@ -43,42 +43,42 @@ int main(){
 
 
 
-	list comandi, item1,item2,item3,item4,item5,attr6;
-	comandi.count = 0;
-	item1.count = 0;
-	item2.count = 0;
-	item3.count = 0;
-	item4.count = 0;
-	item5.count = 0;
+	list commands, roomItems, enemies, inventoryItems, doors, puzzle, attr6;
+	commands.count = 0;
+	roomItems.count = 0;
+	enemies.count = 0;
+	inventoryItems.count = 0;
+	doors.count = 0;
+	puzzle.count = 0;
 
-	insert(&comandi, 1, "raccogli");
-	insert(&comandi, 2, "attacca");
-	insert(&comandi, 3, "usa");
-	insert(&comandi, 5, "aiuto");
-	insert(&comandi, 6, "inventario");
+	insert(&commands, 1, "raccogli");
+	insert(&commands, 2, "attacca");
+	insert(&commands, 3, "usa");
+	insert(&commands, 5, "aiuto");
+	insert(&commands, 6, "inventario");
 
-	insert(&item1, 1, "pozione");
-	insert(&item1, 2, "spada");
-	insert(&item1, 3, "armatura");
+	insert(&roomItems, 1, "pozione");
+	insert(&roomItems, 2, "spada");
+	insert(&roomItems, 3, "armatura");
 
-	insert(&item2, 1, "cuoco");
-	insert(&item2, 2, "mozzo");
-	insert(&item2, 3, "navigatore");
-	insert(&item2, 4, "timoniere");
-	insert(&item2, 5, "maestro");
-	insert(&item2, 6, "cannoniere");
-	insert(&item2, 7, "medico");
-	insert(&item2, 8, "artigliere");
-	insert(&item2, 9, "comandante");
+	insert(&enemies, 1, "cuoco");
+	insert(&enemies, 2, "mozzo");
+	insert(&enemies, 3, "navigatore");
+	insert(&enemies, 4, "timoniere");
+	insert(&enemies, 5, "maestro");
+	insert(&enemies, 6, "cannoniere");
+	insert(&enemies, 7, "medico");
+	insert(&enemies, 8, "artigliere");
+	insert(&enemies, 9, "comandante");
 
-	insert(&item3, 1, "pozione");
-	insert(&item3, 2, "mappa");
+	insert(&inventoryItems, 1, "pozione");
+	insert(&inventoryItems, 2, "mappa");
 
-	insert(&item4, 1, "porta");
+	insert(&doors, 1, "porta");
 
 	while(true)
 	{
 		printf("\nInserisci un comando:\n");
-		parsing(comandi,item1, item2, item3, item4, item5, attr6);
+		parsing(commands, roomItems, enemies, inventoryItems, doors, puzzle, attr6);
 	}
 }

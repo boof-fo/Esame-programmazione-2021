@@ -26,7 +26,7 @@ int getEnemyID(enemy enemy)
 }
 
 
-int enemyReceiveDamage(enemy *enemy, int damage)
+int attackEnemy(enemy *enemy, int damage)
 {
 	enemy->HP -= damage;
 	//rilevazione morte

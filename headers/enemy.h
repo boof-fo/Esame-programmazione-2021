@@ -24,7 +24,7 @@ void setEnemyID(enemy *enemy, int ID);
 
 int getEnemyID(enemy enemy);
 
-int enemyReceiveDamage(enemy *enemy, int damage);
+int attackEnemy(enemy *enemy, int damage);
 
 //viene invocata da spawnEnemy
 void describeEnemy(int ID);

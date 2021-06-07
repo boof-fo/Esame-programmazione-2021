@@ -9,12 +9,6 @@ void setPlayerDamage(player *player, int damage)
 {
 	player->damage = damage;
 }
-
-int getPlayerHP(player player)
-{
-	return player.HP;
-}
-
 void setPlayerProtection(player *player, int protectionPoints)
 {
 	player->protection = protectionPoints;
@@ -37,6 +31,16 @@ void setChestplate(player *player)
 	//TODO: mettere i valori definitivi
 	setPlayerProtection(player, 30);
 	setInventoryChestplate(&player->inventory);
+}
+
+
+int getPlayerHP(player player)
+{
+	return player.HP;
+}
+int getPlayerDamage(player player)
+{
+	return player.damage;
 }
 
 
