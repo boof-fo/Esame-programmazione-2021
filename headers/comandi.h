@@ -42,4 +42,4 @@ node *search(list *list, char string[]);
 
 int searchitem(list *list, char string[]);
 
-void parsing(list comandi,list item1, list item2, list item3, list item4, list item5, list attr6);
+void parsing(list commands,list item1, list item2, list item3, list item4, list item5, list attr6);

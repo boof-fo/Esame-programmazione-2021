@@ -106,7 +106,7 @@ int searchitem(list *list, char string[])
 }
 
 
-void parsing(list comandi,list item1, list item2, list item3, list item4, list item5, list attr6)
+void parsing(list commands,list item1, list item2, list item3, list item4, list item5, list attr6)
 {
   char comando[20] = {0, };
   char oggetto[20] = {0, };
@@ -114,51 +114,89 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
   scanf("%s" "%s" ,comando, oggetto);
 
 
-  if (search(&comandi,comando) == NULL)
+  if (search(&commands,comando) == NULL)
   {
     printf("Comando errato\n");
   }else 
-
-
-  if (search(&comandi,comando)->key == 1)
+  if (search(&commands,comando)->key == 1)
   {
-    if(searchitem(&item1,oggetto))
+    if(search(&item1,oggetto)->key == 1)
     {
-      if(check(oggetto, "pozione"))
-        {
-          takePotion(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
-        }
-        else
-        if(check(oggetto, "spada"))
-        {
-          takeSword(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
-        }
-        else 
-        if(check(oggetto, "armatura"))
-        {
-          takeChestplate(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
-        }
-        else
-        {
-          printf("oggetto errato\n");
-        }
+      takePotion(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
+    }else
+    if(search(&item1,oggetto)->key == 2)
+    {
+      takeSword(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
+    }else 
+    if(search(&item1,oggetto)->key == 3)
+    {
+      takeChestplate(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
+    }
+    else
+    {
+      printf("oggetto errato\n");
     }
   }else 
 
 
-  if (search(&comandi,comando)->key == 2)
+  if (search(&commands,comando)->key == 2)
   {
     if(searchitem(&item2,oggetto))
     {
-      //attacca(oggetto)
-      printf("attacca");
-    }else{
-      printf("errore2");
-    }
+      if(search(&item2,oggetto)->key == 1)
+        {
+          //ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra
+          if(checkEnemyPresent(gameMap.room(getCurrentRoom(gameMap)), 0) == 1)
+          {
+            attackEnemy(gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+          }else
+          if(checkEnemyPresent(gameMap.room(getCurrentRoom(gameMap)), 0) == 2)
+          {
+            attackEnemy(gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
+          }else
+          {
+            printf("Nessun nemico con quel nome nella stanza\n");
+          }
+        }else
+        if(search(&item2,oggetto)->key == 2)
+        {
+          
+        }else 
+        if(search(&item2,oggetto)->key == 3)
+        {
+          
+        }else
+        if(search(&item2,oggetto)->key == 4)
+        {
+          
+        }else
+        if(search(&item2,oggetto)->key == 5)
+        {
+          
+        }else
+        if(search(&item2,oggetto)->key == 6)
+        {
+          
+        }else
+        if(search(&item2,oggetto)->key == 7)
+        {
+          
+        }else
+        if(search(&item2,oggetto)->key == 8)
+        {
+          
+        }else
+        if(search(&item2,oggetto)->key == 9)
+        {
+          
+        }else
+        {
+          printf("oggetto errato\n");
+        }
   }else 
   
 
-  if (search(&comandi,comando)->key == 3)
+  if (search(&commands,comando)->key == 3)
   {
     if(searchitem(&item3,oggetto))
     {
@@ -170,7 +208,7 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
   }else 
   
 
-  if (search(&comandi,comando)->key == 4)
+  if (search(&commands,comando)->key == 4)
   {
     if(searchitem(&item4,oggetto))
     {
@@ -181,17 +219,17 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
   }else 
   
   
-  if (search(&comandi,comando)->key == 5)
-  {
+  if (search(&commands,comando)->key == 5)
+  {//puzzle
     printf("aiuto");
       //aiuto
   }else 
 
 
-  if(search(&comandi,comando)->key == 7)
+  if(search(&commands,comando)->key == 7)
   {
     //stampa l'inventario
-    
+    //attr6
   }else
   {
     printf("errore5");

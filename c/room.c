@@ -46,7 +46,10 @@ void removeRoomChestplate(room *room)
 }
 
 
-
+int getRoomID(room room)
+{
+	return room.ID;
+}
 int getRoomPotions(room room)
 {
 	return room.potions;
@@ -64,6 +67,22 @@ int getEnemiesConfiguration(room room)
 	return room.enemiesConfiguration;
 }
 
+
+int checkEnemyPresent(room room, int targetEnemyID)
+{
+	if(getEnemiesConfiguration(room) != 0)
+	{
+		if(getEnemyID(room.enemy[1]) == targetEnemyID)
+		{
+			return 1;
+		}else
+		if(getEnemyID(room.enemy[2]) == targetEnemyID)
+		{
+			return 2;
+		}else
+		return 0;
+	}
+}
 
 
 //imposta i valori di una stanza
@@ -85,7 +104,7 @@ void spawnRoom(room* room, int roomNumber)
 			populateRoom(room, 0, 0, 0, false, 0, 2);
 		}
 		if (roomNumber == 1)
-		{					 //ID
+		{
 			populateRoom(room, 1, 1, 0, false, 1, 1);
 		}
 		if (roomNumber == 2)
