@@ -57,7 +57,6 @@ int main(){
 	insert(&commands, 3, "usa");
 	insert(&commands, 5, "aiuto");
 	insert(&commands, 6, "inventario");
-	insert(&commands, 7, "attraversa");
 
 	insert(&roomItems, 1, "pozione");
 	insert(&roomItems, 2, "spada");

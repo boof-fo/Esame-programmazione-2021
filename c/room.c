@@ -66,6 +66,10 @@ int getEnemiesConfiguration(room room)
 {
 	return room.enemiesConfiguration;
 }
+int getRoomDoors(room room)
+{
+	return room.doors;
+}
 
 
 int checkEnemyPresent(room room, int targetEnemyID)

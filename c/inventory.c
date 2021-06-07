@@ -30,7 +30,6 @@ bool getInventoryChestplate(inventory inventory)
 }
 
 
-
 void setInventory(inventory *inventory, int potions, int swordType, int chestplate)
 {
 	inventory->potions = potions;
@@ -112,7 +111,7 @@ void showInventory(inventory inventory)
 		printf("Alabarda\n Punti danno attacco normale: 30\n Punti danno attacco caricato: 65\n");
 	}
 
-	printf("Armatura1: ");
+	printf("Armatura: ");
 	if(getInventoryChestplate(inventory) == false)
 	{
 		printf("Non presente\n");

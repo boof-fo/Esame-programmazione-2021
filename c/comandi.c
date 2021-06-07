@@ -27,15 +27,15 @@ int check(char stringa1[],char stringa2[])
     	while(i < lun2)
       {
 		  	if (stringa1[i] == stringa2[i])
-				{
 					i++;
-				}else return false;
+        else 
+          return false;
       }
     }
     if(i == lun2)
-    {
-    	return true;
-    }else return false;
+      return true;
+    else 
+      return false;
 }
 
 
@@ -134,7 +134,7 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
         attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
       }else
       {
-        printf("Nessun nemico con quel nome nella stanza1\n");
+        printf("Nessun nemico con quel nome nella stanza\n");
       }
     }else
     if(search(&item2,oggetto)->key == 2)
@@ -144,7 +144,7 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
         attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
       }else
       {
-        printf("Nessun nemico con quel nome nella stanza2\n");
+        printf("Nessun nemico con quel nome nella stanza\n");
       }
     }else 
     if(search(&item2,oggetto)->key == 3)
@@ -158,7 +158,7 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
         attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
       }else
       {
-        printf("Nessun nemico con quel nome nella stanza3\n");
+        printf("Nessun nemico con quel nome nella stanza\n");
       }
     }else
     if(search(&item2,oggetto)->key == 4)
@@ -172,7 +172,7 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
         attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
       }else
       {
-        printf("Nessun nemico con quel nome nella stanza4\n");
+        printf("Nessun nemico con quel nome nella stanza\n");
       }
     }else
     if(search(&item2,oggetto)->key == 5)
@@ -268,10 +268,13 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
 
   if (search(&commands,comando)->key == 4)
   {
-    if(search(&item4,oggetto))
+    if(search(&item3,oggetto)->key == 1)
     {
-      //attraversa(oggetto)
-     
+      if(getRoomDoors(gameMap.room[getCurrentRoom(gameMap)]) == 1)
+        printf("1 porta");
+      else
+      if(getRoomDoors(gameMap.room[getCurrentRoom(gameMap)]) == 2)
+        printf("2 porte");
     }else
       printf("errore4");
   }else 
@@ -280,7 +283,6 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
   if (search(&commands,comando)->key == 5)
   {
     printf("aiuto");
-      
   }else 
 
 

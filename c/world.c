@@ -24,7 +24,7 @@ void enterRoom(map *map, int newID)
 	setCurrentRoom(map, newID);
 	spawnRoom(&map->room[newID], newID);
 	printMap(*map);
-	describeRoom(*map->room, newID);
+	describeRoom(map->room[newID], newID);
 	//imposta i valori dei nemici e stampa descrizione
 	if (newID == 0)
 	{
