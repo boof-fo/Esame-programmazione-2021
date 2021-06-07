@@ -8,7 +8,6 @@
 
 typedef struct
 {
-	//TODO: inizializzare stanza ogni enterRoom
 	room room[8];
 	//stanza in cui si trova il personaggio
 	int currentRoom;

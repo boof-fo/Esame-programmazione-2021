@@ -104,26 +104,22 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
 
   if (search(&commands,comando)->key == 1)
   {
-    if(search(&item1,oggetto))
+    if(search(&item1,oggetto)->key == 1)
     {
-      if(check(oggetto, "pozione"))
-        {
-          takePotion(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
-        }
-        else
-        if(check(oggetto, "spada"))
-        {
-          
-        }
-        else 
-        if(check(oggetto, "armatura"))
-        {
-          
-        }
-        else
-        {
-          printf("oggetto errato\n");
-        }
+      takePotion(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
+    }else
+    if(search(&item1,oggetto)->key == 2)
+    {
+      takeSword(&gamePlayer.inventory, &gameMap.room[getCurrentRoom(gameMap)]);
+    }
+    else 
+    if(search(&item1,oggetto)->key == 3)
+    {
+      takeChestplate(&gamePlayer.inventory, &gameMap.room[getCurrentRoom(gameMap)]);
+    }
+    else
+    {
+      printf("oggetto errato\n");
     }
   }else 
 
@@ -257,11 +253,11 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
 
   if (search(&commands,comando)->key == 3)
   {
-    if(search(&item2,oggetto)->key == 1)
+    if(search(&item3,oggetto)->key == 1)
     {
       usePotion(&gamePlayer);
     }else
-    if(search(&item2,oggetto)->key == 1)
+    if(search(&item3,oggetto)->key == 2)
     {
       printMap(gameMap);
     }else{
@@ -284,14 +280,13 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
   if (search(&commands,comando)->key == 5)
   {
     printf("aiuto");
-      //aiuto
+      
   }else 
 
 
-  if(search(&commands,comando)->key == 7)
+  if(search(&commands,comando)->key == 6)
   {
-    //stampa l'inventario
-    
+    showInventory(gamePlayer.inventory);
   }else
   {
     printf("errore5");
