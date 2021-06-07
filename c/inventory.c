@@ -81,7 +81,7 @@ void takeChestplate(inventory *inventory, room *room)
 	if (getRoomChestplate(*room) > 0)
 	{
 		removeRoomChestplate(room);
-		inventory->chesteplate += 1;
+		inventory->chestplate += 1;
 		printf("\nHai raccolto una pesante armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
 	}
 	else

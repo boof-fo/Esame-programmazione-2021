@@ -88,25 +88,7 @@ node *search(list *list, char string[])
 }
 
 
-int searchitem(list *list, char string[])
-{
-    node *tmp;
-    tmp = list->header;
-    // scorro la lista cercando value
-    // ritorno l'indirizzo del primo nodo che contiene value
-    // altrimenti continuo a scorrere la lista
-    while (tmp != NULL)
-    {
-        if (check(tmp->string,string))
-            return true;
-        tmp = tmp->next;
-    }
-    // se non trovo nessun nodo contenente value, ritorno NULL
-    return false;
-}
-
-
-void parsing(list comandi,list item1, list item2, list item3, list item4, list item5, list attr6)
+void parsing(list commands,list item1, list item2, list item3, list item4, list item5, list attr6)
 {
   char comando[20] = {0, };
   char oggetto[20] = {0, };
@@ -114,15 +96,15 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
   scanf("%s" "%s" ,comando, oggetto);
 
 
-  if (search(&comandi,comando) == NULL)
+  if (search(&commands,comando) == NULL)
   {
     printf("Comando errato\n");
   }else 
 
 
-  if (search(&comandi,comando)->key == 1)
+  if (search(&commands,comando)->key == 1)
   {
-    if(searchitem(&item1,oggetto))
+    if(search(&item1,oggetto))
     {
       if(check(oggetto, "pozione"))
         {
@@ -146,7 +128,7 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
   }else 
 
 
-  if (search(&comandi,comando)->key == 2)
+  if (search(&commands,comando)->key == 2)
   {
     if(search(&item2,oggetto)->key == 1)
     {
@@ -273,21 +255,24 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
   }else 
   
 
-  if (search(&comandi,comando)->key == 3)
+  if (search(&commands,comando)->key == 3)
   {
-    if(searchitem(&item3,oggetto))
+    if(search(&item2,oggetto)->key == 1)
     {
-      //usa(oggetto)
-      printf("usa");
+      usePotion(&gamePlayer);
+    }else
+    if(search(&item2,oggetto)->key == 1)
+    {
+      printMap(gameMap);
     }else{
       printf("errore3");
     }
   }else 
   
 
-  if (search(&comandi,comando)->key == 4)
+  if (search(&commands,comando)->key == 4)
   {
-    if(searchitem(&item4,oggetto))
+    if(search(&item4,oggetto))
     {
       //attraversa(oggetto)
      
@@ -296,14 +281,14 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
   }else 
   
   
-  if (search(&comandi,comando)->key == 5)
+  if (search(&commands,comando)->key == 5)
   {
     printf("aiuto");
       //aiuto
   }else 
 
 
-  if(search(&comandi,comando)->key == 7)
+  if(search(&commands,comando)->key == 7)
   {
     //stampa l'inventario
     
