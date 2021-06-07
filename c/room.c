@@ -135,6 +135,10 @@ void describeRoom(room room, int ID)
 			printf("\nLa sala da pranzo appare come una stanza buia con un lungo tavolo da pranzo di legno, le sedie ormai rotte e sparse per la stanza sono inutilizzabili e insieme a pezzi di bottiglie di vetro e di piatti rotti ricoprono interamente il pavimento, all'improvviso senti dei passi rumorosi che frantumano i detriti avanzare verso di te, si tratta del Mozzo! presto affrontalo.\n");
 		if (ID == 3)
 			printf("\nIl salone è la stanza più grande della fortezza e anche la più misteriosa, qui è dove si svolgevano le attività quotidiane della ciurma e dove trascorrevano la maggior parte del tempo, ci sono delle panche ormai distrutte con delle librerie vuote ed impolverate, ci sono delle piccole finestelle da cui la luce penetra lievemente creando un sottile fascio di luce che colpisce la statua di un gargoyle, sembrerebbe coprire l'entrata di un passaggio segreto, cosa si celerà dall'altra parte? in una delle librerie è presente una spada ricurva e una pozione, ma prima di poterle raccogliere dovrai affrontare il Navigatore e Il timoniere.\n");
+		
+			//("\nLa statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio.'\n");
+			//risposta:L'ancora
+		
 		if (ID == 4)
 			printf("\n\n");
 		if (ID == 5)
@@ -154,11 +158,7 @@ void describeRoom(room room, int ID)
 		{
 			printf("1 spada\n");
 		}
-		if(chestplate == true)
-		{
-			printf("\nLa statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio.'\n");
-			//risposta:L'ancora
-		}
+		
 	}
 
 
