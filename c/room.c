@@ -71,19 +71,41 @@ int getRoomDoors(room room)
 	return room.doors;
 }
 
-
+//ritorna 0 se il nemico non esiste, 1 se il nemico è a sinistra, 2 se il nemico è a destra, 3 se il nemico è presente ma è morto
 int checkEnemyPresent(room room, int targetEnemyID)
 {
-	if(getEnemiesConfiguration(room) != 0)
+	if(getEnemyID(room.enemy[0]) == targetEnemyID)
 	{
-		if(getEnemyID(room.enemy[0]) == targetEnemyID)
+		if(getEnemyHP(room.enemy[0]) != 0)
+		{
+			printf("%d",1);
 			return 1;
+		}
 		else
-		if(getEnemyID(room.enemy[1]) == targetEnemyID)
+		{
+			printf("%d",3);
+			return 3;
+		}
+	}
+	else
+	if(getEnemyID(room.enemy[1]) == targetEnemyID)
+	{
+		if(getEnemyHP(room.enemy[1]) != 0)
+		{
+			printf("%d",2);
 			return 2;
-		else return 0;
-	}else
-	return 0;
+		}
+		else
+		{
+			printf("%d",3);
+			return 3;
+		}
+	}
+	else 
+	{
+		printf("%d",0);
+		return 0;
+	}
 }
 
 

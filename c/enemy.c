@@ -40,8 +40,8 @@ int attackEnemy(player *player, enemy *enemy, int damage)
 	if(enemy->HP == 0)
 	{
 		printf("Il nemico è già morto\n");
-		return 0;
-	}
+		return(10);
+	}else
 	if(enemy->HP - damage > 0)
 	{
 		setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
