@@ -1,5 +1,4 @@
 #include "../headers/comandi.h"
-#include "../headers/main.h"
 
 void inserstr(char stringa1[],char stringa2[])
 {
@@ -280,3 +279,30 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
 }
 
 
+void attraversa()
+{
+  int currentRoom = getCurrentRoom(gameMap);
+  char risposta[20];
+  if(currentRoom == 0 || currentRoom == 3 )
+  {
+    printf("ci sono due porte");
+    scanf("%s",risposta);
+    if (check(risposta,"destra"))
+    {
+      currentRoom += 1
+    }else 
+    if(check(risposta"sinistra"))
+    {
+      currentRoom += 2;
+    }
+  }else 
+  if ( currentRoom == 1 || currentRoom == 4)
+  {
+    currentRoom += 2;
+  }else 
+  if (currentRoom == 2 || currentRoomn == 5)
+  {
+      currentRoom += 1;
+  }
+  enterRoom(gameMap, currentRoom);
+}

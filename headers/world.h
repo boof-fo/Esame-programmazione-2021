@@ -11,8 +11,14 @@ typedef struct
 	room room[8];
 	//stanza in cui si trova il personaggio
 	int currentRoom;
-	
+
 }map;
+
+//genera la mappa di gioco
+map gameMap;
+
+//genera giocatore
+player gamePlayer;
 
 void setCurrentRoom(map *map, int newRoom);
 int getCurrentRoom(map map);
