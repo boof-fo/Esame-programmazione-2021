@@ -52,7 +52,7 @@ void spawnPlayer(player *player){
 	spawnInventory(&player->inventory);
 }
 
-void playerReceiveDamage(player *player, int damage)
+void attackPlayer(player *player, int damage)
 {
 	setPlayerHP(player, getPlayerHP(*player) - damage);
 	//rilevazione morte
@@ -61,6 +61,7 @@ void playerReceiveDamage(player *player, int damage)
 		printf("\nAspetta... Ma che succede? ti sei accasciato a terra e sei privo di forze. La tua avventura finisce qui sei morto.\n");
 		exit(0);
 	}
+	
 }
 
 void usePotion(player *player)

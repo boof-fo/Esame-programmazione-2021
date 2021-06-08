@@ -2,9 +2,9 @@
 #define PLAYER_H
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "../headers/inventory.h"
-#include "../headers/enemy.h"
 
 //struttura del giocatore
 typedef struct{
@@ -27,10 +27,12 @@ void setChestplate(player *player);
 
 int getPlayerHP(player player);
 int getPlayerDamage(player player);
+
 //imposta i valori predefiniti
+
 void spawnPlayer(player *player);
 
-void playerReceiveDamage(player *player, int damage);
+void attackPlayer(player *player, int damage);
 
 void usePotion(player *player);
 

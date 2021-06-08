@@ -34,8 +34,9 @@ int getEnemyDamage(enemy enemy)
 }
 
 
-int attackEnemy(enemy *enemy, int damage)
+int attackEnemy(player *player, enemy *enemy, int damage)
 {
+	bool attaccato = false;
 	if(enemy->HP == 0)
 	{
 		printf("Il nemico è già morto\n");
@@ -44,12 +45,17 @@ int attackEnemy(enemy *enemy, int damage)
 	if(enemy->HP - damage > 0)
 	{
 		setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
-		printf("Nemico attaccato! nuovi HP:%d\n",enemy->HP);
+		attaccato = true;
 	}else
 	if(enemy->HP - damage <= 0)
 	{
 		setEnemyHP(enemy, 0);
+		attaccato = true;
+	}
+	if(attaccato)
+	{
 		printf("Nemico attaccato! nuovi HP:%d\n",enemy->HP);
+		attackPlayer(player, enemy->damage);
 	}
 	//rilevazione morte
 	if (enemy->HP <= 0)
@@ -77,7 +83,7 @@ void describeEnemy(int ID)
 	if (ID == 6)
 		printf("\nIl medico di bordo è un uomo saggio, e sarà anche anziano,ma non farlo arrabbiare perché il suo bisturi è tagliente e lui sa dove tagliere.\n");
 	if (ID == 7)
-		printf("\n\n");
+		printf("\nartigliere\n");
 	if (ID == 8)
 		printf("\n“Dov’è la mia nave pirata?” è una domanda che il comandante si chiede spesso, ma in realtà non fa niente: i fantasmi non possono avere la patente nautica.\n");
 }

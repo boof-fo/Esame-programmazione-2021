@@ -54,7 +54,6 @@ int getRoomChestplate(room room);
 int getEnemiesConfiguration(room room);
 int getRoomDoors(room room);
 
-
 int checkEnemyPresent(room room, int targetEnemyID);
 
 //imposta i valori di una stanza
@@ -65,5 +64,8 @@ void spawnRoom(room* room, int roomNumber);
 //stampa una descrizione della stanza
 void describeRoom(room room, int ID);
 
+void takePotion(inventory *inventory, room *room);
+void takeSword(inventory *inventory, room *room);
+void takeChestplate(inventory *inventory, room *room);
 
 #endif
