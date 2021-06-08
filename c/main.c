@@ -36,19 +36,20 @@ int main(){
 	
 	while (enter != '\r' && enter != '\n') { enter = getchar(); }
 
-
-	enterRoom(&gameMap, 3);
+	enterRoom(&gameMap, &gameMap.room[6], 6);
 	
 
 	showInventory(gamePlayer.inventory);
 
 
 
-	list commands, roomItems, enemies, inventoryItems, attr6;
+	list commands, roomItems, enemies, inventoryItems, doors, puzzle, attr6;
 	commands.count = 0;
 	roomItems.count = 0;
 	enemies.count = 0;
 	inventoryItems.count = 0;
+	doors.count = 0;
+	puzzle.count = 0;
 
 	insert(&commands, 1, "raccogli");
 	insert(&commands, 2, "attacca");
@@ -66,16 +67,18 @@ int main(){
 	insert(&enemies, 4, "timoniere");
 	insert(&enemies, 5, "maestro");
 	insert(&enemies, 6, "cannoniere");
+	insert(&enemies, 7, "medico");
 	insert(&enemies, 8, "artigliere");
 	insert(&enemies, 9, "comandante");
 
 	insert(&inventoryItems, 1, "pozione");
 	insert(&inventoryItems, 2, "mappa");
 
+	insert(&doors, 1, "porta");
+
 	while(true)
 	{
 		printf("\nInserisci un comando:\n");
-		printf("%d\n", gameMap.room[gameMap.currentRoom].enemiesConfiguration);
-		parsing(commands, roomItems, enemies, inventoryItems, attr6);
+		parsing(commands, roomItems, enemies, inventoryItems, doors, puzzle, attr6);
 	}
 }
