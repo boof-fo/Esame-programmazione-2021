@@ -88,7 +88,6 @@ void describeEnemy(int ID)
 		printf("\nSi sono narrate tante leggende sul capitano Barbadura, il più temibile dei pirati, o almeno quando era in vita, di lui non è rimasto molto ma ciò non gli impedirà di impedirti di impossessarti del suo tesoro.\n“Dov’è la mia nave pirata?” è una domanda che il comandante si chiede spesso, ma in realtà non fa niente: i fantasmi non possono avere la patente nautica.\n");
 }
 
-
 void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID)
 {
 	setEnemyID(enemy, ID);

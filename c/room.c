@@ -164,7 +164,7 @@ void describeRoom(room room, int ID)
 		printf("\n\n");
 	if (ID == 8)
 		printf("\n\n");
-	printf("\nNella stanza: \n");
+		printf("\nNella stanza: \n");
 	if(potions != 0)
 	{
 		if(potions == 1)
