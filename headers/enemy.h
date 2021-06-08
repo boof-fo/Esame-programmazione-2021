@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "../headers/player.h"
+
 //struttura di un nemico
 typedef struct{
 	//tipo di nemico
@@ -26,7 +28,7 @@ int getEnemyID(enemy enemy);
 int getEnemyHP(enemy enemy);
 int getEnemyDamage(enemy enemy);
 
-int attackEnemy(enemy *enemy, int damage);
+int attackEnemy(player *player, enemy *enemy, int damage);
 
 //viene invocata da spawnEnemy
 void describeEnemy(int ID);

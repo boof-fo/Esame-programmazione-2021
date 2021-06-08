@@ -3,7 +3,6 @@
 
 #include <stdio.h>
 
-#include "../headers/room.h"
 
 typedef int bool;
 #define true 1
@@ -32,9 +31,6 @@ void setInventory(inventory *inventory, int potions, int swordType, int chestpla
 
 void spawnInventory(inventory *inventory);
 
-void takePotion(inventory *inventory, room *room);
-void takeSword(inventory *inventory, room *room);
-void takeChestplate(inventory *inventory, room *room);
 void removeInventoryPotion(inventory *inventory);
 
 void showInventory(inventory inventory);
