@@ -227,9 +227,11 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
     if(deadEnemyID != 0)
     {
       killEnemy(&gameMap, deadEnemyID);
-      deadEnemyID = 0;
-      printf("Hai ucciso tutti i nemici in questa stanza...\n");
-      while (enter != '\r' && enter != '\n') { enter = getchar(); }
+      if(checkRoomEmpty(gameMap.room[getCurrentRoom(gameMap)]) == 0)
+      {
+        printf("Hai ucciso tutti i nemici in questa stanza...\n");
+        while (enter != '\r' && enter != '\n') { enter = getchar(); }
+      }
     }
   }else 
   
@@ -278,9 +280,7 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
   }
 }
 
-
-void attraversa()
-{
+void attraversa(){
   int currentRoom = getCurrentRoom(gameMap);
   char risposta[20];
   if(currentRoom == 0 || currentRoom == 3 )
@@ -289,9 +289,9 @@ void attraversa()
     scanf("%s",risposta);
     if (check(risposta,"destra"))
     {
-      currentRoom += 1
+      currentRoom += 1;
     }else 
-    if(check(risposta"sinistra"))
+    if(check(risposta, "sinistra"))
     {
       currentRoom += 2;
     }
@@ -300,9 +300,10 @@ void attraversa()
   {
     currentRoom += 2;
   }else 
-  if (currentRoom == 2 || currentRoomn == 5)
+  if (currentRoom == 2 || currentRoom == 5)
   {
       currentRoom += 1;
   }
-  enterRoom(gameMap, currentRoom);
+  enterRoom(&gameMap, currentRoom);
 }
+

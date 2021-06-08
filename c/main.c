@@ -78,7 +78,7 @@ int main(){
 	while(true)
 	{
 		printf("\nInserisci un comando:\n");
-		//printf("%d\n", gameMap.room[gameMap.currentRoom].enemiesConfiguration);
+		printf("%d\n", gameMap.room[gameMap.currentRoom].enemiesConfiguration);
 		parsing(commands, roomItems, enemies, inventoryItems, doors, attr6);
 	}
 }

@@ -68,6 +68,7 @@ void enterRoom(map *map, int newID)
 }
 
 
+
 void killEnemy(map *map, int enemyID)
 {
 	if (getEnemiesConfiguration(map->room[map->currentRoom]) == 1)

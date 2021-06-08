@@ -107,7 +107,7 @@ void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, i
 void spawnRoom(room* room, int roomNumber)
 {
 if (roomNumber == 0)
-	//populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber);
+	//populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyConfiguration);
 		{
 			populateRoom(room, 0, 0, 0, false, 0, 2);
 		}
@@ -121,15 +121,15 @@ if (roomNumber == 0)
 		}
 		if (roomNumber == 3)
 		{
-			populateRoom(room, 3, 1, 1, true, 2, 2);
+			populateRoom(room, 3, 1, 1, true, 3, 2);
 		}
 		if (roomNumber == 4)
 		{
-			populateRoom(room, 4, 2, 2, false, 2, 1);
+			populateRoom(room, 4, 2, 2, false, 3, 1);
 		}
 		if (roomNumber == 5)
 		{
-			populateRoom(room, 5, 2, 2, false, 2, 1);
+			populateRoom(room, 5, 2, 2, false, 3, 1);
 		}
 		if (roomNumber == 6)
 		{
