@@ -58,7 +58,7 @@ void playerReceiveDamage(player *player, int damage)
 	//rilevazione morte
 	if (getPlayerHP(*player) <= 0)
 	{
-		printf("6 morto X_X \n");
+		printf("\nAspetta... Ma che succede? ti sei accasciato a terra e sei privo di forze. La tua avventura finisce qui sei morto.\n");
 		exit(0);
 	}
 }
@@ -71,11 +71,12 @@ void usePotion(player *player)
 		{
 			removeInventoryPotion(&player->inventory);
 			setPlayerHP(player, getPlayerHP(*player) + 50);
-			printf("Pozione usata\n");
+			printf("\nHai bevuto la pozione, ti senti molto pù in forze ora ");
+			printf("adesso hai %d punti vita\n", getPlayerHP)
 		}
 		else
 		{
-			printf("Pozione non utilizzata: hai già 100 HP\n");
+			printf("Non puoi bere la pozione, hai già i punti vita al massimo.\n");
 		}
 	}
 	else
