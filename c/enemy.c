@@ -34,8 +34,9 @@ int getEnemyDamage(enemy enemy)
 }
 
 
-int attackEnemy(enemy *enemy, int damage)
+int attackEnemy(player *player, enemy *enemy, int damage)
 {
+	bool attaccato = false;
 	if(enemy->HP == 0)
 	{
 		printf("Il nemico è già morto\n");
@@ -44,12 +45,17 @@ int attackEnemy(enemy *enemy, int damage)
 	if(enemy->HP - damage > 0)
 	{
 		setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
-		printf("Nemico attaccato! nuovi HP:%d\n",enemy->HP);
+		attaccato = true;
 	}else
 	if(enemy->HP - damage <= 0)
 	{
 		setEnemyHP(enemy, 0);
+		attaccato = true;
+	}
+	if(attaccato)
+	{
 		printf("Nemico attaccato! nuovi HP:%d\n",enemy->HP);
+		attackPlayer(player, enemy->damage);
 	}
 	//rilevazione morte
 	if (enemy->HP <= 0)
