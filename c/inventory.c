@@ -105,10 +105,10 @@ void showInventory(inventory inventory)
 		printf("Spada semplice\nPunti danno attacco normale: 10\n");
 	}else if(getInventorySword(inventory) == 1)
 	{
-		printf("Spada ricurva\n Punti danno attacco normale: 20\n Punti danno attacco caricato: 45\n");
+		printf("Spada ricurva\n Punti danno attacco normale: 20\n");
 	}else if(getInventorySword(inventory) == 2)
 	{
-		printf("Alabarda\n Punti danno attacco normale: 30\n Punti danno attacco caricato: 65\n");
+		printf("Alabarda\n Punti danno attacco normale: 30\n");
 	}
 
 	printf("Armatura: ");

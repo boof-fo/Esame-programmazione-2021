@@ -69,15 +69,15 @@ void describeEnemy(int ID)
 	if (ID == 3)
 		printf("\nil timoniere ha giurato fedeltà al suo capitano, niente l’avrebbe smosso dal suo timone durante le lunghe giornate di navigazione, e niente lo convincerà a lasciarvi passare senza prima combattere con la sua spada ricurva.\n");
 	if (ID == 4)
-		printf("\n\n");
+		printf("\nIl Navigatore è il nemico apparentemente meno aggressivo, un semplice cadetto armato di una spada semplice, ma con la sua astuzia e sfruttando l’ambiente circostante riuscirà ad opporsi al passaggio del giocatore\n");
 	if (ID == 5)
-		printf("\n\n");
+		printf("\nil timoniere ha giurato fedeltà al suo capitano, niente l’avrebbe smosso dal suo timone durante le lunghe giornate di navigazione, e niente lo convincerà a lasciarvi passare senza prima combattere con la sua spada ricurva.\n");
 	if (ID == 6)
 		printf("\nIl medico di bordo è un uomo saggio, e sarà anche anziano,ma non farlo arrabbiare perché il suo bisturi è tagliente e lui sa dove tagliere.\n");
 	if (ID == 7)
-		printf("\n\n");
+		printf("\nL’artigliere capo è il braccio destro del comandante, è il membro più temibile e letale, è stato addestrato da quando era piccolo dal comandante stesso, una vera e propria macchina da guerra, dotato di due spade ricurve e di una forza sovrumana, possiede una spessa corazza di ferro difficilmente penetrabile.\n");
 	if (ID == 8)
-		printf("\n“Dov’è la mia nave pirata?” è una domanda che il comandante si chiede spesso, ma in realtà non fa niente: i fantasmi non possono avere la patente nautica.\n");
+		printf("\nSi sono narrate tante leggende sul capitano Barbadura, il più temibile dei pirati, o almeno quando era in vita, di lui non è rimasto molto ma ciò non gli impedirà di impedirti di impossessarti del suo tesoro.\n“Dov’è la mia nave pirata?” è una domanda che il comandante si chiede spesso, ma in realtà non fa niente: i fantasmi non possono avere la patente nautica.\n");
 }
 
 

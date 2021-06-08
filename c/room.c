@@ -168,10 +168,7 @@ void describeRoom(room room, int ID)
 			printf("\nL'infermeria è la stanza più piccola della fortezza, è rimasto solo una brandina e qualche teca di vetro dove prima venivano conservate le medicine e i sieri,\n");
 		if (ID == 6)
 			printf("\n\n");
-		if (ID == 7)
-			printf("\n\n");
-		if (ID == 8)
-			printf("\n\n");
+		
 		printf("Nella stanza: \n");
 		if(potions != 0)
 		{
@@ -201,6 +198,6 @@ void describeRoom(room room, int ID)
 
 void PuzzleRoom(room room, int ID)
 {
-//La statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio.'\n");
+//La statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. che Cos’è? risolvi l'idnovinello e avrai un premio.'\n");
 		//risposta:L'ancora
 }
