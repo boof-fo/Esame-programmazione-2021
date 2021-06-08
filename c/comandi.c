@@ -103,6 +103,9 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
   if (search(&commands,comando)->key == 1)
   {
+    if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]) != 0)
+     printf("prima di raccogliere gli oggetti da terra devi aver sconfitto tutti i nemici nella stanza.\n"); 
+    else
     if(search(&item1,oggetto)->key == 1)
     {
       takePotion(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
@@ -131,7 +134,7 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 	  int exit;
     if(search(&item2,oggetto)->key == 1)
     {
-      //ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra
+      //checkEnemyPresent ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra
       if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 0) == 1)
       {
         deadEnemyID = attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
@@ -222,14 +225,13 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
       }
     }else
     {
-      printf("oggetto errato\n");
+      printf("il nemico non esiste\n");
     }
     if(deadEnemyID != 10)
     {
       killEnemy(&gameMap, deadEnemyID);
-      printf("%d\n", gameMap.room[gameMap.currentRoom].enemiesConfiguration);
-      deadEnemyID = 0;
-      if(checkRoomEmpty(gameMap.room[getCurrentRoom(gameMap)]) == 0)
+      deadEnemyID = 10;
+      if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]) == 0)
       {
         printf("Hai ucciso tutti i nemici in questa stanza...\n");
         //TODO: INSERIRE FUNZIONE PUZZLE
@@ -260,7 +262,7 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
      //ALLORA 
      attraversa(&gameMap);
      
-  }
+  }else
   
   if (search(&commands,comando)->key == 5)
   {
