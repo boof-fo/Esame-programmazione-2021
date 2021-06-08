@@ -133,7 +133,7 @@ if (roomNumber == 0)
 		}
 		if (roomNumber == 6)
 		{
-			populateRoom(room, 6, 1, 1, false, 1, 0);
+			populateRoom(room, 6, 1, 1, false, 1, 1);
 		}
 }
 

@@ -254,7 +254,7 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
   if (search(&commands,comando)->key == 4)
   {
-     //TODO: CONTROLLO SE CI SONO NEMICI VIVI 
+     //TODO: CONTROLLO SE CI SONO NEMICI VIVI e se ci sono porte
      //ALLORA 
      //attraversa();
      
@@ -294,6 +294,10 @@ void attraversa(){
   if (currentRoom == 2 || currentRoom == 5)
   {
       currentRoom += 1;
+  }else 
+  if (currentRoom == 6 ){
+    //TODO: inventarsi o un finale alternativo o il finale
+    printf("");
   }
   enterRoom(&gameMap, currentRoom);
 }
