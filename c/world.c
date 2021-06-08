@@ -22,7 +22,14 @@ void printMap(map map)
 
 void enterRoom(map *map, int newID)
 {
-	system("clear");
+	#ifdef _WIN32
+		system("cls");
+	#elif __linux__
+		system("clear");
+	#elif __APPLE__
+		system("clear");
+	#endif
+	
 	setCurrentRoom(map, newID);
 	spawnRoom(&map->room[newID], newID);
 	printMap(*map);
