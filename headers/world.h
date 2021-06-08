@@ -11,6 +11,7 @@ typedef struct
 	room room[8];
 	//stanza in cui si trova il personaggio
 	int currentRoom;
+	
 }map;
 
 void setCurrentRoom(map *map, int newRoom);

@@ -40,4 +40,4 @@ void insert(list *list, int new_key,char new_string[]);
 
 node *search(list *list, char string[]);
 
-void parsing(list commands,list item1, list item2, list item3, list item4, list item5, list attr6);
+void parsing(list commands,list item1, list item2, list item3, list item4, list attr6);

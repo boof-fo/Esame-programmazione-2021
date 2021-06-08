@@ -24,12 +24,19 @@ int getEnemyID(enemy enemy)
 {
 	return enemy.ID;
 }
+int getEnemyHP(enemy enemy)
+{
+	return enemy.HP;
+}
 
 
 int attackEnemy(enemy *enemy, int damage)
 {
-	enemy->HP -= damage;
-	printf("Nemico attaccato! nuovi HP:%d",enemy->HP);
+	if(enemy->HP - damage > 0)
+		setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
+	else
+		setEnemyHP(enemy, 0);
+	printf("Nemico attaccato! nuovi HP:%d\n",enemy->HP);
 	//rilevazione morte
 	if (enemy->HP <= 0)
 	{

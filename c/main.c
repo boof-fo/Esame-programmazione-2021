@@ -44,13 +44,12 @@ int main(){
 
 
 
-	list commands, roomItems, enemies, inventoryItems, doors, puzzle, attr6;
+	list commands, roomItems, enemies, inventoryItems, doors, attr6;
 	commands.count = 0;
 	roomItems.count = 0;
 	enemies.count = 0;
 	inventoryItems.count = 0;
 	doors.count = 0;
-	puzzle.count = 0;
 
 	insert(&commands, 1, "raccogli");
 	insert(&commands, 2, "attacca");
@@ -79,6 +78,7 @@ int main(){
 	while(true)
 	{
 		printf("\nInserisci un comando:\n");
-		parsing(commands, roomItems, enemies, inventoryItems, doors, puzzle, attr6);
+		//printf("%d\n", gameMap.room[gameMap.currentRoom].enemiesConfiguration);
+		parsing(commands, roomItems, enemies, inventoryItems, doors, attr6);
 	}
 }

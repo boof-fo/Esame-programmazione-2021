@@ -84,6 +84,7 @@ void killEnemy(map *map, int enemyID)
 		else
 			setEnemiesConfiguration(&map->room[map->currentRoom], 2);
 	}
+	
 }
 
 void help()
