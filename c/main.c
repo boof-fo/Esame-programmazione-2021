@@ -2,7 +2,8 @@
 #include "../headers/comandi.h"
 
 
-int main(){
+int main()
+{
 	printf("\nTi diamo il benvenuto nel nostro gioco: Pirates Fortress, un avventura testuale ambientata in un' isola tropicale dove inpersonificherai Jacob Smith,\nun giovane avventuriero con lo scopo di ritrovare un antico tesoro pirata, ma non di un pirata qualsiasi, bensì del più temuto di tutti i tempi: Il capitano Barbadura,\nconsiderato da molti il re di tutti i pirati dei sette mari, nel corso del diciottesimo secolo lui e la sua spietata ciurma hanno accumulato una ricchezza spropositata in gioelli e dobloni d'oro\n,alcuni documenti e mappe suggeriscono la presenza del famigerato tesoro in un isola sperduta del pacifico, non presente sulle mappe convenzionali, totalmente inesplorata e priva di vita\ndove sorge una fortezza usata ai tempi della colonizzazione inglese del quindicesimo secolo, usata come rifugio dalla ciurma di Barbadura, alcune leggende narrano\nche la ciurma sia ancora presente all'interno della fortezza sotto forma di non-morti affamati di carne umana e che lo spirito del capitano vegli ancora sullo scrigno maledetto.\n");
 	
 	char enter = ' ';
@@ -36,25 +37,26 @@ int main(){
 	
 	while (enter != '\r' && enter != '\n') { enter = getchar(); }
 
-	enterRoom(&gameMap, &gameMap.room[6], 6);
+	enterRoom(&gameMap, 3);
 	
 
 	showInventory(gamePlayer.inventory);
 
 
 
-	list commands, roomItems, enemies, inventoryItems, doors, puzzle, attr6;
+	list commands, roomItems, enemies, inventoryItems, doors, attr6;
 	commands.count = 0;
 	roomItems.count = 0;
 	enemies.count = 0;
 	inventoryItems.count = 0;
 	doors.count = 0;
-	puzzle.count = 0;
+
 
 	insert(&commands, 1, "raccogli");
 	insert(&commands, 2, "attacca");
 	insert(&commands, 3, "usa");
 	insert(&commands, 5, "aiuto");
+	insert(&commands, 4, "attraversa");
 	insert(&commands, 6, "inventario");
 
 	insert(&roomItems, 1, "pozione");
@@ -79,6 +81,6 @@ int main(){
 	while(true)
 	{
 		printf("\nInserisci un comando:\n");
-		parsing(commands, roomItems, enemies, inventoryItems, doors, puzzle, attr6);
+		parsing(commands, roomItems, enemies, inventoryItems, attr6);
 	}
 }

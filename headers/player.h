@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 #include "../headers/inventory.h"
+#include "../headers/enemy.h"
 
 //struttura del giocatore
 typedef struct{

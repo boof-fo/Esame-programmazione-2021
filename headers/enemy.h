@@ -24,6 +24,7 @@ void setEnemyID(enemy *enemy, int ID);
 
 int getEnemyID(enemy enemy);
 int getEnemyHP(enemy enemy);
+int getEnemyDamage(enemy enemy);
 
 int attackEnemy(enemy *enemy, int damage);
 

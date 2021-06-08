@@ -227,6 +227,7 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
     if(deadEnemyID != 0)
     {
       killEnemy(&gameMap, deadEnemyID);
+      deadEnemyID = 0;
       if(checkRoomEmpty(gameMap.room[getCurrentRoom(gameMap)]) == 0)
       {
         printf("Hai ucciso tutti i nemici in questa stanza...\n");
@@ -256,7 +257,7 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
   {
      //TODO: CONTROLLO SE CI SONO NEMICI VIVI e se ci sono porte
      //ALLORA 
-     //attraversa();
+     attraversa(&gameMap);
      
   }
   
@@ -271,8 +272,9 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
   }
 }
 
-void attraversa(){
-  int currentRoom = getCurrentRoom(gameMap);
+void attraversa(map *map)
+{
+  int currentRoom = getCurrentRoom(*map);
   char risposta[20];
   if(currentRoom == 0 || currentRoom == 3 )
   {
@@ -295,10 +297,10 @@ void attraversa(){
   {
       currentRoom += 1;
   }else 
-  if (currentRoom == 6 ){
+  if (currentRoom == 6 )
+  {
     //TODO: inventarsi o un finale alternativo o il finale
-    printf("");
+    printf("the end :P\n");
   }
-  enterRoom(&gameMap, currentRoom);
+  enterRoom(map, currentRoom);
 }
-

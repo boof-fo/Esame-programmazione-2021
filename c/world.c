@@ -19,8 +19,10 @@ void printMap(map map)
 	printf("MAPPA:\nX = posizione del giocatore\n  +++++++++\n  +       +\n  +   %c   +\n +++++++++++\n +    +    +\n + %c  +  %c +\n+++++++++++++\n+           +\n+           +\n+     %c     +\n+++++++++++++\n +    +    +\n + %c  +  %c +\n+++++++++++++\n+           +\n+           +\n+     %c     +\n+++++++++++++\n", p[6], p[5], p[4], p[3], p[2], p[1], p[0]);
 }
 
+
 void enterRoom(map *map, int newID)
 {
+	system("clear");
 	setCurrentRoom(map, newID);
 	spawnRoom(&map->room[newID], newID);
 	printMap(*map);
