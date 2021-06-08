@@ -31,4 +31,6 @@ void killEnemy(map *map, int enemyID);
 void help();
 void exitGame();
 
+//TODO: i print belli di fine gioco nella stanza 6 (attraversa) 
+
 #endif
