@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #define true 1
@@ -231,4 +231,4 @@ int main{
   
   parsing();
 
-}
+}*/
