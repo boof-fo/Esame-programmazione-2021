@@ -224,9 +224,10 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
     {
       printf("oggetto errato\n");
     }
-    if(deadEnemyID != 0)
+    if(deadEnemyID != 10)
     {
       killEnemy(&gameMap, deadEnemyID);
+      printf("%d\n", gameMap.room[gameMap.currentRoom].enemiesConfiguration);
       deadEnemyID = 0;
       if(checkRoomEmpty(gameMap.room[getCurrentRoom(gameMap)]) == 0)
       {
