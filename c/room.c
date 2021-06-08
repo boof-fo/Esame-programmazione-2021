@@ -117,7 +117,7 @@ if (roomNumber == 0)
 		}
 		if (roomNumber == 2)
 		{
-			populateRoom(room, 2, 1, 0, false, 1, 1);
+			populateRoom(room, 2, 0, 0, false, 1, 1);
 		}
 		if (roomNumber == 3)
 		{
@@ -125,7 +125,7 @@ if (roomNumber == 0)
 		}
 		if (roomNumber == 4)
 		{
-			populateRoom(room, 4, 2, 2, false, 3, 1);
+			populateRoom(room, 4, 0, 2, false, 3, 1);
 		}
 		if (roomNumber == 5)
 		{
