@@ -56,6 +56,8 @@ int attackEnemy(player *player, enemy *enemy, int damage)
 	{
 		printf("Nemico attaccato! nuovi HP:%d\n",enemy->HP);
 		attackPlayer(player, enemy->damage);
+
+		printf("Il nemico reagisce sferrando un colpo. Punti HP attuali: %d\n", getPlayerHP(*player));
 	}
 	//rilevazione morte
 	if (enemy->HP <= 0)

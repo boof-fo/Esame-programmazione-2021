@@ -78,12 +78,10 @@ int checkEnemyPresent(room room, int targetEnemyID)
 	{
 		if(getEnemyHP(room.enemy[0]) != 0)
 		{
-			printf("%d",1);
 			return 1;
 		}
 		else
 		{
-			printf("%d",3);
 			return 3;
 		}
 	}
@@ -92,18 +90,15 @@ int checkEnemyPresent(room room, int targetEnemyID)
 	{
 		if(getEnemyHP(room.enemy[1]) != 0)
 		{
-			printf("%d",2);
 			return 2;
 		}
 		else
 		{
-			printf("%d",3);
 			return 3;
 		}
 	}
 	else 
 	{
-		printf("%d",0);
 		return 0;
 	}
 }
