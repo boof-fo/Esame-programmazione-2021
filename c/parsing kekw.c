@@ -1,7 +1,9 @@
-/*#include <stdio.h>
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <main.h>
+
+#include "../headers/world.h"
+
 #define true 1
 #define false 0
 
@@ -202,15 +204,17 @@ void parsing(){
   }
 
   list comandi;
-list item1,item2,item3,item4,item5,attr6; 
+list item1,item2,item3,item5,attr6; 
 
  insert(&comandi,1,"raccogli");
  insert(&comandi,2,"attaca");
  insert(&comandi , 3 , "usa");
+ insert(&comandi , 4 , "attraversa");
  insert(&comandi , 5 , "aiuto");
  insert(&comandi , 6 , "inventario");
- insert(&comandi , 7 , "attraversa");
- insert(&item1 , 2 , "spada");
+
+insert(&item1 , 1 , "pozione");
+insert(&item1 , 2 , "spada");
 insert(&item1 , 3 , "armatura");
 
 insert(&item2 , 1 , "cuoco");
@@ -226,10 +230,10 @@ insert(&item2 , 9 , "comandante");
 insert(&item3 , 1 , "pozione");
 insert(&item3 , 2 , "mappa");
 
-insert(&item4 , 1 , "porta");
+
 
 int main{
   
   parsing();
 
-}*/
+}

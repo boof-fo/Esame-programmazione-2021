@@ -89,6 +89,7 @@ void killEnemy(map *map, int enemyID)
 
 void help()
 {
+	//TODO: SCRIVERE I PRINTF BELLINI 
 	printf("\nnon so aiutarti, scusami :(\n");
 }
 

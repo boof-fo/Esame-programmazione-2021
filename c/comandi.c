@@ -87,7 +87,7 @@ node *search(list *list, char string[])
 }
 
 
-void parsing(list commands,list item1, list item2, list item3, list item4, list attr6)
+void parsing(list commands,list item1, list item2, list item3, list attr6)
 {
   char comando[20] = {0, };
   char oggetto[20] = {0, };
@@ -126,7 +126,7 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
   if (search(&commands,comando)->key == 2)
   {
     int deadEnemyID = 0;
-    char enter = ' ';
+    char enter = 'a';
   	char answer[2];
 	  int exit;
     if(search(&item2,oggetto)->key == 1)
@@ -230,6 +230,7 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
       if(checkRoomEmpty(gameMap.room[getCurrentRoom(gameMap)]) == 0)
       {
         printf("Hai ucciso tutti i nemici in questa stanza...\n");
+        //TODO: INSERIRE FUNZIONE PUZZLE
         while (enter != '\r' && enter != '\n') { enter = getchar(); }
       }
     }
@@ -253,23 +254,20 @@ void parsing(list commands,list item1, list item2, list item3, list item4, list 
 
   if (search(&commands,comando)->key == 4)
   {
-    if(search(&item3,oggetto)->key == 1)
-    {
-      if(getRoomDoors(gameMap.room[getCurrentRoom(gameMap)]) == 1)
-        printf("1 porta");
-      else
-      if(getRoomDoors(gameMap.room[getCurrentRoom(gameMap)]) == 2)
-        printf("2 porte");
-    }else
-      printf("errore4");
+     //TODO: CONTROLLO SE CI SONO NEMICI VIVI 
+     //ALLORA 
+     //attraversa();
+     
   }else 
-  
+   
+    printf("errore4");
   
   if (search(&commands,comando)->key == 5)
   {
     printf("aiuto");
   }else 
 
+      printf("errore5");
 
   if(search(&commands,comando)->key == 6)
   {
