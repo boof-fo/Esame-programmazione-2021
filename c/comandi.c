@@ -258,23 +258,16 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
      //ALLORA 
      //attraversa();
      
-  }else 
-   
-    printf("errore4");
+  }
   
   if (search(&commands,comando)->key == 5)
   {
     printf("aiuto");
   }else 
 
-      printf("errore5");
-
   if(search(&commands,comando)->key == 6)
   {
     showInventory(gamePlayer.inventory);
-  }else
-  {
-    printf("errore5");
   }
 }
 
