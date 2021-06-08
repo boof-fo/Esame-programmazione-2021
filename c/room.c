@@ -135,10 +135,14 @@ if (roomNumber == 0)
 		{
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			populateRoom(room, 4, 0, 2, false, 2, 1);
 =======
 			populateRoom(room, 4, 2, 2, false, 1);
 >>>>>>> a75a9b271eaebaea12120c91e6ce24c1a95b541c
+=======
+			populateRoom(room, 4, 2, 2, false, 3, 1);
+>>>>>>> 3c893a7d89f058b760eee69147fc0554ec52a451
 =======
 			populateRoom(room, 4, 2, 2, false, 3, 1);
 >>>>>>> 3c893a7d89f058b760eee69147fc0554ec52a451
