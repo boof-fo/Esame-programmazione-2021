@@ -31,8 +31,8 @@ void enterRoom(map *map, int newID)
 	if (newID == 0)
 	{
 		setEnemiesConfiguration(map->room, 0);
-		spawnEnemy(&map->room[newID].enemy[0], 0, 0, 0, 0);
-		spawnEnemy(&map->room[newID].enemy[1], 0, 0, 0, 0);
+		spawnEnemy(&map->room[newID].enemy[0], 10, 0, 0, 0);
+		spawnEnemy(&map->room[newID].enemy[1], 10, 0, 0, 0);
 	}
 	if (newID == 1)
 	{

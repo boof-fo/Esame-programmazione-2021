@@ -274,6 +274,11 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
 void attraversa(map *map)
 {
+  if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]))
+  {
+    printf("Prima di continuare devi sconfiggere i nemici nella stanza attuale\n");
+    return;
+  }
   int currentRoom = getCurrentRoom(*map);
   char risposta[20];
   if(currentRoom == 0 || currentRoom == 3 )

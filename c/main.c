@@ -35,12 +35,10 @@ int main()
 	//azzera i valori dell'inventario
 	spawnInventory(&gamePlayer.inventory);
 	
-	while (enter != '\r' && enter != '\n') { enter = getchar(); }
+	do{enter = getchar();}while(enter != '\r' && enter != '\n');
 
-	enterRoom(&gameMap, 3);
-	
+	enterRoom(&gameMap, 0);
 
-	showInventory(gamePlayer.inventory);
 
 
 
