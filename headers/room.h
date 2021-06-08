@@ -56,7 +56,6 @@ int getRoomDoors(room room);
 
 
 int checkEnemyPresent(room room, int targetEnemyID);
-int checkRoomEmpty(room room);
 
 //imposta i valori di una stanza
 void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber, int doors);

@@ -22,7 +22,14 @@ void printMap(map map)
 
 void enterRoom(map *map, int newID)
 {
-	system("clear");
+	#ifdef _WIN32
+		system("cls");
+	#elif __linux__
+		system("clear");
+	#elif __APPLE__
+		system("clear");
+	#endif
+	
 	setCurrentRoom(map, newID);
 	spawnRoom(&map->room[newID], newID);
 	printMap(*map);
@@ -31,8 +38,8 @@ void enterRoom(map *map, int newID)
 	if (newID == 0)
 	{
 		setEnemiesConfiguration(map->room, 0);
-		spawnEnemy(&map->room[newID].enemy[0], 0, 0, 0, 0);
-		spawnEnemy(&map->room[newID].enemy[1], 0, 0, 0, 0);
+		spawnEnemy(&map->room[newID].enemy[0], 10, 0, 0, 0);
+		spawnEnemy(&map->room[newID].enemy[1], 10, 0, 0, 0);
 	}
 	if (newID == 1)
 	{

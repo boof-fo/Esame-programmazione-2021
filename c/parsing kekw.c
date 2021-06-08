@@ -190,7 +190,7 @@ void parsing(){
  //////inventario
  printf("inventario");
   }else if(search(&comandi,comando)->key == 7){
-    if( checkRoomEmpty(gameMap.room[getCurrentRoom(gameMap)== 1){
+    if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)== 1){
       printf("CI SONO ANCORA DEI NEMICI NON PUo
       I SFUGGIRE");
     }else{

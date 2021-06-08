@@ -103,6 +103,9 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
   if (search(&commands,comando)->key == 1)
   {
+    if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]) != 0)
+     printf("prima di raccogliere gli oggetti da terra devi aver sconfitto tutti i nemici nella stanza.\n"); 
+    else
     if(search(&item1,oggetto)->key == 1)
     {
       takePotion(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
@@ -131,7 +134,7 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 	  int exit;
     if(search(&item2,oggetto)->key == 1)
     {
-      //ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra
+      //checkEnemyPresent ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra
       if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 0) == 1)
       {
         deadEnemyID = attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
@@ -222,13 +225,13 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
       }
     }else
     {
-      printf("oggetto errato\n");
+      printf("il nemico non esiste\n");
     }
-    if(deadEnemyID != 0)
+    if(deadEnemyID != 10)
     {
       killEnemy(&gameMap, deadEnemyID);
-      deadEnemyID = 0;
-      if(checkRoomEmpty(gameMap.room[getCurrentRoom(gameMap)]) == 0)
+      deadEnemyID = 10;
+      if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]) == 0)
       {
         printf("Hai ucciso tutti i nemici in questa stanza...\n");
         //TODO: INSERIRE FUNZIONE PUZZLE
@@ -259,7 +262,7 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
      //ALLORA 
      attraversa(&gameMap);
      
-  }
+  }else
   
   if (search(&commands,comando)->key == 5)
   {
@@ -274,11 +277,16 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
 void attraversa(map *map)
 {
+  if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]))
+  {
+    printf("Prima di continuare devi sconfiggere i nemici nella stanza attuale\n");
+    return;
+  }
   int currentRoom = getCurrentRoom(*map);
   char risposta[20];
   if(currentRoom == 0 || currentRoom == 3 )
   {
-    printf("ci sono due porte");
+    printf("\nCi sono due porte... vuoi attraversare la porta destra o la porta sinistra?\n");
     scanf("%s",risposta);
     if (check(risposta,"destra"))
     {
@@ -301,6 +309,7 @@ void attraversa(map *map)
   {
     //TODO: inventarsi o un finale alternativo o il finale
     printf("the end :P\n");
+    exit(0);
   }
   enterRoom(map, currentRoom);
 }
