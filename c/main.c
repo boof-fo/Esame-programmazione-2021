@@ -11,10 +11,10 @@ int main()
 	int exit;
 
 	do
-		{
-			printf("\nhai compreso bene? si o no \n");
-			scanf("%s", answer);
-			if(strncmp(answer, "si", sizeof(const char)*2)  == 0)
+	{
+		printf("\nhai compreso bene? si o no \n");
+		scanf("%s", answer);
+		if(strncmp(answer, "si", sizeof(const char)*2)  == 0)
 		{
 			printf("\nperfetto, possiamo proseguire\n\n");
 			exit = 1;

@@ -72,7 +72,7 @@ void usePotion(player *player)
 			removeInventoryPotion(&player->inventory);
 			setPlayerHP(player, getPlayerHP(*player) + 50);
 			printf("\nHai bevuto la pozione, ti senti molto pù in forze ora ");
-			printf("adesso hai %d punti vita\n", getPlayerHP)
+			printf("adesso hai %d punti vita\n", getPlayerHP(*player));
 		}
 		else
 		{

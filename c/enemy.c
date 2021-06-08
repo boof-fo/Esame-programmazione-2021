@@ -28,6 +28,10 @@ int getEnemyHP(enemy enemy)
 {
 	return enemy.HP;
 }
+int getEnemyDamage(enemy enemy)
+{
+	return enemy.damage;
+}
 
 
 int attackEnemy(enemy *enemy, int damage)
@@ -46,6 +50,7 @@ int attackEnemy(enemy *enemy, int damage)
 	{
 		setEnemyHP(enemy, 0);
 		printf("Nemico attaccato! nuovi HP:%d\n",enemy->HP);
+		printf("Il nemico è morto rip :(\n");
 	}else
 	
 	

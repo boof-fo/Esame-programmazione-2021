@@ -278,7 +278,7 @@ void attraversa(map *map)
   char risposta[20];
   if(currentRoom == 0 || currentRoom == 3 )
   {
-    printf("ci sono due porte");
+    printf("\nCi sono due porte... vuoi attraversare la porta destra o la porta sinistra?\n");
     scanf("%s",risposta);
     if (check(risposta,"destra"))
     {
@@ -301,6 +301,7 @@ void attraversa(map *map)
   {
     //TODO: inventarsi o un finale alternativo o il finale
     printf("the end :P\n");
+    exit(0);
   }
   enterRoom(map, currentRoom);
 }
