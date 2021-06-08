@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <main.h>
 #define true 1
 #define false 0
 
@@ -187,7 +188,7 @@ void parsing(){
  //////inventario
  printf("inventario");
   }else if(search(&comandi,comando)->key == 7){
-    //if(checkenemypresent()== 1){
+    if( checkRoomEmpty(gameMap.room[getCurrentRoom(gameMap)== 1){
       printf("CI SONO ANCORA DEI NEMICI NON PUo
       I SFUGGIRE");
     }else{
