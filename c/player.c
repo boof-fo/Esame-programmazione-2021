@@ -59,6 +59,7 @@ void playerReceiveDamage(player *player, int damage)
 	if (getPlayerHP(*player) <= 0)
 	{
 		printf("6 morto X_X \n");
+		exit(0);
 	}
 }
 

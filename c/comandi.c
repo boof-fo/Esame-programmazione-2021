@@ -1,5 +1,4 @@
 #include "../headers/comandi.h"
-#include "../headers/main.h"
 
 void inserstr(char stringa1[],char stringa2[])
 {
@@ -27,15 +26,15 @@ int check(char stringa1[],char stringa2[])
     	while(i < lun2)
       {
 		  	if (stringa1[i] == stringa2[i])
-				{
 					i++;
-				}else return false;
+        else 
+          return false;
       }
     }
     if(i == lun2)
-    {
-    	return true;
-    }else return false;
+      return true;
+    else 
+      return false;
 }
 
 
@@ -88,25 +87,7 @@ node *search(list *list, char string[])
 }
 
 
-int searchitem(list *list, char string[])
-{
-    node *tmp;
-    tmp = list->header;
-    // scorro la lista cercando value
-    // ritorno l'indirizzo del primo nodo che contiene value
-    // altrimenti continuo a scorrere la lista
-    while (tmp != NULL)
-    {
-        if (check(tmp->string,string))
-            return true;
-        tmp = tmp->next;
-    }
-    // se non trovo nessun nodo contenente value, ritorno NULL
-    return false;
-}
-
-
-void parsing(list comandi,list item1, list item2, list item3, list item4, list item5, list attr6)
+void parsing(list commands,list item1, list item2, list item3, list attr6)
 {
   char comando[20] = {0, };
   char oggetto[20] = {0, };
@@ -114,88 +95,206 @@ void parsing(list comandi,list item1, list item2, list item3, list item4, list i
   scanf("%s" "%s" ,comando, oggetto);
 
 
-  if (search(&comandi,comando) == NULL)
+  if (search(&commands,comando) == NULL)
   {
     printf("Comando errato\n");
   }else 
 
 
-  if (search(&comandi,comando)->key == 1)
+  if (search(&commands,comando)->key == 1)
   {
-    if(searchitem(&item1,oggetto))
+    if(search(&item1,oggetto)->key == 1)
     {
-      if(check(oggetto, "pozione"))
-        {
-          takePotion(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
-        }
-        else
-        if(check(oggetto, "spada"))
-        {
-          
-        }
-        else 
-        if(check(oggetto, "armatura"))
-        {
-          
-        }
-        else
-        {
-          printf("oggetto errato\n");
-        }
+      takePotion(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
+    }else
+    if(search(&item1,oggetto)->key == 2)
+    {
+      takeSword(&gamePlayer.inventory, &gameMap.room[getCurrentRoom(gameMap)]);
+    }
+    else 
+    if(search(&item1,oggetto)->key == 3)
+    {
+      takeChestplate(&gamePlayer.inventory, &gameMap.room[getCurrentRoom(gameMap)]);
+    }
+    else
+    {
+      printf("oggetto errato\n");
     }
   }else 
 
 
-  if (search(&comandi,comando)->key == 2)
+  if (search(&commands,comando)->key == 2)
   {
-    if(searchitem(&item2,oggetto))
+    int deadEnemyID = 0;
+    char enter = 'a';
+  	char answer[2];
+	  int exit;
+    if(search(&item2,oggetto)->key == 1)
     {
-      //attacca(oggetto)
-      printf("attacca");
-    }else{
-      printf("errore2");
+      //ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 0) == 1)
+      {
+        deadEnemyID = attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza\n");
+      }
+    }else
+    if(search(&item2,oggetto)->key == 2)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 1) == 1)
+      {
+        deadEnemyID = attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza\n");
+      }
+    }else 
+    if(search(&item2,oggetto)->key == 3)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 2) == 1)
+      {
+        deadEnemyID = attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza\n");
+      }
+    }else
+    if(search(&item2,oggetto)->key == 4)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 3) == 2)
+      {
+        deadEnemyID = attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
+      }
+      else
+      {
+        printf("Nessun nemico con quel nome nella stanza\n");
+      }
+    }else
+    if(search(&item2,oggetto)->key == 5)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 4) == 1)
+      {
+        deadEnemyID = attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza5\n");
+      }
+    }else
+    if(search(&item2,oggetto)->key == 6)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 5) == 2)
+      {
+        deadEnemyID = attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza\n");
+      }
+    }else
+    if(search(&item2,oggetto)->key == 7)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 6) == 1)
+      {
+        deadEnemyID = attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza\n");
+      }
+    }else
+    if(search(&item2,oggetto)->key == 8)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 7) == 2)
+      {
+        deadEnemyID = attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza\n");
+      }
+    }else
+    if(search(&item2,oggetto)->key == 9)
+    {
+      if(checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 8) == 1)
+      {
+        deadEnemyID = attackEnemy(&gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      }else
+      {
+        printf("Nessun nemico con quel nome nella stanza\n");
+      }
+    }else
+    {
+      printf("oggetto errato\n");
+    }
+    if(deadEnemyID != 0)
+    {
+      killEnemy(&gameMap, deadEnemyID);
+      if(checkRoomEmpty(gameMap.room[getCurrentRoom(gameMap)]) == 0)
+      {
+        printf("Hai ucciso tutti i nemici in questa stanza...\n");
+        //TODO: INSERIRE FUNZIONE PUZZLE
+        while (enter != '\r' && enter != '\n') { enter = getchar(); }
+      }
     }
   }else 
   
 
-  if (search(&comandi,comando)->key == 3)
+  if (search(&commands,comando)->key == 3)
   {
-    if(searchitem(&item3,oggetto))
+    if(search(&item3,oggetto)->key == 1)
     {
-      //usa(oggetto)
-      printf("usa");
+      usePotion(&gamePlayer);
+    }else
+    if(search(&item3,oggetto)->key == 2)
+    {
+      printMap(gameMap);
     }else{
       printf("errore3");
     }
   }else 
   
 
-  if (search(&comandi,comando)->key == 4)
+  if (search(&commands,comando)->key == 4)
   {
-    if(searchitem(&item4,oggetto))
-    {
-      //attraversa(oggetto)
+     //TODO: CONTROLLO SE CI SONO NEMICI VIVI 
+     //ALLORA 
+     //attraversa();
      
-    }else
-      printf("errore4");
-  }else 
+  }
   
-  
-  if (search(&comandi,comando)->key == 5)
+  if (search(&commands,comando)->key == 5)
   {
     printf("aiuto");
-      //aiuto
   }else 
 
-
-  if(search(&comandi,comando)->key == 7)
+  if(search(&commands,comando)->key == 6)
   {
-    //stampa l'inventario
-    
-  }else
-  {
-    printf("errore5");
+    showInventory(gamePlayer.inventory);
   }
 }
 
+void attraversa(){
+  int currentRoom = getCurrentRoom(gameMap);
+  char risposta[20];
+  if(currentRoom == 0 || currentRoom == 3 )
+  {
+    printf("ci sono due porte");
+    scanf("%s",risposta);
+    if (check(risposta,"destra"))
+    {
+      currentRoom += 1;
+    }else 
+    if(check(risposta, "sinistra"))
+    {
+      currentRoom += 2;
+    }
+  }else 
+  if ( currentRoom == 1 || currentRoom == 4)
+  {
+    currentRoom += 2;
+  }else 
+  if (currentRoom == 2 || currentRoom == 5)
+  {
+      currentRoom += 1;
+  }
+  enterRoom(&gameMap, currentRoom);
+}
 

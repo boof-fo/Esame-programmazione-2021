@@ -30,7 +30,6 @@ bool getInventoryChestplate(inventory inventory)
 }
 
 
-
 void setInventory(inventory *inventory, int potions, int swordType, int chestplate)
 {
 	inventory->potions = potions;
@@ -81,7 +80,7 @@ void takeChestplate(inventory *inventory, room *room)
 	if (getRoomChestplate(*room) > 0)
 	{
 		removeRoomChestplate(room);
-		inventory->chesteplate += 1;
+		inventory->chestplate += 1;
 		printf("\nHai raccolto una pesante armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
 	}
 	else
@@ -112,7 +111,7 @@ void showInventory(inventory inventory)
 		printf("Alabarda\n Punti danno attacco normale: 30\n Punti danno attacco caricato: 65\n");
 	}
 
-	printf("Armatura1: ");
+	printf("Armatura: ");
 	if(getInventoryChestplate(inventory) == false)
 	{
 		printf("Non presente\n");
