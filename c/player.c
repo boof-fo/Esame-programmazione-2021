@@ -14,19 +14,19 @@ void setPlayerProtection(player *player, int protectionPoints)
 	player->protection = protectionPoints;
 }
 
-void setSword(player *player, int swordType)
+void setPlayerSword(player *player, int swordType)
 {
 	//TODO: mettere i valori definitivi
 	int newDamage;
 	if (swordType == 1)
-		newDamage = 0;
-	else if (swordType == 2)
-		newDamage = 0;
+		newDamage = 20;
+	else 
+	if (swordType == 2)
+		newDamage = 30;
 	setPlayerDamage(player, newDamage);
 	setInventorySword(&player->inventory, swordType);
 }
-
-void setChestplate(player *player)
+void setPlayerChestplate(player *player)
 {
 	//TODO: mettere i valori definitivi
 	setPlayerProtection(player, 30);

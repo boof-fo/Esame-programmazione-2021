@@ -7,7 +7,8 @@
 #include "../headers/inventory.h"
 
 //struttura del giocatore
-typedef struct{
+typedef struct
+{
 	//punti vita
 	int HP;
 	//punti danno
@@ -22,8 +23,8 @@ typedef struct{
 void setPlayerHP(player *player, int HP);
 void setPlayerDamage(player *player, int damage);
 void setPlayerProtection(player *player, int protectionPoints);
-void setSword(player *player, int swordType);
-void setChestplate(player *player);
+void setPlayerSword(player *player, int swordType);
+void setPlayerChestplate(player *player);
 
 int getPlayerHP(player player);
 int getPlayerDamage(player player);

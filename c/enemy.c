@@ -79,9 +79,9 @@ void describeEnemy(int ID)
 	if (ID == 3)
 		printf("\nil timoniere ha giurato fedeltà al suo capitano, niente l’avrebbe smosso dal suo timone durante le lunghe giornate di navigazione, e niente lo convincerà a lasciarvi passare senza prima combattere con la sua spada ricurva.\n");
 	if (ID == 4)
-		printf("\nIl Navigatore è il nemico apparentemente meno aggressivo, un semplice cadetto armato di una spada semplice, ma con la sua astuzia e sfruttando l’ambiente circostante riuscirà ad opporsi al passaggio del giocatore\n");
+		printf("\nmaestro\n");
 	if (ID == 5)
-		printf("\nil timoniere ha giurato fedeltà al suo capitano, niente l’avrebbe smosso dal suo timone durante le lunghe giornate di navigazione, e niente lo convincerà a lasciarvi passare senza prima combattere con la sua spada ricurva.\n");
+		printf("\ncannoniere\n");
 	if (ID == 6)
 		printf("\nIl medico di bordo è un uomo saggio, e sarà anche anziano,ma non farlo arrabbiare perché il suo bisturi è tagliente e lui sa dove tagliere.\n");
 	if (ID == 7)

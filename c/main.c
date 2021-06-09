@@ -37,7 +37,7 @@ int main()
 	
 	do{enter = getchar();}while(enter != '\r' && enter != '\n');
 
-	enterRoom(&gameMap, 0);
+	enterRoom(&gameMap, 3);
 
 
 

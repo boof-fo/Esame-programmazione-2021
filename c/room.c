@@ -206,19 +206,20 @@ void describeRoom(room room, int ID)
 	}	
 }
 
-void takePotion(inventory *inventory, room *room)
+
+void takePotion(player *player, room *room)
 {
 	if (getRoomPotions(*room) > 0)
 	{
 		removeRoomPotion(room);
-		//TODO: funzione aggiungi pozione
-		addInventoryPotion(inventory);
+		addInventoryPotion(&player->inventory);
 		printf("\nHai raccolto una pozione curativa,Un intruglio a base di erbe medicinali sative, composto secondo un'antica ricetta degli alchimisti del tuo regno, ristabilisce i punti vitali anche se Il sapore non è il massimo.\n");
 	}
 	else
 		printf("Non ci sono pozioni. Buona fortuna :)\n");
 }
-void takeSword(inventory *inventory, room *room)
+//TODO: danni corretti
+void takeSword(player *player, room *room)
 {
 	if (getRoomSword(*room) == 0)
 	{
@@ -226,29 +227,32 @@ void takeSword(inventory *inventory, room *room)
 	}
 	else 
 	{
-		setInventorySword(inventory, getRoomSword(*room));
-		removeRoomSword(room);
-		if (getInventorySword(*inventory) == 1)
+		if (getRoomSword(*room) == 1)
 		{
 			printf("\nHai raccolto una spada ricurva molto veloce ed affilata, riesce a penetrare nella carne putrefatta dei tuoi nemici con molta facilità\n");
+			setPlayerSword(player, 1);
 		}else 
-		if (getInventorySword(*inventory) == 2)
+		if (getRoomSword(*room) == 2)
 		{
 			printf("\nHai raccolto un alabarda, arma da distruzione di massa per eccellenza, non troverai equipaggiamento migliore di questo, perciò fattelo bastare\n");
+			setPlayerSword(player, 2);
 		}	
+		removeRoomSword(room);
 	}
 }
-void takeChestplate(inventory *inventory, room *room)
+void takeChestplate(player *player, room *room)
 {
 	if (getRoomChestplate(*room) > 0)
 	{
 		removeRoomChestplate(room);
-		inventory->chestplate += 1;
+		setPlayerChestplate(player);
 		printf("\nHai raccolto una pesante armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
+		
 	}
 	else
 		printf("Non ci sono armature nella stanza. ¯\\_(ツ)_/¯\n");
 }
+
 
 void PuzzleRoom(room room, int ID)
 {

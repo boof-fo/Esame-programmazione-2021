@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 #include "../headers/enemy.h"
+#include "../headers/player.h"
 typedef int bool;
 #define true 1
 #define false 0
@@ -64,8 +65,8 @@ void spawnRoom(room* room, int roomNumber);
 //stampa una descrizione della stanza
 void describeRoom(room room, int ID);
 
-void takePotion(inventory *inventory, room *room);
-void takeSword(inventory *inventory, room *room);
-void takeChestplate(inventory *inventory, room *room);
+void takePotion(player *player, room *room);
+void takeSword(player *player, room *room);
+void takeChestplate(player *player, room *room);
 
 #endif

@@ -147,16 +147,16 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
     else
     if(search(&item1,oggetto)->key == 1)
     {
-      takePotion(&gamePlayer.inventory, &gameMap.room[gameMap.currentRoom]);
+      takePotion(&gamePlayer, &gameMap.room[gameMap.currentRoom]);
     }else
     if(search(&item1,oggetto)->key == 2)
     {
-      takeSword(&gamePlayer.inventory, &gameMap.room[getCurrentRoom(gameMap)]);
+      takeSword(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)]);
     }
     else 
     if(search(&item1,oggetto)->key == 3)
     {
-      takeChestplate(&gamePlayer.inventory, &gameMap.room[getCurrentRoom(gameMap)]);
+      takeChestplate(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)]);
     }
     else
     {
