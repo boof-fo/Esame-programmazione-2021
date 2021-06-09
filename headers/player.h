@@ -36,4 +36,6 @@ void attackPlayer(player *player, int damage);
 
 void usePotion(player *player);
 
+void showInventory(player player);
+
 #endif

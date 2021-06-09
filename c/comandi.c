@@ -359,6 +359,6 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
   if(search(&commands,comando)->key == 6)
   {
-    showInventory(gamePlayer.inventory);
+    showInventory(gamePlayer);
   }
-  }
+}

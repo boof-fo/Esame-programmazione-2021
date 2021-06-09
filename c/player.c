@@ -83,3 +83,36 @@ void usePotion(player *player)
 	else
 		printf("Brutte notizie mio caro amico, non hai più pozioni\n");
 }
+
+
+
+
+void showInventory(player player)
+{
+
+	printf("\nINVENTARIO:\nPozioni: %d\n", getInventoryPotions(player.inventory));
+
+	printf("Tipo di spada: ");
+	if(getInventorySword(player.inventory) == 0)
+	{
+		printf("Spada semplice");
+	}else 
+	if(getInventorySword(player.inventory) == 1)
+	{
+		printf("Spada ricurva");
+	}else 
+	if(getInventorySword(player.inventory) == 2)
+	{
+		printf("Alabarda");
+	}
+	printf("\n   Punti danno attuali: %d\n", player.damage);
+
+	printf("Armatura: ");
+	if(getInventoryChestplate(player.inventory) == false)
+	{
+		printf("Non presente\n");
+	}else
+	{
+		printf("Presente\n   Protezione dal danno aumentata del 15%%\n");
+	}
+}

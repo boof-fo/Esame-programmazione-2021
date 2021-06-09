@@ -44,37 +44,11 @@ void spawnInventory(inventory *inventory)
 
 
 
-
+void addInventoryPotion(inventory *inventory)
+{
+	inventory->potions += 1;
+}
 void removeInventoryPotion(inventory *inventory)
 {
-	inventory->potions = inventory->potions++;
-}
-
-
-
-void showInventory(inventory inventory)
-{
-
-	printf("\nINVENTARIO:\nPozioni: %d\n", getInventoryPotions(inventory));
-
-	printf("Tipo di spada: ");
-	if(getInventorySword(inventory) == 0)
-	{
-		printf("Spada semplice\nPunti danno attacco normale: 10\n");
-	}else if(getInventorySword(inventory) == 1)
-	{
-		printf("Spada ricurva\n Punti danno attacco normale: 20\n");
-	}else if(getInventorySword(inventory) == 2)
-	{
-		printf("Alabarda\n Punti danno attacco normale: 30\n");
-	}
-
-	printf("Armatura: ");
-	if(getInventoryChestplate(inventory) == false)
-	{
-		printf("Non presente\n");
-	}else
-	{
-		printf("Presente, Protezione dal danno aumentata del 15%%\n");
-	}
+	inventory->potions -= 1;
 }

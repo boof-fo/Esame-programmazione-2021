@@ -212,7 +212,7 @@ void takePotion(inventory *inventory, room *room)
 	{
 		removeRoomPotion(room);
 		//TODO: funzione aggiungi pozione
-		setInventoryPotions(inventory, getInventoryPotions(*inventory) + 1);
+		addInventoryPotion(inventory);
 		printf("\nHai raccolto una pozione curativa,Un intruglio a base di erbe medicinali sative, composto secondo un'antica ricetta degli alchimisti del tuo regno, ristabilisce i punti vitali anche se Il sapore non è il massimo.\n");
 	}
 	else
@@ -223,20 +223,20 @@ void takeSword(inventory *inventory, room *room)
 	if (getRoomSword(*room) == 0)
 	{
 		printf("Non ci sono spade nella stanza. ¯\\_(ツ)_/¯\n");
-		
 	}
-	 else if (getRoomSword(*room) == 1)
-	 {
-		removeRoomSword(room);
-		inventory->sword = getRoomSword(*room);
-		printf("\nHai raccolto una spada ricurva molto veloce ed affilata, riesce a penetrare nella carne putrefatta dei tuoi nemici con molta facilità\n");
-	 }
-	 else if (getRoomSword(*room) == 2)
+	else 
 	{
+		setInventorySword(inventory, getRoomSword(*room));
 		removeRoomSword(room);
-		inventory->sword = getRoomSword(*room);
-		printf("\nHai raccolto un alabarda, arma da distruzione di massa per eccellenza, non troverai equipaggiamento migliore di questo, perciò fattelo bastare\n");
-	}	
+		if (getInventorySword(*inventory) == 1)
+		{
+			printf("\nHai raccolto una spada ricurva molto veloce ed affilata, riesce a penetrare nella carne putrefatta dei tuoi nemici con molta facilità\n");
+		}else 
+		if (getInventorySword(*inventory) == 2)
+		{
+			printf("\nHai raccolto un alabarda, arma da distruzione di massa per eccellenza, non troverai equipaggiamento migliore di questo, perciò fattelo bastare\n");
+		}	
+	}
 }
 void takeChestplate(inventory *inventory, room *room)
 {
