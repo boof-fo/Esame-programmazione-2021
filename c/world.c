@@ -12,6 +12,17 @@ int getCurrentRoom(map map)
 }
 
 
+void spawnWorld(map *map)
+{
+	int i = 0;
+	while(i < 8)
+	{
+		spawnRoom(&map->room[i], i);
+		i++;
+	}
+}
+
+
 void printMap(map map)
 {
 	char p[7] = {' ', ' ', ' ',' ',' ',' ',' '};
@@ -31,7 +42,6 @@ void enterRoom(map *map, int newID)
 	#endif
 	
 	setCurrentRoom(map, newID);
-	spawnRoom(&map->room[newID], newID);
 	printMap(*map);
 	describeRoom(map->room[newID], newID);
 	//imposta i valori dei nemici e stampa descrizione
@@ -96,26 +106,7 @@ void killEnemy(map *map, int enemyID)
 }
 
 
-void answerPuzzle(map *map);
-{
-	if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]))
-  {
-    printf("Prima di continuare devi sconfiggere i nemici nella stanza attuale\n");
-    return;
-  }else
-	{
-		printf("La statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio.'\n");	
-		char risposta[20];
-		scanf("%s",risposta);
-		if (check(risposta,"ancora") || check(risposta,"l'ancora"))
-		{
-			printf("Risposta esatta. tieni l'armatura\n*un vecchio pezzo di armtura compare sul pavimento*\n");
-		}else 
-		{
-			printf("no\n");
-		}
-	}
-}
+
 
 
 

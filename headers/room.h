@@ -4,9 +4,7 @@
 
 #include "../headers/enemy.h"
 #include "../headers/player.h"
-typedef int bool;
-#define true 1
-#define false 0
+
 
 //struttura di una stanza
 typedef struct
@@ -19,7 +17,7 @@ typedef struct
 	//0 = nessuna spada; 1 = spada ricurva; 2 alabarda
 	int sword;
 	//1 = c'è un'armatura nella stanza
-	bool chestplate;
+	int chestplate;
 	/*numero di nemici nella stanza
 	0:nessun nemico;     
 	1:un nemico nella prima posizione dell'array; 
@@ -39,7 +37,7 @@ void setRoomPotions(room *room, int num);
 //imposta l'ID della spada in una stanza
 void setRoomSword(room *room, int num);
 //presenza armatura
-void setRoomChestplate(room *room, bool plate);
+void setRoomChestplate(room *room, int plate);
 //imposta il numero di nemici
 void setEnemiesConfiguration(room *room, int enemyConfig);
 //imposta il numero di porte (stanze collegate)
@@ -58,7 +56,7 @@ int getRoomDoors(room room);
 int checkEnemyPresent(room room, int targetEnemyID);
 
 //imposta i valori di una stanza
-void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyNumber, int doors);
+void populateRoom(room* room, int ID, int potions, int sword, int chestplate, int enemyNumber, int doors);
 
 void spawnRoom(room* room, int roomNumber);
 

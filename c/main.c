@@ -37,6 +37,8 @@ int main()
 	
 	do{enter = getchar();}while(enter != '\r' && enter != '\n');
 
+	spawnWorld(&gameMap);
+
 	enterRoom(&gameMap, 3);
 
 

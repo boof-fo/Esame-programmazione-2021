@@ -16,7 +16,7 @@ void setRoomSword(room *room, int num)
 	room->sword = num;
 }
 //presenza armatura
-void setRoomChestplate(room *room, bool plate)
+void setRoomChestplate(room *room, int plate)
 {
 	room->chestplate = plate;
 }
@@ -105,7 +105,7 @@ int checkEnemyPresent(room room, int targetEnemyID)
 
 
 //imposta i valori di una stanza
-void populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemiesConfig, int doors)
+void populateRoom(room* room, int ID, int potions, int sword, int chestplate, int enemiesConfig, int doors)
 {
 	setRoomID(room, ID);
 	setRoomPotions(room, potions);
@@ -154,7 +154,7 @@ void describeRoom(room room, int ID)
 
 	int potions = room.potions;
 	int sword = room.sword;
-	bool chestplate = room.chestplate;
+	int chestplate = room.chestplate;
 	int enemiesConfiguration = room.enemiesConfiguration;
 
 	if(potions == 0 && sword == 0 && chestplate == false && enemiesConfiguration == 0)

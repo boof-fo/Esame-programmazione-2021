@@ -16,7 +16,7 @@ typedef struct{
 	//0 = spada semplice; 1 = spada ricurva; 2 alabarda
 	int sword;
 	//1 = chestplate presente
-	bool chestplate;
+	int chestplate;
 }inventory;
 
 void setInventoryPotions(inventory *inventory, int newValue);

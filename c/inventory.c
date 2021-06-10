@@ -24,7 +24,7 @@ int getInventorySword(inventory inventory)
 {
 	return inventory.sword;
 }
-bool getInventoryChestplate(inventory inventory)
+int getInventoryChestplate(inventory inventory)
 {
 	return inventory.chestplate;
 }

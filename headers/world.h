@@ -20,6 +20,8 @@ map gameMap;
 //genera giocatore
 player gamePlayer;
 
+void spawnWorld(map *map);
+
 void setCurrentRoom(map *map, int newRoom);
 int getCurrentRoom(map map);
 
