@@ -1,5 +1,22 @@
 #include"../headers/inventory.h"
 
+void setLetterID(letter *letter, int ID)
+{
+	letter->ID = ID;
+}
+int getLetterID(letter letter)
+{
+	return letter->ID;
+}
+
+void setLetterExists(letter *letter)
+{
+	letter->exists = true;
+}
+bool getLetterExists(letter letter)
+{
+	return letter->exists;
+}
 void setInventoryPotions(inventory *inventory, int newValue)
 {
 	inventory->potions = newValue;
@@ -29,6 +46,19 @@ int getInventoryChestplate(inventory inventory)
 	return inventory.chestplate;
 }
 
+int setLetter(inventory *inventory, int ID)
+{
+	//TODO: if letter exists
+	setLetterExists(inventory->letter[i]);
+	setLetterID(ID);
+	char content[];
+	if(ID == 0)
+	{
+		content = "ciao";
+		setLetterContent(content[]);
+		getLetterContent(inventory.letters[0]);
+	}
+}
 
 void setInventory(inventory *inventory, int potions, int swordType, int chestplate)
 {

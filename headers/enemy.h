@@ -6,6 +6,7 @@
 #include <stdlib.h>
 
 #include "../headers/player.h"
+#include "../headers/inventory.h"
 
 //struttura di un nemico
 typedef struct{
@@ -17,6 +18,8 @@ typedef struct{
 	int damage;
 	//TODO: medico si cura da solo, 
 	int specialAbility;
+	//inventario
+	inventory inventory;
 }enemy;
 
 void setEnemyHP(enemy *enemy, int HP);

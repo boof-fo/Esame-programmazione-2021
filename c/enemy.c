@@ -97,4 +97,12 @@ void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID)
 	setEnemyDamage(enemy, damage);
 	setEnemyAbility(enemy, abilityID);
 	describeEnemy(ID);
+	if(ID == 0)
+	{
+		addInventoryPotion(enemy->inventory);
+	}else
+	if(ID == 0)
+	{
+		//letter
+	}
 }
