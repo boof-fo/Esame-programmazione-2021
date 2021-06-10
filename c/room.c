@@ -244,6 +244,7 @@ void takeChestplate(player *player, room *room)
 {
 	if (getRoomChestplate(*room) > 0)
 	{
+		//TODO: tipi di armatura
 		removeRoomChestplate(room);
 		setPlayerChestplate(player);
 		printf("\nHai raccolto un pesante pezzo di armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
@@ -253,9 +254,3 @@ void takeChestplate(player *player, room *room)
 		printf("Non ci sono armature nella stanza. ¯\\_(ツ)_/¯\n");
 }
 
-
-void PuzzleRoom(room room, int ID)
-{
-//La statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio.'\n");
-		//risposta:L'ancora
-}

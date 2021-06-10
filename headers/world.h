@@ -29,6 +29,8 @@ void attraversa(map *map);
 void enterRoom(map *map, int newRoom);
 void killEnemy(map *map, int enemyID);
 
+void answerPuzzle(map *map);
+
 void help();
 void exitGame();
 

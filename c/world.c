@@ -95,6 +95,30 @@ void killEnemy(map *map, int enemyID)
 	}
 }
 
+
+void answerPuzzle(map *map);
+{
+	if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]))
+  {
+    printf("Prima di continuare devi sconfiggere i nemici nella stanza attuale\n");
+    return;
+  }else
+	{
+		printf("La statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio.'\n");	
+		char risposta[20];
+		scanf("%s",risposta);
+		if (check(risposta,"ancora") || check(risposta,"l'ancora"))
+		{
+			printf("Risposta esatta. tieni l'armatura\n*un vecchio pezzo di armtura compare sul pavimento*\n");
+		}else 
+		{
+			printf("no\n");
+		}
+	}
+}
+
+
+
 void help()
 {
 	//TODO: SCRIVERE I PRINTF BELLINI 
