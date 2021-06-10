@@ -246,8 +246,8 @@ void takeChestplate(player *player, room *room)
 	{
 		removeRoomChestplate(room);
 		setPlayerChestplate(player);
-		printf("\nHai raccolto una pesante armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
-		
+		printf("\nHai raccolto un pesante pezzo di armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
+		raisePlayerProtection(player);
 	}
 	else
 		printf("Non ci sono armature nella stanza. ¯\\_(ツ)_/¯\n");

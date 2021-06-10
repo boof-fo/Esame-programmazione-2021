@@ -28,7 +28,7 @@ void setPlayerChestplate(player *player);
 
 int getPlayerHP(player player);
 int getPlayerDamage(player player);
-
+int getPlayerProtection(player player);
 //imposta i valori predefiniti
 
 void spawnPlayer(player *player);
@@ -36,6 +36,7 @@ void spawnPlayer(player *player);
 void attackPlayer(player *player, int damage);
 
 void usePotion(player *player);
+void raisePlayerProtection(player *player);
 
 void showInventory(player player);
 

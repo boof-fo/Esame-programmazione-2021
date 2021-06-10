@@ -22,7 +22,7 @@ int main()
 		}
 		else if(strncmp(answer, "no",sizeof(const char)*2) == 0)
 		{
-			printf("\nse non hai capito qualcosa ti basta tornarse su e rileggere, ora proseguiamo\n\n");
+			printf("\nSe non hai capito qualcosa ti basta tornarse su e rileggere, ora proseguiamo\n\n");
 			exit = 1;
 			EXIT_SUCCESS;
 		}

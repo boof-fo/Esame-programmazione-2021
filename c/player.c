@@ -42,6 +42,11 @@ int getPlayerDamage(player player)
 {
 	return player.damage;
 }
+int getPlayerProtection(player player)
+{
+	return player.protection;
+}
+
 
 
 
@@ -83,7 +88,12 @@ void usePotion(player *player)
 	else
 		printf("Brutte notizie mio caro amico, non hai più pozioni\n");
 }
-
+void raisePlayerProtection(player *player)
+{
+	int currentProtection = getPlayerProtection(*player);
+	currentProtection += 10;
+	setPlayerProtection(player, currentProtection);
+}
 
 
 
