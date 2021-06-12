@@ -99,9 +99,9 @@ void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID)
 	describeEnemy(ID);
 	if(ID == 0)
 	{
-		addInventoryPotion(enemy->inventory);
+		addInventoryPotion(&enemy->inventory);
 	}else
-	if(ID == 0)
+	if(ID == 1)
 	{
 		//letter
 	}
