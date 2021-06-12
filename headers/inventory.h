@@ -3,11 +3,9 @@
 
 #include <stdio.h>
 
-
 typedef int bool;
 #define true 1
 #define false 0
-
 
 typedef struct
 {
@@ -18,10 +16,10 @@ typedef struct
 	int sword;
 	//1 = chestplate presente
 	int chestplate;
-	//lettere
-	int letter;
+	//lettera. 
+	//TODO: numero di lettere
+	bool letter[50];
 }inventory;
-
 
 void setInventoryPotions(inventory *inventory, int newValue);
 void setInventorySword(inventory *inventory, int type);

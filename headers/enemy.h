@@ -14,6 +14,7 @@ typedef struct{
 	int ID;
 	//punti vita del nemico
 	int HP;
+	int letter;
 	//punti danno del nemico
 	int damage;
 	//TODO: medico si cura da solo, 

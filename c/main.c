@@ -1,33 +1,7 @@
 #include "../headers/main.h"
 #include "../headers/comandi.h"
 
-
-int main()
-{
-	FILE *file = fopen("letters.dat", "r");
-	int count = 0;
-	int lineNumber = 1;
-	if ( file != NULL )
-	{   
-			char line[256]; /* or other suitable maximum line size */
-			while (fgets(line, sizeof line, file) != NULL) /* read a line */
-			{   
-					if (count == lineNumber)
-					{   
-							//use line or in a function return it
-							//            //in case of a return first close the file with "fclose(file);"
-					printf("%s\n", line);
-					fclose(file);
-					return 0;
-
-					}   
-					else
-					{   
-							count++;
-					}   
-			}   
-			fclose(file);
-	}  
+int main(
 	printf("\nTi diamo il benvenuto nel nostro gioco: Pirates Fortress, un avventura testuale ambientata in un' isola tropicale dove impersonificherai Jacob Smith,\nun giovane avventuriero con lo scopo di ritrovare un antico tesoro pirata, ma non di un pirata qualsiasi, bensì del più temuto di tutti i tempi: Il capitano Barbadura,\nconsiderato da molti il re di tutti i pirati dei sette mari, nel corso del diciottesimo secolo lui e la sua spietata ciurma hanno accumulato una ricchezza spropositata in gioelli e dobloni d'oro\n,alcuni documenti e mappe suggeriscono la presenza del famigerato tesoro in un isola sperduta del pacifico, non presente sulle mappe convenzionali, totalmente inesplorata e priva di vita\ndove sorge una fortezza usata ai tempi della colonizzazione inglese del quindicesimo secolo, usata come rifugio dalla ciurma di Barbadura, alcune leggende narrano\nche la ciurma sia ancora presente all'interno della fortezza sotto forma di non-morti affamati di carne umana e che lo spirito del capitano vegli ancora sullo scrigno maledetto.\nPer avere una lista dei comandi utilizzabili usa il comando 'aiuto comandi'\n");
 	
 	char enter = ' ';
@@ -64,7 +38,6 @@ int main()
 	spawnWorld(&gameMap);
 
 	enterRoom(&gameMap, 3);
-
 
 
 
