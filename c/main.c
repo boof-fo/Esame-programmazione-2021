@@ -79,7 +79,6 @@ int main()
 	{
 		printf("\nInserisci un comando:\n");
 		parsing(commands, roomItems, enemies, inventoryItems, attr6);
-		answerPuzzle(&gameMap);
 	}
 
 
