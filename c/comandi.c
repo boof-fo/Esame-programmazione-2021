@@ -136,7 +136,7 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
   if (search(&commands,comando) == NULL)
   {
-    printf("Comando errato\n");
+    printf("Non conosco questo comando\n");
   }else 
 
 
@@ -352,9 +352,16 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
     
   }else
   
-  if (search(&commands,comando)->key == 5)
+  if (search(&commands,comando)->key == 5) //aiuto TODO: stampare solo la descrizione del comando richiesto, Aiuto attacca- aiuto usa.
   {
-    printf("aiuto");
+    int c;
+    FILE *file;
+    file = fopen("comandi.txt", "r");
+    if (file) {
+      while ((c = getc(file)) != EOF)
+        putchar(c);
+        fclose(file);
+}
   }else 
 
   if(search(&commands,comando)->key == 6)
@@ -370,19 +377,19 @@ void answerPuzzle(map *map)
     return;
   }else
 	{
-		printf("La statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio. Se non riesci a trovare la risposta corretta scrivi \"esci\" per uscire'\n");	
+		printf("La statua del gargoyle sta tremando come se cercasse di attirare la tua attenzione, avvicinandoti senti una voce molto profonda pronunciare:\n'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio.\n \n Se vuoi arrenderti scrivi \"esci\" per proseguire'\n");	
 		char risposta[20];
 		scanf("%s",risposta);
 		if (check(risposta,"ancora") || check(risposta,"l'ancora"))
 		{
-			printf("Risposta esatta. tieni l'armatura\n*un vecchio pezzo di armtura compare sul pavimento*\n");
+			printf("Risposta corretta mio giovane avventuriero! dietro di me nascondo un' antica armatura che potrai equipaggiare per proteggerti, te la sei meritata\n \n");
       setRoomChestplate(&map->room[getCurrentRoom(*map)], 1);
 		}else 
     if (check(risposta,"esci"))
       return;
     else
 		{
-			printf("no\n");
+			printf("\nLa risposta non è corretta.\n"); //TODO: nuovo tentativo "vuoi riprovare?"
 		}
 	}
 }
