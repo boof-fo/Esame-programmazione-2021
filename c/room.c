@@ -244,17 +244,25 @@ void takeSword(player *player, room *room)
 }
 void takeChestplate(player *player, room *room)
 {
-	if (getRoomChestplate(*room) > 0)
+	int chestplate = getRoomChestplate(*room);
+	if (chestplate == 0)
+		printf("Non ci sono armature nella stanza. ¯\\_(ツ)_/¯\n");
+	else
 	{
 		//TODO: tipi di armatura
 		removeRoomChestplate(room);
 		setPlayerChestplate(player);
-		printf("\nHai raccolto un pesante pezzo di armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
+		if(chestplate == 1)
+		{
+			printf("\nHai raccolto un pesante pezzo di armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
+		}else
+		if(chestplate == 2)
+		{
+			printf("\narmatura stilosa\n");
+		}
 		//TODO: valore sensato
 		int currentProtection = getPlayerProtection(*player) + 10;
 		setPlayerProtection(player, currentProtection);
 	}
-	else
-		printf("Non ci sono armature nella stanza. ¯\\_(ツ)_/¯\n");
 }
 
