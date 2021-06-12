@@ -36,7 +36,8 @@ void spawnPlayer(player *player);
 void attackPlayer(player *player, int damage);
 
 void usePotion(player *player);
-void raisePlayerProtection(player *player);
+void giveSwordEffects(player *player);
+void removeSwordEffects(player *player);
 
 void showInventory(player player);
 

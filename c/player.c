@@ -88,13 +88,28 @@ void usePotion(player *player)
 	else
 		printf("Brutte notizie mio caro amico, non hai più pozioni\n");
 }
-void raisePlayerProtection(player *player)
-{
-	int currentProtection = getPlayerProtection(*player);
-	currentProtection += 10;
-	setPlayerProtection(player, currentProtection);
-}
 
+
+void giveSwordEffects(player *player)
+{
+	if(getInventorySword(player->inventory) == 3)
+	{
+		//TODO: valore sensato
+		int currentProtection = getPlayerProtection(*player);
+		currentProtection += 10;
+		setPlayerProtection(player, currentProtection);
+	}
+}
+void removeSwordEffects(player *player)
+{
+	if(getInventorySword(player->inventory) == 3)
+	{
+		int protection = getPlayerProtection(*player);
+		//TODO: valore sensato
+		protection -= 10;
+		setPlayerProtection(player, protection);
+	}
+}
 
 
 void showInventory(player player)

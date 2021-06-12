@@ -227,6 +227,7 @@ void takeSword(player *player, room *room)
 	}
 	else 
 	{
+		removeSwordEffects(player);
 		if (getRoomSword(*room) == 1)
 		{
 			printf("\nHai raccolto una spada ricurva molto veloce ed affilata, riesce a penetrare nella carne putrefatta dei tuoi nemici con molta facilità\n");
@@ -238,6 +239,7 @@ void takeSword(player *player, room *room)
 			setPlayerSword(player, 2);
 		}	
 		removeRoomSword(room);
+		giveSwordEffects(player);
 	}
 }
 void takeChestplate(player *player, room *room)
@@ -248,7 +250,9 @@ void takeChestplate(player *player, room *room)
 		removeRoomChestplate(room);
 		setPlayerChestplate(player);
 		printf("\nHai raccolto un pesante pezzo di armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
-		raisePlayerProtection(player);
+		//TODO: valore sensato
+		int currentProtection = getPlayerProtection(*player) + 10;
+		setPlayerProtection(player, currentProtection);
 	}
 	else
 		printf("Non ci sono armature nella stanza. ¯\\_(ツ)_/¯\n");

@@ -1,8 +1,9 @@
 #include "../headers/main.h"
 #include "../headers/comandi.h"
 
-int main(
-	printf("\nTi diamo il benvenuto nel nostro gioco: Pirates Fortress, un avventura testuale ambientata in un' isola tropicale dove impersonificherai Jacob Smith,\nun giovane avventuriero con lo scopo di ritrovare un antico tesoro pirata, ma non di un pirata qualsiasi, bensì del più temuto di tutti i tempi: Il capitano Barbadura,\nconsiderato da molti il re di tutti i pirati dei sette mari, nel corso del diciottesimo secolo lui e la sua spietata ciurma hanno accumulato una ricchezza spropositata in gioelli e dobloni d'oro\n,alcuni documenti e mappe suggeriscono la presenza del famigerato tesoro in un isola sperduta del pacifico, non presente sulle mappe convenzionali, totalmente inesplorata e priva di vita\ndove sorge una fortezza usata ai tempi della colonizzazione inglese del quindicesimo secolo, usata come rifugio dalla ciurma di Barbadura, alcune leggende narrano\nche la ciurma sia ancora presente all'interno della fortezza sotto forma di non-morti affamati di carne umana e che lo spirito del capitano vegli ancora sullo scrigno maledetto.\nPer avere una lista dei comandi utilizzabili usa il comando 'aiuto comandi'\n");
+int main()
+{
+	printf("\n╔═══════════════════════════════════════════════════════════════════════════╗\n║Ti diamo il benvenuto nel nostro gioco  P I R A T E S   F O R T E S S      ║\n║un avventura ambientata in un' isola tropicale dove impersonificherai      ║\n║Jacob Smith, un giovane avventuriero con lo scopo di ritrovare un antico   ║\n║tesoro pirata, del più temuto di tutti i tempi: Il capitano Barbadura.     ║\n║considerato da molti il re di tutti i pirati dei sette mari, nel corso del ║\n║diciottesimo secolo lui e la sua ciurma accumularono una ricchezza enorme  ║\n║in gioelli e dobloni d'oro.                                                ║\n║alcuni documenti e mappe suggeriscono la presenza del famigerato tesoro in ║\n║un isola sperduta del pacifico, non presente sulle mappe convenzionali,    ║\n║totalmente inesplorata e priva di vita dove sorge una fortezza usata ai    ║\n║tempi della colonizzazione inglese del quindicesimo secolo, usata come     ║\n║rifugio dalla ciurma di Barbadura, alcune leggende narrano  che la ciurma  ║\n║sia ancora presente all'interno della fortezza sotto forma di non-morti    ║\n║affamati di carne umana e che lo spirito del capitano vegli ancora sullo   ║\n║scrigno maledetto di cui ti dovrai impossessare.                           ║\n║═══════════════════════════════════════════════════════════════════════════║\n║ Hai bisogno di istruzioni? Si o No?                                       ║\n╚═══════════════════════════════════════════════════════════════════════════╝\n");
 	
 	char enter = ' ';
 	char answer[2];
@@ -10,7 +11,6 @@ int main(
 
 	do
 	{
-		printf("\nhai compreso bene? si o no \n");
 		scanf("%s", answer);
 		if(strncmp(answer, "si", sizeof(const char)*2)  == 0)
 		{
@@ -79,6 +79,7 @@ int main(
 	{
 		printf("\nInserisci un comando:\n");
 		parsing(commands, roomItems, enemies, inventoryItems, attr6);
+		answerPuzzle(&gameMap);
 	}
 
 

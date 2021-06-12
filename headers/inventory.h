@@ -12,13 +12,13 @@ typedef struct
 	//numero di pozioni curative
 	int potions;
 	//tipo di spada
-	//0 = spada semplice; 1 = spada ricurva; 2 alabarda; 
+	//0 = spada semplice; 1 = spada ricurva; 2 alabarda; 3 spada protettiva; 4 spada succhiavita 
 	int sword;
 	//1 = chestplate presente
 	int chestplate;
 	//lettera. 
 	//TODO: numero di lettere
-	bool letter[50];
+	bool letter[10];
 }inventory;
 
 void setInventoryPotions(inventory *inventory, int newValue);
