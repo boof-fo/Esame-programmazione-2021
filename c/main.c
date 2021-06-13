@@ -50,13 +50,13 @@ int main()
 		scanf("%s", answer);
 		if(strncmp(answer, "si", sizeof(const char)*2)  == 0)
 		{
-			parsing(&commands,comando)->key == 5)
+			printf("\nperfetto, possiamo proseguire\n\n");
 			exit = 1;
 			EXIT_SUCCESS;
 		}
 		else if(strncmp(answer, "no",sizeof(const char)*2) == 0)
-		{
-			printf("Allora sei pronto a cominciare! iniziamo subito.")
+		{//TODO: comando aiuto
+			printf("\nnn mi 'nteressa\n\n");
 			exit = 1;
 			EXIT_SUCCESS;
 		}
@@ -69,7 +69,7 @@ int main()
 	//azzera i valori dell'inventario
 	spawnInventory(&gamePlayer.inventory);
 	
-	do{enter = getchar();}while(enter != '\r' && enter != '\n');
+	do{enter = getchar();} while(enter != '\r' && enter != '\n');
 
 	spawnWorld(&gameMap);
 
