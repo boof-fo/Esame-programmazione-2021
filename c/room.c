@@ -254,19 +254,21 @@ void takeChestplate(player *player, room *room)
 		printf("Non ci sono armature nella stanza. ¯\\_(ツ)_/¯\n");
 	else
 	{
+		int currentProtection = getPlayerProtection(*player);
 		//TODO: tipi di armatura
 		removeRoomChestplate(room);
 		setPlayerChestplate(player);
 		if(chestplate == 1)
 		{
 			printf("\nHai raccolto un pesante pezzo di armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
+			currentProtection += 10;
 		}else
 		if(chestplate == 2)
 		{
-			printf("\narmatura stilosa\n");
+			printf("\narmatura stilosa che ti fa il culo grosso\n");
+			currentProtection += 20;
 		}
-		//TODO: valore sensato
-		int currentProtection = getPlayerProtection(*player) + 10;
+		//TODO: valori sensati
 		setPlayerProtection(player, currentProtection);
 	}
 }

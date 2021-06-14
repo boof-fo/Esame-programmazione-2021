@@ -112,23 +112,25 @@ void giveSwordEffects(player *player)
 {
 	if(getInventorySword(player->inventory) == 3)
 	{
-		//TODO: valore sensato
-		int currentProtection = getPlayerProtection(*player);
-		currentProtection += 10;
-		setPlayerProtection(player, currentProtection);
+		raisePlayerProtection(player);
 	}
 }
 void removeSwordEffects(player *player)
 {
 	if(getInventorySword(player->inventory) == 3)
 	{
-		int protection = getPlayerProtection(*player);
-		//TODO: valore sensato
-		protection -= 10;
-		setPlayerProtection(player, protection);
+		lowerPlayerProtection(player);
 	}
 }
 
+void raisePlayerProtection(player *player)
+{
+	setPlayerProtection(player, getPlayerProtection(*player) + 10);
+}
+void lowerPlayerProtection(player *player)
+{
+	setPlayerProtection(player, getPlayerProtection(*player) - 10);
+}
 
 void showInventory(player player)
 {
@@ -151,11 +153,11 @@ void showInventory(player player)
 	printf("\n   Punti danno attuali: %d\n", player.damage);
 
 	printf("Armatura: ");
-	if(getInventoryChestplate(player.inventory) == false)
+	if(getInventoryChestplate(player.inventory) == 0)
 	{
 		printf("Non presente\n");
 	}else
-	{
+	{//TODO: tipi di armatura
 		printf("Presente\n   Protezione dal danno aumentata del 15%%\n");
 	}
 }

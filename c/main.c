@@ -76,14 +76,10 @@ int main()
 	enterRoom(&gameMap, 3);
 
 
-
-
 	while(true)
 	{
 		printf("\nInserisci un comando:\n");
 		parsing(commands, roomItems, enemies, inventoryItems, attr6);
 	}
-
-
 
 }

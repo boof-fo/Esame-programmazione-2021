@@ -16,7 +16,7 @@ typedef struct
 	//tipo di spada contenuta nella stanza
 	//0 = nessuna spada; 1 = spada ricurva; 2 alabarda
 	int sword;
-	//1 = c'è un'armatura nella stanza
+	//1 = armatura arruginita; 2 = armatura stilosa 
 	int chestplate;
 	/*numero di nemici nella stanza
 	0:nessun nemico;     
