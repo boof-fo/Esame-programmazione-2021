@@ -2,7 +2,7 @@
 #include "../headers/comandi.h"
 
 int main()
-{	
+{
 	list commands, roomItems, enemies, inventoryItems, doors, attr6;
 	commands.count = 0;
 	roomItems.count = 0;

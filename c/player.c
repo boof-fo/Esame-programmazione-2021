@@ -19,10 +19,18 @@ void setPlayerSword(player *player, int swordType)
 	//TODO: mettere i valori definitivi
 	int newDamage;
 	if (swordType == 1)
+	{
 		newDamage = 20;
-	else 
+	}else 
 	if (swordType == 2)
+	{
 		newDamage = 30;
+	}else 
+	if (swordType == 3)
+	{
+		newDamage = 30;
+
+	}
 	setPlayerDamage(player, newDamage);
 	setInventorySword(&player->inventory, swordType);
 }
@@ -45,6 +53,10 @@ int getPlayerDamage(player player)
 int getPlayerProtection(player player)
 {
 	return player.protection;
+}
+int getPlayerSword(player player)
+{
+	return player.inventory.sword;
 }
 
 
@@ -76,7 +88,13 @@ void usePotion(player *player)
 		if(getPlayerHP(*player) < 100)
 		{
 			removeInventoryPotion(&player->inventory);
-			setPlayerHP(player, getPlayerHP(*player) + 50);
+			if(getPlayerHP(*player) + 40 > 100)
+			{
+				setPlayerHP(player, 100);	
+			}else
+			{
+				setPlayerHP(player, getPlayerHP(*player) + 40);
+			}
 			printf("Hai bevuto la pozione, ti senti molto pù in forze ora \n");
 			printf("Adesso hai %d punti vita\n", getPlayerHP(*player));
 		}

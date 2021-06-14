@@ -117,35 +117,35 @@ void populateRoom(room* room, int ID, int potions, int sword, int chestplate, in
 
 void spawnRoom(room* room, int roomNumber)
 {
-if (roomNumber == 0)
-	//populateRoom(room* room, int ID, int potions, int sword, bool chestplate, int enemyConfiguration);
-		{
-			populateRoom(room, 0, 0, 0, false, 0, 2);
-		}
-		if (roomNumber == 1)
-		{
-			populateRoom(room, 1, 1, 0, false, 1, 1);
-		}
-		if (roomNumber == 2)
-		{
-			populateRoom(room, 2, 0, 0, false, 1, 1);
-		}
-		if (roomNumber == 3)
-		{
-			populateRoom(room, 3, 1, 1, true, 3, 2);
-		}
-		if (roomNumber == 4)
-		{
-			populateRoom(room, 4, 0, 2, false, 3, 1);
-		}
-		if (roomNumber == 5)
-		{
-			populateRoom(room, 5, 2, 2, false, 3, 1);
-		}
-		if (roomNumber == 6)
-		{
-			populateRoom(room, 6, 1, 1, false, 1, 1);
-		}
+	//populateRoom(room *room, int ID, int potions, int sword, int chestplate, int enemiesConfig, int doors)
+	if (roomNumber == 0)
+	{
+		populateRoom(room, 0, 0, 0, 0, 0, 2);
+	}
+	if (roomNumber == 1)
+	{
+		populateRoom(room, 1, 1, 0, 0, 1, 1);
+	}
+	if (roomNumber == 2)
+	{
+		populateRoom(room, 2, 0, 0, 0, 1, 1);
+	}
+	if (roomNumber == 3)
+	{
+		populateRoom(room, 3, 1, 1, 1, 3, 2);
+	}
+	if (roomNumber == 4)
+	{
+		populateRoom(room, 4, 0, 2, 0, 3, 1);
+	}
+	if (roomNumber == 5)
+	{
+		populateRoom(room, 5, 2, 2, 0, 3, 1);
+	}
+	if (roomNumber == 6)
+	{
+		populateRoom(room, 6, 1, 1, 0, 1, 1);
+	}
 }
 
 void describeRoom(room room, int ID)
@@ -237,7 +237,12 @@ void takeSword(player *player, room *room)
 		{
 			printf("\nHai raccolto un alabarda, arma da distruzione di massa per eccellenza, non troverai equipaggiamento migliore di questo, perciò fattelo bastare\n");
 			setPlayerSword(player, 2);
-		}	
+		}else
+		if (getRoomSword(*room) == 3)
+		{
+			printf("\nSpada magica protettiva\n");
+			setPlayerSword(player, 3);
+		}		
 		removeRoomSword(room);
 		giveSwordEffects(player);
 	}
