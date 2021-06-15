@@ -3,10 +3,6 @@
 
 #include <stdio.h>
 
-typedef int bool;
-#define true 1
-#define false 0
-
 typedef struct
 {
 	//numero di pozioni curative
@@ -18,12 +14,12 @@ typedef struct
 	int chestplate;
 	//lettera. 
 	//TODO: numero di lettere
-	bool letter[10];
+	//bool letter[10];
 }inventory;
 
 void setInventoryPotions(inventory *inventory, int newValue);
-void setInventorySword(inventory *inventory, int type);
-void setInventoryChestplate(inventory *inventory);
+void setInventorySword(inventory *inventory, int swordTyper);
+void setInventoryChestplate(inventory *inventory, int chestplateType);
 
 int getInventoryPotions(inventory inventory);
 int getInventorySword(inventory inventory);

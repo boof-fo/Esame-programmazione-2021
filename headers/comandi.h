@@ -1,3 +1,6 @@
+#ifndef COMANDI_H
+#define COMANDI_H
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -5,6 +8,8 @@ typedef int bool;
 #define true 1
 #define false 0
 
+#include "../headers/string.h"
+#include "../headers/actions.h"
 #include "../headers/world.h"
 #include "../headers/room.h"
 #include "../headers/inventory.h"
@@ -42,4 +47,6 @@ node *search(list *list, char string[]);
 
 void parsing(list commands,list item1, list item2, list item3, list attr6);
 
-void answerPuzzle(map *map);
+
+
+#endif

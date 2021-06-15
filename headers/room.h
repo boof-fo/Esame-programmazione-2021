@@ -22,8 +22,7 @@ typedef struct
 	0:nessun nemico;     
 	1:un nemico nella prima posizione dell'array; 
 	2:un nemico nella seconda posizione dell'array;
-	3:due nemici;
-	*/
+	3:due nemici;*/
 	int enemiesConfiguration;
 	enemy enemy[2];
 	//numero di porte

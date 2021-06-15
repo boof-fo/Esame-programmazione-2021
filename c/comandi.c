@@ -1,43 +1,5 @@
 #include "../headers/comandi.h"
 
-void inserstr(char stringa1[],char stringa2[])
-{
-	int lun = strlen(stringa2);
-	int i = 0;
-	while(i < lun)
-	{
-		stringa1[i] = stringa2[i];
-		i++;
-	}
-}
-
-
-int check(char stringa1[],char stringa2[])
-{
-    int i = 0;
-    int lun1,lun2;
-    lun1 = strlen(stringa1);
-		lun2 = strlen(stringa2);
-		if(lun2 != lun1)
-		{
-    	return false;
-    }else
-		{
-    	while(i < lun2)
-      {
-		  	if (stringa1[i] == stringa2[i])
-					i++;
-        else 
-          return false;
-      }
-    }
-    if(i == lun2)
-      return true;
-    else 
-      return false;
-}
-
-
 void insert(list *list, int new_key,char new_string[])
 {
     // creo il nuovo nodo e gli alloco uno spazio di memoria
@@ -86,74 +48,6 @@ node *search(list *list, char string[])
     return NULL;
 }
 
-void attraversa(map *map)
-{
-  if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]))
-  {
-    printf("Prima di continuare devi sconfiggere i nemici nella stanza attuale\n");
-    return;
-  }
-  int currentRoom = getCurrentRoom(*map);
-  char risposta[20];
-  if(currentRoom == 0 || currentRoom == 3 )
-  {
-    printf("\nCi sono due porte... vuoi attraversare la porta destra o la porta sinistra?\n");
-    scanf("%s",risposta);
-    if (check(risposta,"destra"))
-    {
-      currentRoom += 1;
-    }else 
-    if(check(risposta, "sinistra"))
-    {
-      currentRoom += 2;
-    }
-  }else 
-  if ( currentRoom == 1 || currentRoom == 4)
-  {
-    currentRoom += 2;
-  }else 
-  if (currentRoom == 2 || currentRoom == 5)
-  {
-      currentRoom += 1;
-  }else 
-  if (currentRoom == 6 )
-  {
-    //TODO: inventarsi o un finale alternativo o il finale
-    printf("the end :P\n");
-    exit(0);
-  }
-  enterRoom(map, currentRoom);
-}
-
-void answerPuzzle(map *map)
-{
-  printf("\nLa statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio. Se non riesci a trovare la risposta corretta scrivi \"esci\" per uscire'\n");	
-  char risposta[20];
-  scanf("%s",risposta);
-  if (check(risposta,"ancora") || check(risposta,"l'ancora"))
-  {
-    printf("Risposta esatta. tieni l'armatura\n*un vecchio pezzo di armtura compare sul pavimento*\n");
-    setRoomChestplate(&map->room[getCurrentRoom(*map)], 1);
-  }else 
-  if (check(risposta,"esci"))
-    return;
-  else
-  {
-    printf("no\n");
-  }
-}
-
-
-void Aiuto()
-{
-    int c;
-    FILE *file;
-    file = fopen("comandi.txt", "r");
-    if (file) {
-      while ((c = getc(file)) != EOF)
-        putchar(c);
-        fclose(file);
-}
 
 
 
@@ -405,9 +299,7 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
   if (search(&commands,comando)->key == 5) //help TODO: stampare solo la descrizione del comando richiesto, Aiuto attacca- aiuto usa.
   {
     aiuto();
-}
-  }else 
-
+  }else
   if(search(&commands,comando)->key == 6)
   {
     showInventory(gamePlayer);

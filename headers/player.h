@@ -24,7 +24,7 @@ void setPlayerHP(player *player, int HP);
 void setPlayerDamage(player *player, int damage);
 void setPlayerProtection(player *player, int protectionPoints);
 void setPlayerSword(player *player, int swordType);
-void setPlayerChestplate(player *player);
+
 
 int getPlayerHP(player player);
 int getPlayerDamage(player player);

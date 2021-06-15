@@ -34,12 +34,7 @@ void setPlayerSword(player *player, int swordType)
 	setPlayerDamage(player, newDamage);
 	setInventorySword(&player->inventory, swordType);
 }
-void setPlayerChestplate(player *player)
-{
-	//TODO: mettere i valori definitivi
-	setPlayerProtection(player, 30);
-	setInventoryChestplate(&player->inventory);
-}
+
 
 
 int getPlayerHP(player player)
