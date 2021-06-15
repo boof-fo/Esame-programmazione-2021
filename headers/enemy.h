@@ -39,7 +39,8 @@ int getEnemyDamage(enemy enemy);
 int attackEnemy(player *player, enemy *enemy, int damage);
 
 //viene invocata da spawnEnemy
-void describeEnemy(int ID);
+//TODO: gestire gli errori quando viene chiamata
+int describeEnemy(int ID);
 
 //crea il nemico impostando le sue statistiche
 void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID);

@@ -68,9 +68,9 @@ int attackEnemy(player *player, enemy *enemy, int damage)
 	return 10;
 }
 
-void describeEnemy(int ID)
+int describeEnemy(int ID)
 {
-	FILE *file = fopen("descrizione_Nemici.txt", "r");
+	FILE *file = fopen("descrizioni_nemici.txt", "r");
 	int count = 0;
 	if ( file != NULL )
 	{
