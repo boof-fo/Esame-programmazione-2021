@@ -50,13 +50,13 @@ int main()
 		scanf("%s", answer);
 		if(strncmp(answer, "si", sizeof(const char)*2)  == 0)
 		{
-			printf("\nperfetto, possiamo proseguire\n\n");
+			aiuto();
 			exit = 1;
 			EXIT_SUCCESS;
 		}
 		else if(strncmp(answer, "no",sizeof(const char)*2) == 0)
 		{//TODO: comando aiuto
-			printf("\nnn mi 'nteressa\n\n");
+			printf("\nperfetto, possiamo proseguire\n\n");
 			exit = 1;
 			EXIT_SUCCESS;
 		}
