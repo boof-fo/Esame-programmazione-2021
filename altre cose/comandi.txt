@@ -1,4 +1,3 @@
-
 LISTA COMANDI:
 
 •aiuto: stampa la lista dei comandi.

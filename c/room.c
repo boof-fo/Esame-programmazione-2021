@@ -157,7 +157,7 @@ void describeRoom(room room, int ID)
 	int chestplate = room.chestplate;
 	int enemiesConfiguration = room.enemiesConfiguration;
 
-	if(potions == 0 && sword == 0 && chestplate == false && enemiesConfiguration == 0)
+	if(potions == 0 && sword == 0 && chestplate == 0 && enemiesConfiguration == 0)
 	{
 		//TODO: descrizione stanza vuota
 		printf("\nstanza vuota\n");
@@ -256,8 +256,7 @@ void takeChestplate(player *player, room *room)
 	{
 		int currentProtection = getPlayerProtection(*player);
 		//TODO: tipi di armatura
-		removeRoomChestplate(room);
-		setPlayerChestplate(player);
+		setInventoryChestplate(&player->inventory, chestplate);
 		if(chestplate == 1)
 		{
 			printf("\nHai raccolto un pesante pezzo di armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");

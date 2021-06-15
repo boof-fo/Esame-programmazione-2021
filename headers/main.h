@@ -5,6 +5,6 @@
 #include "../headers/world.h"
 #include "../headers/player.h"
 #include "../headers/enemy.h"
-
+#include "../headers/actions.h"
 
 int main();

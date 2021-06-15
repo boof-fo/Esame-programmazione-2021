@@ -5,9 +5,9 @@ void setInventorySword(inventory *inventory, int newValue)
 	inventory->sword = newValue;
 }
 
-void setInventoryChestplate(inventory *inventory)
+void setInventoryChestplate(inventory *inventory, int chestplateType)
 {
-	inventory->sword = true;
+	inventory->chestplate = chestplateType;
 }
 
 
