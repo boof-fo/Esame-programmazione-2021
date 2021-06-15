@@ -1,0 +1,15 @@
+LISTA COMANDI:
+
+•aiuto: stampa la lista dei comandi.
+
+•aiuto + 'comando': stampa la spiegazione dello specifico comando.
+
+•raccogli + 'oggetto': aggiungi l'oggetto al tuo inventario per poterlo utilizzare.
+
+•usa + 'oggetto': utilizza un oggetto presente nell'inventario.
+
+•attraversa: Quando i nemici presenti nella stanza saranno finiti.
+
+•Attacca + 'nome del nemico': Attacca il nemico con l'arma equipaggiata.
+
+•Esci: termina l'esecuzione del programma. Alla prossima :)

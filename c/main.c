@@ -30,7 +30,7 @@ int main()
 	insert(&enemies, 6, "cannoniere");
 	insert(&enemies, 7, "medico");
 	insert(&enemies, 8, "artigliere");
-	insert(&enemies, 9, "comandante");
+	insert(&enemies, 9, "capitano");
 
 	insert(&inventoryItems, 1, "pozione");
 	insert(&inventoryItems, 2, "mappa");
@@ -41,7 +41,7 @@ int main()
 	
 	printf("\n╔═══════════════════════════════════════════════════════════════════════════╗\n║Ti diamo il benvenuto nel nostro gioco  P I R A T E S   F O R T E S S      ║\n║un avventura ambientata in un' isola tropicale dove impersonificherai      ║\n║Jacob Smith, un giovane avventuriero con lo scopo di ritrovare un antico   ║\n║tesoro pirata, del più temuto di tutti i tempi: Il capitano Barbadura.     ║\n║considerato da molti il re di tutti i pirati dei sette mari, nel corso del ║\n║diciottesimo secolo lui e la sua ciurma accumularono una ricchezza enorme  ║\n║in gioelli e dobloni d'oro.                                                ║\n║alcuni documenti e mappe suggeriscono la presenza del famigerato tesoro in ║\n║un isola sperduta del pacifico, non presente sulle mappe convenzionali,    ║\n║totalmente inesplorata e priva di vita dove sorge una fortezza usata ai    ║\n║tempi della colonizzazione inglese del quindicesimo secolo, usata come     ║\n║rifugio dalla ciurma di Barbadura, alcune leggende narrano  che la ciurma  ║\n║sia ancora presente all'interno della fortezza sotto forma di non-morti    ║\n║affamati di carne umana e che lo spirito del capitano vegli ancora sullo   ║\n║scrigno maledetto di cui ti dovrai impossessare.                           ║\n║═══════════════════════════════════════════════════════════════════════════║\n║ Hai bisogno di istruzioni? Si o No?                                       ║\n╚═══════════════════════════════════════════════════════════════════════════╝\n");
 	
-	char enter = ' ';
+	char enter = 'a';
 	char answer[2];
 	int exit;
 
@@ -51,29 +51,31 @@ int main()
 		if(strncmp(answer, "si", sizeof(const char)*2)  == 0)
 		{
 			aiuto();
+			printf("\n\n\nPremi invio per continuare...\n");
+			fflush(stdin);
+			enter = getchar();
 			exit = 1;
-			EXIT_SUCCESS;
 		}
 		else if(strncmp(answer, "no",sizeof(const char)*2) == 0)
 		{//TODO: comando aiuto
-			printf("\nperfetto, possiamo proseguire\n\n");
+			printf("\nPerfetto, possiamo proseguire. Premi invio per continuare...\n\n");
+			fflush(stdin);
+			enter = getchar();
 			exit = 1;
-			EXIT_SUCCESS;
+		}else
+		{
+			printf("\nrisposta non corretta, potresti ripetere rispondendo si o no?\n");
 		}
-		if (exit != 1)
-		printf("\nrisposta non corretta, potresti ripetere rispondendo Si o No?\n");
-	}while(exit!=1);
+	}while(exit!=1 && enter != '\n');
 	
 	//imposta valori di default 
 	spawnPlayer(&gamePlayer);
 	//azzera i valori dell'inventario
 	spawnInventory(&gamePlayer.inventory);
-	
-	do{enter = getchar();} while(enter != '\r' && enter != '\n');
 
 	spawnWorld(&gameMap);
 
-	enterRoom(&gameMap, 3);
+	enterRoom(&gameMap, 0);
 
 
 	while(true)
