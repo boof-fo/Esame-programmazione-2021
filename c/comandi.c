@@ -144,7 +144,16 @@ void answerPuzzle(map *map)
 }
 
 
-
+void Aiuto()
+{
+    int c;
+    FILE *file;
+    file = fopen("comandi.txt", "r");
+    if (file) {
+      while ((c = getc(file)) != EOF)
+        putchar(c);
+        fclose(file);
+}
 
 
 
@@ -395,13 +404,7 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
   
   if (search(&commands,comando)->key == 5) //help TODO: stampare solo la descrizione del comando richiesto, Aiuto attacca- aiuto usa.
   {
-    int c;
-    FILE *file;
-    file = fopen("comandi.txt", "r");
-    if (file) {
-      while ((c = getc(file)) != EOF)
-        putchar(c);
-        fclose(file);
+    aiuto();
 }
   }else 
 
