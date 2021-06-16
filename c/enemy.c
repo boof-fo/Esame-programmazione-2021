@@ -70,16 +70,16 @@ int attackEnemy(player *player, enemy *enemy, int damage)
 
 int describeEnemy(int ID)
 {
-	FILE *file = fopen("descrizioni_nemici.txt", "r");
+	FILE *file = fopen("enemies.dat", "r");
 	int count = 0;
 	if ( file != NULL )
 	{
-			char line[256];
+			char line[512];
 			while (fgets(line, sizeof line, file) != NULL)
 			{   
 					if (count == ID)
 					{
-						printf("%s\n", line);
+						printf("\n%s\n", line);
 						fclose(file);
 						return 0;
 					}
@@ -87,7 +87,7 @@ int describeEnemy(int ID)
 						count++;
 			}   
 			fclose(file);
-	}
+	}else
 	return 2;
 }
 		
