@@ -55,18 +55,6 @@ node *search(list *list, char string[])
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 void parsing(list commands,list item1, list item2, list item3, list attr6)
 {
   char comando[20] = {0, };

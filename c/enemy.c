@@ -70,6 +70,11 @@ int attackEnemy(player *player, enemy *enemy, int damage)
 
 int describeEnemy(int ID)
 {
+	//se l'ID è uguale a 10 significa che non c'e alcun nemico
+	if(ID == 10)
+	{
+		return 0;
+	}
 	FILE *file = fopen("enemies.dat", "r");
 	int count = 0;
 	if ( file != NULL )
