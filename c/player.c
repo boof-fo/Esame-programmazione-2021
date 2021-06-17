@@ -145,7 +145,7 @@ void showInventory(player player)
 	{
 		printf("Alabarda");
 	}
-	printf("\n   Punti danno attuali: %d\n", player.damage);
+	printf("\n   Punti danno attuali: %d\n", getPlayerDamage(player));
 
 	printf("Armatura: ");
 	if(getInventoryChestplate(player.inventory) == 0)
@@ -153,6 +153,10 @@ void showInventory(player player)
 		printf("Non presente\n");
 	}else
 	{//TODO: tipi di armatura
-		printf("Presente\n   Protezione dal danno aumentata del 15%%\n");
+		printf("Presente\n");
+	}
+	if(getPlayerProtection(player) > 0)
+	{
+		printf("\n   Punti protezione attuali: %d\n", getPlayerProtection(player));
 	}
 }

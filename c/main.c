@@ -17,6 +17,7 @@ int main()
 	insert(&commands, 5, "aiuto");
 	insert(&commands, 4, "attraversa");
 	insert(&commands, 6, "mostra");
+	insert(&commands, 6, "guarda");
 
 	insert(&roomItems, 1, "pozione");
 	insert(&roomItems, 2, "spada");
