@@ -3,9 +3,9 @@
 
 int main()
 {
-	list commands, roomItems, enemies, inventoryItems, doors, attr6;
+	list commands, items, enemies, inventoryItems, doors, attr6;
 	commands.count = 0;
-	roomItems.count = 0;
+	items.count = 0;
 	enemies.count = 0;
 	inventoryItems.count = 0;
 	doors.count = 0;
@@ -17,11 +17,12 @@ int main()
 	insert(&commands, 5, "aiuto");
 	insert(&commands, 4, "attraversa");
 	insert(&commands, 6, "mostra");
-	insert(&commands, 6, "guarda");
+	insert(&commands, 7, "guarda");
 
-	insert(&roomItems, 1, "pozione");
-	insert(&roomItems, 2, "spada");
-	insert(&roomItems, 3, "armatura");
+	insert(&items, 1, "pozione");
+	insert(&items, 2, "spada");
+	insert(&items, 3, "armatura");
+	//insert(&items, 4, "bottino");
 
 	insert(&enemies, 1, "cuoco");
 	insert(&enemies, 2, "mozzo");
@@ -82,7 +83,7 @@ int main()
 	while(true)
 	{
 		printf("\nInserisci un comando:\n");
-		parsing(commands, roomItems, enemies, inventoryItems, attr6);
+		parsing(commands, items, enemies, inventoryItems, attr6);
 	}
 
 }

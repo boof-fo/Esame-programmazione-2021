@@ -18,7 +18,6 @@ void answerPuzzle(map *map)
   }
 }
 
-
 void aiuto()
 {
     int c;
@@ -70,3 +69,21 @@ void attraversa(map *map)
   }
   enterRoom(map, currentRoom);
 }
+/*
+void takeLoot(map *map)
+{
+  enemy *enemyFirst, *enemySecond;
+  enemyFirst = &map->room[getCurrentRoom(*map)].enemy[0];
+  enemySecond = &map->room[getCurrentRoom(*map)].enemy[1];
+  char risposta[7];
+  printf("Vuoi prendere il bottino del primo o del secondo nemico?\n");
+  scanf("%s",risposta);
+    if (check(risposta,"primo"))
+    {
+      lootEnemy(enemyFirst);
+    }else
+    if (check(risposta,"secondo"))
+		{
+			lootEnemy(enemySecond);
+		}
+}*/

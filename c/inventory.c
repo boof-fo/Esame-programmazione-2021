@@ -46,3 +46,8 @@ void removeInventoryPotion(inventory *inventory)
 {
 	inventory->potions -= 1;
 }
+
+void emptyInventory(inventory *inventory)
+{
+	setInventory(inventory, 0, 0, 0);
+}

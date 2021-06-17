@@ -103,12 +103,67 @@ void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID)
 	setEnemyDamage(enemy, damage);
 	setEnemyAbility(enemy, abilityID);
 	describeEnemy(ID);
+	emptyInventory(&enemy->inventory);
 	if(ID == 0)
 	{
 		addInventoryPotion(&enemy->inventory);
 	}else
 	if(ID == 1)
 	{
-		//letter
+		//aaaaaaaaa
 	}
 }
+/*
+int lootEnemy(enemy *enemy)
+{
+	char risposta[2];
+  int potions, sword, chestplate;
+  if(getInventoryPotions(enemy->inventory) != 0)
+  {
+    potions = getInventoryPotions(enemy->inventory);
+  }
+
+  if(getInventorySword(enemy->inventory) != 0)
+  {
+    sword = getInventorySword(enemy->inventory);
+  }
+
+  if(getInventoryChestplate(enemy->inventory) != 0)
+  {
+    chestplate = getInventoryChestplate(enemy->inventory);
+  }
+
+  if(potions + sword + chestplate == 0)
+  {
+    return 1;
+  }else
+  {//TODO: getEnemyName
+    printf("\nIl nemico ha: \n");
+    if(potions != 0)
+    {
+      printf("Pozioni: %d\n", potions);
+    }
+    if(chestplate != 0)
+    {
+      printf("Un'armatura\n");
+    }
+    if(sword != 0)
+    {
+      printf("Una spada\n");
+    }
+    printf("Vuoi prendere il bottino?\n");
+    scanf("%s",risposta);
+    if (check(risposta,"si"))
+    {
+      return 0;
+    }else
+		if (check(risposta,"no"))
+		{
+			return 2;
+		}else
+		{
+			printf("Risposta errata\n");
+		}
+  }
+}*/
+

@@ -129,8 +129,8 @@ void lowerPlayerProtection(player *player)
 
 void showInventory(player player)
 {
-
-	printf("\nINVENTARIO:\nPozioni: %d\n", getInventoryPotions(player.inventory));
+	printf("\nPunti vita: %d \n", getPlayerHP(player));
+	printf("INVENTARIO:\nPozioni: %d\n", getInventoryPotions(player.inventory));
 
 	printf("Tipo di spada: ");
 	if(getInventorySword(player.inventory) == 0)

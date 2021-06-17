@@ -25,7 +25,6 @@ int getInventoryPotions(inventory inventory);
 int getInventorySword(inventory inventory);
 int getInventoryChestplate(inventory inventory);
 
-
 void setInventory(inventory *inventory, int potions, int swordType, int chestplate);
 
 void spawnInventory(inventory *inventory);
@@ -33,5 +32,6 @@ void spawnInventory(inventory *inventory);
 void addInventoryPotion(inventory *inventory);
 void removeInventoryPotion(inventory *inventory);
 
+void emptyInventory(inventory *inventory);
 
 #endif

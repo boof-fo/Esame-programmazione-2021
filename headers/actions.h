@@ -7,10 +7,11 @@
 
 #include "../headers/world.h"
 #include "../headers/string.h"
-
+#include "../headers/enemy.h"
 
 void answerPuzzle(map *map);
 void aiuto();
 void attraversa(map *map);
+//void takeLoot(map *map);
 
 #endif

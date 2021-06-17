@@ -17,7 +17,7 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
   if (search(&commands,comando)->key == 1)
   {
     if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]) != 0)
-     printf("prima di raccogliere gli oggetti da terra devi aver sconfitto tutti i nemici nella stanza.\n"); 
+     printf("Prima di raccogliere oggetti devi aver sconfitto tutti i nemici nella stanza.\n"); 
     else
     if(search(&item1,oggetto)->key == 1)
     {
@@ -31,8 +31,11 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
     if(search(&item1,oggetto)->key == 3)
     {
       takeChestplate(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)]);
-    }
-    else
+    }else
+    /*if(search(&item1,oggetto)->key == 4)
+    {
+      takeLoot(&gameMap);
+    }else*/
     {
       printf("oggetto errato\n");
     }

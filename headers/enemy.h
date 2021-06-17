@@ -7,6 +7,7 @@
 
 #include "../headers/player.h"
 #include "../headers/inventory.h"
+#include "../headers/string.h"
 
 typedef int bool;
 #define true 1
@@ -45,5 +46,6 @@ int describeEnemy(int ID);
 //crea il nemico impostando le sue statistiche
 void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID);
 
+//int lootEnemy(enemy *enemy);
 
 #endif
