@@ -34,7 +34,6 @@ int getPlayerSword(player player);
 
 //imposta i valori predefiniti
 void spawnPlayer(player *player);
-void attackPlayer(player *player, int damage);
 
 void usePotion(player *player);
 void giveSwordEffects(player *player);

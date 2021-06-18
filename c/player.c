@@ -56,28 +56,11 @@ int getPlayerSword(player player)
 
 
 
-
 void spawnPlayer(player *player){
 	setPlayerHP(player, 100);
 	//TODO: danno iniziale
 	setPlayerDamage(player, 10);
 	spawnInventory(&player->inventory);
-}
-
-
-void attackPlayer(player *player, int damage)
-{
-	float protection = (float)getPlayerProtection(*player);
-	protection = protection/5;
-	damage -= protection;
-	setPlayerHP(player, getPlayerHP(*player) - damage);
-	//rilevazione morte
-	if (getPlayerHP(*player) <= 0)
-	{
-		printf("\nAspetta... Ma che succede? ti sei accasciato a terra e sei privo di forze. La tua avventura finisce qui, sei morto.\n");
-		exit(0);
-	}
-	
 }
 
 

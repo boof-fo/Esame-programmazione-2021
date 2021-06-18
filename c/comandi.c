@@ -32,10 +32,6 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
     {
       takeChestplate(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)]);
     }else
-    /*if(search(&item1,oggetto)->key == 4)
-    {
-      takeLoot(&gameMap);
-    }else*/
     {
       printf("oggetto errato\n");
     }
@@ -51,148 +47,71 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
     {
       //checkEnemyPresent ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra
         enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 0);
-        if(enemyIsPresent == 1)
-        {
-          deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
-        }else
-        if(enemyIsPresent == 3)
-        {
-          printf("Il nemico è già morto\n");
-        }
-        else
-        {
-          printf("Nessun nemico con quel nome nella stanza\n");
-        }
     }else
 
     if(search(&item2,oggetto)->key == 2)
     {
       enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 1);
-      if(enemyIsPresent == 1)
-      {
-        deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
-      }else
-      if(enemyIsPresent == 3)
-      {
-        printf("Il nemico è già morto\n");
-      }
-      else
-      {
-        printf("Nessun nemico con quel nome nella stanza\n");
-      }
     }else 
 
     if(search(&item2,oggetto)->key == 3)
     {
       enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 2);
-      if(enemyIsPresent == 1)
-      {
-        deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
-      }else
-      if(enemyIsPresent == 3)
-      {
-        printf("Il nemico è già morto\n");
-      }
-      else
-      {
-        printf("Nessun nemico con quel nome nella stanza\n");
-      }
     }else
 
     if(search(&item2,oggetto)->key == 4)
     {
       enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 3);
-      if(enemyIsPresent == 2)
-      {
-        deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
-      }else
-      if(enemyIsPresent == 3)
-      {
-        printf("Il nemico è già morto\n");
-      }
-      else
-      {
-        printf("Nessun nemico con quel nome nella stanza\n");
-      }
     }else
 
     if(search(&item2,oggetto)->key == 5)
     {
       enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 4);
-      if(enemyIsPresent == 1)
-      {
-        deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
-      }else
-      if(enemyIsPresent == 3)
-      {
-        printf("Il nemico è già morto\n");
-      }
-      else
-      {
-        printf("Nessun nemico con quel nome nella stanza\n");
-      }
     }else
 
     if(search(&item2,oggetto)->key == 6)
     {
       enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 5);
-      if(enemyIsPresent == 2)
-      {
-        deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
-      }else
-      if(enemyIsPresent == 3)
-      {
-        printf("Il nemico è già morto\n");
-      }
-      else
-      {
-        printf("Nessun nemico con quel nome nella stanza\n");
-      }
     }else
 
     if(search(&item2,oggetto)->key == 7)
     {
       enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 6);
-      if(enemyIsPresent == 1)
-      {
-        deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
-      }else
-      if(enemyIsPresent == 3)
-      {
-        printf("Il nemico è già morto\n");
-      }
-      else
-      {
-        printf("Nessun nemico con quel nome nella stanza\n");
-      }
     }else
 
     if(search(&item2,oggetto)->key == 8)
     {
       enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 7);
-      if(enemyIsPresent == 2)
-      {
-        deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
-      }else
-      {
-        printf("Nessun nemico con quel nome nella stanza\n");
-      }
     }else
 
     if(search(&item2,oggetto)->key == 9)
     {
       enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 8);
-      if(enemyIsPresent == 1)
-      {
-        deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
-      }else
-      {
-        printf("Nessun nemico con quel nome nella stanza\n");
-      }
+      
     }else
     {
       printf("il nemico non esiste\n");
     }
+
+
+    if(enemyIsPresent == 1)
+    {
+      deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+    }else
+    if(enemyIsPresent == 2)
+    {
+      deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
+    }else
+    if(enemyIsPresent == 3)
+    {
+      printf("Il nemico è già morto\n");
+    }
+    else
+    {
+      printf("Nessun nemico con quel nome nella stanza\n");
+    }
+
+
     if(deadEnemyID != 10)
     {
       killEnemy(&gameMap, deadEnemyID);

@@ -5,3 +5,5 @@ giokino
 *.exe
 c/main
 c/main.dSYM/Contents/Resources/DWARF/main
+c/actions
+c/actions

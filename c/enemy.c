@@ -34,39 +34,6 @@ int getEnemyDamage(enemy enemy)
 }
 
 
-int attackEnemy(player *player, enemy *enemy, int damage)
-{
-	bool attaccato = false;
-	if(enemy->HP == 0)
-	{
-		printf("Il nemico è già morto\n");
-		return(10);
-	}else
-	if(enemy->HP - damage > 0)
-	{
-		setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
-		attaccato = true;
-	}else
-	if(enemy->HP - damage <= 0)
-	{
-		setEnemyHP(enemy, 0);
-		attaccato = true;
-	}
-	if(attaccato)
-	{
-		printf("Nemico attaccato! nuovi HP:%d\n",enemy->HP);
-		attackPlayer(player, enemy->damage);
-
-		printf("Il nemico reagisce sferrando un colpo. Punti HP attuali: %d\n", getPlayerHP(*player));
-	}
-	//rilevazione morte
-	if (enemy->HP <= 0)
-	{
-		printf("nemico ucciso X_X \n");
-		return enemy->ID;
-	}else
-	return 10;
-}
 
 int describeEnemy(int ID)
 {

@@ -21,4 +21,8 @@ void attraversa(map *map);
 
 void usePotion(player *player);
 
+//comandi per il combattimento
+void attackPlayer(player *player, int damage);
+int attackEnemy(player *player, enemy *enemy, int damage);
+
 #endif

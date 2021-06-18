@@ -161,3 +161,54 @@ void usePotion(player *player)
 	else
 		printf("Brutte notizie mio caro amico, non hai più pozioni\n");
 }
+
+
+
+
+void attackPlayer(player *player, int damage)
+{
+	float protection = (float)getPlayerProtection(*player);
+	protection = protection/5;
+	damage -= protection;
+	setPlayerHP(player, getPlayerHP(*player) - damage);
+	//rilevazione morte
+	if (getPlayerHP(*player) <= 0)
+	{
+		printf("\nAspetta... Ma che succede? ti sei accasciato a terra e sei privo di forze. La tua avventura finisce qui, sei morto.\n");
+		exit(0);
+	}
+}
+
+int attackEnemy(player *player, enemy *enemy, int damage)
+{
+	bool attaccato = false;
+	if(enemy->HP == 0)
+	{
+		printf("Il nemico è già morto\n");
+		return(10);
+	}else
+	if(enemy->HP - damage > 0)
+	{
+		setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
+		attaccato = true;
+	}else
+	if(enemy->HP - damage <= 0)
+	{
+		setEnemyHP(enemy, 0);
+		attaccato = true;
+	}
+	if(attaccato)
+	{
+		printf("Nemico attaccato! nuovi HP:%d\n",enemy->HP);
+		attackPlayer(player, enemy->damage);
+
+		printf("Il nemico reagisce sferrando un colpo. Punti HP attuali: %d\n", getPlayerHP(*player));
+	}
+	//rilevazione morte
+	if (enemy->HP <= 0)
+	{
+		printf("nemico ucciso X_X \n");
+		return enemy->ID;
+	}else
+	return 10;
+}
