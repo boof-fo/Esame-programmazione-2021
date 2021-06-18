@@ -29,7 +29,6 @@ void setPlayerSword(player *player, int swordType)
 	if (swordType == 3)
 	{
 		newDamage = 30;
-
 	}
 	setPlayerDamage(player, newDamage);
 	setInventorySword(&player->inventory, swordType);

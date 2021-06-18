@@ -162,10 +162,10 @@ void describeRoom(room room, int ID)
 {
 	printf("stanza %d\n", ID);
 
-	int potions = room.potions;
-	int sword = room.sword;
-	int chestplate = room.chestplate;
-	int enemiesConfiguration = room.enemiesConfiguration;
+	int potions = getRoomPotions(room);
+	int sword = getRoomSword(room);
+	int chestplate = getRoomChestplate(room);
+	int enemiesConfiguration = getEnemiesConfiguration(room);
 
 	if (ID == 0)
 		printf("\nl'ingresso della fortezza appare come una stanza vuota e silenziosa,l'unica fonte di luce è quella che penetra dalla porta principale, ma una volta chiusa l'unica fonte di luce saranno delle fiaccole sui muri che ardono di una fiamma blu apparentemente inestinguibile, non ci sono oggetti ne nemici, goditi questi ultimi atti di tranquillità perchè da qui in poi non sarà più così\n");

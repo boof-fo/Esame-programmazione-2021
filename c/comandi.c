@@ -145,13 +145,10 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
   if (search(&commands,comando)->key == 4)
   {
-    //TODO: CONTROLLO SE CI SONO NEMICI VIVI e se ci sono porte
-    //ALLORA 
     attraversa(&gameMap);
-    
   }else
   
-  if (search(&commands,comando)->key == 5) //help TODO: stampare solo la descrizione del comando richiesto, Aiuto attacca- aiuto usa.
+  if (search(&commands,comando)->key == 5) //TODO: stampare solo la descrizione del comando richiesto, Aiuto attacca- aiuto usa.
   {
     aiuto();
   }else
