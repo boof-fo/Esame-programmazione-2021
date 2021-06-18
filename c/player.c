@@ -81,31 +81,7 @@ void attackPlayer(player *player, int damage)
 }
 
 
-void usePotion(player *player)
-{
-	if(getInventoryPotions(player->inventory) > 0)
-	{
-		if(getPlayerHP(*player) < 100)
-		{
-			removeInventoryPotion(&player->inventory);
-			if(getPlayerHP(*player) + 40 > 100)
-			{
-				setPlayerHP(player, 100);	
-			}else
-			{
-				setPlayerHP(player, getPlayerHP(*player) + 40);
-			}
-			printf("Hai bevuto la pozione, ti senti molto pù in forze ora \n");
-			printf("Adesso hai %d punti vita\n", getPlayerHP(*player));
-		}
-		else
-		{
-			printf("Non puoi bere la pozione, hai già i punti vita al massimo.\n");
-		}
-	}
-	else
-		printf("Brutte notizie mio caro amico, non hai più pozioni\n");
-}
+
 
 
 void giveSwordEffects(player *player)

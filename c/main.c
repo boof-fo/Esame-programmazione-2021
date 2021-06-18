@@ -22,7 +22,6 @@ int main()
 	insert(&items, 1, "pozione");
 	insert(&items, 2, "spada");
 	insert(&items, 3, "armatura");
-	//insert(&items, 4, "bottino");
 
 	insert(&enemies, 1, "cuoco");
 	insert(&enemies, 2, "mozzo");

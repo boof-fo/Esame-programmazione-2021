@@ -1,6 +1,4 @@
-/*
-Modulo utilizzato per i comandi da tastiera.
-*/
+//Modulo utilizzato per il parsing dei comandi da tastiera.
 #ifndef COMMANDS_H
 #define COMMANDS_H
 

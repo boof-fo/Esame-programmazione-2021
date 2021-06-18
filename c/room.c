@@ -26,12 +26,6 @@ void setEnemiesConfiguration(room *room, int enemyConfig)
 	room->enemiesConfiguration = enemyConfig;
 }
 
-//imposta il numero di porte (stanze collegate)
-void setRoomDoors(room *room, int doors)
-{
-	room->doors = doors;
-}
-
 void removeRoomPotion(room *room)
 {
 	room->potions -= 1;
@@ -42,7 +36,7 @@ void removeRoomSword(room *room)
 }
 void removeRoomChestplate(room *room)
 {
-	room->sword = false;
+	room->sword = 0;
 }
 
 
@@ -65,10 +59,6 @@ int getRoomChestplate(room room)
 int getEnemiesConfiguration(room room)
 {
 	return room.enemiesConfiguration;
-}
-int getRoomDoors(room room)
-{
-	return room.doors;
 }
 
 //ritorna 0 se il nemico non esiste, 1 se il nemico è a sinistra, 2 se il nemico è a destra, 3 se il nemico è presente ma è morto
@@ -105,14 +95,13 @@ int checkEnemyPresent(room room, int targetEnemyID)
 
 
 //imposta i valori di una stanza
-void populateRoom(room* room, int ID, int potions, int sword, int chestplate, int enemiesConfig, int doors)
+void populateRoom(room* room, int ID, int potions, int sword, int chestplate, int enemiesConfig)
 {
 	setRoomID(room, ID);
 	setRoomPotions(room, potions);
 	setRoomSword(room, sword);
 	setRoomChestplate(room, chestplate);
 	setEnemiesConfiguration(room, enemiesConfig);
-	setRoomDoors(room, doors);
 }
 
 void spawnRoom(room* room, int roomNumber)
@@ -120,31 +109,52 @@ void spawnRoom(room* room, int roomNumber)
 	//populateRoom(room *room, int ID, int potions, int sword, int chestplate, int enemiesConfig, int doors)
 	if (roomNumber == 0)
 	{
-		populateRoom(room, 0, 0, 0, 0, 0, 2);
-	}
+		populateRoom(room, 0, 0, 0, 0, 0);
+		setEnemiesConfiguration(room, 0);
+		spawnEnemy(&room->enemy[0], 10, 0, 0, 0);
+		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
+	}else
 	if (roomNumber == 1)
 	{
-		populateRoom(room, 1, 1, 0, 0, 1, 1);
-	}
+		populateRoom(room, 1, 1, 0, 0, 1);
+		setEnemiesConfiguration(room, 1);
+		spawnEnemy(&room->enemy[0], 0, 30, 5, 0);
+		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
+	}else
 	if (roomNumber == 2)
 	{
-		populateRoom(room, 2, 0, 0, 0, 1, 1);
-	}
+		populateRoom(room, 2, 0, 0, 0, 1);
+		setEnemiesConfiguration(room, 1);
+		spawnEnemy(&room->enemy[0], 1, 30, 5, 0);
+		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
+	}else
 	if (roomNumber == 3)
 	{
-		populateRoom(room, 3, 1, 1, 1, 3, 2);
-	}
+		populateRoom(room, 3, 1, 1, 1, 3);
+		setEnemiesConfiguration(room, 3);
+		spawnEnemy(&room->enemy[0], 2, 35, 7, 0);
+		spawnEnemy(&room->enemy[1], 3, 35, 7, 0);
+	}else
 	if (roomNumber == 4)
 	{
-		populateRoom(room, 4, 0, 2, 0, 3, 1);
-	}
+		populateRoom(room, 4, 0, 2, 0, 3);
+		setEnemiesConfiguration(room, 3);
+		spawnEnemy(&room->enemy[0], 4, 60, 15, 0);
+		spawnEnemy(&room->enemy[1], 5, 60, 15, 0);
+	}else
 	if (roomNumber == 5)
 	{
-		populateRoom(room, 5, 2, 2, 0, 3, 1);
-	}
+		populateRoom(room, 5, 2, 2, 0, 3);
+		setEnemiesConfiguration(room, 3);
+		spawnEnemy(&room->enemy[0], 6, 60, 15, 0);
+		spawnEnemy(&room->enemy[1], 7, 75, 15, 0);
+	}else
 	if (roomNumber == 6)
 	{
-		populateRoom(room, 6, 1, 1, 0, 1, 1);
+		populateRoom(room, 6, 1, 1, 0, 1);
+		setEnemiesConfiguration(room, 1);
+		spawnEnemy(&room->enemy[0], 8, 150, 19, 0);
+		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
 	}
 }
 
@@ -157,12 +167,6 @@ void describeRoom(room room, int ID)
 	int chestplate = room.chestplate;
 	int enemiesConfiguration = room.enemiesConfiguration;
 
-	if(potions == 0 && sword == 0 && chestplate == 0 && enemiesConfiguration == 0)
-	{
-		//TODO: descrizione stanza vuota
-		printf("\nstanza vuota\n");
-		printf("ci sono %d porte\n", room.doors);
-	}	
 	if (ID == 0)
 		printf("\nl'ingresso della fortezza appare come una stanza vuota e silenziosa,l'unica fonte di luce è quella che penetra dalla porta principale, ma una volta chiusa l'unica fonte di luce saranno delle fiaccole sui muri che ardono di una fiamma blu apparentemente inestinguibile, non ci sono oggetti ne nemici, goditi questi ultimi atti di tranquillità perchè da qui in poi non sarà più così\n");
 	if (ID == 1)
@@ -204,71 +208,6 @@ void describeRoom(room room, int ID)
 			printf("C'è un' alabarda.\n");
 		}
 	}	
+	describeEnemy(getEnemyID(room.enemy[0]));
+	describeEnemy(getEnemyID(room.enemy[1]));
 }
-
-
-void takePotion(player *player, room *room)
-{
-	if (getRoomPotions(*room) > 0)
-	{
-		removeRoomPotion(room);
-		addInventoryPotion(&player->inventory);
-		printf("\nHai raccolto una pozione curativa,Un intruglio a base di erbe medicinali sative, composto secondo un'antica ricetta degli alchimisti del tuo regno, ristabilisce i punti vitali anche se Il sapore non è il massimo.\n");
-	}
-	else
-		printf("Non ci sono pozioni. Buona fortuna :)\n");
-}
-//TODO: danni corretti
-void takeSword(player *player, room *room)
-{
-	if (getRoomSword(*room) == 0)
-	{
-		printf("Non ci sono spade nella stanza. ¯\\_(ツ)_/¯\n");
-	}
-	else 
-	{
-		removeSwordEffects(player);
-		if (getRoomSword(*room) == 1)
-		{
-			printf("\nHai raccolto una spada ricurva molto veloce ed affilata, riesce a penetrare nella carne putrefatta dei tuoi nemici con molta facilità\n");
-			setPlayerSword(player, 1);
-		}else 
-		if (getRoomSword(*room) == 2)
-		{
-			printf("\nHai raccolto un alabarda, arma da distruzione di massa per eccellenza, non troverai equipaggiamento migliore di questo, perciò fattelo bastare\n");
-			setPlayerSword(player, 2);
-		}else
-		if (getRoomSword(*room) == 3)
-		{
-			printf("\nSpada magica protettiva\n");
-			setPlayerSword(player, 3);
-		}		
-		removeRoomSword(room);
-		giveSwordEffects(player);
-	}
-}
-void takeChestplate(player *player, room *room)
-{
-	int chestplate = getRoomChestplate(*room);
-	if (chestplate == 0)
-		printf("Non ci sono armature nella stanza. ¯\\_(ツ)_/¯\n");
-	else
-	{
-		int currentProtection = getPlayerProtection(*player);
-		//TODO: tipi di armatura
-		setInventoryChestplate(&player->inventory, chestplate);
-		if(chestplate == 1)
-		{
-			printf("\nHai raccolto un pesante pezzo di armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
-			currentProtection += 10;
-		}else
-		if(chestplate == 2)
-		{
-			printf("\narmatura stilosa che ti fa il culo grosso\n");
-			currentProtection += 20;
-		}
-		//TODO: valori sensati
-		setPlayerProtection(player, currentProtection);
-	}
-}
-

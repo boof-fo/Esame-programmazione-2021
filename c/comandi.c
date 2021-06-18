@@ -21,7 +21,7 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
     else
     if(search(&item1,oggetto)->key == 1)
     {
-      takePotion(&gamePlayer, &gameMap.room[gameMap.currentRoom]);
+      takePotion(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)]);
     }else
     if(search(&item1,oggetto)->key == 2)
     {

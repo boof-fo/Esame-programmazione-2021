@@ -21,17 +21,18 @@ typedef struct
 
 
 void setPlayerHP(player *player, int HP);
-void setPlayerDamage(player *player, int damage);
-void setPlayerProtection(player *player, int protectionPoints);
-void setPlayerSword(player *player, int swordType);
-
-
 int getPlayerHP(player player);
-int getPlayerDamage(player player);
-int getPlayerProtection(player player);
-int getPlayerSword(player player);
-//imposta i valori predefiniti
 
+void setPlayerDamage(player *player, int damage);
+int getPlayerDamage(player player);
+
+void setPlayerProtection(player *player, int protectionPoints);
+int getPlayerProtection(player player);
+
+void setPlayerSword(player *player, int swordType);
+int getPlayerSword(player player);
+
+//imposta i valori predefiniti
 void spawnPlayer(player *player);
 void attackPlayer(player *player, int damage);
 

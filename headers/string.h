@@ -1,3 +1,4 @@
+//Modulo per la manipolazione delle stringhe. Utilizzato primariamente dal parsing.
 #ifndef STRING_H
 #define STRING_H
 

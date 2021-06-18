@@ -44,48 +44,7 @@ void enterRoom(map *map, int newID)
 	setCurrentRoom(map, newID);
 	printMap(*map);
 	describeRoom(map->room[newID], newID);
-	//imposta i valori dei nemici e stampa descrizione
-	if (newID == 0)
-	{
-		setEnemiesConfiguration(map->room, 0);
-		spawnEnemy(&map->room[newID].enemy[0], 10, 0, 0, 0);
-		spawnEnemy(&map->room[newID].enemy[1], 10, 0, 0, 0);
-	}
-	if (newID == 1)
-	{
-		setEnemiesConfiguration(map->room, 1);
-		spawnEnemy(&map->room[newID].enemy[0], 0, 30, 5, 0);
-	}
-	if (newID == 2)
-	{
-		setEnemiesConfiguration(map->room, 1);
-		spawnEnemy(&map->room[newID].enemy[0], 1, 30, 5, 0);
-	}
-	if (newID == 3)
-	{
-		setEnemiesConfiguration(map->room, 3);
-		spawnEnemy(&map->room[newID].enemy[0], 2, 35, 7, 0);
-		spawnEnemy(&map->room[newID].enemy[1], 3, 35, 7, 0);
-	}
-	if (newID == 4)
-	{
-		setEnemiesConfiguration(map->room, 3);
-		spawnEnemy(&map->room[newID].enemy[0], 4, 60, 15, 0);
-		spawnEnemy(&map->room[newID].enemy[1], 5, 60, 15, 0);
-	}
-	if (newID == 5)
-	{
-		setEnemiesConfiguration(map->room, 3);
-		spawnEnemy(&map->room[newID].enemy[0], 6, 60, 15, 0);
-		spawnEnemy(&map->room[newID].enemy[1], 7, 75, 15, 0);
-	}
-	if (newID == 6)
-	{
-		setEnemiesConfiguration(map->room, 1);
-		spawnEnemy(&map->room[newID].enemy[0], 8, 150, 19, 0);
-	}
 }
-
 
 
 void killEnemy(map *map, int enemyID)
@@ -105,18 +64,3 @@ void killEnemy(map *map, int enemyID)
 	}
 }
 
-
-
-
-
-
-void help()
-{
-	//TODO: SCRIVERE I PRINTF BELLINI 
-	printf("\nnon so aiutarti, scusami :(\n");
-}
-
-void exitGame()
-{
-	exit(0);
-}

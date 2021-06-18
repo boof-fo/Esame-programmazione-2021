@@ -23,8 +23,6 @@ typedef struct{
 	int damage;
 	//TODO: medico si cura da solo, 
 	int specialAbility;
-	//inventario
-	inventory inventory;
 }enemy;
 
 void setEnemyHP(enemy *enemy, int HP);
@@ -38,13 +36,10 @@ int getEnemyDamage(enemy enemy);
 
 int attackEnemy(player *player, enemy *enemy, int damage);
 
-//viene invocata da spawnEnemy
 //TODO: gestire gli errori quando viene chiamata
 int describeEnemy(int ID);
 
 //crea il nemico impostando le sue statistiche
 void spawnEnemy(enemy *enemy, int ID, int HP, int damage,int abilityID);
-
-//int lootEnemy(enemy *enemy);
 
 #endif
