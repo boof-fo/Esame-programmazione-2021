@@ -64,15 +64,16 @@ int getEnemiesConfiguration(room room)
 //ritorna 0 se il nemico non esiste, 1 se il nemico è a sinistra, 2 se il nemico è a destra, 3 se il nemico è presente ma è morto
 int checkEnemyPresent(room room, int targetEnemyID)
 {
+	int enemyPosition = 0;
 	if(getEnemyID(room.enemy[0]) == targetEnemyID)
 	{
 		if(getEnemyHP(room.enemy[0]) != 0)
 		{
-			return 1;
+			enemyPosition = 1;
 		}
 		else
 		{
-			return 3;
+			enemyPosition = 3;
 		}
 	}
 	else
@@ -80,17 +81,18 @@ int checkEnemyPresent(room room, int targetEnemyID)
 	{
 		if(getEnemyHP(room.enemy[1]) != 0)
 		{
-			return 2;
+			enemyPosition = 2;
 		}
 		else
 		{
-			return 3;
+			enemyPosition = 3;
 		}
 	}
 	else 
 	{
-		return 0;
+		enemyPosition = 0;
 	}
+	return enemyPosition;
 }
 
 

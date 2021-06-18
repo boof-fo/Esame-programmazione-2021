@@ -14,7 +14,7 @@ void answerPuzzle(map *map)
     return;
   else
   {
-    printf("no\n");
+    printf("Risposta errata!\n");
   }
 }
 
@@ -36,38 +36,39 @@ void attraversa(map *map)
   if(getEnemiesConfiguration(map->room[getCurrentRoom(*map)]))
   {
     printf("Prima di continuare devi sconfiggere i nemici nella stanza attuale\n");
-    return;
-  }
-  int currentRoom = getCurrentRoom(*map);
-  char risposta[20];
-  if(currentRoom == 0 || currentRoom == 3 )
+  }else
   {
-    printf("\nCi sono due porte... vuoi attraversare la porta destra o la porta sinistra?\n");
-    scanf("%s",risposta);
-    if (check(risposta,"destra"))
+    int currentRoom = getCurrentRoom(*map);
+    char risposta[20];
+    if(currentRoom == 0 || currentRoom == 3 )
     {
-      currentRoom += 1;
+      printf("\nCi sono due porte... vuoi attraversare la porta destra o la porta sinistra?\n");
+      scanf("%s",risposta);
+      if (check(risposta,"destra"))
+      {
+        currentRoom += 1;
+      }else 
+      if(check(risposta, "sinistra"))
+      {
+        currentRoom += 2;
+      }
     }else 
-    if(check(risposta, "sinistra"))
+    if ( currentRoom == 1 || currentRoom == 4)
     {
       currentRoom += 2;
+    }else 
+    if (currentRoom == 2 || currentRoom == 5)
+    {
+        currentRoom += 1;
+    }else 
+    if (currentRoom == 6 )
+    {
+      //TODO: inventarsi o un finale alternativo o il finale
+      printf("the end :P\n");
+      exit(0);
     }
-  }else 
-  if ( currentRoom == 1 || currentRoom == 4)
-  {
-    currentRoom += 2;
-  }else 
-  if (currentRoom == 2 || currentRoom == 5)
-  {
-      currentRoom += 1;
-  }else 
-  if (currentRoom == 6 )
-  {
-    //TODO: inventarsi o un finale alternativo o il finale
-    printf("the end :P\n");
-    exit(0);
+    enterRoom(map, currentRoom);
   }
-  enterRoom(map, currentRoom);
 }
 
 
@@ -182,10 +183,10 @@ void attackPlayer(player *player, int damage)
 int attackEnemy(player *player, enemy *enemy, int damage)
 {
 	bool attaccato = false;
+  int attackedEnemyID = 10;
 	if(enemy->HP == 0)
 	{
 		printf("Il nemico è già morto\n");
-		return(10);
 	}else
 	if(enemy->HP - damage > 0)
 	{
@@ -208,7 +209,7 @@ int attackEnemy(player *player, enemy *enemy, int damage)
 	if (enemy->HP <= 0)
 	{
 		printf("nemico ucciso X_X \n");
-		return enemy->ID;
-	}else
-	return 10;
+		attackedEnemyID = enemy->ID;
+	}
+	return attackedEnemyID;
 }

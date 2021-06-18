@@ -14,16 +14,18 @@ typedef struct
 	int ID;
 	//numero di pozioni curative nella stanza
 	int potions;
-	//tipo di spada contenuta nella stanza
-	//0 = nessuna spada; 1 = spada ricurva; 2 alabarda
+	/*tipo di spada contenuta nella stanza
+	 *0 = nessuna spada; 1 = spada ricurva; 2 alabarda
+	 */
 	int sword;
 	//1 = armatura arruginita; 2 = armatura stilosa 
 	int chestplate;
 	/*numero di nemici nella stanza
-	0:nessun nemico;     
-	1:un nemico nella prima posizione dell'array; 
-	2:un nemico nella seconda posizione dell'array;
-	3:due nemici;*/
+	 *0:nessun nemico;     
+	 *1:un nemico nella prima posizione dell'array; 
+	 *2:un nemico nella seconda posizione dell'array;
+	 *3:due nemici;
+	 */
 	int enemiesConfiguration;
 	enemy enemy[2];
 }room;

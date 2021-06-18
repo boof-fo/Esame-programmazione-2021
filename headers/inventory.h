@@ -1,3 +1,4 @@
+//Modulo contenente strutture dati e funzioni relative all'inventario
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
@@ -7,19 +8,22 @@ typedef struct
 {
 	//numero di pozioni curative
 	int potions;
-	//tipo di spada
-	//0 = spada semplice; 1 = spada ricurva; 2 alabarda; 3 spada protettiva; 4 spada succhiavita 
+	/**tipo di spada
+	 *0 = spada semplice; 1 = spada ricurva; 2 alabarda; 3 spada protettiva; 4 spada succhiavita 
+	 */
 	int sword;
 	//1 = chestplate presente
 	int chestplate;
 }inventory;
 
-void setInventoryPotions(inventory *inventory, int newValue);
-void setInventorySword(inventory *inventory, int swordTyper);
-void setInventoryChestplate(inventory *inventory, int chestplateType);
 
+void setInventoryPotions(inventory *inventory, int newValue);
 int getInventoryPotions(inventory inventory);
+
+void setInventorySword(inventory *inventory, int swordTyper);
 int getInventorySword(inventory inventory);
+
+void setInventoryChestplate(inventory *inventory, int chestplateType);
 int getInventoryChestplate(inventory inventory);
 
 void setInventory(inventory *inventory, int potions, int swordType, int chestplate);
