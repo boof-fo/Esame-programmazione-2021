@@ -1,6 +1,6 @@
 #ifndef ITEMS_H
 #define ITEMS_H
-
+//TODO: sex
 int printLetter(int ID)
 {
 	//TODO: numero corretto

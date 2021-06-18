@@ -64,8 +64,12 @@ void spawnPlayer(player *player){
 	spawnInventory(&player->inventory);
 }
 
+
 void attackPlayer(player *player, int damage)
 {
+	float protection = (float)getPlayerProtection(*player);
+	protection = protection/5;
+	damage -= protection;
 	setPlayerHP(player, getPlayerHP(*player) - damage);
 	//rilevazione morte
 	if (getPlayerHP(*player) <= 0)
@@ -75,6 +79,7 @@ void attackPlayer(player *player, int damage)
 	}
 	
 }
+
 
 void usePotion(player *player)
 {

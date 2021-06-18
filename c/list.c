@@ -14,8 +14,8 @@ void insert(list *list, int new_key,char new_string[])
     // il nuovo nodo fara' sia da header che da tailer
     if (list->count == 0)
     {
-        new_node->prev = NULL;
-        list->header = list->tailer = new_node;
+      new_node->prev = NULL;
+      list->header = list->tailer = new_node;
     }
     // CASO 2: la lista contiene gia' almeno un elemento
     // aggancio il nuovo nodo alla fine della lista

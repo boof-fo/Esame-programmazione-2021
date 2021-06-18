@@ -1,5 +1,6 @@
-#ifndef AZIONI_H
-#define AZIONI_H
+/*Modulo contenente le azioni che il giocatore può svolgere.*/
+#ifndef ACTIONS_H
+#define ACTIONS_H
 
 #include <string.h>
 #include <stdio.h>

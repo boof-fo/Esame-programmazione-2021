@@ -3,6 +3,5 @@
 *.json
 giokino
 *.exe
-c/.letters.dat.swp
 c/main
 c/main.dSYM/Contents/Resources/DWARF/main

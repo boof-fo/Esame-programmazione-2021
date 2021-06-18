@@ -1,5 +1,8 @@
-#ifndef COMANDI_H
-#define COMANDI_H
+/*
+Modulo utilizzato per i comandi da tastiera.
+*/
+#ifndef COMMANDS_H
+#define COMMANDS_H
 
 #include <string.h>
 #include <stdio.h>

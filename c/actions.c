@@ -33,7 +33,7 @@ void aiuto()
 
 void attraversa(map *map)
 {
-  if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]))
+  if(getEnemiesConfiguration(map->room[getCurrentRoom(*map)]))
   {
     printf("Prima di continuare devi sconfiggere i nemici nella stanza attuale\n");
     return;

@@ -12,9 +12,6 @@ typedef struct
 	int sword;
 	//1 = chestplate presente
 	int chestplate;
-	//lettera. 
-	//TODO: numero di lettere
-	//bool letter[10];
 }inventory;
 
 void setInventoryPotions(inventory *inventory, int newValue);
