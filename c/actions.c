@@ -17,7 +17,7 @@ void answerPuzzle(map *map)
     printf("Risposta errata!\n");
   }
 }
-
+//stampa i comandi e le loro funzionalità
 void help()
 {
     int c;
@@ -30,7 +30,27 @@ void help()
         fclose(file);
     }
 }
-
+//stampa un comando e la sua funzionalità
+void helpSelect(int selections)
+{
+FILE *file = fopen("helpselect.dat", "r");
+int count = 0;
+		if ( file != NULL )
+		{
+				char line[512];
+				while (fgets(line, sizeof line, file) != NULL)
+				{   
+						if (count == selections)
+						{
+							printf("\n%s\n", line);
+							fclose(file);
+							return 0;
+						}
+						else
+							count++;
+				}   
+				fclose(file);
+}
 void walkThroughDoor(map *map)
 {
   if(getEnemiesConfiguration(map->room[getCurrentRoom(*map)]))

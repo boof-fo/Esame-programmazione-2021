@@ -3,12 +3,14 @@
 
 int main()
 {
-	list commands, items, enemies, inventoryItems, doors, attr6;
+	list commands, items, enemies, inventoryItems, doors, utilities, actions;
 	commands.count = 0;
 	items.count = 0;
 	enemies.count = 0;
 	inventoryItems.count = 0;
 	doors.count = 0;
+	utilities.count = 0;
+	actions.count= 0;
 
 	insert(&commands, 1, "raccogli");
 	insert(&commands, 2, "attacca");
@@ -37,7 +39,17 @@ int main()
 
 	insert(&doors, 1, "porta");
 	
-	
+	insert(&utilities, 1, "inventario");
+	insert(&utilities, 2, "comandi");
+
+	insert(&actions, 0, "comandi");
+	insert(&actions, 1, "raccogli");
+	insert(&actions, 2, "attacca");
+	insert(&actions, 3, "usa");
+	insert(&actions, 5, "aiuto");
+	insert(&actions, 4, "attraversa");
+	insert(&actions, 6, "mostra");
+	insert(&actions, 7, "guarda");
 	
 	printf("\n╔═══════════════════════════════════════════════════════════════════════════╗\n║Ti diamo il benvenuto nel nostro gioco  P I R A T E S   F O R T E S S      ║\n║un avventura ambientata in un' isola tropicale dove impersonificherai      ║\n║Jacob Smith, un giovane avventuriero con lo scopo di ritrovare un antico   ║\n║tesoro pirata, del più temuto di tutti i tempi: Il capitano Barbadura,     ║\n║considerato da molti il re di tutti i pirati dei sette mari, nel corso del ║\n║diciottesimo secolo lui e la sua ciurma accumularono una ricchezza enorme  ║\n║in gioelli e dobloni d'oro.                                                ║\n║Alcuni documenti e mappe suggeriscono la presenza del famigerato tesoro in ║\n║un'isola sperduta del pacifico, non presente sulle mappe convenzionali,    ║\n║totalmente inesplorata e priva di vita dove sorge una fortezza usata ai    ║\n║tempi della colonizzazione inglese del quindicesimo secolo come rifugio    ║\n║dalla ciurma di Barbadura, alcune leggende narrano  che la ciurma sia      ║\n║ancora presente all'interno della fortezza sotto forma di non-morti        ║\n║affamati di carne umana e che lo spirito del capitano vegli ancora sullo   ║\n║scrigno maledetto di cui ti dovrai impossessare.                           ║\n║═══════════════════════════════════════════════════════════════════════════║\n║ Hai bisogno di istruzioni? Si o No?                                       ║\n╚═══════════════════════════════════════════════════════════════════════════╝\n");
 	
@@ -79,7 +91,7 @@ int main()
 	while(true)
 	{
 		printf("\nInserisci un comando:\n");
-		parsing(commands, items, enemies, inventoryItems, attr6);
+		parsing(commands, items, enemies, inventoryItems, utilities);
 	}
 
 }
