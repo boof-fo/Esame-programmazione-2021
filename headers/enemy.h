@@ -34,7 +34,6 @@ int getEnemyID(enemy enemy);
 int getEnemyHP(enemy enemy);
 int getEnemyDamage(enemy enemy);
 
-
 //TODO: gestire gli errori quando viene chiamata
 int describeEnemy(int ID);
 
