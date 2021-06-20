@@ -1,14 +1,14 @@
 #include "../headers/world.h"
 
 
-void setCurrentRoom(map *map, int newRoom)
+void setCurrentRoom(map *map, int new_room_ID)
 {
-	map->currentRoom = newRoom;
+	map->current_room = new_room_ID;
 }
 
 int getCurrentRoom(map map)
 {
-	return map.currentRoom;
+	return map.current_room;
 }
 
 
@@ -31,7 +31,7 @@ void printMap(map map)
 }
 
 
-void enterRoom(map *map, int newID)
+void enterRoom(map *map, int new_room_ID)
 {
 	#ifdef _WIN32
 		system("cls");
@@ -41,26 +41,26 @@ void enterRoom(map *map, int newID)
 		system("clear");
 	#endif
 	
-	setCurrentRoom(map, newID);
+	setCurrentRoom(map, new_room_ID);
 	printMap(*map);
-	describeRoom(map->room[newID], newID);
+	describeRoom(map->room[new_room_ID], new_room_ID);
 }
 
 
-void killEnemy(map *map, int enemyID)
+void killEnemy(map *map, int enemy_ID)
 {
-	if (getEnemiesConfiguration(map->room[map->currentRoom]) == 1)
+	if (getEnemiesConfiguration(map->room[map->current_room]) == 1)
+	{
+		setEnemiesConfiguration(&map->room[map->current_room], 0);
+	}else if (getEnemiesConfiguration(map->room[map->current_room]) == 2)
 	{
 		setEnemiesConfiguration(&map->room[map->currentRoom], 0);
-	}else if (getEnemiesConfiguration(map->room[map->currentRoom]) == 2)
+	}else if (getEnemiesConfiguration(map->room[map->current_room]) == 3)
 	{
-		setEnemiesConfiguration(&map->room[map->currentRoom], 0);
-	}else if (getEnemiesConfiguration(map->room[map->currentRoom]) == 3)
-	{
-		if(getEnemyID(map->room->enemy[1]) == enemyID)
-			setEnemiesConfiguration(&map->room[map->currentRoom], 1);
+		if(getEnemyID(map->room->enemy[1]) == enemy_ID)
+			setEnemiesConfiguration(&map->room[map->current_room], 1);
 		else
-			setEnemiesConfiguration(&map->room[map->currentRoom], 2);
+			setEnemiesConfiguration(&map->room[map->current_room], 2);
 	}
 }
 

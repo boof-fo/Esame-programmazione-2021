@@ -13,20 +13,20 @@ typedef struct
 	//Stanze della fortezza
 	room room[8];
 	//stanza in cui si trova il personaggio
-	int currentRoom;
+	int current_room;
 }map;
 
 //genera la mappa di gioco
-map gameMap;
+map game_map;
 
 //genera giocatore
-player gamePlayer;
+player game_player;
 
 //Imposta i valori di ogni stanza del mondo
 void spawnWorld(map *map);
 
 //imposta/ritorna la stanza in cui si trova il giocatore
-void setCurrentRoom(map *map, int newRoom);
+void setCurrentRoom(map *map, int new_room_ID);
 int getCurrentRoom(map map);
 
 //Mostra la mappa della fortezza usando caratteri ASCII
@@ -35,9 +35,9 @@ void printMap(map map);
 //Funzione utilizzata per far decidere al giocatore in quale stanza spostarsi
 void attraversa(map *map);
 //cambia la stanza in cui si trova il giocatore e imposta i valori della stanza
-void enterRoom(map *map, int newRoom);
+void enterRoom(map *map, int new_room_ID);
 //imposta la configurazione nemici della stanza in base a quale nemico viene ammazzato.
-void killEnemy(map *map, int enemyID);
+void killEnemy(map *map, int enemy_ID);
 
 
 #endif

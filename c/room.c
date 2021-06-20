@@ -1,29 +1,53 @@
 #include "../headers/room.h"
 
 //imposta identificativo
-void setRoomID(room *room, int ID)
+void setRoomID(room *room, int room_ID)
 {
-	room->ID = ID;
+	room->ID = room_ID;
 }
+int getRoomID(room room)
+{
+	return room.ID;
+}
+
 //imposta il numero di pozioni in una stanza
-void setRoomPotions(room *room, int num)
+void setRoomPotions(room *room, int potions_number)
 {
-	room->potions = num;
+	room->potions = potions_number;
 }
+int getRoomPotions(room room)
+{
+	return room.potions;
+}
+
 //imposta l'ID della spada in una stanza
-void setRoomSword(room *room, int num)
+void setRoomSword(room *room, int sword_ID)
 {
-	room->sword = num;
+	room->sword = sword_ID;
 }
+int getRoomSword(room room)
+{
+	return room.sword;
+}
+
 //presenza armatura
-void setRoomChestplate(room *room, int plate)
+void setRoomChestplate(room *room, int chestplate_ID)
 {
-	room->chestplate = plate;
+	room->chestplate = chestplate_ID;
 }
-//imposta il numero di nemici
-void setEnemiesConfiguration(room *room, int enemyConfig)
+int getRoomChestplate(room room)
 {
-	room->enemiesConfiguration = enemyConfig;
+	return room.chestplate;
+}
+
+//imposta il numero di nemici
+void setEnemiesConfiguration(room *room, int enemies_config)
+{
+	room->enemiesConfiguration = enemies_config;
+}
+int getEnemiesConfiguration(room room)
+{
+	return room.enemies_configuration;
 }
 
 void removeRoomPotion(room *room)
@@ -40,62 +64,6 @@ void removeRoomChestplate(room *room)
 }
 
 
-int getRoomID(room room)
-{
-	return room.ID;
-}
-int getRoomPotions(room room)
-{
-	return room.potions;
-}
-int getRoomSword(room room)
-{
-	return room.sword;
-}
-int getRoomChestplate(room room)
-{
-	return room.chestplate;
-}
-int getEnemiesConfiguration(room room)
-{
-	return room.enemiesConfiguration;
-}
-
-//ritorna 0 se il nemico non esiste, 1 se il nemico è a sinistra, 2 se il nemico è a destra, 3 se il nemico è presente ma è morto
-int checkEnemyPresent(room room, int targetEnemyID)
-{
-	int enemyPosition = 0;
-	if(getEnemyID(room.enemy[0]) == targetEnemyID)
-	{
-		if(getEnemyHP(room.enemy[0]) != 0)
-		{
-			enemyPosition = 1;
-		}
-		else
-		{
-			enemyPosition = 3;
-		}
-	}
-	else
-	if(getEnemyID(room.enemy[1]) == targetEnemyID)
-	{
-		if(getEnemyHP(room.enemy[1]) != 0)
-		{
-			enemyPosition = 2;
-		}
-		else
-		{
-			enemyPosition = 3;
-		}
-	}
-	else 
-	{
-		enemyPosition = 0;
-	}
-	return enemyPosition;
-}
-
-
 //imposta i valori di una stanza
 void populateRoom(room* room, int ID, int potions, int sword, int chestplate, int enemiesConfig)
 {
@@ -105,6 +73,45 @@ void populateRoom(room* room, int ID, int potions, int sword, int chestplate, in
 	setRoomChestplate(room, chestplate);
 	setEnemiesConfiguration(room, enemiesConfig);
 }
+
+
+/**ritorna:
+ * 0 se il nemico non esiste, 
+ * 1 se il nemico è a sinistra, 
+ * 2 se il nemico è a destra, 
+ * 3 se il nemico è presente ma è morto
+*/
+int checkEnemyPresent(room room, int target_enemy_ID)
+{
+	int enemy_position = 0;
+
+	//controlla se il nemico è a sinistra
+	if(getEnemyID(room.enemy[0]) == target_enemy_ID)
+	{//controlla se il nemico è vivo
+		if(getEnemyHP(room.enemy[0]) != 0)
+			enemy_position = 1;
+		else
+			enemy_position = 3;
+	}else
+	//controlla se il nemico è a destra
+	if(getEnemyID(room.enemy[1]) == target_enemy_ID)
+	{
+		//controlla se il nemico è vivo
+		if(getEnemyHP(room.enemy[1]) != 0)
+			enemy_position = 2;
+		else
+			enemy_position = 3;
+	}
+	else 
+	{
+		//ritorna 0 se non si trova nella stanza
+		enemy_position = 0;
+	}
+	return enemy_position;
+}
+
+
+
 
 void spawnRoom(room* room, int roomNumber)
 {
