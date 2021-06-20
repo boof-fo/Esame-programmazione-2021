@@ -166,9 +166,11 @@ void usePotion(player *player)
 
 void attackPlayer(player *player, int damage)
 {
+	//riduzione del danno in base ai punti protezione
 	float protection = (float)getPlayerProtection(*player);
 	protection = protection/5;
 	damage -= protection;
+
 	setPlayerHP(player, getPlayerHP(*player) - damage);
 	//rilevazione morte
 	if (getPlayerHP(*player) <= 0)
@@ -181,33 +183,35 @@ void attackPlayer(player *player, int damage)
 int attackEnemy(player *player, enemy *enemy, int damage)
 {
 	bool attaccato = false;
-  int attackedEnemyID = 10;
-	if(enemy->HP == 0)
+  int attacked_enemy_ID = 10;
+	//controllo per vedere se il nemico è già morto
+	if(getEnemyHP(*enemy) == 0)
 	{
 		printf("Il nemico è già morto\n");
 	}else
-	if(enemy->HP - damage > 0)
+	if(getEnemyHP(*enemy) - damage > 0)
 	{
 		setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
 		attaccato = true;
-	}else
-	if(enemy->HP - damage <= 0)
+	}else//se il nemico morirà con il prossimo colpo, imposta gli HP a 0
 	{
 		setEnemyHP(enemy, 0);
 		attaccato = true;
 	}
+	//se un nemico è stato attaccato allora manda un colpo di risposta al giocatore e mostra i nuovi punti vita.
 	if(attaccato)
 	{
-		printf("Nemico attaccato! nuovi HP:%d\n",enemy->HP);
-		attackPlayer(player, enemy->damage);
+		printf("Nemico attaccato! nuovi HP:%d\n", getEnemyHP(*enemy));
+		attackPlayer(player, getEnemyDamage(*enemy));
 
 		printf("Il nemico reagisce sferrando un colpo. Punti HP attuali: %d\n", getPlayerHP(*player));
+
+		//rilevazione morte
+		if (enemy->HP <= 0)
+		{
+			printf("nemico ucciso X_X \n");
+			attacked_enemy_ID = getEnemyID(*enemy);
+		}
 	}
-	//rilevazione morte
-	if (enemy->HP <= 0)
-	{
-		printf("nemico ucciso X_X \n");
-		attackedEnemyID = enemy->ID;
-	}
-	return attackedEnemyID;
+	return attacked_enemy_ID;
 }

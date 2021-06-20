@@ -37,7 +37,7 @@ int getEnemyDamage(enemy enemy)
 
 int describeEnemy(int ID)
 {
-	//se l'ID è uguale a 10 significa che non c'e alcun nemico
+	//se l'ID è uguale a 10 significa che non c'è alcun nemico
 	if(ID == 10)
 	{
 		return 1;
