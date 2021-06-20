@@ -10,7 +10,6 @@ int main()
 	inventoryItems.count = 0;
 	doors.count = 0;
 
-
 	insert(&commands, 1, "raccogli");
 	insert(&commands, 2, "attacca");
 	insert(&commands, 3, "usa");
@@ -71,8 +70,6 @@ int main()
 	
 	//imposta valori di default 
 	spawnPlayer(&gamePlayer);
-	//azzera i valori dell'inventario
-	spawnInventory(&gamePlayer.inventory);
 
 	spawnWorld(&gameMap);
 

@@ -1,95 +1,83 @@
 #include"../headers/player.h"
 
-void setPlayerHP(player *player, int HP){
-	player->HP = HP;
+//imposta/ritorna i punti vita del giocatore
+void setPlayerHP(player *player, int health_points){
+	player->HP = health_points;
 }
-
-
-void setPlayerDamage(player *player, int damage)
-{
-	player->damage = damage;
-}
-void setPlayerProtection(player *player, int protectionPoints)
-{
-	player->protection = protectionPoints;
-}
-
-void setPlayerSword(player *player, int swordType)
-{
-	//TODO: mettere i valori definitivi
-	int newDamage;
-	if (swordType == 1)
-	{
-		newDamage = 20;
-	}else 
-	if (swordType == 2)
-	{
-		newDamage = 30;
-	}else 
-	if (swordType == 3)
-	{
-		newDamage = 30;
-	}
-	setPlayerDamage(player, newDamage);
-	setInventorySword(&player->inventory, swordType);
-}
-
-
-
 int getPlayerHP(player player)
 {
 	return player.HP;
+}
+//imposta/ritorna i punti danno del giocatore
+void setPlayerDamage(player *player, int damage_points)
+{
+	player->damage = damage_points;
 }
 int getPlayerDamage(player player)
 {
 	return player.damage;
 }
+//imposta/ritorna i punti protezione del giocatore
+void setPlayerProtection(player *player, int protection_points)
+{
+	player->protection = protection_points;
+}
 int getPlayerProtection(player player)
 {
 	return player.protection;
+}
+
+//Applica/rimuovi gli effetti di una spada
+void giveSwordEffects(player *player)
+{
+	if(getInventorySword(player->inventory) == 3)
+		raisePlayerProtection(player);
+}
+void removeSwordEffects(player *player)
+{
+	if(getInventorySword(player->inventory) == 3)
+		lowerPlayerProtection(player);
+}
+
+//imposta una spada con i suoi punti danno ed i suoi effetti
+void setPlayerSword(player *player, int sword_ID)
+{
+	//rimuovi eventuali effetti della spada
+	removeSwordEffects(player);
+	//TODO: mettere i valori definitivi
+	int new_damage;
+	if (sword_ID == 1)
+	{
+		new_damage = 20;
+	}else 
+	if (sword_ID == 2)
+	{
+		new_damage = 30;
+	}else 
+	if (sword_ID == 3)
+	{
+		new_damage = 30;
+	}
+	setPlayerDamage(player, new_damage);
+	setInventorySword(&player->inventory, sword_ID);
+	//applica eventuali effetti della spada
+	giveSwordEffects(player);
 }
 int getPlayerSword(player player)
 {
 	return player.inventory.sword;
 }
 
-
-
+//imposta i valori predefiniti
 void spawnPlayer(player *player){
 	setPlayerHP(player, 100);
 	//TODO: danno iniziale
 	setPlayerDamage(player, 10);
+	//azzera i valori dell'inventario
 	spawnInventory(&player->inventory);
 }
 
-
-
-
-
-void giveSwordEffects(player *player)
-{
-	if(getInventorySword(player->inventory) == 3)
-	{
-		raisePlayerProtection(player);
-	}
-}
-void removeSwordEffects(player *player)
-{
-	if(getInventorySword(player->inventory) == 3)
-	{
-		lowerPlayerProtection(player);
-	}
-}
-
-void raisePlayerProtection(player *player)
-{
-	setPlayerProtection(player, getPlayerProtection(*player) + 10);
-}
-void lowerPlayerProtection(player *player)
-{
-	setPlayerProtection(player, getPlayerProtection(*player) - 10);
-}
-
+//mostra il contenuto dell'inventario
 void showInventory(player player)
 {
 	printf("\nPunti vita: %d \n", getPlayerHP(player));

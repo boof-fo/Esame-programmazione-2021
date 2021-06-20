@@ -92,7 +92,6 @@ void takeSword(player *player, room *room)
 	}
 	else 
 	{
-		removeSwordEffects(player);
 		if (getRoomSword(*room) == 1)
 		{
 			printf("\nHai raccolto una spada ricurva molto veloce ed affilata, riesce a penetrare nella carne putrefatta dei tuoi nemici con molta facilità\n");
@@ -109,7 +108,6 @@ void takeSword(player *player, room *room)
 			setPlayerSword(player, 3);
 		}		
 		removeRoomSword(room);
-		giveSwordEffects(player);
 	}
 }
 void takeChestplate(player *player, room *room)

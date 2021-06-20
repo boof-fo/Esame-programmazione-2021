@@ -21,32 +21,33 @@ typedef struct
 }player;
 
 //imposta/ritorna i punti vita del giocatore
-void setPlayerHP(player *player, int HP);
+void setPlayerHP(player *player, int health_points);
 int getPlayerHP(player player);
 
 //imposta/ritorna i punti danno del giocatore
-void setPlayerDamage(player *player, int damage);
+void setPlayerDamage(player *player, int damage_points);
 int getPlayerDamage(player player);
 
 //imposta/ritorna i punti protezione del giocatore
-void setPlayerProtection(player *player, int protectionPoints);
+void setPlayerProtection(player *player, int protection_points);
 int getPlayerProtection(player player);
 
-//imposta/ritorna la spada del giocatore
-void setPlayerSword(player *player, int swordType);
+//Applica/rimuovi gli effetti di una spada
+void giveSwordEffects(player *player);
+void removeSwordEffects(player *player);
+
+//imposta una spada con i suoi punti danno ed i suoi effetti
+void setPlayerSword(player *player, int sword_ID);
 int getPlayerSword(player player);
 
 //imposta i valori predefiniti
 void spawnPlayer(player *player);
 
-//Applica/rimuovi gli effetti di una spada
-void giveSwordEffects(player *player);
-void removeSwordEffects(player *player);
 //aumenta/ diminuisci la protezione di 10 punti
 void raisePlayerProtection(player *player);
 void lowerPlayerProtection(player *player);
 
-//mostra l'inventario
+//mostra il contenuto dell'inventario
 void showInventory(player player);
 
 #endif

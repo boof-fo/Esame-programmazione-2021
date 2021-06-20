@@ -17,7 +17,7 @@ typedef struct
 }inventory;
 
 
-void setInventoryPotions(inventory *inventory, int newValue);
+void setInventoryPotions(inventory *inventory, int potions_number);
 int getInventoryPotions(inventory inventory);
 
 void setInventorySword(inventory *inventory, int swordTyper);

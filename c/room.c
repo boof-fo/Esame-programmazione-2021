@@ -65,13 +65,13 @@ void removeRoomChestplate(room *room)
 
 
 //imposta i valori di una stanza
-void populateRoom(room* room, int ID, int potions, int sword, int chestplate, int enemiesConfig)
+void populateRoom(room* room, int ID, int potions, int sword, int chestplate, int enemies_config)
 {
 	setRoomID(room, ID);
 	setRoomPotions(room, potions);
 	setRoomSword(room, sword);
 	setRoomChestplate(room, chestplate);
-	setEnemiesConfiguration(room, enemiesConfig);
+	setEnemiesConfiguration(room, enemies_config);
 }
 
 
@@ -115,7 +115,7 @@ int checkEnemyPresent(room room, int target_enemy_ID)
 
 void spawnRoom(room* room, int roomNumber)
 {
-	//populateRoom(room *room, int ID, int potions, int sword, int chestplate, int enemiesConfig, int doors)
+	//populateRoom(room *room, int ID, int potions, int sword, int chestplate, int enemies_config, int doors)
 	if (roomNumber == 0)
 	{
 		populateRoom(room, 0, 0, 0, 0, 0);
@@ -174,7 +174,6 @@ void describeRoom(room room, int ID)
 	int potions = getRoomPotions(room);
 	int sword = getRoomSword(room);
 	int chestplate = getRoomChestplate(room);
-	int enemiesConfiguration = getEnemiesConfiguration(room);
 
 	if (ID == 0)
 		printf("\nl'ingresso della fortezza appare come una stanza vuota e silenziosa,l'unica fonte di luce è quella che penetra dalla porta principale, ma una volta chiusa l'unica fonte di luce saranno delle fiaccole sui muri che ardono di una fiamma blu apparentemente inestinguibile, non ci sono oggetti ne nemici, goditi questi ultimi atti di tranquillità perchè da qui in poi non sarà più così\n");
@@ -216,7 +215,7 @@ void describeRoom(room room, int ID)
 		{
 			printf("C'è un' alabarda.\n");
 		}
-	}	
+	}	//TODO: controlla stanza 3 e stampa presenza chestplate
 	describeEnemy(getEnemyID(room.enemy[0]));
 	describeEnemy(getEnemyID(room.enemy[1]));
 }
