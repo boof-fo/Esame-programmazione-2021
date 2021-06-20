@@ -51,4 +51,5 @@ void spawnPlayer(player *player);
 //mostra il contenuto dell'inventario
 void showInventory(player player);
 
+void attackPlayer(player *player, int damage);
 #endif

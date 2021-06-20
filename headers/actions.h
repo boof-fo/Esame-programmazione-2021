@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "../headers/world.h"
 #include "../headers/string.h"
@@ -22,7 +23,6 @@ void walkThroughDoor(map *map);
 void usePotion(player *player);
 
 //comandi per il combattimento
-void attackPlayer(player *player, int damage);
-int attackEnemy(player *player, enemy *enemy, int damage);
+int attackEnemy(player *player, enemy *enemy);
 
 #endif

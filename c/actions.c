@@ -46,11 +46,11 @@ void walkThroughDoor(map *map)
       scanf("%s",answer);
       if (check(answer,"destra"))
       {
-        currentRoom += 1;
+        currentRoom += 2;
       }else 
       if(check(answer, "sinistra"))
       {
-        currentRoom += 2;
+        currentRoom += 1;
       }
     }else 
     if ( currentRoom == 1 || currentRoom == 4)
@@ -163,26 +163,11 @@ void usePotion(player *player)
 
 
 
-
-void attackPlayer(player *player, int damage)
+int attackEnemy(player *player, enemy *enemy)
 {
-	//riduzione del danno in base ai punti protezione
-	float protection = (float)getPlayerProtection(*player);
-	protection = protection/5;
-	damage -= protection;
-
-	setPlayerHP(player, getPlayerHP(*player) - damage);
-	//rilevazione morte
-	if (getPlayerHP(*player) <= 0)
-	{
-		printf("\nAspetta... Ma che succede? ti sei accasciato a terra e sei privo di forze. La tua avventura finisce qui, sei morto.\n");
-		exit(0);
-	}
-}
-
-int attackEnemy(player *player, enemy *enemy, int damage)
-{
+	int damage = getPlayerDamage(*player);
 	bool attaccato = false;
+	//10 come ID viene interpretato come "nessun nemico"
   int attacked_enemy_ID = 10;
 	//controllo per vedere se il nemico è già morto
 	if(getEnemyHP(*enemy) == 0)
@@ -190,9 +175,16 @@ int attackEnemy(player *player, enemy *enemy, int damage)
 		printf("Il nemico è già morto\n");
 	}else
 	if(getEnemyHP(*enemy) - damage > 0)
-	{
-		setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
-		attaccato = true;
+	{//la funzione useEnemyAbility ritorna 1 se il giocatore salta il suo turno d'attacco
+		if(useEnemyAbility(enemy, player) != 1)
+		{
+			setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
+			attaccato = true;
+		}else
+		{
+			setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
+			printf("Il nemico sferra un colpo. Punti HP attuali: %d\n", getPlayerHP(*player));
+		}
 	}else//se il nemico morirà con il prossimo colpo, imposta gli HP a 0
 	{
 		setEnemyHP(enemy, 0);

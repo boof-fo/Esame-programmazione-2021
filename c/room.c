@@ -127,21 +127,21 @@ void spawnRoom(room* room, int roomNumber)
 	{
 		populateRoom(room, 1, 1, 0, 0, 1);
 		setEnemiesConfiguration(room, 1);
-		spawnEnemy(&room->enemy[0], 0, 30, 5, 0);
+		spawnEnemy(&room->enemy[0], 0, 30, 5, 1);
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
 	}else
 	if (roomNumber == 2)
 	{
 		populateRoom(room, 2, 0, 0, 0, 1);
 		setEnemiesConfiguration(room, 1);
-		spawnEnemy(&room->enemy[0], 1, 30, 5, 0);
+		spawnEnemy(&room->enemy[0], 1, 30, 5, 2);
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
 	}else
 	if (roomNumber == 3)
 	{
 		populateRoom(room, 3, 1, 1, 1, 3);
 		setEnemiesConfiguration(room, 3);
-		spawnEnemy(&room->enemy[0], 2, 35, 7, 0);
+		spawnEnemy(&room->enemy[0], 2, 35, 7, 3);
 		spawnEnemy(&room->enemy[1], 3, 35, 7, 0);
 	}else
 	if (roomNumber == 4)
