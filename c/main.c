@@ -39,7 +39,7 @@ int main()
 	
 	
 	
-	printf("\n╔═══════════════════════════════════════════════════════════════════════════╗\n║Ti diamo il benvenuto nel nostro gioco  P I R A T E S   F O R T E S S      ║\n║un avventura ambientata in un' isola tropicale dove impersonificherai      ║\n║Jacob Smith, un giovane avventuriero con lo scopo di ritrovare un antico   ║\n║tesoro pirata, del più temuto di tutti i tempi: Il capitano Barbadura.     ║\n║considerato da molti il re di tutti i pirati dei sette mari, nel corso del ║\n║diciottesimo secolo lui e la sua ciurma accumularono una ricchezza enorme  ║\n║in gioelli e dobloni d'oro.                                                ║\n║alcuni documenti e mappe suggeriscono la presenza del famigerato tesoro in ║\n║un isola sperduta del pacifico, non presente sulle mappe convenzionali,    ║\n║totalmente inesplorata e priva di vita dove sorge una fortezza usata ai    ║\n║tempi della colonizzazione inglese del quindicesimo secolo, usata come     ║\n║rifugio dalla ciurma di Barbadura, alcune leggende narrano  che la ciurma  ║\n║sia ancora presente all'interno della fortezza sotto forma di non-morti    ║\n║affamati di carne umana e che lo spirito del capitano vegli ancora sullo   ║\n║scrigno maledetto di cui ti dovrai impossessare.                           ║\n║═══════════════════════════════════════════════════════════════════════════║\n║ Hai bisogno di istruzioni? Si o No?                                       ║\n╚═══════════════════════════════════════════════════════════════════════════╝\n");
+	printf("\n╔═══════════════════════════════════════════════════════════════════════════╗\n║Ti diamo il benvenuto nel nostro gioco  P I R A T E S   F O R T E S S      ║\n║un avventura ambientata in un' isola tropicale dove impersonificherai      ║\n║Jacob Smith, un giovane avventuriero con lo scopo di ritrovare un antico   ║\n║tesoro pirata, del più temuto di tutti i tempi: Il capitano Barbadura,     ║\n║considerato da molti il re di tutti i pirati dei sette mari, nel corso del ║\n║diciottesimo secolo lui e la sua ciurma accumularono una ricchezza enorme  ║\n║in gioelli e dobloni d'oro.                                                ║\n║Alcuni documenti e mappe suggeriscono la presenza del famigerato tesoro in ║\n║un'isola sperduta del pacifico, non presente sulle mappe convenzionali,    ║\n║totalmente inesplorata e priva di vita dove sorge una fortezza usata ai    ║\n║tempi della colonizzazione inglese del quindicesimo secolo come rifugio    ║\n║dalla ciurma di Barbadura, alcune leggende narrano  che la ciurma sia      ║\n║ancora presente all'interno della fortezza sotto forma di non-morti        ║\n║affamati di carne umana e che lo spirito del capitano vegli ancora sullo   ║\n║scrigno maledetto di cui ti dovrai impossessare.                           ║\n║═══════════════════════════════════════════════════════════════════════════║\n║ Hai bisogno di istruzioni? Si o No?                                       ║\n╚═══════════════════════════════════════════════════════════════════════════╝\n");
 	
 	char enter = 'a';
 	char answer[2];
@@ -50,14 +50,14 @@ int main()
 		scanf("%s", answer);
 		if(strncmp(answer, "si", sizeof(const char)*2)  == 0)
 		{
-			aiuto();
+			help();
 			printf("\n\n\nPremi invio per continuare...\n");
 			fflush(stdin);
 			enter = getchar();
 			exit = 1;
 		}
 		else if(strncmp(answer, "no",sizeof(const char)*2) == 0)
-		{//TODO: comando aiuto
+		{//TODO: comando help
 			printf("\nPerfetto, possiamo proseguire. Premi invio per continuare...\n\n");
 			fflush(stdin);
 			enter = getchar();
@@ -69,11 +69,11 @@ int main()
 	}while(exit!=1 && enter != '\n');
 	
 	//imposta valori di default 
-	spawnPlayer(&gamePlayer);
+	spawnPlayer(&game_player);
 
-	spawnWorld(&gameMap);
+	spawnWorld(&game_map);
 
-	enterRoom(&gameMap, 0);
+	enterRoom(&game_map, 0);
 
 
 	while(true)

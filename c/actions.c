@@ -3,14 +3,14 @@
 void answerPuzzle(map *map)
 {
   printf("\nLa statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio. Se non riesci a trovare la risposta corretta scrivi \"esci\" per uscire'\n");	
-  char risposta[20];
-  scanf("%s",risposta);
-  if (check(risposta,"ancora") || check(risposta,"l'ancora"))
+  char answer[20];
+  scanf("%s",answer);
+  if (check(answer,"ancora") || check(answer,"l'ancora"))
   {
     printf("Risposta esatta. tieni l'armatura\n*un vecchio pezzo di armtura compare sul pavimento*\n");
     setRoomChestplate(&map->room[getCurrentRoom(*map)], 1);
   }else 
-  if (check(risposta,"esci"))
+  if (check(answer,"esci"))
     return;
   else
   {
@@ -18,11 +18,11 @@ void answerPuzzle(map *map)
   }
 }
 
-void aiuto()
+void help()
 {
     int c;
     FILE *file;
-    file = fopen("comandi.txt", "r");
+    file = fopen("help.dat", "r");
     if (file)
     {
       while ((c = getc(file)) != EOF)
@@ -31,7 +31,7 @@ void aiuto()
     }
 }
 
-void attraversa(map *map)
+void walkThroughDoor(map *map)
 {
   if(getEnemiesConfiguration(map->room[getCurrentRoom(*map)]))
   {
@@ -39,16 +39,16 @@ void attraversa(map *map)
   }else
   {
     int currentRoom = getCurrentRoom(*map);
-    char risposta[20];
+    char answer[20];
     if(currentRoom == 0 || currentRoom == 3 )
     {
       printf("\nCi sono due porte... vuoi attraversare la porta destra o la porta sinistra?\n");
-      scanf("%s",risposta);
-      if (check(risposta,"destra"))
+      scanf("%s",answer);
+      if (check(answer,"destra"))
       {
         currentRoom += 1;
       }else 
-      if(check(risposta, "sinistra"))
+      if(check(answer, "sinistra"))
       {
         currentRoom += 2;
       }

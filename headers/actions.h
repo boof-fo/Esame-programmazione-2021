@@ -16,8 +16,8 @@ void takeSword(player *player, room *room);
 void takeChestplate(player *player, room *room);
 
 void answerPuzzle(map *map);
-void aiuto();
-void attraversa(map *map);
+void help();
+void walkThroughDoor(map *map);
 
 void usePotion(player *player);
 

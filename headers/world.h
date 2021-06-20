@@ -33,7 +33,7 @@ int getCurrentRoom(map map);
 void printMap(map map);
 
 //Funzione utilizzata per far decidere al giocatore in quale stanza spostarsi
-void attraversa(map *map);
+void walkThroughDoor(map *map);
 //cambia la stanza in cui si trova il giocatore e imposta i valori della stanza
 void enterRoom(map *map, int new_room_ID);
 //imposta la configurazione nemici della stanza in base a quale nemico viene ammazzato.

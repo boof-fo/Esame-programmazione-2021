@@ -27,6 +27,15 @@ int getPlayerProtection(player player)
 	return player.protection;
 }
 
+void raisePlayerProtection(player *player)
+{
+	setPlayerProtection(player, getPlayerProtection(*player) + 10);
+}
+void lowerPlayerProtection(player *player)
+{
+	setPlayerProtection(player, getPlayerProtection(*player) - 10);
+}
+
 //Applica/rimuovi gli effetti di una spada
 void giveSwordEffects(player *player)
 {

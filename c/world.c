@@ -49,18 +49,18 @@ void enterRoom(map *map, int new_room_ID)
 
 void killEnemy(map *map, int enemy_ID)
 {
-	if (getEnemiesConfiguration(map->room[map->current_room]) == 1)
+	if (getEnemiesConfiguration(map->room[getCurrentRoom(*map)]) == 1)
 	{
-		setEnemiesConfiguration(&map->room[map->current_room], 0);
-	}else if (getEnemiesConfiguration(map->room[map->current_room]) == 2)
+		setEnemiesConfiguration(&map->room[getCurrentRoom(*map)], 0);
+	}else if (getEnemiesConfiguration(map->room[getCurrentRoom(*map)]) == 2)
 	{
-		setEnemiesConfiguration(&map->room[map->currentRoom], 0);
-	}else if (getEnemiesConfiguration(map->room[map->current_room]) == 3)
+		setEnemiesConfiguration(&map->room[getCurrentRoom(*map)], 0);
+	}else if (getEnemiesConfiguration(map->room[getCurrentRoom(*map)]) == 3)
 	{
 		if(getEnemyID(map->room->enemy[1]) == enemy_ID)
-			setEnemiesConfiguration(&map->room[map->current_room], 1);
+			setEnemiesConfiguration(&map->room[getCurrentRoom(*map)], 1);
 		else
-			setEnemiesConfiguration(&map->room[map->current_room], 2);
+			setEnemiesConfiguration(&map->room[getCurrentRoom(*map)], 2);
 	}
 }
 

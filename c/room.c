@@ -43,7 +43,7 @@ int getRoomChestplate(room room)
 //imposta il numero di nemici
 void setEnemiesConfiguration(room *room, int enemies_config)
 {
-	room->enemiesConfiguration = enemies_config;
+	room->enemies_configuration = enemies_config;
 }
 int getEnemiesConfiguration(room room)
 {

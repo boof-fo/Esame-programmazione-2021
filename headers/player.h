@@ -32,6 +32,10 @@ int getPlayerDamage(player player);
 void setPlayerProtection(player *player, int protection_points);
 int getPlayerProtection(player player);
 
+//aumenta/diminuisci la protezione di 10 punti
+void raisePlayerProtection(player *player);
+void lowerPlayerProtection(player *player);
+
 //Applica/rimuovi gli effetti di una spada
 void giveSwordEffects(player *player);
 void removeSwordEffects(player *player);
@@ -43,9 +47,6 @@ int getPlayerSword(player player);
 //imposta i valori predefiniti
 void spawnPlayer(player *player);
 
-//aumenta/ diminuisci la protezione di 10 punti
-void raisePlayerProtection(player *player);
-void lowerPlayerProtection(player *player);
 
 //mostra il contenuto dell'inventario
 void showInventory(player player);

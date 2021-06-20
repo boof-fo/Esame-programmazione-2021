@@ -16,21 +16,21 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
   if (search(&commands,comando)->key == 1)
   {
-    if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]) != 0)
+    if(getEnemiesConfiguration(game_map.room[getCurrentRoom(game_map)]) != 0)
      printf("Prima di raccogliere oggetti devi aver sconfitto tutti i nemici nella stanza.\n"); 
     else
     if(search(&item1,oggetto)->key == 1)
     {
-      takePotion(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)]);
+      takePotion(&game_player, &game_map.room[getCurrentRoom(game_map)]);
     }else
     if(search(&item1,oggetto)->key == 2)
     {
-      takeSword(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)]);
+      takeSword(&game_player, &game_map.room[getCurrentRoom(game_map)]);
     }
     else 
     if(search(&item1,oggetto)->key == 3)
     {
-      takeChestplate(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)]);
+      takeChestplate(&game_player, &game_map.room[getCurrentRoom(game_map)]);
     }else
     {
       printf("oggetto errato\n");
@@ -46,47 +46,47 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
     if(search(&item2,oggetto)->key == 1)
     {
       //checkEnemyPresent ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra
-        enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 0);
+        enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 0);
     }else
 
     if(search(&item2,oggetto)->key == 2)
     {
-      enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 1);
+      enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 1);
     }else 
 
     if(search(&item2,oggetto)->key == 3)
     {
-      enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 2);
+      enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 2);
     }else
 
     if(search(&item2,oggetto)->key == 4)
     {
-      enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 3);
+      enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 3);
     }else
 
     if(search(&item2,oggetto)->key == 5)
     {
-      enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 4);
+      enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 4);
     }else
 
     if(search(&item2,oggetto)->key == 6)
     {
-      enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 5);
+      enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 5);
     }else
 
     if(search(&item2,oggetto)->key == 7)
     {
-      enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 6);
+      enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 6);
     }else
 
     if(search(&item2,oggetto)->key == 8)
     {
-      enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 7);
+      enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 7);
     }else
 
     if(search(&item2,oggetto)->key == 9)
     {
-      enemyIsPresent = checkEnemyPresent(gameMap.room[getCurrentRoom(gameMap)], 8);
+      enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 8);
       
     }else
     {
@@ -96,11 +96,11 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
     if(enemyIsPresent == 1)
     {
-      deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[0], getPlayerDamage(gamePlayer));
+      deadEnemyID = attackEnemy(&game_player, &game_map.room[getCurrentRoom(game_map)].enemy[0], getPlayerDamage(game_player));
     }else
     if(enemyIsPresent == 2)
     {
-      deadEnemyID = attackEnemy(&gamePlayer, &gameMap.room[getCurrentRoom(gameMap)].enemy[1], getPlayerDamage(gamePlayer));
+      deadEnemyID = attackEnemy(&game_player, &game_map.room[getCurrentRoom(game_map)].enemy[1], getPlayerDamage(game_player));
     }else
     if(enemyIsPresent == 3)
     {
@@ -114,14 +114,14 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
     if(deadEnemyID != 10)
     {
-      killEnemy(&gameMap, deadEnemyID);
+      killEnemy(&game_map, deadEnemyID);
       deadEnemyID = 10;
-      if(getEnemiesConfiguration(gameMap.room[getCurrentRoom(gameMap)]) == 0)
+      if(getEnemiesConfiguration(game_map.room[getCurrentRoom(game_map)]) == 0)
       {
         printf("Hai ucciso tutti i nemici in questa stanza...\n");
-        if(getCurrentRoom(gameMap) == 3)
+        if(getCurrentRoom(game_map) == 3)
         {
-         answerPuzzle(&gameMap); 
+         answerPuzzle(&game_map); 
         }
       }
     }
@@ -132,11 +132,11 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
   {
     if(search(&item3,oggetto)->key == 1)
     {
-      usePotion(&gamePlayer);
+      usePotion(&game_player);
     }else
     if(search(&item3,oggetto)->key == 2)
     {
-      printMap(gameMap);
+      printMap(game_map);
     }else{
       printf("errore3");
     }
@@ -145,15 +145,15 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
   if (search(&commands,comando)->key == 4)
   {
-    attraversa(&gameMap);
+    walkThroughDoor(&game_map);
   }else
   
   if (search(&commands,comando)->key == 5) //TODO: stampare solo la descrizione del comando richiesto, Aiuto attacca- aiuto usa.
   {
-    aiuto();
+    help();
   }else
   if(search(&commands,comando)->key == 6)
   {
-    showInventory(gamePlayer);
+    showInventory(game_player);
   }
 }

@@ -2,7 +2,7 @@
 
 void setInventoryPotions(inventory *inventory, int potions_number)
 {
-	inventory.potions = potions_number;
+	inventory->potions = potions_number;
 }
 int getInventoryPotions(inventory inventory)
 {
