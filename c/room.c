@@ -169,12 +169,11 @@ void spawnRoom(room* room, int roomNumber)
 
 void describeRoom(room room, int ID)
 {
-
 	int potions = getRoomPotions(room);
 	int sword = getRoomSword(room);
 	int chestplate = getRoomChestplate(room);
 	
-	FILE *file = fopen("describeRoom.dat", "r");
+	FILE *file = fopen("rooms.dat", "r");
 	int count = 0;
 	if ( file != NULL )
 	{
@@ -188,9 +187,10 @@ void describeRoom(room room, int ID)
 					}
 					else
 						count++;
-			}   
+			}
 			fclose(file);
 	}
+
 	printf("\nNella stanza: \n");
 	if(potions != 0)
 	{
