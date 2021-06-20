@@ -185,17 +185,15 @@ int attackEnemy(player *player, enemy *enemy, int damage)
 	bool attaccato = false;
   int attacked_enemy_ID = 10;
 	//controllo per vedere se il nemico è già morto
-	if(enemy->HP == 0)
+	if(getEnemyHP(*enemy) == 0)
 	{
 		printf("Il nemico è già morto\n");
 	}else
-	if(enemy->HP - damage > 0)
+	if(getEnemyHP(*enemy) - damage > 0)
 	{
 		setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
 		attaccato = true;
-	}else
-	//se il nemico morirà con il prossimo colpo, imposta gli HP a 0
-	if(enemy->HP - damage <= 0)
+	}else//se il nemico morirà con il prossimo colpo, imposta gli HP a 0
 	{
 		setEnemyHP(enemy, 0);
 		attaccato = true;
@@ -203,8 +201,8 @@ int attackEnemy(player *player, enemy *enemy, int damage)
 	//se un nemico è stato attaccato allora manda un colpo di risposta al giocatore e mostra i nuovi punti vita.
 	if(attaccato)
 	{
-		printf("Nemico attaccato! nuovi HP:%d\n",enemy->HP);
-		attackPlayer(player, enemy->damage);
+		printf("Nemico attaccato! nuovi HP:%d\n", getEnemyHP(*enemy));
+		attackPlayer(player, getEnemyDamage(*enemy));
 
 		printf("Il nemico reagisce sferrando un colpo. Punti HP attuali: %d\n", getPlayerHP(*player));
 
@@ -212,7 +210,7 @@ int attackEnemy(player *player, enemy *enemy, int damage)
 		if (enemy->HP <= 0)
 		{
 			printf("nemico ucciso X_X \n");
-			attacked_enemy_ID = enemy->ID;
+			attacked_enemy_ID = getEnemyID(*enemy);
 		}
 	}
 	return attacked_enemy_ID;
