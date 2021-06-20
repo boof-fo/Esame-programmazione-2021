@@ -175,24 +175,23 @@ void describeRoom(room room, int ID)
 	int chestplate = getRoomChestplate(room);
 	
 	FILE *file = fopen("describeRoom.dat", "r");
-		int count = 0;
-		if ( file != NULL )
-		{
-				char line[512];
-				while (fgets(line, sizeof line, file) != NULL)
-				{   
-						if (count == ID)
-						{
-							printf("\n%s\n", line);
-							fclose(file);
-							return 0;
-						}
-						else
-							count++;
-				}   
-				fclose(file);
-	
-		printf("\nNella stanza: \n");
+	int count = 0;
+	if ( file != NULL )
+	{
+			char line[512];
+			while (fgets(line, sizeof line, file) != NULL)
+			{   
+					if (count == ID)
+					{
+						printf("\n%s\n", line);
+						fclose(file);
+					}
+					else
+						count++;
+			}   
+			fclose(file);
+	}
+	printf("\nNella stanza: \n");
 	if(potions != 0)
 	{
 		if(potions == 1)
