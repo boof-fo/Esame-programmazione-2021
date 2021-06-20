@@ -120,3 +120,20 @@ void showInventory(player player)
 		printf("\n   Punti protezione attuali: %d\n", getPlayerProtection(player));
 	}
 }
+
+
+void attackPlayer(player *player, int damage)
+{
+	//riduzione del danno in base ai punti protezione
+	float protection = (float)getPlayerProtection(*player);
+	protection = protection/5;
+	damage -= protection;
+
+	setPlayerHP(player, getPlayerHP(*player) - damage);
+	//rilevazione morte
+	if (getPlayerHP(*player) <= 0)
+	{
+		printf("\nAspetta... Ma che succede? ti sei accasciato a terra e sei privo di forze. La tua avventura finisce qui, sei morto.\n");
+		exit(0);
+	}
+}

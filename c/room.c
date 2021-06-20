@@ -127,21 +127,21 @@ void spawnRoom(room* room, int roomNumber)
 	{
 		populateRoom(room, 1, 1, 0, 0, 1);
 		setEnemiesConfiguration(room, 1);
-		spawnEnemy(&room->enemy[0], 0, 30, 5, 0);
+		spawnEnemy(&room->enemy[0], 0, 30, 5, 1);
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
 	}else
 	if (roomNumber == 2)
 	{
 		populateRoom(room, 2, 0, 0, 0, 1);
 		setEnemiesConfiguration(room, 1);
-		spawnEnemy(&room->enemy[0], 1, 30, 5, 0);
+		spawnEnemy(&room->enemy[0], 1, 30, 5, 2);
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
 	}else
 	if (roomNumber == 3)
 	{
 		populateRoom(room, 3, 1, 1, 1, 3);
 		setEnemiesConfiguration(room, 3);
-		spawnEnemy(&room->enemy[0], 2, 35, 7, 0);
+		spawnEnemy(&room->enemy[0], 2, 35, 7, 3);
 		spawnEnemy(&room->enemy[1], 3, 35, 7, 0);
 	}else
 	if (roomNumber == 4)
@@ -169,30 +169,29 @@ void spawnRoom(room* room, int roomNumber)
 
 void describeRoom(room room, int ID)
 {
-
 	int potions = getRoomPotions(room);
 	int sword = getRoomSword(room);
 	int chestplate = getRoomChestplate(room);
 	
-	FILE *file = fopen("describeRoom.dat", "r");
-		int count = 0;
-		if ( file != NULL )
-		{
-				char line[512];
-				while (fgets(line, sizeof line, file) != NULL)
-				{   
-						if (count == ID)
-						{
-							printf("\n%s\n", line);
-							fclose(file);
-							return 0;
-						}
-						else
-							count++;
-				}   
-				fclose(file);
-	
-		printf("\nNella stanza: \n");
+	FILE *file = fopen("rooms.dat", "r");
+	int count = 0;
+	if ( file != NULL )
+	{
+			char line[512];
+			while (fgets(line, sizeof line, file) != NULL)
+			{   
+					if (count == ID)
+					{
+						printf("\n%s\n", line);
+						fclose(file);
+					}
+					else
+						count++;
+			}
+			fclose(file);
+	}
+
+	printf("\nNella stanza: \n");
 	if(potions != 0)
 	{
 		if(potions == 1)

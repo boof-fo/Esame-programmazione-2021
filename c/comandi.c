@@ -96,11 +96,11 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
     if(enemyIsPresent == 1)
     {
-      deadEnemyID = attackEnemy(&game_player, &game_map.room[getCurrentRoom(game_map)].enemy[0], getPlayerDamage(game_player));
+      deadEnemyID = attackEnemy(&game_player, &game_map.room[getCurrentRoom(game_map)].enemy[0]);
     }else
     if(enemyIsPresent == 2)
     {
-      deadEnemyID = attackEnemy(&game_player, &game_map.room[getCurrentRoom(game_map)].enemy[1], getPlayerDamage(game_player));
+      deadEnemyID = attackEnemy(&game_player, &game_map.room[getCurrentRoom(game_map)].enemy[1]);
     }else
     if(enemyIsPresent == 3)
     {
