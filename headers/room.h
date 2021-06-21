@@ -56,7 +56,7 @@ int checkEnemyPresent(room room, int target_enemy_ID);
 void spawnRoom(room* room, int room_ID);
 
 //stampa una descrizione della stanza
-void describeRoom(room room, int room_ID);
+void describeRoom(room room);
 
 //
 void removeRoomPotion(room *room);

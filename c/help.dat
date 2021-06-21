@@ -1,15 +1,16 @@
+
 LISTA COMANDI:
 
-•aiuto: stampa la lista dei comandi.
+• aiuto: Mostra una spiegazione per ogni comando. Si può ottenere una lista di tutti i comandi con 'aiuto comandi'. Comandi su cui si può ricevere aiuto: raccogli, attacca, usa, attraversa, mostra, guarda. Esempio: 'aiuto raccogli'.
 
-•aiuto + 'comando': stampa la spiegazione dello specifico comando.
+• raccogli: Specificando un oggetto lo raccoglie e lo piazza nell'inventario. Oggetti che possono essere raccolti: pozione, armatura, spada. Esempio 'raccogli pozione.
 
-•raccogli + 'oggetto': aggiungi l'oggetto al tuo inventario per poterlo utilizzare.
+• attacca: Attacca un nemico presente nella stanza con l'arma equipaggiata. Nemici attaccabili: cuoco, mozzo, navigatore, timoniere, maestro, cannoniere, medico, artigliere, capitano. Esempio: 'attacca mozzo'.
 
-•usa + 'oggetto': utilizza un oggetto presente nell'inventario.
+• usa: Utilizza un oggetto presente nell'inventario. Oggetti utilizzabili: pozione, mappa. Esempio 'usa mappa'
 
-•attraversa: cambia stanza attraversando una porta, potrà essere utilizzato quando avrai sconfitto tutti i nemici presenti.
+• attraversa: Cambia stanza attraversando una porta. Può essere utilizzato solo se i nemici nella stanza sono stati sconfitti.
 
-•Attacca + 'nome del nemico': Attacca il nemico con l'arma equipaggiata.
+• mostra: Mostra l'inventario e i punti vita scrivendo 'mostra inventario'.
 
-•Esci: termina l'esecuzione del programma. Alla prossima :)
+• guarda: Stampa descrizione della stanza, oggetti presenti nella stanza e la descrizione dei nemici (se non sono già stati uccisi) scrivendo 'guarda stanza'.

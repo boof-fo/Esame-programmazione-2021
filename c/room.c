@@ -167,12 +167,14 @@ void spawnRoom(room* room, int roomNumber)
 	}
 }
 
-void describeRoom(room room, int ID)
+void describeRoom(room room)
 {
 	int potions = getRoomPotions(room);
 	int sword = getRoomSword(room);
 	int chestplate = getRoomChestplate(room);
 	
+	int ID = getRoomID(room);
+
 	FILE *file = fopen("rooms.dat", "r");
 	int count = 0;
 	if ( file != NULL )

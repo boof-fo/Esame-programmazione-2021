@@ -13,6 +13,9 @@ typedef int bool;
 #include "../headers/list.h"
 #include "../headers/actions.h"
 
-void parsing(list commands,list item1, list item2, list item3, list item4, list item5);
+void error(int errorCode);
+
+void parsing(list commands,list item1, list item2, list item3, list item4, list item5, list item6, list item7);
+
 
 #endif

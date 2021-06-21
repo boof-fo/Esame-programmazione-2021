@@ -18,6 +18,8 @@ void takeChestplate(player *player, room *room);
 
 void answerPuzzle(map *map);
 void help();
+
+//Funzione utilizzata per far decidere al giocatore in quale stanza spostarsi
 void walkThroughDoor(map *map);
 
 void usePotion(player *player);

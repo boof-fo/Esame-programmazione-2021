@@ -100,10 +100,28 @@ int useEnemyAbility(enemy *enemy, player *player)
 			playerSkipsTurn = 1;
 			ability = 0;
 		}else
+		if(getEnemyHP(*enemy) <= 30 && ability == 4)
+		{
+			attackPlayer(player, 5);
+			printf("Il maestro di armi utilizza la sua arma speciale: una fionda e infligge 5 Punti danno aggiuntivi\nPunti HP attuali: %d\n", getPlayerHP(*player));
+			ability = 0;
+		}else
+		if(getEnemyHP(*enemy) <= 30 && ability == 5)
+		{
+			attackPlayer(player, 5);
+			printf("Il cannoniere lancia una bomba artigianale e infligge 5 Punti danno aggiuntivi\nPunti HP attuali: %d\n", getPlayerHP(*player));
+			ability = 0;
+		}else
 		if(getEnemyHP(*enemy) <= 25 && ability == 6)
 		{
 			setEnemyHP(enemy, getEnemyHP(*enemy) + 15);
 			printf("Il medico beve un sorso di pozione e guadagna 15 HP.\n");
+			ability = 0;
+		}else
+		if(getEnemyHP(*enemy) <= 25 && ability == 7)
+		{
+			attackPlayer(player, getEnemyDamage(*enemy));
+			printf("L'artigliere infligge un doppio colpo.\nPunti HP attuali: %d\n", getPlayerHP(*player));
 			ability = 0;
 		}else
 		if(getEnemyHP(*enemy) <= 60 && ability == 8)

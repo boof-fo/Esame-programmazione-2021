@@ -17,7 +17,7 @@ void answerPuzzle(map *map)
     printf("Risposta errata!\n");
   }
 }
-//stampa i comandi e le loro funzionalità
+//stampa la lista dei comandi 
 void help()
 {
     int c;
@@ -33,7 +33,7 @@ void help()
 //stampa un comando e la sua funzionalità
 void helpSelect(int selections)
 {
-FILE *file = fopen("helpselect.dat", "r");
+FILE *file = fopen("helpSelect.dat", "r");
 int count = 0;
 		if ( file != NULL )
 		{
@@ -199,7 +199,6 @@ int attackEnemy(player *player, enemy *enemy)
 	{//la funzione useEnemyAbility ritorna 1 se il giocatore salta il suo turno d'attacco
 		if(useEnemyAbility(enemy, player) != 1)
 		{
-			
 			setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
 			attaccato = true;
 		}else
