@@ -8,7 +8,7 @@ LISTA COMANDI:
 
 •usa + 'oggetto': utilizza un oggetto presente nell'inventario.
 
-•attraversa: Quando i nemici presenti nella stanza saranno finiti.
+•attraversa: cambia stanza attraversando una porta, potrà essere utilizzato quando avrai sconfitto tutti i nemici presenti.
 
 •Attacca + 'nome del nemico': Attacca il nemico con l'arma equipaggiata.
 

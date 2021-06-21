@@ -1,0 +1,7 @@
+raccogli: questo comando serve per raccogliere gli ogetti presenti nella stanza che verranno aggiunti al tuo inventario. ESEMPIO SINTASSI: "raccogli pozione".
+attacca: questo comando ti serve per affrontare i nemici e sconfiggerli, utilizzalo per infliggere danni ai tuoi avversari ESEMPIO SINTASSI: "attacca cuoco".
+usa: questo comando ti permetterà di utilizzare gli ogetti nel tuo inventario come le pozioni o la mappa, dovrai avere gli oggetti a disposizione nell'inventario altrimenti non potrai usarli. ESEMPIO SINTASSI: "usa pozione".
+aiuto: stampa la lista di tutti i comandi con le loro descrizioni.
+attraversa: questo comando serve per cambiare stanza, se ci sono due porte ti sarà chiesto di scegliere tra la porta di destra e sinistra. per poter cambiare stanza dovrai prima sconfiggere tutti i nemici presenti.
+mostra: inventario: visuallizza il contenuto del tuo inventario
+guarda: questo comando serve per visualizzare gli elementi con cui potrai interagire nella stanza come nemici o ogetti.

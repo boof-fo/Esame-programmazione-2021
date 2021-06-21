@@ -148,12 +148,59 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
     walkThroughDoor(&game_map);
   }else
   
-  if (search(&commands,comando)->key == 5) //TODO: stampare solo la descrizione del comando richiesto, Aiuto attacca- aiuto usa.
-  {
-    help();
+  if (search(&commands,comando)->key == 5) 
+  { 
+    int selection;
+    if(search(&actions, oggetto)->key== 0)
+    {
+      help();
+    }else
+    if(search(&actions, oggetto)->key== 1)
+    {
+      selection=1;
+
+    }else
+    if(search(&actions, oggetto)->key== 2)
+    {
+      selection=2;
+
+    }else
+    if(search(&actions, oggetto)->key== 3)
+    {
+      selection=3;
+
+    }else
+    if(search(&actions, oggetto)->key== 4)
+    {
+      selection=4;
+
+    }else
+    if(search(&actions, oggetto)->key== 5)
+    {
+      selection=5;
+    }else
+    if(search(&actions, oggetto)->key== 6)
+    {
+      selection=6;
+
+    }else
+    if(search(&actions, oggetto)->key== 7)
+    {
+      selection=7;
+
+    }else
+    {
+      printf("non ho capito, potresti ripetere?");
+
+    }
+    helpSelect(selection);
+  
   }else
-  if(search(&commands,comando)->key == 6)
+  if(search(&commands,comando)->key == 6 && search(&attr6,oggetto)->key == 1)
   {
     showInventory(game_player);
+  }else
+  {
+    printf("\nNon ho capito, potresti ripetere?")
   }
 }
