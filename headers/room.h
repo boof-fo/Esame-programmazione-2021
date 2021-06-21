@@ -15,6 +15,8 @@ typedef struct
 	int ID;
 	//numero di pozioni curative nella stanza
 	int potions;
+	//presenza di una mappa
+	bool map;
 	/*tipo di spada contenuta nella stanza
 	 *0 = nessuna spada; 1 = spada ricurva; 2 alabarda
 	 */
@@ -37,6 +39,9 @@ int getRoomID(room room);
 //imposta/ritorna il numero di pozioni in una stanza
 void setRoomPotions(room *room, int potions_number);
 int getRoomPotions(room room);
+//imposta/controlla se c'è una mappa
+void setRoomMap(room *room, bool map);
+bool getRoomMap(room room);
 //imposta/ritorna l'ID della spada in una stanza
 void setRoomSword(room *room, int sword_ID);
 int getRoomSword(room room);
@@ -48,7 +53,7 @@ void setEnemiesConfiguration(room *room, int enemies_config);
 int getEnemiesConfiguration(room room);
 
 //imposta i valori di una stanza
-void populateRoom(room* room, int room_ID, int potions, int sword_ID, int chestplate_ID, int enemies_config);
+void populateRoom(room* room, int room_ID, int potions, int sword_ID, int chestplate_ID, int enemies_config, bool map);
 
 //Controlla se un nemico è presente in una stanza
 int checkEnemyPresent(room room, int target_enemy_ID);

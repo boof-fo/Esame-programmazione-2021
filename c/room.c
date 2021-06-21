@@ -20,6 +20,16 @@ int getRoomPotions(room room)
 	return room.potions;
 }
 
+//imposta/controlla se c'è una mappa
+void setRoomMap(room *room, bool map)
+{
+	room->map = map;
+}
+bool getRoomMap(room room)
+{
+	return room.map;
+}
+
 //imposta l'ID della spada in una stanza
 void setRoomSword(room *room, int sword_ID)
 {
@@ -65,13 +75,14 @@ void removeRoomChestplate(room *room)
 
 
 //imposta i valori di una stanza
-void populateRoom(room* room, int ID, int potions, int sword, int chestplate, int enemies_config)
+void populateRoom(room* room, int ID, int potions, int sword, int chestplate, int enemies_config, bool map)
 {
 	setRoomID(room, ID);
 	setRoomPotions(room, potions);
 	setRoomSword(room, sword);
 	setRoomChestplate(room, chestplate);
 	setEnemiesConfiguration(room, enemies_config);
+	setRoomMap(room, map);
 }
 
 
@@ -113,8 +124,8 @@ int checkEnemyPresent(room room, int target_enemy_ID)
 
 bool roomIsEmpty(room room)
 {
-	int isEmpty = getRoomChestplate(room) + getRoomPotions(room) + getRoomSword(room);
-	if (getRoomPotions(room) == 0)
+	int isEmpty = getRoomChestplate(room) + getRoomPotions(room) + getRoomSword(room) + getRoomMap(room);
+	if (isEmpty == 0)
 		return true;
 	else
 		return false;
@@ -124,52 +135,52 @@ bool roomIsEmpty(room room)
 
 void spawnRoom(room* room, int roomNumber)
 {
-	//populateRoom(room *room, int ID, int potions, int sword, int chestplate, int enemies_config, int doors)
+	//populateRoom(room *room, int ID, int potions, int sword, int chestplate, int enemies_config, bool map)
 	if (roomNumber == 0)
 	{
-		populateRoom(room, 0, 0, 0, 0, 0);
+		populateRoom(room, 0, 0, 0, 0, 0, true);
 		setEnemiesConfiguration(room, 0);
 		spawnEnemy(&room->enemy[0], 10, 0, 0, 0," ");
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0," ");
 	}else
 	if (roomNumber == 1)
 	{
-		populateRoom(room, 1, 1, 0, 0, 1);
+		populateRoom(room, 1, 1, 0, 0, 1, false);
 		setEnemiesConfiguration(room, 1);
 		spawnEnemy(&room->enemy[0], 0, 30, 5, 1,"Cuoco");
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0," ");
 	}else
 	if (roomNumber == 2)
 	{
-		populateRoom(room, 2, 0, 0, 0, 1);
+		populateRoom(room, 2, 0, 0, 0, 1, false);
 		setEnemiesConfiguration(room, 1);
 		spawnEnemy(&room->enemy[0], 1, 30, 5, 2,"Mozzo");
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
 	}else
 	if (roomNumber == 3)
 	{
-		populateRoom(room, 3, 1, 1, 1, 3);
+		populateRoom(room, 3, 1, 1, 1, 3, false);
 		setEnemiesConfiguration(room, 3);
 		spawnEnemy(&room->enemy[0], 2, 35, 7, 3,"Navigatore");
 		spawnEnemy(&room->enemy[1], 3, 35, 7, 0,"Timoniere");
 	}else
 	if (roomNumber == 4)
 	{
-		populateRoom(room, 4, 0, 2, 0, 3);
+		populateRoom(room, 4, 0, 2, 0, 3, false);
 		setEnemiesConfiguration(room, 3);
 		spawnEnemy(&room->enemy[0], 4, 60, 15, 0,"Maestro d'armi");
 		spawnEnemy(&room->enemy[1], 5, 60, 15, 0,"Cannoniere");
 	}else
 	if (roomNumber == 5)
 	{
-		populateRoom(room, 5, 2, 2, 0, 3);
+		populateRoom(room, 5, 2, 2, 0, 3, false);
 		setEnemiesConfiguration(room, 3);
 		spawnEnemy(&room->enemy[0], 6, 60, 15, 0,"Medico");
 		spawnEnemy(&room->enemy[1], 7, 75, 15, 0,"Artigliere Capo");
 	}else
 	if (roomNumber == 6)
 	{
-		populateRoom(room, 6, 1, 1, 0, 1);
+		populateRoom(room, 6, 1, 1, 0, 1, false);
 		setEnemiesConfiguration(room, 1);
 		spawnEnemy(&room->enemy[0], 8, 150, 19, 0"Capitano");
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
@@ -178,11 +189,11 @@ void spawnRoom(room* room, int roomNumber)
 
 void describeRoom(room room)
 {
+	int ID = getRoomID(room);
 	int potions = getRoomPotions(room);
+	bool map = getRoomMap(room);
 	int sword = getRoomSword(room);
 	int chestplate = getRoomChestplate(room);
-	
-	int ID = getRoomID(room);
 
 	FILE *file = fopen("rooms.dat", "r");
 	int count = 0;
@@ -225,6 +236,10 @@ void describeRoom(room room)
 			{
 				printf("C'è un' alabarda.\n");
 			}
+		}
+		if(map)
+		{
+			printf("C'è una mappa! Potrebbe tornar utile.\n");
 		}
 	}
 
