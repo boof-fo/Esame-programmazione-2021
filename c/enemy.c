@@ -122,3 +122,27 @@ int useEnemyAbility(enemy *enemy, player *player)
 	}
 	return playerSkipsTurn;
 }
+
+int enemyLines()
+{
+	srand(time(NULL));
+	int selection = rand() % 10 + 1;
+	FILE *file = fopen("enemyLines.dat", "r");
+	int count = 0;
+	if ( file != NULL )
+	{
+		char line[512];
+		while (fgets(line, sizeof line, file) != NULL)
+		{
+			if (count == selection)
+			{
+				printf("\n%s\n", line);
+				fclose(file);
+				return 0;
+			}
+			else
+				count++;
+		}
+		fclose(file);
+	}
+}

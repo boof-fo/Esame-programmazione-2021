@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "../headers/player.h"
 #include "../headers/string.h"
@@ -47,5 +48,7 @@ int describeEnemy(int enemy_ID);
 //attiva l'abilità speciale del nemico
 int useEnemyAbility(enemy *enemy, player *player);
 
+//stampa le frasi dei nemici (viene usato durante il combattimento)
+int enemyLines();
 
 #endif

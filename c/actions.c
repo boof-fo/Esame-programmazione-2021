@@ -178,6 +178,7 @@ int attackEnemy(player *player, enemy *enemy)
 	{//la funzione useEnemyAbility ritorna 1 se il giocatore salta il suo turno d'attacco
 		if(useEnemyAbility(enemy, player) != 1)
 		{
+			
 			setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
 			attaccato = true;
 		}else
@@ -197,6 +198,7 @@ int attackEnemy(player *player, enemy *enemy)
 		attackPlayer(player, getEnemyDamage(*enemy));
 
 		printf("Il nemico reagisce sferrando un colpo. Punti HP attuali: %d\n", getPlayerHP(*player));
+		enemyLines();
 
 		//rilevazione morte
 		if (enemy->HP <= 0)
