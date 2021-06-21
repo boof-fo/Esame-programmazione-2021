@@ -17,6 +17,8 @@ typedef struct
 	int ID;
 	//punti vita del nemico
 	int HP;
+	//nome del nemico
+	char name[20];
 	//punti danno del nemico
 	int damage;
 	//TODO: medico si cura da solo, 
@@ -29,6 +31,9 @@ int getEnemyID(enemy enemy);
 //imposta/ritorna i punti HP del nemico
 void setEnemyHP(enemy *enemy, int HP);
 int getEnemyHP(enemy enemy);
+//imposta/ritorna il nome del nemico
+void setEnemyName(enemy *enemy, int ID );
+char getEnemyName(enemy enemy);
 //imposta/ritorna i punti danno del nemico
 void setEnemyDamage(enemy *enemy, int damage);
 int getEnemyDamage(enemy enemy);

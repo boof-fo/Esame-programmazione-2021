@@ -18,6 +18,17 @@ int getEnemyHP(enemy enemy)
 	return enemy.HP;
 }
 
+void setEnemyName(enemy *enemy, char enemy_name[20])
+{
+	
+	inserstr(enemy->name , enemy_name)
+}
+
+char getEnemyName(enemy enemy)
+{
+
+}
+
 void setEnemyDamage(enemy *enemy, int damage)
 {
 	enemy->damage = damage;
@@ -37,12 +48,13 @@ int getEnemyAbility(enemy enemy)
 }
 
 
-void spawnEnemy(enemy *enemy, int enemy_ID, int HP, int damage,int ability_ID)
+void spawnEnemy(enemy *enemy, int enemy_ID, int HP, int damage,int ability_ID, char enemy_name[20])
 {
 	setEnemyID(enemy, enemy_ID);
 	setEnemyHP(enemy, HP);
 	setEnemyDamage(enemy, damage);
 	setEnemyAbility(enemy, ability_ID);
+	setEnemyName(enemy, enemy_name)
 }
 
 
