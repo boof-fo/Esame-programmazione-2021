@@ -54,7 +54,7 @@ void helpSelect(int selection)
 	}
 }
 
-void walkThroughDoor(map *map)
+void walkThroughDoor(map *map, player player)
 {
   if(getEnemiesConfiguration(map->room[getCurrentRoom(*map)]))
   {
@@ -90,7 +90,7 @@ void walkThroughDoor(map *map)
       printf("the end :P\n");
       exit(0);
     }
-    enterRoom(map, currentRoom);
+    enterRoom(map, player, currentRoom);
   }
 }
 
@@ -156,6 +156,11 @@ void takeChestplate(player *player, room *room)
 		//TODO: valori sensati
 		setPlayerProtection(player, currentProtection);
 	}
+}
+void takeMap(map *map, player *player)
+{
+	setInventoryMap(&player->inventory);
+	setRoomMap(&map->room[getCurrentRoom(*map)], false);
 }
 
 void usePotion(player *player)

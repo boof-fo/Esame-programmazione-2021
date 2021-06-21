@@ -3,6 +3,9 @@
 #define INVENTORY_H
 
 #include <stdio.h>
+
+#include "../headers/bool.h"
+
 typedef struct
 {
 	//numero di pozioni curative
@@ -13,6 +16,8 @@ typedef struct
 	int sword;
 	//1 = chestplate presente
 	int chestplate;
+	//mappa
+	bool map;
 }inventory;
 
 
@@ -33,5 +38,8 @@ void addInventoryPotion(inventory *inventory);
 void removeInventoryPotion(inventory *inventory);
 
 void emptyInventory(inventory *inventory);
+
+void setInventoryMap(inventory *inventory);
+bool mapIsPresent(inventory inventory);
 
 #endif

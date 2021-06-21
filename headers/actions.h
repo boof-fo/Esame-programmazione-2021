@@ -21,7 +21,9 @@ void answerPuzzle(map *map);
 void help();
 
 //Funzione utilizzata per far decidere al giocatore in quale stanza spostarsi
-void walkThroughDoor(map *map);
+void walkThroughDoor(map *map, player player);
+
+void takeMap(map *map, player *player);
 
 void usePotion(player *player);
 

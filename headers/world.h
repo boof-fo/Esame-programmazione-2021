@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 #include "../headers/player.h"
+#include "../headers/inventory.h"
 #include "../headers/enemy.h"
 #include "../headers/room.h"
 
@@ -30,10 +31,10 @@ void setCurrentRoom(map *map, int new_room_ID);
 int getCurrentRoom(map map);
 
 //Mostra la mappa della fortezza usando caratteri ASCII
-void printMap(map map);
+void printMap(map map, inventory inventory);
 
 //cambia la stanza in cui si trova il giocatore e imposta i valori della stanza
-void enterRoom(map *map, int new_room_ID);
+void enterRoom(map *map, player player, int new_room_ID);
 //imposta la configurazione nemici della stanza in base a quale nemico viene ammazzato.
 void killEnemy(map *map, int enemy_ID);
 

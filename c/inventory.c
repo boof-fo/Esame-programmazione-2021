@@ -48,3 +48,13 @@ void removeInventoryPotion(inventory *inventory)
 {
 	inventory->potions -= 1;
 }
+
+
+void setInventoryMap(inventory *inventory)
+{
+	inventory->map = true;
+}
+bool mapIsPresent(inventory inventory)
+{
+	return inventory.map;
+}

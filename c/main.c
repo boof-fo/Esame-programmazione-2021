@@ -24,6 +24,7 @@ int main()
 	insert(&items, 1, "pozione");
 	insert(&items, 2, "spada");
 	insert(&items, 3, "armatura");
+	insert(&items, 4, "mappa");
 
 	insert(&enemies, 1, "cuoco");
 	insert(&enemies, 2, "mozzo");
@@ -87,7 +88,7 @@ int main()
 
 	spawnWorld(&game_map);
 
-	enterRoom(&game_map, 0);
+	enterRoom(&game_map, game_player, 0);
 
 
 	while(true)

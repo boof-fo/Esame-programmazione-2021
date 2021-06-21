@@ -68,6 +68,11 @@ void parsing(list commands,list item1, list item2, list item3, list  item4, list
     {
       takeChestplate(&game_player, &game_map.room[getCurrentRoom(game_map)]);
     }
+    else 
+    if(search(&item1,oggetto)->key == 4)
+    {
+      takeMap(&game_map, &game_player);
+    }
   }else 
 
 
@@ -159,7 +164,7 @@ void parsing(list commands,list item1, list item2, list item3, list  item4, list
     }else
     if(search(&item3,oggetto)->key == 2)
     {
-      printMap(game_map);
+      printMap(game_map, game_player.inventory);
     }
   }else 
 
@@ -234,7 +239,7 @@ void parsing(list commands,list item1, list item2, list item3, list  item4, list
     }else
     if(search(&item6, oggetto)->key == 1)
     {
-      walkThroughDoor(&game_map);
+      walkThroughDoor(&game_map, game_player);
     }
   }else
 
