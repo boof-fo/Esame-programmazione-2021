@@ -111,6 +111,15 @@ int checkEnemyPresent(room room, int target_enemy_ID)
 }
 
 
+bool roomIsEmpty(room room)
+{
+	int isEmpty = getRoomChestplate(room) + getRoomPotions(room) + getRoomSword(room);
+	if (getRoomPotions(room) == 0)
+		return true;
+	else
+		return false;
+}
+
 
 
 void spawnRoom(room* room, int roomNumber)
@@ -179,7 +188,7 @@ void describeRoom(room room)
 	int count = 0;
 	if ( file != NULL )
 	{
-			char line[512];
+			char line[1024];
 			while (fgets(line, sizeof line, file) != NULL)
 			{   
 					if (count == ID)
@@ -193,29 +202,34 @@ void describeRoom(room room)
 			fclose(file);
 	}
 
-	printf("\nNella stanza: \n");
-	if(potions != 0)
+	if(roomIsEmpty(room))
 	{
-		if(potions == 1)
-			printf("1 pozione da raccogliere\n");
-		else
-			printf("%d pozioni da raccogliere\n", potions);
-	}
-	else
+		printf("La stanza è vuota\n");
+	}else
 	{
-		printf("Nessuna pozione da raccogliere\n");
-	}
-	if(sword != 0)
-	{
-		if(sword == 1)
+		printf("\nNella stanza: \n");
+		if(potions != 0)
 		{
-			printf("C'è una spada ricurva\n");
-		}	
-		else if(sword == 2)
-		{
-			printf("C'è un' alabarda.\n");
+			if(potions == 1)
+				printf("1 pozione da raccogliere\n");
+			else
+				printf("%d pozioni da raccogliere\n", potions);
 		}
-	}	//TODO: controlla stanza 3 e stampa presenza chestplate
-	describeEnemy(getEnemyID(room.enemy[0]));
-	describeEnemy(getEnemyID(room.enemy[1]));
+		if(sword != 0)
+		{
+			if(sword == 1)
+			{
+				printf("C'è una spada ricurva\n");
+			}	
+			else if(sword == 2)
+			{
+				printf("C'è un' alabarda.\n");
+			}
+		}
+	}
+
+	if(getEnemyHP(room.enemy[0]) != 0)
+		describeEnemy(getEnemyID(room.enemy[0]));
+	if(getEnemyHP(room.enemy[1]) != 0)
+		describeEnemy(getEnemyID(room.enemy[1]));
 }

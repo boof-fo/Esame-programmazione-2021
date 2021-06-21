@@ -10,6 +10,7 @@
 #include "../headers/world.h"
 #include "../headers/string.h"
 #include "../headers/enemy.h"
+#include "../headers/bool.h"
 
 //funzioni eseguite dal comando "prendi"
 void takePotion(player *player, room *room);

@@ -6,6 +6,7 @@
 
 #include "../headers/enemy.h"
 #include "../headers/player.h"
+#include "../headers/bool.h"
 
 //struttura di una stanza
 typedef struct
@@ -51,6 +52,8 @@ void populateRoom(room* room, int room_ID, int potions, int sword_ID, int chestp
 
 //Controlla se un nemico è presente in una stanza
 int checkEnemyPresent(room room, int target_enemy_ID);
+//Controlla se la stanza non contiene oggetti
+bool roomIsEmpty(room room);
 
 //inserisci gli oggetti nella stanza e spawna i nemici
 void spawnRoom(room* room, int room_ID);

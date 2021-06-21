@@ -9,9 +9,6 @@
 #include "../headers/player.h"
 #include "../headers/string.h"
 
-typedef int bool;
-#define true 1
-#define false 0
 
 //struttura di un nemico
 typedef struct

@@ -5,9 +5,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-typedef int bool;
-#define true 1
-#define false 0
 
 #include "../headers/string.h"
 #include "../headers/list.h"

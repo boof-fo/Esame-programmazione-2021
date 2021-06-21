@@ -3,7 +3,6 @@
 #define INVENTORY_H
 
 #include <stdio.h>
-
 typedef struct
 {
 	//numero di pozioni curative

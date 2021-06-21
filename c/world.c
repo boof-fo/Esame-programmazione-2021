@@ -52,23 +52,19 @@ void killEnemy(map *map, int enemy_ID)
 	if (getEnemiesConfiguration(map->room[getCurrentRoom(*map)]) == 1)
 	{
 		setEnemiesConfiguration(&map->room[getCurrentRoom(*map)], 0);
-		setEnemyID(&map->room[getCurrentRoom(*map)].enemy[0], 10);
 	}else 
 	if (getEnemiesConfiguration(map->room[getCurrentRoom(*map)]) == 2)
 	{
 		setEnemiesConfiguration(&map->room[getCurrentRoom(*map)], 0);
-		setEnemyID(&map->room[getCurrentRoom(*map)].enemy[1], 10);
 	}else if (getEnemiesConfiguration(map->room[getCurrentRoom(*map)]) == 3)
 	{
 		if(getEnemyID(map->room->enemy[1]) == enemy_ID)
 		{
 			setEnemiesConfiguration(&map->room[getCurrentRoom(*map)], 1);
-			setEnemyID(&map->room[getCurrentRoom(*map)].enemy[0], 10);
 		}
 		else
 		{
 			setEnemiesConfiguration(&map->room[getCurrentRoom(*map)], 2);
-			setEnemyID(&map->room[getCurrentRoom(*map)].enemy[1], 10);
 		}
 	}
 }

@@ -82,7 +82,7 @@ void parsing(list commands,list item1, list item2, list item3, list  item4, list
     }else
     if(search(&item2,oggetto)->key == 1)
     {
-      //checkEnemyPresent ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra
+      //checkEnemyPresent ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra, 3 se il nemico è morto
       enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 0);
     }else
     if(search(&item2,oggetto)->key == 2)
@@ -247,10 +247,9 @@ void parsing(list commands,list item1, list item2, list item3, list  item4, list
     else
     if(search(&item7,oggetto)->key == 1)
     {
-      printf("\n\n\n");
+      printf("\n\n");
       describeRoom(game_map.room[getCurrentRoom(game_map)]);
-      printf("\n\n\n");
-
+      printf("\n");
     }
   }
 }
