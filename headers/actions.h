@@ -25,4 +25,5 @@ void usePotion(player *player);
 //comandi per il combattimento
 int attackEnemy(player *player, enemy *enemy);
 
+void helpSelect(int selections);
 #endif

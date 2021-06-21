@@ -1,6 +1,6 @@
-#include "../headers/comandi.h"
+#include "../headers/parsing.h"
 
-void parsing(list commands,list item1, list item2, list item3, list attr6)
+void parsing(list commands,list item1, list item2, list item3, list item4, list item5)
 {
   char comando[20] = {0, };
   char oggetto[20] = {0, };
@@ -145,46 +145,50 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
 
   if (search(&commands,comando)->key == 4)
   {
-    walkThroughDoor(&game_map);
+    if(search(&item5, oggetto)->key== 1)
+    {
+      walkThroughDoor(&game_map);
+    }
+    
   }else
   
   if (search(&commands,comando)->key == 5) 
   { 
     int selection;
-    if(search(&actions, oggetto)->key== 0)
+    if(search(&item5, oggetto)->key== 0)
     {
       help();
     }else
-    if(search(&actions, oggetto)->key== 1)
+    if(search(&item5, oggetto)->key== 1)
     {
       selection=1;
 
     }else
-    if(search(&actions, oggetto)->key== 2)
+    if(search(&item5, oggetto)->key== 2)
     {
       selection=2;
 
     }else
-    if(search(&actions, oggetto)->key== 3)
+    if(search(&item5, oggetto)->key== 3)
     {
       selection=3;
 
     }else
-    if(search(&actions, oggetto)->key== 4)
+    if(search(&item5, oggetto)->key== 4)
     {
       selection=4;
 
     }else
-    if(search(&actions, oggetto)->key== 5)
+    if(search(&item5, oggetto)->key== 5)
     {
       selection=5;
     }else
-    if(search(&actions, oggetto)->key== 6)
+    if(search(&item5, oggetto)->key== 6)
     {
       selection=6;
 
     }else
-    if(search(&actions, oggetto)->key== 7)
+    if(search(&item5, oggetto)->key== 7)
     {
       selection=7;
 
@@ -196,11 +200,11 @@ void parsing(list commands,list item1, list item2, list item3, list attr6)
     helpSelect(selection);
   
   }else
-  if(search(&commands,comando)->key == 6 && search(&attr6,oggetto)->key == 1)
+  if(search(&commands,comando)->key == 6 && search(&item4,oggetto)->key == 1)
   {
     showInventory(game_player);
   }else
   {
-    printf("\nNon ho capito, potresti ripetere?")
+    printf("\nNon ho capito, potresti ripetere?");
   }
 }

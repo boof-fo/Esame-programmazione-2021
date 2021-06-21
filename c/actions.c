@@ -44,12 +44,13 @@ int count = 0;
 						{
 							printf("\n%s\n", line);
 							fclose(file);
-							return 0;
+							return;
 						}
 						else
 							count++;
 				}   
 				fclose(file);
+	}
 }
 void walkThroughDoor(map *map)
 {

@@ -1,6 +1,6 @@
 //Modulo utilizzato per il parsing dei comandi da tastiera.
-#ifndef COMMANDS_H
-#define COMMANDS_H
+#ifndef PARSING_H
+#define PARSING_H
 
 #include <string.h>
 #include <stdio.h>
@@ -13,6 +13,6 @@ typedef int bool;
 #include "../headers/list.h"
 #include "../headers/actions.h"
 
-void parsing(list commands,list item1, list item2, list item3, list attr6);
+void parsing(list commands,list item1, list item2, list item3, list item4, list item5);
 
 #endif

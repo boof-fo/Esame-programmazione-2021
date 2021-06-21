@@ -1,5 +1,5 @@
 #include "../headers/main.h"
-#include "../headers/comandi.h"
+#include "../headers/parsing.h"
 
 int main()
 {
@@ -91,7 +91,7 @@ int main()
 	while(true)
 	{
 		printf("\nInserisci un comando:\n");
-		parsing(commands, items, enemies, inventoryItems, utilities);
+		parsing(commands, items, enemies, inventoryItems, utilities, actions);
 	}
 
 }
