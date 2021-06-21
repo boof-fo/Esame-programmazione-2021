@@ -30,28 +30,30 @@ void help()
         fclose(file);
     }
 }
+
 //stampa un comando e la sua funzionalità
-void helpSelect(int selections)
+void helpSelect(int selection)
 {
-FILE *file = fopen("helpSelect.dat", "r");
-int count = 0;
-		if ( file != NULL )
-		{
-				char line[512];
-				while (fgets(line, sizeof line, file) != NULL)
-				{   
-						if (count == selections)
-						{
-							printf("\n%s\n", line);
-							fclose(file);
-							return;
-						}
-						else
-							count++;
-				}   
+	FILE *file = fopen("helpSelect.dat", "r");
+	int count = 0;
+	if ( file != NULL )
+	{
+		char line[512];
+		while (fgets(line, sizeof line, file) != NULL)
+		{   
+			if (count == selection)
+			{
+				printf("\n%s\n", line);
 				fclose(file);
+				return;
+			}
+			else
+				count++;
+		}   
+		fclose(file);
 	}
 }
+
 void walkThroughDoor(map *map)
 {
   if(getEnemiesConfiguration(map->room[getCurrentRoom(*map)]))

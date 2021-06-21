@@ -44,10 +44,11 @@ int main()
 	insert(&actions, 2, "raccogli");
 	insert(&actions, 3, "attacca");
 	insert(&actions, 4, "usa");
-	insert(&actions, 5, "attraversa");
-	insert(&actions, 6, "mostra");
-	insert(&actions, 7, "guarda");
-	
+	insert(&actions, 5, "aiuto");
+	insert(&actions, 6, "attraversa");
+	insert(&actions, 7, "mostra");
+	insert(&actions, 8, "guarda");
+
 	insert(&doors, 1, "porta");
 
 	insert(&look, 1, "stanza");

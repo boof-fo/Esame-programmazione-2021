@@ -185,45 +185,44 @@ void parsing(list commands,list item1, list item2, list item3, list  item4, list
     if(search(&item5, oggetto) == NULL)
     {
       error(9);
+      selection = 20;
     }else
     if(search(&item5, oggetto)->key== 1)
     {
       help();
+      selection = 20;
     }else
     if(search(&item5, oggetto)->key== 2)
     {
-      selection=1;
-
+      selection = 0;
     }else
     if(search(&item5, oggetto)->key== 3)
     {
-      selection=2;
-
+      selection = 1;
     }else
     if(search(&item5, oggetto)->key== 4)
     {
-      selection=3;
-
+      selection = 2;
     }else
     if(search(&item5, oggetto)->key== 5)
     {
-      selection=4;
-
+      selection = 3;
     }else
     if(search(&item5, oggetto)->key== 6)
     {
-      selection=5;
+      selection = 4;
     }else
     if(search(&item5, oggetto)->key== 7)
     {
-      selection=6;
-
+      selection = 5;
     }else
     if(search(&item5, oggetto)->key== 8)
     {
-      selection=7;
+      selection = 6;
     }
-    helpSelect(selection);
+
+    if(selection != 20)
+      helpSelect(selection);
   }else
 
 
