@@ -2,7 +2,7 @@
 
 void answerPuzzle(map *map)
 {
-  printf("\nLa statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio. Se non riesci a trovare la risposta corretta scrivi \"esci\" per uscire'\n");	
+  printf("\nLa statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio. Se non riesci a trovare la risposta corretta scrivi \"esci\" per proseguire.'\n");	
   char answer[20];
   scanf("%s",answer);
   if (check(answer,"ancora") || check(answer,"l'ancora"))
@@ -223,7 +223,7 @@ int attackEnemy(player *player, enemy *enemy)
 		//rilevazione morte
 		if (enemy->HP <= 0)
 		{
-			printf("nemico ucciso X_X \n");
+			printf("nemico ucciso\n");
 			attacked_enemy_ID = getEnemyID(*enemy);
 		}
 	}
