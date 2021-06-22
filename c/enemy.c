@@ -52,27 +52,10 @@ int describeEnemy(int enemy_ID)
 	//se l'ID è uguale a 10 significa che non c'è alcun nemico
 	if(enemy_ID == 10)
 	{
-		enemy_exists = 1;
+		enemy_exists = 0;
 	}else
 	{
-		FILE *file = fopen("enemies.dat", "r");
-		int count = 0;
-		if ( file != NULL )
-		{
-			char line[1024];
-			while (fgets(line, sizeof line, file) != NULL)
-			{   
-					if (count == enemy_ID)
-					{
-						printf("\n%s\n", line);
-						fclose(file);
-						return 0;
-					}
-					else
-						count++;
-			}   
-			fclose(file);
-		}
+		readFileLine("enemies.dat", enemy_ID);
 	}
 	return enemy_exists;
 }
@@ -146,25 +129,5 @@ int useEnemyAbility(enemy *enemy, player *player)
 
 void enemyLines()
 {
-	srand(time(NULL));
-	int selection = rand() % 10 + 1;
-	FILE *file = fopen("enemyLines.dat", "r");
-	int count = 0;
-	if ( file != NULL )
-	{
-		char line[512];
-		while (fgets(line, sizeof line, file) != NULL)
-		{
-			if (count == selection)
-			{
-				printf("\n%s\n", line);
-				fclose(file);
-				return;
-			}
-			else
-				count++;
-		}
-		fclose(file);
-	}
-	return;
+	readFileRandomLine("enemyLines.dat");
 }

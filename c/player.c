@@ -56,7 +56,6 @@ void setPlayerSword(player *player, int sword_ID)
 {
 	//rimuovi eventuali effetti della spada
 	removeSwordEffects(player);
-	//TODO: mettere i valori definitivi
 	int new_damage;
 	if (sword_ID == 1)
 	{
@@ -81,12 +80,14 @@ int getPlayerSword(player player)
 }
 
 //imposta i valori predefiniti
-void spawnPlayer(player *player){
+void spawnPlayer(player *player)
+{
 	setPlayerHP(player, 100);
-	//TODO: danno iniziale
 	setPlayerDamage(player, 10);
 	//azzera i valori dell'inventario
 	spawnInventory(&player->inventory);
+	setInventoryTreasure(&player->inventory, false);
+	setInventoryMap(&player->inventory, false);
 }
 
 //mostra il contenuto dell'inventario
@@ -115,7 +116,7 @@ void showInventory(player player)
 	{
 		printf("Non presente\n");
 	}else
-	{//TODO: tipi di armatura
+	{
 		printf("Presente\nDescrizione:una pesante armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo.");
 	}
 	if(getPlayerProtection(player) > 0)

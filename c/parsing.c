@@ -80,6 +80,11 @@ void parsing(list commands,list item1, list item2, list item3, list  item4, list
     if(search(&item1,oggetto)->key == 4)
     {
       takeMap(&game_map, &game_player);
+    }else
+    //raccogli mappa
+    if(search(&item1,oggetto)->key == 5)
+    {
+      takeTreasure(&game_map, &game_player);
     }
   }else 
 

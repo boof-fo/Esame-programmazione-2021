@@ -4,11 +4,10 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 #include "../headers/player.h"
 #include "../headers/string.h"
-
+#include "../headers/files.h"
 
 //struttura di un nemico
 typedef struct
@@ -17,11 +16,9 @@ typedef struct
 	int ID;
 	//punti vita del nemico
 	int HP;
-	//nome del nemico
-	char name[20];
 	//punti danno del nemico
 	int damage;
-	//TODO: medico si cura da solo, 
+	//abilità speciale del nemico 
 	int special_ability;
 }enemy;
 

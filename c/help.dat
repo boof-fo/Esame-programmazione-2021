@@ -1,9 +1,9 @@
 
 LISTA COMANDI:
 
-• aiuto: Mostra una spiegazione per ogni comando. Si può ottenere una lista di tutti i comandi con 'aiuto comandi'. Comandi su cui si può ricevere aiuto: raccogli, attacca, usa, attraversa, mostra, guarda. Esempio: 'aiuto raccogli'.
+• aiuto: Mostra una spiegazione per ogni comando. Si può ottenere una lista di tutti i comandi con 'aiuto comandi'. Comandi su cui si può ricevere aiuto: raccogli, attacca, usa, aiuto, attraversa, mostra, guarda. Esempio: 'aiuto raccogli'.
 
-• raccogli: Specificando un oggetto lo raccoglie e lo piazza nell'inventario. Oggetti che possono essere raccolti: pozione, armatura, spada. Esempio 'raccogli pozione.
+• raccogli: Specificando un oggetto lo raccoglie e lo piazza nell'inventario. Oggetti che possono essere raccolti: pozione, armatura, spada, mappa, tesoro. Esempio 'raccogli pozione.
 
 • attacca: Attacca un nemico presente nella stanza con l'arma equipaggiata. Nemici attaccabili: cuoco, mozzo, navigatore, timoniere, maestro, cannoniere, medico, artigliere, capitano. Esempio: 'attacca mozzo'.
 

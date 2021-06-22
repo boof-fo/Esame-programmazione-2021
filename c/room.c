@@ -51,6 +51,16 @@ int getRoomChestplate(room room)
 	return room.chestplate;
 }
 
+//tesoro di fine gioco
+void setRoomTreasure(room *room, bool treasure)
+{
+	room->treasure = treasure;
+}
+bool getRoomTreasure(room room)
+{
+	return room.treasure;
+}
+
 //imposta il numero di nemici
 void setEnemiesConfiguration(room *room, int enemies_config)
 {
@@ -76,7 +86,7 @@ void removeRoomChestplate(room *room)
 
 
 //imposta i valori di una stanza
-void populateRoom(room* room, int ID, int potions, int sword, int chestplate, int enemies_config, bool map)
+void populateRoom(room* room, int ID, int potions, int sword, int chestplate, int enemies_config, bool map, bool treasure)
 {
 	setRoomID(room, ID);
 	setRoomPotions(room, potions);
@@ -84,6 +94,7 @@ void populateRoom(room* room, int ID, int potions, int sword, int chestplate, in
 	setRoomChestplate(room, chestplate);
 	setEnemiesConfiguration(room, enemies_config);
 	setRoomMap(room, map);
+	setRoomTreasure(room, treasure);
 }
 
 
@@ -139,49 +150,49 @@ void spawnRoom(room* room, int roomNumber)
 	//populateRoom(room *room, int ID, int potions, int sword, int chestplate, int enemies_config, bool map)
 	if (roomNumber == 0)
 	{
-		populateRoom(room, 0, 0, 0, 0, 0, true);
+		populateRoom(room, 0, 0, 0, 0, 0, true, false);
 		setEnemiesConfiguration(room, 0);
 		spawnEnemy(&room->enemy[0], 10, 0, 0, 0);
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
 	}else
 	if (roomNumber == 1)
 	{
-		populateRoom(room, 1, 1, 0, 0, 1, false);
+		populateRoom(room, 1, 1, 0, 0, 1, false, false);
 		setEnemiesConfiguration(room, 1);
 		spawnEnemy(&room->enemy[0], 0, 30, 5, 1);
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
 	}else
 	if (roomNumber == 2)
 	{
-		populateRoom(room, 2, 0, 0, 0, 1, false);
+		populateRoom(room, 2, 0, 0, 0, 1, false, false);
 		setEnemiesConfiguration(room, 1);
 		spawnEnemy(&room->enemy[0], 1, 30, 5, 2);
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
 	}else
 	if (roomNumber == 3)
 	{
-		populateRoom(room, 3, 1, 1, 0, 3, false);
+		populateRoom(room, 3, 1, 1, 0, 3, false, false);
 		setEnemiesConfiguration(room, 3);
 		spawnEnemy(&room->enemy[0], 2, 35, 7, 3);
 		spawnEnemy(&room->enemy[1], 3, 35, 7, 0);
 	}else
 	if (roomNumber == 4)
 	{
-		populateRoom(room, 4, 0, 2, 0, 3, false);
+		populateRoom(room, 4, 0, 2, 0, 3, false, false);
 		setEnemiesConfiguration(room, 3);
 		spawnEnemy(&room->enemy[0], 4, 60, 15, 0);
 		spawnEnemy(&room->enemy[1], 5, 60, 15, 0);
 	}else
 	if (roomNumber == 5)
 	{
-		populateRoom(room, 5, 2, 3, 0, 3, false);
+		populateRoom(room, 5, 2, 3, 0, 3, false, false);
 		setEnemiesConfiguration(room, 3);
 		spawnEnemy(&room->enemy[0], 6, 60, 15, 0);
 		spawnEnemy(&room->enemy[1], 7, 75, 15, 0);
 	}else
 	if (roomNumber == 6)
 	{
-		populateRoom(room, 6, 1, 1, 0, 1, false);
+		populateRoom(room, 6, 1, 1, 0, 1, false, true);
 		setEnemiesConfiguration(room, 1);
 		spawnEnemy(&room->enemy[0], 8, 150, 19, 0);
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
@@ -192,27 +203,12 @@ void describeRoom(room room)
 {
 	int ID = getRoomID(room);
 	int potions = getRoomPotions(room);
-	bool map = getRoomMap(room);
 	int sword = getRoomSword(room);
 	int chestplate = getRoomChestplate(room);
+	bool map = getRoomMap(room);
+	bool treasure = getRoomTreasure(room);
 
-	FILE *file = fopen("rooms.dat", "r");
-	int count = 0;
-	if ( file != NULL )
-	{
-			char line[1024];
-			while (fgets(line, sizeof line, file) != NULL)
-			{   
-					if (count == ID)
-					{
-						printf("\n%s\n", line);
-						fclose(file);
-					}
-					else
-						count++;
-			}
-			fclose(file);
-	}
+	readFileLine("rooms.dat", ID);
 
 	if(roomIsEmpty(room))
 	{
@@ -251,10 +247,19 @@ void describeRoom(room room)
 		{
 			printf("C'è una mappa! Potrebbe tornar utile.\n");
 		}
+		if(treasure)
+		{
+			printf("Hai trovato il tesoro!\n");
+		}
 	}
-	
+
 	if(getEnemyHP(room.enemy[0]) != 0 || getEnemyHP(room.enemy[1]) != 0)
-		printf("\nDavanti a te si trovano:");
+	{
+		if(getEnemiesConfiguration(room) == 3)
+			printf("\nDavanti a te si trovano:\n\n");
+		else
+			printf("\nDavanti a te si trova:\n\n");
+	}
 	if(getEnemyHP(room.enemy[0]) != 0)
 		describeEnemy(getEnemyID(room.enemy[0]));
 	if(getEnemyHP(room.enemy[1]) != 0)

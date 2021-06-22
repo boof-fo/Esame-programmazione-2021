@@ -20,38 +20,13 @@ void answerPuzzle(map *map)
 //stampa la lista dei comandi 
 void help()
 {
-    int c;
-    FILE *file;
-    file = fopen("help.dat", "r");
-    if (file)
-    {
-      while ((c = getc(file)) != EOF)
-        putchar(c);
-        fclose(file);
-    }
+    readFile("help.dat");
 }
 
 //stampa un comando e la sua funzionalità
 void helpSelect(int selection)
 {
-	FILE *file = fopen("helpSelect.dat", "r");
-	int count = 0;
-	if ( file != NULL )
-	{
-		char line[512];
-		while (fgets(line, sizeof line, file) != NULL)
-		{   
-			if (count == selection)
-			{
-				printf("\n%s\n", line);
-				fclose(file);
-				return;
-			}
-			else
-				count++;
-		}   
-		fclose(file);
-	}
+	readFileLine("helpSelect.dat", selection);
 }
 
 void walkThroughDoor(map *map, player player)
@@ -86,9 +61,14 @@ void walkThroughDoor(map *map, player player)
     }else 
     if (currentRoom == 6 )
     {
-      
-      printf("Congratulazioni, sei riuscito a sconfiggere la ciurma di pirati e a raccogliere il tesoro\n");
-      exit(0);
+      if(treasureIsPresent(player.inventory) != true)
+			{
+				printf("Prima di continuare devi raccogliere il tesoro.\n");
+      	exit(0);
+			}else
+			{
+				ending();
+			}
     }
     enterRoom(map, player, currentRoom);
   }
@@ -106,7 +86,7 @@ void takePotion(player *player, room *room)
 	else
 		printf("Non ci sono pozioni. Buona fortuna :)\n");
 }
-//TODO: danni corretti
+
 void takeSword(player *player, room *room)
 {
 	if (getRoomSword(*room) == 0)
@@ -150,9 +130,31 @@ void takeChestplate(player *player, room *room)
 }
 void takeMap(map *map, player *player)
 {
-	setInventoryMap(&player->inventory);
-	setRoomMap(&map->room[getCurrentRoom(*map)], false);
-	printf("\nHai raccolto una vecchia mappa, è una semplice planimetria della fortezza abbandonata, disegnata a mano da qualche viandante ignoto.\n");
+	if(getRoomMap(map->room[getCurrentRoom(*map)]) == true)
+	{
+		setInventoryMap(&player->inventory, true);
+		setRoomMap(&map->room[getCurrentRoom(*map)], false);
+		printf("\nHai raccolto una vecchia mappa, è una semplice planimetria della fortezza abbandonata, disegnata a mano da qualche viandante ignoto.\n");
+	}else
+	if(getCurrentRoom(*map) == 0)
+	{
+		printf("Hai già raccolto la mappa\n");
+	}else
+		printf("Non c'è alcuna mappa in questa stanza\n");
+}
+void takeTreasure(map *map, player *player)
+{
+	if(getRoomTreasure(map->room[getCurrentRoom(*map)]) == true)
+	{
+		setInventoryTreasure(&player->inventory, true);
+		setRoomTreasure(&map->room[getCurrentRoom(*map)], false);
+		printf("Congratulazioni, sei riuscito a sconfiggere la ciurma di pirati e a raccogliere il tesoro\n");
+	}else
+	if(getCurrentRoom(*map) == 6)
+	{
+		printf("Hai già raccolto il tesoro\n");
+	}else
+		printf("Non c'è alcun tesoro in questa stanza\n");
 }
 
 void usePotion(player *player)
