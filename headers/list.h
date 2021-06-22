@@ -30,6 +30,8 @@ typedef struct list
 
 void insert(list *list, int new_key,char new_string[]);
 
+void clearList(list *list);
+
 node *search(list *list, char string[]);
 
 #endif
