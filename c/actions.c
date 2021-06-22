@@ -2,7 +2,7 @@
 
 void answerPuzzle(map *map)
 {
-  printf("\nLa statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio. Se non riesci a trovare la risposta corretta scrivi \"esci\" per proseguire.'\n");	
+  printf("\nLa statua del gargoyle si è attivata e ti sta parlando:'Scende da una nave prima di ogni marinaio e di ogni passeggero. Cos’è? risolvi l'idnovinello e avrai un premio. Se non riesci a trovare la risposta corretta scrivi \"esci\" per proseguire.'\nRisposta: ");
   char answer[20];
   scanf("%s",answer);
   if (check(answer,"ancora") || check(answer,"l'ancora"))
@@ -34,7 +34,7 @@ void walkThroughDoor(map *map, player player)
 	bool last_room = false;
   if(getEnemiesConfiguration(map->room[getCurrentRoom(*map)]))
   {
-    printf("Prima di continuare devi sconfiggere i nemici nella stanza attuale\n");
+    printf("Prima di continuare devi sconfiggere i nemici nella stanza attuale.\n");
   }else
   {
     int currentRoom = getCurrentRoom(*map);
@@ -83,7 +83,7 @@ void takePotion(player *player, room *room)
 	{
 		removeRoomPotion(room);
 		addInventoryPotion(&player->inventory);
-		printf("\nHai raccolto una pozione curativa,Un intruglio a base di erbe medicinali sative, composto secondo un'antica ricetta degli alchimisti del tuo regno, ristabilisce i punti vitali anche se Il sapore non è il massimo.\n");
+		printf("Hai raccolto una pozione curativa, un intruglio a base di erbe medicinali sative, composto secondo un'antica ricetta degli alchimisti del tuo regno, ristabilisce i punti vitali anche se Il sapore non è il massimo.\n");
 	}
 	else
 		printf("Non ci sono pozioni. Buona fortuna :)\n");
@@ -99,17 +99,17 @@ void takeSword(player *player, room *room)
 	{
 		if (getRoomSword(*room) == 1)
 		{
-			printf("\nHai raccolto una spada ricurva molto veloce ed affilata, riesce a penetrare nella carne putrefatta dei tuoi nemici con molta facilità\n");
+			printf("Hai raccolto una spada ricurva molto veloce ed affilata, riesce a penetrare nella carne putrefatta dei tuoi nemici con molta facilità.\n");
 			setPlayerSword(player, 1);
 		}else 
 		if (getRoomSword(*room) == 2)
 		{
-			printf("\nHai raccolto un alabarda, arma da distruzione di massa per eccellenza, non troverai equipaggiamento migliore di questo, perciò fattelo bastare\n");
+			printf("Hai raccolto un alabarda, arma da distruzione di massa per eccellenza, non troverai equipaggiamento migliore di questo, perciò fattelo bastare.\n");
 			setPlayerSword(player, 2);
 		}else
 		if (getRoomSword(*room) == 3)
 		{
-			printf("\nHai raccolto una spada magica protettiva. La peculiarità di questa spada è la difesa, in quanto aumenta i punti difesa di chi la brandisce attraverso un incatesimo magico, a discapito del danno.\n");
+			printf("Hai raccolto una spada magica protettiva. La peculiarità di questa spada è la difesa, in quanto aumenta i punti difesa di chi la brandisce attraverso un incatesimo magico, a discapito del danno.\n");
 			setPlayerSword(player, 3);
 		}		
 		removeRoomSword(room);
@@ -122,10 +122,11 @@ void takeChestplate(player *player, room *room)
 		printf("Non ci sono armature nella stanza. ¯\\_(ツ)_/¯\n");
 	else
 	{
+		setRoomChestplate(room, 0);
 		setInventoryChestplate(&player->inventory, chestplate);
 		if(chestplate == 1)
 		{
-			printf("\nHai raccolto un pesante pezzo di armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo.\n");
+			printf("Hai raccolto un pesante pezzo di armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo.\n");
 			raisePlayerProtection(player);
 		}
 	}
@@ -136,13 +137,13 @@ void takeMap(map *map, player *player)
 	{
 		setInventoryMap(&player->inventory, true);
 		setRoomMap(&map->room[getCurrentRoom(*map)], false);
-		printf("\nHai raccolto una vecchia mappa, è una semplice planimetria della fortezza abbandonata, disegnata a mano da qualche viandante ignoto.\n");
+		printf("Hai raccolto una vecchia mappa, è una semplice planimetria della fortezza abbandonata, disegnata a mano da qualche viandante ignoto.\n");
 	}else
 	if(getCurrentRoom(*map) == 0)
 	{
-		printf("Hai già raccolto la mappa\n");
+		printf("Hai già raccolto la mappa.\n");
 	}else
-		printf("Non c'è alcuna mappa in questa stanza\n");
+		printf("Non c'è alcuna mappa in questa stanza.\n");
 }
 void takeTreasure(map *map, player *player)
 {
@@ -150,13 +151,14 @@ void takeTreasure(map *map, player *player)
 	{
 		setInventoryTreasure(&player->inventory, true);
 		setRoomTreasure(&map->room[getCurrentRoom(*map)], false);
+		readFile("treasure.dat");
 		printf("Congratulazioni, sei riuscito a sconfiggere la ciurma di pirati e a raccogliere il tesoro! Si è aperta una porta nascosta nel muro, attraversala per uscire dalla fortezza.\n");
 	}else
 	if(getCurrentRoom(*map) == 6)
 	{
-		printf("Hai già raccolto il tesoro\n");
+		printf("Hai già raccolto il tesoro.\n");
 	}else
-		printf("Non c'è alcun tesoro in questa stanza\n");
+		printf("Non c'è alcun tesoro in questa stanza.\n");
 }
 
 void usePotion(player *player)
@@ -173,8 +175,8 @@ void usePotion(player *player)
 			{
 				setPlayerHP(player, getPlayerHP(*player) + 40);
 			}
-			printf("Hai bevuto la pozione, ti senti molto pù in forze ora \n");
-			printf("Adesso hai %d punti vita\n", getPlayerHP(*player));
+			printf("Hai bevuto la pozione, ti senti molto pù in forze ora.\n");
+			printf("Adesso hai %d punti vita.\n", getPlayerHP(*player));
 		}
 		else
 		{
@@ -182,7 +184,7 @@ void usePotion(player *player)
 		}
 	}
 	else
-		printf("Brutte notizie mio caro amico, non hai più pozioni\n");
+		printf("Brutte notizie mio caro amico, non hai più pozioni.\n");
 }
 
 
@@ -196,10 +198,11 @@ int attackEnemy(player *player, enemy *enemy)
 	//controllo per vedere se il nemico è già morto
 	if(getEnemyHP(*enemy) == 0)
 	{
-		printf("Il nemico è già morto\n");
+		printf("Il nemico è già morto.\n");
 	}else
 	if(getEnemyHP(*enemy) - damage > 0)
-	{//la funzione useEnemyAbility ritorna 1 se il giocatore salta il suo turno d'attacco
+	{
+		//la funzione useEnemyAbility ritorna 1 se il giocatore salta il suo turno d'attacco
 		if(useEnemyAbility(enemy, player) != 1)
 		{
 			setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
@@ -225,7 +228,7 @@ int attackEnemy(player *player, enemy *enemy)
 		//rilevazione morte
 		if (enemy->HP <= 0)
 		{
-			printf("\nNemico ucciso.\n");
+			printf("Nemico ucciso.\n");
 			attacked_enemy_ID = getEnemyID(*enemy);
 			if(getEnemyID(*enemy) == 8)
 			//ultima frase del capitano

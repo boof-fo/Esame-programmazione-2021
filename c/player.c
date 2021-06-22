@@ -83,7 +83,7 @@ int getPlayerSword(player player)
 void spawnPlayer(player *player)
 {
 	setPlayerHP(player, 100);
-	setPlayerDamage(player, 100);
+	setPlayerDamage(player, 10);
 	//azzera i valori dell'inventario
 	spawnInventory(&player->inventory);
 	setInventoryTreasure(&player->inventory, false);

@@ -122,10 +122,6 @@ int useEnemyAbility(enemy *enemy, player *player)
 			printf("Compare una luce accecante e il comandante rinvigorisce.\nI suoi punti vita aumentano di 20 HP\n");
 			ability = 0;
 		}
-		if(getEnemyHP(*enemy) <= 30 && ability == 9 )
-		{
-			
-		}
 		setEnemyAbility(enemy, ability);
 	}
 	return playerSkipsTurn;

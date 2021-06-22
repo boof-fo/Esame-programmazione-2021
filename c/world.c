@@ -78,7 +78,7 @@ void enterToContinue()
 	char enter = 'a';
 	do
 	{
-		printf("\n\n\nPremi invio per continuare...\n");
+		printf("\n\nPremi invio per continuare...\n");
 		fflush(stdin);
 		enter = getchar();
 		exit = 1;

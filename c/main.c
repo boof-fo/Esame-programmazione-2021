@@ -74,7 +74,7 @@ int main()
 			printf("\nPerfetto, possiamo continuare...\n");
 		}else
 		{
-			printf("\nrisposta non corretta, potresti ripetere rispondendo si o no?\n");
+			printf("\nRisposta non corretta, potresti ripetere rispondendo si o no?\n");
 		}
 	}while(exit != 1);
 	enterToContinue();
@@ -85,7 +85,7 @@ int main()
 
 	spawnWorld(&game_map);
 
-	enterRoom(&game_map, game_player, 6);
+	enterRoom(&game_map, game_player, 0);
 
 
 	while(true)

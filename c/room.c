@@ -150,7 +150,7 @@ void spawnRoom(room* room, int roomNumber)
 	//populateRoom(room *room, int ID, int potions, int sword, int chestplate, int enemies_config, bool map)
 	if (roomNumber == 0)
 	{
-		populateRoom(room, 0, 0, 0, 0, 0, true, false);
+		populateRoom(room, 0, 1, 0, 0, 0, true, false);
 		setEnemiesConfiguration(room, 0);
 		spawnEnemy(&room->enemy[0], 10, 0, 0, 0);
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
@@ -178,23 +178,23 @@ void spawnRoom(room* room, int roomNumber)
 	}else
 	if (roomNumber == 4)
 	{
-		populateRoom(room, 4, 0, 2, 0, 3, false, false);
+		populateRoom(room, 4, 2, 2, 0, 3, false, false);
 		setEnemiesConfiguration(room, 3);
-		spawnEnemy(&room->enemy[0], 4, 60, 15, 0);
-		spawnEnemy(&room->enemy[1], 5, 60, 15, 0);
+		spawnEnemy(&room->enemy[0], 4, 60, 15, 4);
+		spawnEnemy(&room->enemy[1], 5, 60, 15, 5);
 	}else
 	if (roomNumber == 5)
 	{
-		populateRoom(room, 5, 2, 3, 0, 3, false, false);
+		populateRoom(room, 5, 3, 3, 0, 3, false, false);
 		setEnemiesConfiguration(room, 3);
-		spawnEnemy(&room->enemy[0], 6, 60, 15, 0);
-		spawnEnemy(&room->enemy[1], 7, 75, 15, 0);
+		spawnEnemy(&room->enemy[0], 6, 60, 15, 6);
+		spawnEnemy(&room->enemy[1], 7, 75, 15, 7);
 	}else
 	if (roomNumber == 6)
 	{
-		populateRoom(room, 6, 1, 1, 0, 1, false, true);
+		populateRoom(room, 6, 0, 0, 0, 1, false, true);
 		setEnemiesConfiguration(room, 1);
-		spawnEnemy(&room->enemy[0], 8, 150, 19, 0);
+		spawnEnemy(&room->enemy[0], 8, 125, 20, 8);
 		spawnEnemy(&room->enemy[1], 10, 0, 0, 0);
 	}
 }
