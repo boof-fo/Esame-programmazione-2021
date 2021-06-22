@@ -127,7 +127,7 @@ void takeSword(player *player, room *room)
 		}else
 		if (getRoomSword(*room) == 3)
 		{
-			printf("\nSpada magica protettiva\n");
+			printf("\nHai raccolto una spada magica protettiva. La peculiarità di questa spada è la difesa, in quanto aumenta i punti difesa di chi la brandisce attraverso un incatesimo magico, a discapito del danno.\n");
 			setPlayerSword(player, 3);
 		}		
 		removeRoomSword(room);
@@ -203,7 +203,7 @@ int attackEnemy(player *player, enemy *enemy)
 		}else
 		{
 			setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
-			printf("Il %s sferra un colpo. Punti HP attuali: %d\n", getEnemyName(*enemy), getPlayerHP(*player));
+			printf("Il nemico sferra un colpo. Punti HP attuali: %d\n", getPlayerHP(*player));
 		}
 	}else//se il nemico morirà con il prossimo colpo, imposta gli HP a 0
 	{
@@ -217,14 +217,14 @@ int attackEnemy(player *player, enemy *enemy)
 		attackPlayer(player, getEnemyDamage(*enemy));
 
 		printf("Il nemico reagisce sferrando un colpo. Punti HP attuali: %d\n", getPlayerHP(*player));
-		enemyLines();
 
 		//rilevazione morte
 		if (enemy->HP <= 0)
 		{
-			printf("Nemico ucciso.\n");
+			printf("\nNemico ucciso.\n");
 			attacked_enemy_ID = getEnemyID(*enemy);
-		}
+		}else
+			enemyLines();
 	}
 	return attacked_enemy_ID;
 }

@@ -1,5 +1,6 @@
 #include "../headers/parsing.h"
 
+//Funzione che gestisce gli errori
 void error(int errorCode)
 {
   if(errorCode == 1)
@@ -34,90 +35,107 @@ void error(int errorCode)
 
 void parsing(list commands,list item1, list item2, list item3, list  item4, list item5, list item6, list item7)
 {
+  //prende comando e oggetto da input
   char comando[20] = {0, };
   char oggetto[20] = {0, };
   fflush(stdin);
   scanf("%s" "%s" ,comando, oggetto);
 
-
+  //comando non riconosciuto
   if (search(&commands,comando) == NULL)
   {
     error(1);
   }else 
 
-
+  //comando RACCOGLI
   if (search(&commands,comando)->key == 1)
   {
+    //errore: i nemici nella stanza sono ancora vivi
     if(getEnemiesConfiguration(game_map.room[getCurrentRoom(game_map)]) != 0)
       error(2);
     else
+    //errore: l'oggetto da raccogliere non esiste
     if(search(&item1,oggetto) == NULL)
     {
       error(3);
     }else
+    //raccogli pozione
     if(search(&item1,oggetto)->key == 1)
     {
       takePotion(&game_player, &game_map.room[getCurrentRoom(game_map)]);
     }else
+    //raccogli spada
     if(search(&item1,oggetto)->key == 2)
     {
       takeSword(&game_player, &game_map.room[getCurrentRoom(game_map)]);
     }
     else 
+    //raccogli armatura
     if(search(&item1,oggetto)->key == 3)
     {
       takeChestplate(&game_player, &game_map.room[getCurrentRoom(game_map)]);
     }
     else 
+    //raccogli mappa
     if(search(&item1,oggetto)->key == 4)
     {
       takeMap(&game_map, &game_player);
     }
   }else 
 
-
+  //comando ATTACCA
   if (search(&commands,comando)->key == 2)
   {
     int deadEnemyID = 10;
     int enemyIsPresent = 0;
 
+    //errore nemico non riconosciuto
     if(search(&item2,oggetto) == NULL)
     {
       error(4);
     }else
+    //attacca cuoco
     if(search(&item2,oggetto)->key == 1)
     {
       //checkEnemyPresent ritorna 0 se non ci sono nemici, 1 se il nemico è a sinistra, 2 se il nemico è a destra, 3 se il nemico è morto
       enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 0);
     }else
+    //attacca mozzo
     if(search(&item2,oggetto)->key == 2)
     {
       enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 1);
     }else 
+    //attacca navigatore
     if(search(&item2,oggetto)->key == 3)
     {
       enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 2);
     }else
+    //attacca timoniere
     if(search(&item2,oggetto)->key == 4)
     {
       enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 3);
     }else
+    //attacca maestro
     if(search(&item2,oggetto)->key == 5)
     {
       enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 4);
     }else
+    //attacca cannoniere
     if(search(&item2,oggetto)->key == 6)
     {
       enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 5);
     }else
+    //attacca medico
     if(search(&item2,oggetto)->key == 7)
     {
       enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 6);
     }else
+    //attacca artigliere
     if(search(&item2,oggetto)->key == 8)
     {
       enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 7);
     }else
+    //attacca capitano
     if(search(&item2,oggetto)->key == 9)
     {
       enemyIsPresent = checkEnemyPresent(game_map.room[getCurrentRoom(game_map)], 8);

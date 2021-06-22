@@ -38,9 +38,6 @@ typedef struct
 //imposta/ritorna il numero della stanza
 void setRoomID(room *room, int room_ID);
 int getRoomID(room room);
-//imposta/ricevi nome
-void setRoomName(room *room,char room_name[20]);
-char getRoomName(room room);
 //imposta/ritorna il numero di pozioni in una stanza
 void setRoomPotions(room *room, int potions_number);
 int getRoomPotions(room room);

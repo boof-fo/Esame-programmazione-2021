@@ -68,7 +68,7 @@ void setPlayerSword(player *player, int sword_ID)
 	}else 
 	if (sword_ID == 3)
 	{
-		new_damage = 30;
+		new_damage = 25;
 	}
 	setPlayerDamage(player, new_damage);
 	setInventorySword(&player->inventory, sword_ID);
@@ -147,8 +147,9 @@ void attackPlayer(player *player, int damage)
 		#elif __APPLE__
 		system("clear");
 		#endif
+		
 		printf(" #####     #    #     # #######    ####### #     # ####### ######\n#     #   # #   ##   ## #          #     # #     # #       #     #\n#        #   #  # # # # #          #     # #     # #       #     #\n#  #### #     # #  #  # #####      #     # #     # #####   ######\n#     # ####### #     # #          #     #  #   #  #       #   #\n#     # #     # #     # #          #     #   # #   #       #    # \n #####  #     # #     # #######    #######    #    ####### #     #\n ");
-		printf("\n\n\nLa tua avventura finisce qui.\premi INVIO per uscire...");
+		printf("\n\n\nLa tua avventura finisce qui.\nPremi INVIO per uscire...");
 		fflush(stdin);
 		enter = getchar();
 		exit(0);
