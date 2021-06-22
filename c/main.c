@@ -92,8 +92,6 @@ int main()
 	while(true)
 	{
 		printf("\nInserisci un comando:\n");
-		//list commands, items, enemies, inventoryItems, doors, utilities, actions, look;
 		parsing(commands, items, enemies, inventoryItems, utilities, actions, doors, look);
 	}
-
 }
