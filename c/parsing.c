@@ -167,12 +167,12 @@ void parsing(list commands,list item1, list item2, list item3, list  item4, list
       deadEnemyID = 10;
       if(getEnemiesConfiguration(game_map.room[getCurrentRoom(game_map)]) == 0)
       {
-        printf("Hai ucciso tutti i nemici in questa stanza...\n");
+        printf("\nHai ucciso tutti i nemici in questa stanza...\n");
         //indovinello in stanza 3
         if(getCurrentRoom(game_map) == 3)
          answerPuzzle(&game_map); 
-        if(getCurrentRoom(game_map)) == 6)
-          printf("Hai sconfitto il Capitano e tutta la sua ciurma, La maledizione è stata sciolta e la botola al centro della stanza si è aperta mostrando il tesoro nascosto.\n presto raccoglilo!");
+        if(getCurrentRoom(game_map) == 6)
+          printf("Hai sconfitto il Capitano e tutta la sua ciurma, La maledizione è stata sciolta e la botola al centro della stanza si è aperta mostrando il tesoro nascosto.\n Presto raccoglilo!\n");
       }
     }
   }else 

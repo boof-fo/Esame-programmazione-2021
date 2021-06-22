@@ -152,7 +152,7 @@ void takeTreasure(map *map, player *player)
 		setInventoryTreasure(&player->inventory, true);
 		setRoomTreasure(&map->room[getCurrentRoom(*map)], false);
 		readFile("treasure.dat");
-		printf("Hai raccolto il tesoro! ma attenzione, le mura cominciano a tremare e dei pezzi di soffitto cominciano a venir giù! è arrivato il momentodi darsela a gambe! si è aperto un passaggio scoprendo una porta nascosta nel muro, attraversala in fretta per uscire dalla fortezza prima di essere sepolto vivo.\n");
+		printf("Hai raccolto il tesoro! ma attenzione, le mura cominciano a tremare e dei pezzi di soffitto cominciano a venir giù! è arrivato il momento di darsela a gambe! Si è aperto un passaggio scoprendo una porta nascosta nel muro, attraversala in fretta per uscire dalla fortezza prima di essere sepolto vivo.\n");
 	}else
 	if(getCurrentRoom(*map) == 6)
 	{

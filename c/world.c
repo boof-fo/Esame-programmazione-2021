@@ -95,7 +95,7 @@ void ending()
 	system("clear");
 	#endif
 	int i = 0;
-	while(i < 9)
+	while(i < 2)
 	{
 		readFileLine("ending.dat", i);
 		enterToContinue();

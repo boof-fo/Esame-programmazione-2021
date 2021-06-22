@@ -86,7 +86,7 @@ int main()
 
 	spawnWorld(&game_map);
 
-	enterRoom(&game_map, game_player, 0);
+	enterRoom(&game_map, game_player, 6);
 
 
 	while(true)
