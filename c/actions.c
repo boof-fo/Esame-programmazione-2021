@@ -86,14 +86,14 @@ void takePotion(player *player, room *room)
 		printf("Hai raccolto una pozione curativa, un intruglio a base di erbe medicinali sative, composto secondo un'antica ricetta degli alchimisti del tuo regno, ristabilisce i punti vitali anche se Il sapore non è il massimo.\n");
 	}
 	else
-		printf("Non ci sono pozioni. Buona fortuna :)\n");
+		printf("Non ci sono pozioni nella stanza.\n");
 }
 
 void takeSword(player *player, room *room)
 {
 	if (getRoomSword(*room) == 0)
 	{
-		printf("Non ci sono spade nella stanza. ¯\\_(ツ)_/¯\n");
+		printf("Non ci sono spade nella stanza.\n");
 	}
 	else 
 	{
@@ -119,7 +119,7 @@ void takeChestplate(player *player, room *room)
 {
 	int chestplate = getRoomChestplate(*room);
 	if (chestplate == 0)
-		printf("Non ci sono armature nella stanza. ¯\\_(ツ)_/¯\n");
+		printf("Non ci sono armature nella stanza.\n");
 	else
 	{
 		setRoomChestplate(room, 0);
@@ -234,10 +234,10 @@ int attackEnemy(player *player, enemy *enemy)
 			//ultima frase del capitano
 			printf("Capitano Barbadura: 'Il mio amato tesoro, La mia ciurma... La mia fortezza, tutto in fumo per colpa tua.'\n");
 		}else
+			//frasi dette dai nemici
 			if(getEnemyID(*enemy) == 8)
 				readFileRandomLine("captainLines.dat");
 			else
-			//frasi dette dai nemici
 				readFileRandomLine("enemyLines.dat");
 	}
 	return attacked_enemy_ID;

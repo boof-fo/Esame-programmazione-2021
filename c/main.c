@@ -4,14 +4,15 @@
 int main()
 {
 	list commands, items, enemies, inventoryItems, utilities, actions, doors, look;
-	commands.count = 0;
-	items.count = 0;
-	enemies.count = 0;
-	inventoryItems.count = 0;
-	doors.count = 0;
-	utilities.count = 0;
-	actions.count = 0;
-	look.count = 0;
+	clearList(&commands);
+	clearList(&items);
+	clearList(&enemies);
+	clearList(&inventoryItems);
+	clearList(&doors);
+	clearList(&utilities);
+	clearList(&actions);
+	clearList(&look);
+
 
 	insert(&commands, 1, "raccogli");
 	insert(&commands, 2, "attacca");

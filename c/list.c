@@ -30,6 +30,11 @@ void insert(list *list, int new_key,char new_string[])
     list->count++;
 }
 
+void clearList(list *list)
+{
+    list->count = 0;
+}
+
 
 node *search(list *list, char string[])
 {
