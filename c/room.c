@@ -208,23 +208,7 @@ void describeRoom(room room)
 	bool map = getRoomMap(room);
 	bool treasure = getRoomTreasure(room);
 
-	FILE *file = fopen("rooms.dat", "r");
-	int count = 0;
-	if ( file != NULL )
-	{
-			char line[1024];
-			while (fgets(line, sizeof line, file) != NULL)
-			{   
-					if (count == ID)
-					{
-						printf("\n%s\n", line);
-						fclose(file);
-					}
-					else
-						count++;
-			}
-			fclose(file);
-	}
+	readFileLine("rooms.dat", ID);
 
 	if(roomIsEmpty(room))
 	{
@@ -270,7 +254,12 @@ void describeRoom(room room)
 	}
 
 	if(getEnemyHP(room.enemy[0]) != 0 || getEnemyHP(room.enemy[1]) != 0)
-		printf("\nDavanti a te si trovano:");
+	{
+		if(getEnemiesConfiguration(room) == 3)
+			printf("\nDavanti a te si trovano:\n\n");
+		else
+			printf("\nDavanti a te si trova:\n\n");
+	}
 	if(getEnemyHP(room.enemy[0]) != 0)
 		describeEnemy(getEnemyID(room.enemy[0]));
 	if(getEnemyHP(room.enemy[1]) != 0)

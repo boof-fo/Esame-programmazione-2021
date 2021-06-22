@@ -11,6 +11,7 @@
 #include "../headers/string.h"
 #include "../headers/enemy.h"
 #include "../headers/bool.h"
+#include "../headers/files.h"
 
 //funzioni eseguite dal comando "prendi"
 void takePotion(player *player, room *room);

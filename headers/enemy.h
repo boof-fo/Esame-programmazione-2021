@@ -4,11 +4,10 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 #include "../headers/player.h"
 #include "../headers/string.h"
-
+#include "../headers/files.h"
 
 //struttura di un nemico
 typedef struct

@@ -86,7 +86,6 @@ void ending()
 		#elif __APPLE__
 		system("clear");
 		#endif
+
 	}
-
-
 }
