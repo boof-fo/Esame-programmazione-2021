@@ -1,5 +1,8 @@
 #include"../headers/player.h"
 
+char enter='a';
+char answer[2];
+
 //imposta/ritorna i punti vita del giocatore
 void setPlayerHP(player *player, int health_points){
 	player->HP = health_points;
@@ -133,7 +136,42 @@ void attackPlayer(player *player, int damage)
 	//rilevazione morte
 	if (getPlayerHP(*player) <= 0)
 	{
-		printf("\nAspetta... Ma che succede? ti sei accasciato a terra e sei privo di forze. La tua avventura finisce qui, sei morto.\n");
-		exit(0);
+		printf("\nAspetta... Ma che succede? ti sei accasciato a terra e sei privo di forze, sarai usato come mangime per pesci.\nPremi INVIO per continuare...\n");
+		fflush(stdin);
+		enter = getchar();
+		
+		#ifdef _WIN32
+		system("cls");
+		#elif __linux__
+		system("clear");
+		#elif __APPLE__
+		system("clear");
+		#endif
+		printf(" #####     #    #     # #######    ####### #     # ####### ######\n#     #   # #   ##   ## #          #     # #     # #       #     #\n#        #   #  # # # # #          #     # #     # #       #     #\n#  #### #     # #  #  # #####      #     # #     # #####   ######\n#     # ####### #     # #          #     #  #   #  #       #   #\n#     # #     # #     # #          #     #   # #   #       #    # \n #####  #     # #     # #######    #######    #    ####### #     #\n ");
+		printf("\n\n\nLa tua avventura finisce qui, vuoi riprovare, si o no?\n")
+		int exit;
+
+	do
+	{
+		scanf("%s", answer);
+		if(strncmp(answer, "si", sizeof(const char)*2)  == 0)
+		{
+			//TODO: RISTARTARE IL GIOCO
+			printf("\n\n\nPremi invio per continuare...\n");
+			fflush(stdin);
+			enter = getchar();
+			exit = 1;
+		}
+		else if(strncmp(answer, "no",sizeof(const char)*2) == 0)
+		{
+			exit(0);
+			
+		}else
+		{
+			printf("\nrisposta non corretta, potresti ripetere rispondendo si o no?\n");
+		}
+	}while(exit!=1 && enter != '\n');
+	
+		
 	}
 }
