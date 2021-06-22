@@ -1,5 +1,8 @@
 #include"../headers/player.h"
 
+char enter='a';
+char answer[2];
+
 //imposta/ritorna i punti vita del giocatore
 void setPlayerHP(player *player, int health_points){
 	player->HP = health_points;
@@ -90,20 +93,20 @@ void spawnPlayer(player *player){
 void showInventory(player player)
 {
 	printf("\nPunti vita: %d \n", getPlayerHP(player));
-	printf("INVENTARIO:\nPozioni: %d\n", getInventoryPotions(player.inventory));
+	printf("INVENTARIO:\nPozioni: %d\nDescrizione: Un intruglio a base di erbe medicinali sative, composto secondo un'antica ricetta degli alchimisti del tuo regno, ristabilisce i punti vitali anche se Il sapore non è il massimo.", getInventoryPotions(player.inventory));
 
 	printf("Tipo di spada: ");
 	if(getInventorySword(player.inventory) == 0)
 	{
-		printf("Spada semplice");
+		printf("Spada semplice\nDescrizione: Un giorno qualcuno disse “il migliore amico dell’avventuriero è un’ affidabile spada di ferro”. Una classica spada piatta usata in dotazione dai soldati semplici, un'arma non troppo sofisticata ma meglio di niente.");
 	}else 
 	if(getInventorySword(player.inventory) == 1)
 	{
-		printf("Spada ricurva");
+		printf("Spada ricurva\nDescrizione: Una spada ricurva molto veloce ed affilata, riesce penetrare nella carne putrefatta dei tuoi nemici con molta facilità");
 	}else 
 	if(getInventorySword(player.inventory) == 2)
 	{
-		printf("Alabarda");
+		printf("Alabarda\nDescrizione: Arma da distruzione di massa per eccellenza, non troverai equipaggiamento migliore di questo, perciò fattelo bastare!");
 	}
 	printf("\n   Punti danno attuali: %d\n", getPlayerDamage(player));
 
@@ -113,7 +116,7 @@ void showInventory(player player)
 		printf("Non presente\n");
 	}else
 	{//TODO: tipi di armatura
-		printf("Presente\n");
+		printf("Presente\nDescrizione:una pesante armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo.");
 	}
 	if(getPlayerProtection(player) > 0)
 	{
@@ -133,7 +136,23 @@ void attackPlayer(player *player, int damage)
 	//rilevazione morte
 	if (getPlayerHP(*player) <= 0)
 	{
-		printf("\nAspetta... Ma che succede? ti sei accasciato a terra e sei privo di forze. La tua avventura finisce qui, sei morto.\n");
+		printf("\nAspetta... Ma che succede? ti sei accasciato a terra e sei privo di forze, sarai usato come mangime per pesci.\nPremi INVIO per continuare...\n");
+		fflush(stdin);
+		enter = getchar();
+		
+		#ifdef _WIN32
+		system("cls");
+		#elif __linux__
+		system("clear");
+		#elif __APPLE__
+		system("clear");
+		#endif
+		printf(" #####     #    #     # #######    ####### #     # ####### ######\n#     #   # #   ##   ## #          #     # #     # #       #     #\n#        #   #  # # # # #          #     # #     # #       #     #\n#  #### #     # #  #  # #####      #     # #     # #####   ######\n#     # ####### #     # #          #     #  #   #  #       #   #\n#     # #     # #     # #          #     #   # #   #       #    # \n #####  #     # #     # #######    #######    #    ####### #     #\n ");
+		printf("\n\n\nLa tua avventura finisce qui.\premi INVIO per uscire...");
+		fflush(stdin);
+		enter = getchar();
 		exit(0);
+
+	
 	}
 }

@@ -86,8 +86,8 @@ void walkThroughDoor(map *map, player player)
     }else 
     if (currentRoom == 6 )
     {
-      //TODO: inventarsi o un finale alternativo o il finale
-      printf("the end :P\n");
+      
+      printf("Congratulazioni, sei riuscito a sconfiggere la ciurma di pirati e a raccogliere il tesoro\n");
       exit(0);
     }
     enterRoom(map, player, currentRoom);
@@ -203,7 +203,7 @@ int attackEnemy(player *player, enemy *enemy)
 		}else
 		{
 			setEnemyHP(enemy, getEnemyHP(*enemy) - damage);
-			printf("Il nemico sferra un colpo. Punti HP attuali: %d\n", getPlayerHP(*player));
+			printf("Il %s sferra un colpo. Punti HP attuali: %d\n", getEnemyName(*enemy), getPlayerHP(*player));
 		}
 	}else//se il nemico morirà con il prossimo colpo, imposta gli HP a 0
 	{
