@@ -25,6 +25,8 @@ typedef struct
 	int sword;
 	//1 = armatura arruginita; 2 = armatura stilosa 
 	int chestplate;
+	//tesoro di fine gioco
+	bool treasure;
 	/*numero di nemici nella stanza
 	 *0:nessun nemico;     
 	 *1:un nemico nella prima posizione dell'array; 
@@ -50,12 +52,15 @@ int getRoomSword(room room);
 //presenza armatura
 void setRoomChestplate(room *room, int chestplate_ID);
 int getRoomChestplate(room room);
+//tesoro di fine gioco
+void setRoomTreasure(room *room, bool treasure);
+bool getRoomTreasure(room room);
 //imposta/ritorna il numero di nemici
 void setEnemiesConfiguration(room *room, int enemies_config);
 int getEnemiesConfiguration(room room);
 
 //imposta i valori di una stanza
-void populateRoom(room* room, int room_ID, int potions, int sword_ID, int chestplate_ID, int enemies_config, bool map);
+void populateRoom(room* room, int room_ID, int potions, int sword_ID, int chestplate_ID, int enemies_config, bool map, bool treasure);
 
 //Controlla se un nemico è presente in una stanza
 int checkEnemyPresent(room room, int target_enemy_ID);

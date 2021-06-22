@@ -27,6 +27,24 @@ int getInventoryChestplate(inventory inventory)
 	return inventory.chestplate;
 }
 
+void setInventoryMap(inventory *inventory, bool map)
+{
+	inventory->map = map;
+}
+bool mapIsPresent(inventory inventory)
+{
+	return inventory.map;
+}
+
+void setInventoryTreasure(inventory *inventory, bool treasure)
+{
+	inventory->treasure = treasure;
+}
+bool treasureIsPresent(inventory inventory)
+{
+	return inventory.treasure;
+}
+
 void spawnInventory(inventory *inventory)
 {
 	setInventory(inventory, 0, 0, 0);
@@ -47,14 +65,4 @@ void addInventoryPotion(inventory *inventory)
 void removeInventoryPotion(inventory *inventory)
 {
 	inventory->potions -= 1;
-}
-
-
-void setInventoryMap(inventory *inventory)
-{
-	inventory->map = true;
-}
-bool mapIsPresent(inventory inventory)
-{
-	return inventory.map;
 }

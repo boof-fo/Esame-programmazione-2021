@@ -18,6 +18,8 @@ typedef struct
 	int chestplate;
 	//mappa
 	bool map;
+	//tesoro di fine gioco
+	bool treasure;
 }inventory;
 
 
@@ -30,16 +32,19 @@ int getInventorySword(inventory inventory);
 void setInventoryChestplate(inventory *inventory, int chestplateType);
 int getInventoryChestplate(inventory inventory);
 
-void setInventory(inventory *inventory, int potions, int swordType, int chestplate);
+void setInventoryMap(inventory *inventory, bool map);
+bool mapIsPresent(inventory inventory);
+
+void setInventoryTreasure(inventory *inventory, bool treasure);
+bool treasureIsPresent(inventory inventory);
 
 void spawnInventory(inventory *inventory);
+void setInventory(inventory *inventory, int potions, int swordType, int chestplate);
 
 void addInventoryPotion(inventory *inventory);
 void removeInventoryPotion(inventory *inventory);
 
 void emptyInventory(inventory *inventory);
 
-void setInventoryMap(inventory *inventory);
-bool mapIsPresent(inventory inventory);
 
 #endif

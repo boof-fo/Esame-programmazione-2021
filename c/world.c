@@ -72,3 +72,21 @@ void killEnemy(map *map, int enemy_ID)
 	}
 }
 
+
+
+void ending()
+{
+	int i = 0;
+	while(i < 2)
+	{
+		#ifdef _WIN32
+		system("cls");
+		#elif __linux__
+		system("clear");
+		#elif __APPLE__
+		system("clear");
+		#endif
+	}
+
+
+}

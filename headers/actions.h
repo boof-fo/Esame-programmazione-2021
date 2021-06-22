@@ -16,14 +16,14 @@
 void takePotion(player *player, room *room);
 void takeSword(player *player, room *room);
 void takeChestplate(player *player, room *room);
+void takeMap(map *map, player *player);
+void takeTreasure(map *map, player *player);
 
 void answerPuzzle(map *map);
 void help();
 
 //Funzione utilizzata per far decidere al giocatore in quale stanza spostarsi
 void walkThroughDoor(map *map, player player);
-
-void takeMap(map *map, player *player);
 
 void usePotion(player *player);
 

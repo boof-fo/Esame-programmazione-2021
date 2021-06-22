@@ -25,6 +25,7 @@ int main()
 	insert(&items, 2, "spada");
 	insert(&items, 3, "armatura");
 	insert(&items, 4, "mappa");
+	insert(&items, 5, "tesoro");
 
 	insert(&enemies, 1, "cuoco");
 	insert(&enemies, 2, "mozzo");
@@ -72,7 +73,7 @@ int main()
 			exit = 1;
 		}
 		else if(strncmp(answer, "no",sizeof(const char)*2) == 0)
-		{//TODO: comando help
+		{
 			printf("\nPerfetto, possiamo proseguire. Premi invio per continuare...\n\n");
 			fflush(stdin);
 			enter = getchar();

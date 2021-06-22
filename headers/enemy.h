@@ -21,7 +21,7 @@ typedef struct
 	char name[20];
 	//punti danno del nemico
 	int damage;
-	//TODO: medico si cura da solo, 
+	//abilità speciale del nemico 
 	int special_ability;
 }enemy;
 

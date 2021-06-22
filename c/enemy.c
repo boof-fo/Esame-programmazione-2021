@@ -52,7 +52,7 @@ int describeEnemy(int enemy_ID)
 	//se l'ID è uguale a 10 significa che non c'è alcun nemico
 	if(enemy_ID == 10)
 	{
-		enemy_exists = 1;
+		enemy_exists = 0;
 	}else
 	{
 		FILE *file = fopen("enemies.dat", "r");
@@ -66,7 +66,7 @@ int describeEnemy(int enemy_ID)
 					{
 						printf("\n%s\n", line);
 						fclose(file);
-						return 0;
+						enemy_exists = 1;
 					}
 					else
 						count++;
