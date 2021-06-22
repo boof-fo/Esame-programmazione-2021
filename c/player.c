@@ -93,20 +93,20 @@ void spawnPlayer(player *player){
 void showInventory(player player)
 {
 	printf("\nPunti vita: %d \n", getPlayerHP(player));
-	printf("INVENTARIO:\nPozioni: %d\n", getInventoryPotions(player.inventory));
+	printf("INVENTARIO:\nPozioni: %d\nDescrizione: Un intruglio a base di erbe medicinali sative, composto secondo un'antica ricetta degli alchimisti del tuo regno, ristabilisce i punti vitali anche se Il sapore non è il massimo.", getInventoryPotions(player.inventory));
 
 	printf("Tipo di spada: ");
 	if(getInventorySword(player.inventory) == 0)
 	{
-		printf("Spada semplice");
+		printf("Spada semplice\nDescrizione: Un giorno qualcuno disse “il migliore amico dell’avventuriero è un’ affidabile spada di ferro”. Una classica spada piatta usata in dotazione dai soldati semplici, un'arma non troppo sofisticata ma meglio di niente.");
 	}else 
 	if(getInventorySword(player.inventory) == 1)
 	{
-		printf("Spada ricurva");
+		printf("Spada ricurva\nDescrizione: Una spada ricurva molto veloce ed affilata, riesce penetrare nella carne putrefatta dei tuoi nemici con molta facilità");
 	}else 
 	if(getInventorySword(player.inventory) == 2)
 	{
-		printf("Alabarda");
+		printf("Alabarda\nDescrizione: Arma da distruzione di massa per eccellenza, non troverai equipaggiamento migliore di questo, perciò fattelo bastare!");
 	}
 	printf("\n   Punti danno attuali: %d\n", getPlayerDamage(player));
 
@@ -116,7 +116,7 @@ void showInventory(player player)
 		printf("Non presente\n");
 	}else
 	{//TODO: tipi di armatura
-		printf("Presente\n");
+		printf("Presente\nDescrizione:una pesante armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo.");
 	}
 	if(getPlayerProtection(player) > 0)
 	{
