@@ -7,7 +7,7 @@ void answerPuzzle(map *map)
   scanf("%s",answer);
   if (check(answer,"ancora") || check(answer,"l'ancora"))
   {
-    printf("Risposta esatta. tieni l'armatura\n*un vecchio pezzo di armtura compare sul pavimento*\n");
+    printf("Risposta esatta. tieni l'armatura.\n*un vecchio pezzo di armtura compare sul pavimento*\n");
     setRoomChestplate(&map->room[getCurrentRoom(*map)], 1);
   }else 
   if (check(answer,"esci"))
@@ -140,27 +140,19 @@ void takeChestplate(player *player, room *room)
 		printf("Non ci sono armature nella stanza. ¯\\_(ツ)_/¯\n");
 	else
 	{
-		int currentProtection = getPlayerProtection(*player);
-		//TODO: tipi di armatura
 		setInventoryChestplate(&player->inventory, chestplate);
 		if(chestplate == 1)
 		{
-			printf("\nHai raccolto un pesante pezzo di armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo\n");
-			currentProtection += 10;
-		}else
-		if(chestplate == 2)
-		{
-			printf("\narmatura stilosa che ti fa il culo grosso\n");
-			currentProtection += 20;
+			printf("\nHai raccolto un pesante pezzo di armatura abbandonata da un cavaliere sconosciuto, è un pochino arrugginita ma dovrebbe riuscire a deviare qualche colpo.\n");
+			raisePlayerProtection(player);
 		}
-		//TODO: valori sensati
-		setPlayerProtection(player, currentProtection);
 	}
 }
 void takeMap(map *map, player *player)
 {
 	setInventoryMap(&player->inventory);
 	setRoomMap(&map->room[getCurrentRoom(*map)], false);
+	printf("\nHai raccolto una vecchia mappa, è una semplice planimetria della fortezza abbandonata, disegnata a mano da qualche viandante ignoto.\n");
 }
 
 void usePotion(player *player)
@@ -230,7 +222,7 @@ int attackEnemy(player *player, enemy *enemy)
 		//rilevazione morte
 		if (enemy->HP <= 0)
 		{
-			printf("nemico ucciso\n");
+			printf("Nemico ucciso.\n");
 			attacked_enemy_ID = getEnemyID(*enemy);
 		}
 	}

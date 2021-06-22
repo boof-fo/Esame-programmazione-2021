@@ -20,13 +20,12 @@ int getEnemyHP(enemy enemy)
 
 void setEnemyName(enemy *enemy, char enemy_name[20])
 {
-	
-	inserstr(enemy->name , enemy_name)
+	inserstr(enemy->name , enemy_name);
 }
 
 char getEnemyName(enemy enemy)
 {
-
+	return 'a';
 }
 
 void setEnemyDamage(enemy *enemy, int damage)
@@ -54,15 +53,17 @@ void spawnEnemy(enemy *enemy, int enemy_ID, int HP, int damage,int ability_ID, c
 	setEnemyHP(enemy, HP);
 	setEnemyDamage(enemy, damage);
 	setEnemyAbility(enemy, ability_ID);
-	setEnemyName(enemy, enemy_name)
+	setEnemyName(enemy, enemy_name);
 }
 
 
 int describeEnemy(int enemy_ID)
-{//se l'ID è uguale a 10 significa che non c'è alcun nemico
+{	
+	int enemy_exists = 0;
+	//se l'ID è uguale a 10 significa che non c'è alcun nemico
 	if(enemy_ID == 10)
 	{
-		return 1;
+		enemy_exists = 1;
 	}else
 	{
 		FILE *file = fopen("enemies.dat", "r");
@@ -84,6 +85,7 @@ int describeEnemy(int enemy_ID)
 			fclose(file);
 		}
 	}
+	return enemy_exists;
 }
 		
 
@@ -153,7 +155,7 @@ int useEnemyAbility(enemy *enemy, player *player)
 	return playerSkipsTurn;
 }
 
-int enemyLines()
+void enemyLines()
 {
 	srand(time(NULL));
 	int selection = rand() % 10 + 1;
@@ -168,11 +170,12 @@ int enemyLines()
 			{
 				printf("\n%s\n", line);
 				fclose(file);
-				return 0;
+				return;
 			}
 			else
 				count++;
 		}
 		fclose(file);
 	}
+	return;
 }
