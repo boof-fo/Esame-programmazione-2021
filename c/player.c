@@ -148,30 +148,11 @@ void attackPlayer(player *player, int damage)
 		system("clear");
 		#endif
 		printf(" #####     #    #     # #######    ####### #     # ####### ######\n#     #   # #   ##   ## #          #     # #     # #       #     #\n#        #   #  # # # # #          #     # #     # #       #     #\n#  #### #     # #  #  # #####      #     # #     # #####   ######\n#     # ####### #     # #          #     #  #   #  #       #   #\n#     # #     # #     # #          #     #   # #   #       #    # \n #####  #     # #     # #######    #######    #    ####### #     #\n ");
-		printf("\n\n\nLa tua avventura finisce qui, vuoi riprovare, si o no?\n")
-		int exit;
+		printf("\n\n\nLa tua avventura finisce qui.\premi INVIO per uscire...");
+		fflush(stdin);
+		enter = getchar();
+		exit(0);
 
-	do
-	{
-		scanf("%s", answer);
-		if(strncmp(answer, "si", sizeof(const char)*2)  == 0)
-		{
-			//TODO: RISTARTARE IL GIOCO
-			printf("\n\n\nPremi invio per continuare...\n");
-			fflush(stdin);
-			enter = getchar();
-			exit = 1;
-		}
-		else if(strncmp(answer, "no",sizeof(const char)*2) == 0)
-		{
-			exit(0);
-			
-		}else
-		{
-			printf("\nrisposta non corretta, potresti ripetere rispondendo si o no?\n");
-		}
-	}while(exit!=1 && enter != '\n');
 	
-		
 	}
 }
