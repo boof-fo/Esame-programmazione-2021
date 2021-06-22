@@ -152,13 +152,13 @@ void takeTreasure(map *map, player *player)
 		setInventoryTreasure(&player->inventory, true);
 		setRoomTreasure(&map->room[getCurrentRoom(*map)], false);
 		readFile("treasure.dat");
-		printf("Congratulazioni, sei riuscito a sconfiggere la ciurma di pirati e a raccogliere il tesoro! Si è aperta una porta nascosta nel muro, attraversala per uscire dalla fortezza.\n");
+		printf("Hai raccolto il tesoro! ma attenzione, le mura cominciano a tremare e dei pezzi di soffitto cominciano a venir giù! è arrivato il momentodi darsela a gambe! si è aperto un passaggio scoprendo una porta nascosta nel muro, attraversala in fretta per uscire dalla fortezza prima di essere sepolto vivo.\n");
 	}else
 	if(getCurrentRoom(*map) == 6)
 	{
 		printf("Hai già raccolto il tesoro.\n");
 	}else
-		printf("Non c'è alcun tesoro in questa stanza.\n");
+		printf("Sembrerebbe che il tesoro non si trovi qui.\n");
 }
 
 void usePotion(player *player)
