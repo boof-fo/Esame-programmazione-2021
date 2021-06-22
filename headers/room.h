@@ -13,8 +13,6 @@ typedef struct
 {
 	//numero della stanza (da 0 a 8)
 	int ID;
-	//nome della stanza
-	char name[30];
 	//numero di pozioni curative nella stanza
 	int potions;
 	//presenza di una mappa

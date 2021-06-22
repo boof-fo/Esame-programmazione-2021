@@ -38,6 +38,9 @@ void enterRoom(map *map, player player, int new_room_ID);
 //imposta la configurazione nemici della stanza in base a quale nemico viene ammazzato.
 void killEnemy(map *map, int enemy_ID);
 
+//premi invio per continuare
+void enterToContinue();
+
 //fine del gioco
 void ending();
 

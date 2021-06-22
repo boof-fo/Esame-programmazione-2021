@@ -57,32 +57,28 @@ int main()
 
 	printf("\n╔═══════════════════════════════════════════════════════════════════════════╗\n║Ti diamo il benvenuto nel nostro gioco  P I R A T E S   F O R T E S S      ║\n║un avventura ambientata in un' isola tropicale dove impersonificherai      ║\n║Jacob Smith, un giovane avventuriero con lo scopo di ritrovare un antico   ║\n║tesoro pirata, del più temuto di tutti i tempi: Il capitano Barbadura,     ║\n║considerato da molti il re di tutti i pirati dei sette mari, nel corso del ║\n║diciottesimo secolo lui e la sua ciurma accumularono una ricchezza enorme  ║\n║in gioelli e dobloni d'oro.                                                ║\n║Alcuni documenti e mappe suggeriscono la presenza del famigerato tesoro in ║\n║un'isola sperduta del pacifico, non presente sulle mappe convenzionali,    ║\n║totalmente inesplorata e priva di vita dove sorge una fortezza usata ai    ║\n║tempi della colonizzazione inglese del quindicesimo secolo come rifugio    ║\n║dalla ciurma di Barbadura, alcune leggende narrano  che la ciurma sia      ║\n║ancora presente all'interno della fortezza sotto forma di non-morti        ║\n║affamati di carne umana e che lo spirito del capitano vegli ancora sullo   ║\n║scrigno maledetto di cui ti dovrai impossessare.                           ║\n║═══════════════════════════════════════════════════════════════════════════║\n║ Hai bisogno di istruzioni? Si o No?                                       ║\n╚═══════════════════════════════════════════════════════════════════════════╝\n");
 	
-	char enter = 'a';
+	int exit = 0;
 	char answer[2];
-	int exit;
-
 	do
 	{
 		scanf("%s", answer);
 		if(strncmp(answer, "si", sizeof(const char)*2)  == 0)
 		{
 			help();
-			printf("\n\n\nPremi invio per continuare...\n");
-			fflush(stdin);
-			enter = getchar();
+			printf("\nPerfetto, possiamo continuare...\n");
 			exit = 1;
 		}
 		else if(strncmp(answer, "no",sizeof(const char)*2) == 0)
 		{
-			printf("\nPerfetto, possiamo proseguire. Premi invio per continuare...\n\n");
-			fflush(stdin);
-			enter = getchar();
 			exit = 1;
+			printf("\nPerfetto, possiamo continuare...\n");
 		}else
 		{
 			printf("\nrisposta non corretta, potresti ripetere rispondendo si o no?\n");
 		}
-	}while(exit!=1 && enter != '\n');
+	}while(exit != 1);
+	enterToContinue();
+	
 	
 	//imposta valori di default 
 	spawnPlayer(&game_player);

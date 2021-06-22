@@ -72,20 +72,33 @@ void killEnemy(map *map, int enemy_ID)
 	}
 }
 
-
+void enterToContinue()
+{
+	int exit;
+	char enter = 'a';
+	do
+	{
+		printf("\n\n\nPremi invio per continuare...\n");
+		fflush(stdin);
+		enter = getchar();
+		exit = 1;
+	}while(exit!=1 && enter != '\n');
+}
 
 void ending()
 {
+	#ifdef _WIN32
+	system("cls");
+	#elif __linux__
+	system("clear");
+	#elif __APPLE__
+	system("clear");
+	#endif
 	int i = 0;
-	while(i < 2)
+	while(i < 9)
 	{
-		#ifdef _WIN32
-		system("cls");
-		#elif __linux__
-		system("clear");
-		#elif __APPLE__
-		system("clear");
-		#endif
-
+		readFileLine("captainLines.dat", i);
+		enterToContinue();
 	}
+	exit(0);
 }

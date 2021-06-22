@@ -16,8 +16,6 @@ typedef struct
 	int ID;
 	//punti vita del nemico
 	int HP;
-	//nome del nemico
-	char name[20];
 	//punti danno del nemico
 	int damage;
 	//abilità speciale del nemico 
