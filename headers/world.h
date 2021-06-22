@@ -26,12 +26,12 @@ player game_player;
 //Imposta i valori di ogni stanza del mondo
 void spawnWorld(map *map);
 
+//Mostra la mappa della fortezza usando caratteri ASCII
+void printMap(map map, inventory inventory);
+
 //imposta/ritorna la stanza in cui si trova il giocatore
 void setCurrentRoom(map *map, int new_room_ID);
 int getCurrentRoom(map map);
-
-//Mostra la mappa della fortezza usando caratteri ASCII
-void printMap(map map, inventory inventory);
 
 //cambia la stanza in cui si trova il giocatore e imposta i valori della stanza
 void enterRoom(map *map, player player, int new_room_ID);
