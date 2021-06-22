@@ -31,6 +31,7 @@ void helpSelect(int selection)
 
 void walkThroughDoor(map *map, player player)
 {
+	bool last_room = false;
   if(getEnemiesConfiguration(map->room[getCurrentRoom(*map)]))
   {
     printf("Prima di continuare devi sconfiggere i nemici nella stanza attuale\n");
@@ -64,12 +65,13 @@ void walkThroughDoor(map *map, player player)
       if(treasureIsPresent(player.inventory) != true)
 			{
 				printf("Prima di continuare devi raccogliere il tesoro.\n");
-      	exit(0);
+				last_room = true;
 			}else
 			{
 				ending();
 			}
     }
+		if(last_room == false)
     enterRoom(map, player, currentRoom);
   }
 }
@@ -148,7 +150,7 @@ void takeTreasure(map *map, player *player)
 	{
 		setInventoryTreasure(&player->inventory, true);
 		setRoomTreasure(&map->room[getCurrentRoom(*map)], false);
-		printf("Congratulazioni, sei riuscito a sconfiggere la ciurma di pirati e a raccogliere il tesoro\n");
+		printf("Congratulazioni, sei riuscito a sconfiggere la ciurma di pirati e a raccogliere il tesoro! Si è aperta una porta nascosta nel muro, attraversala per uscire dalla fortezza.\n");
 	}else
 	if(getCurrentRoom(*map) == 6)
 	{
@@ -225,8 +227,15 @@ int attackEnemy(player *player, enemy *enemy)
 		{
 			printf("\nNemico ucciso.\n");
 			attacked_enemy_ID = getEnemyID(*enemy);
+			if(getEnemyID(*enemy) == 8)
+			//ultima frase del capitano
+			printf("Capitano Barbadura: 'Il mio amato tesoro, La mia ciurma... La mia fortezza, tutto in fumo per colpa tua.'\n");
 		}else
-			enemyLines();
+			if(getEnemyID(*enemy) == 8)
+				readFileRandomLine("captainLines.dat");
+			else
+			//frasi dette dai nemici
+				readFileRandomLine("enemyLines.dat");
 	}
 	return attacked_enemy_ID;
 }

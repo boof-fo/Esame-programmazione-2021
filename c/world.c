@@ -97,8 +97,9 @@ void ending()
 	int i = 0;
 	while(i < 9)
 	{
-		readFileLine("captainLines.dat", i);
+		readFileLine("ending.dat", i);
 		enterToContinue();
+		i++;
 	}
 	exit(0);
 }

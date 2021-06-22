@@ -38,13 +38,10 @@ int getEnemyAbility(enemy enemy);
 //crea il nemico impostando le sue statistiche
 void spawnEnemy(enemy *enemy, int enemy_ID, int HP, int damage,int ability_ID);
 
-//TODO: gestire gli errori quando viene chiamata
+//descrive nemico
 int describeEnemy(int enemy_ID);
 
 //attiva l'abilità speciale del nemico
 int useEnemyAbility(enemy *enemy, player *player);
-
-//stampa le frasi dei nemici (viene usato durante il combattimento)
-void enemyLines();
 
 #endif
